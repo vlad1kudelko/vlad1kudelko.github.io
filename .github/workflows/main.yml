@@ -5,6 +5,7 @@ on:
       - "main"
 jobs:
   build:
+    runs-on: ubuntu-latest
     container:
       image: vlad1kudelko/sitegen27
       env:
