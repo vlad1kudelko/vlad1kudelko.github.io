@@ -7,10 +7,10 @@ env:
   DOMAIN: vlad1kudelko.gitlab.io
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     container: vlad1kudelko/sitegen27
     steps:
-      # - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
       - run: |
           pwd ; ls -al ; ls -al /app ; ls -al /app/www
           # node /app/build.js && cd tailwind && bash build.sh
