@@ -14,6 +14,6 @@ jobs:
         DOMAIN: 'vlad1kudelko.gitlab.io'
     steps:
       - run: |
-          cd ${{ github.workspace }} ; pwd ; ls -al
+          ls -al
           cd /app/www && node /app/build.js
           cd /app/www/tailwind && bash build.sh
