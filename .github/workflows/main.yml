@@ -1,12 +1,15 @@
-name: CI
+name: ci
 on:
   push:
     branches:
       - "main"
-env:
-    DOMAIN: 'vlad1kudelko.gitlab.io'
 jobs:
+  container-test-job:
   build:
-    runs-on: vlad1kudelko/sitegen27
+    runs-on: ubuntu-latest
+    container:
+      image: vlad1kudelko/sitegen27
+      env:
+        DOMAIN: 'vlad1kudelko.gitlab.io'
     steps:
       - run: node /app/build.js && cd tailwind && bash build.sh
