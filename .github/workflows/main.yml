@@ -3,12 +3,15 @@ on:
   push:
     branches:
       - "main"
-env:
-  DOMAIN: 'vlad1kudelko.gitlab.io'
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: vlad1kudelko/sitegen27
+    container:
+      image: vlad1kudelko/sitegen27
+      volumes:
+        - '.:/app/www'
+      env:
+        DOMAIN: 'vlad1kudelko.gitlab.io'
     steps:
       - run: |
           cd /app/www && node /app/build.js
