@@ -12,5 +12,5 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: |
-        pwd ; ls -al ; ls -al /app ; ls -al /app/www
-        node /app/build.js && cd tailwind && bash build.sh
+          pwd ; ls -al ; ls -al /app ; ls -al /app/www
+          node /app/build.js && cd tailwind && bash build.sh
