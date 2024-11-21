@@ -3,15 +3,12 @@ on:
   push:
     branches:
       - "main"
+env:
+  DOMAIN: vlad1kudelko.gitlab.io
 jobs:
   build:
     runs-on: ubuntu-latest
-    container:
-      image: vlad1kudelko/sitegen27
-      volumes:
-        - .:/app/www
-      env:
-        DOMAIN: vlad1kudelko.gitlab.io
+    container: vlad1kudelko/sitegen27
     steps:
       - uses: actions/checkout@v4
       - run: |
