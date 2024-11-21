@@ -1,0 +1,6 @@
+include ../flowbite/_breadcrumb
+
+mixin _my_bread(inp_arr)
+    div(class='mx-auto max-w-3xl')
+        div(class='p-5')
+            +_breadcrumb([].concat(inp_arr,[{'text':current.title}]))

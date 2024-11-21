@@ -1,0 +1,45 @@
+include _metrika
+include ../flowbite/_navbar
+include ../flowbite/_footer
+
+doctype html
+html(lang=current.lang)
+    head
+        meta(charset='UTF-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1.0')
+        meta(name='robots' content='noarchive')
+        link(rel='icon' href='/res/favicon.svg' type='image/svg+xml')
+        title= current.title
+        meta(name='description' content=current.description)
+        link(href='/styles.css' rel='stylesheet')
+
+        //- BEGIN - стили внутрестатейных картинок
+        style.
+            .prose img {
+                max-height: 300px;
+                width: 600px;
+                object-fit: cover;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .prose table th {
+                text-align: center;
+            }
+            .prose table td + td, .prose table th + th {
+                border-left: 1px solid white;
+            }
+        //- END - стили внутрестатейных картинок
+
+    - const nav_btn = {'url':'#0','text':'Написать автору'}
+    - const nav_arr = [
+        {'url':'/all-cases.html',   'text':'Кейсы'},
+        {'url':'/all-courses.html', 'text':'Курсы'},
+        {'url':'/about.html',       'text':'О нас'}];
+    body(class='bg-gray-800')
+        +_navbar(nav_btn, nav_arr)
+        main
+            block body
+        +_footer(nav_arr)
+        //- JS
+        script(src='https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js')
+        +_metrika()
