@@ -7,11 +7,6 @@ env:
     DOMAIN: 'vlad1kudelko.gitlab.io'
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: vlad1kudelko/sitegen27
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 'latest'
-      - name: Build
-        run: node /app/build.js && cd tailwind && bash build.sh
+      - run: node /app/build.js && cd tailwind && bash build.sh
