@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  sitegen27:
+    image: 'vlad1kudelko/sitegen27'
+    volumes:
+      - '.:/app/www'
+    environment:
+      - 'DOMAIN=vlad1kudelko.gitlab.io'
+    entrypoint: [ 'bash', '-c', 'node /app/build.js && cd tailwind && bash build.sh']

@@ -1,0 +1,9 @@
+extends blocks/layout
+include blocks/_my_bread
+
+block body
+    div
+        +_my_bread([])
+        div(class='mx-auto max-w-3xl')
+            div(class='p-5 rounded-lg bg-gray-300')
+                div(class='prose max-w-none marker:text-gray-900')!= current.content
