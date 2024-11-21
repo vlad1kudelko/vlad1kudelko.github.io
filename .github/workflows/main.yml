@@ -11,6 +11,5 @@ jobs:
       env:
         DOMAIN: 'vlad1kudelko.gitlab.io'
     steps:
-      - run: |
-          cd tailwind && bash build.sh
-          node /app/build.js
+      - uses: actions/checkout@v4
+      - run: node /app/build.js && cd tailwind && bash build.sh
