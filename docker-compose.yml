@@ -1,5 +1,3 @@
-version: '3'
-
 services:
   sitegen27:
     image: 'vlad1kudelko/sitegen27'
