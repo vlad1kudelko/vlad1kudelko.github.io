@@ -10,4 +10,4 @@ jobs:
     runs-on: ubuntu-latest
     container: vlad1kudelko/sitegen27
     steps:
-      - run: pwd; ls -al; ls -al app ; ls -al app/www #node /app/build.js && cd tailwind && bash build.sh
+      - run: ls -al /app ; ls -al /app/www #node /app/build.js && cd tailwind && bash build.sh
