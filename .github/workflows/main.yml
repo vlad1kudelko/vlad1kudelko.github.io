@@ -14,5 +14,6 @@ jobs:
         DOMAIN: 'vlad1kudelko.gitlab.io'
     steps:
       - run: |
+          pwd ; ls -al /app ; ls -al /app/www
           cd /app/www && node /app/build.js
           cd /app/www/tailwind && bash build.sh
