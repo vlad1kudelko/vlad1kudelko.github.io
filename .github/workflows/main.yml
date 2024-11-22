@@ -17,7 +17,7 @@ jobs:
       image: vlad1kudelko/sitegen27:latest
       options: --user root
       env:
-        DOMAIN: vlad1kudelko.gitlab.io
+        DOMAIN: vlad1kudelko.github.io
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -25,7 +25,6 @@ jobs:
       - uses: actions/checkout@v4
       - run: node /app/build.js && cd tailwind && bash build.sh
       - uses: actions/configure-pages@v5
-      - run: pwd ; ls -al
       - uses: actions/upload-pages-artifact@v3
         with:
           path: public
