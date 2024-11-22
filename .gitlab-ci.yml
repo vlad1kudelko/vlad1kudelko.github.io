@@ -1,0 +1,12 @@
+pages:
+  image: vlad1kudelko/sitegen27
+  stage: deploy
+  variables:
+    DOMAIN: 'vlad1kudelko.gitlab.io'
+  script:
+    - node /app/build.js && cd tailwind && bash build.sh
+  artifacts:
+    paths:
+      - public
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
