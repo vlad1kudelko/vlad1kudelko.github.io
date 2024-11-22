@@ -30,8 +30,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/configure-pages@v5
+      - run: pwd ; ls -al
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: ./public
+          path: './public'
       - uses: actions/deploy-pages@v4
         id: deployment
