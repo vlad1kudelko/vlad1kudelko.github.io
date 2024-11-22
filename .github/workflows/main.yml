@@ -9,7 +9,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      image: vlad1kudelko/sitegen27
+      image: vlad1kudelko/sitegen27:1.0
       volumes:
         - .:/app/www
     steps:
