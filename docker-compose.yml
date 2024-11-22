@@ -4,5 +4,5 @@ services:
     volumes:
       - '.:/app/www'
     environment:
-      - 'DOMAIN=vlad1kudelko.gitlab.io'
+      - 'DOMAIN=vlad1kudelko.github.io'
     entrypoint: [ 'bash', '-c', 'node /app/build.js && cd tailwind && bash build.sh']
