@@ -4,6 +4,7 @@ title = "Откуда он появился?"
 description = "Многие думают, что Lorem Ipsum - взятый с потолка псевдо-латинский набор слов, но это не совсем так."
 template = "posts"
 thumb = "/imgs/li-3.jpg"
+publication_date = "2024-01-02"
 +++
 
 # Откуда он появился?

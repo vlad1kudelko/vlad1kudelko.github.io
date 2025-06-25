@@ -4,27 +4,22 @@ title = "Создание первого Telegram-бота на aiogram"
 description = "Пошаговая инструкция по созданию Telegram-бота на Python с использованием библиотеки aiogram: примеры кода, настройка и расширение возможностей."
 template = "posts"
 thumb = "/imgs/aiogram-telegram-bot-guide.jpg"
+publication_date = "2025-06-25"
 +++
 
 # Создание первого Telegram-бота на aiogram: пошаговая инструкция
 
 **Telegram-боты** — это удобный способ автоматизировать задачи, общаться с пользователями и интегрировать различные сервисы. В этой статье мы рассмотрим, как создать своего первого бота на Python с помощью популярной библиотеки **aiogram**.
 
----
-
 ## 1. Что такое aiogram?
 
 **aiogram** — это современная асинхронная библиотека для создания Telegram-ботов на Python. Она проста в использовании, поддерживает последние возможности Telegram Bot API и позволяет писать быстрые и масштабируемые боты.
-
----
 
 ## 2. Получение токена бота
 
 1. Откройте Telegram и найдите пользователя [@BotFather](https://t.me/BotFather).
 2. Введите команду `/newbot` и следуйте инструкциям.
 3. После создания бота BotFather выдаст вам **токен** — сохраните его, он понадобится для работы.
-
----
 
 ## 3. Установка aiogram
 
@@ -33,8 +28,6 @@ thumb = "/imgs/aiogram-telegram-bot-guide.jpg"
 ```bash
 pip install aiogram
 ```
-
----
 
 ## 4. Минимальный пример кода
 
@@ -61,8 +54,6 @@ if __name__ == '__main__':
 - `@dp.message_handler(commands=['start'])` — обработчик команды `/start`.
 - `await message.reply(...)` — отправка ответа пользователю.
 
----
-
 ## 5. Запуск бота
 
 Сохраните код в файл, например, `bot.py`, и запустите:
@@ -72,8 +63,6 @@ python bot.py
 ```
 
 Теперь напишите своему боту в Telegram команду `/start` — он должен ответить приветствием.
-
----
 
 ## 6. Добавление новых возможностей
 
@@ -93,8 +82,6 @@ async def send_sticker(message: types.Message):
     await message.answer_sticker('CAACAgIAAxkBAAEBQe9kV...')  # Вставьте ID стикера
 ```
 
----
-
 ## 7. Возможности ботов на aiogram
 
 - Ответы на команды и текстовые сообщения
@@ -104,15 +91,11 @@ async def send_sticker(message: types.Message):
 - Хранение данных пользователей
 - Модерация чатов и автоматизация
 
----
-
 ## 8. Полезные ссылки
 
 - [Документация aiogram (RU)](https://docs.aiogram.dev/ru/latest/)
 - [Примеры ботов на aiogram](https://github.com/aiogram/aiogram/tree/dev-3.x/examples)
 - [Официальный чат aiogram](https://t.me/aiogram_ru)
-
----
 
 ## Заключение
 

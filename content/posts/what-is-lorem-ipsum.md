@@ -4,6 +4,7 @@ title = "Что такое Lorem Ipsum?"
 description = "Lorem Ipsum - это текст-'рыба', часто используемый в печати и вэб-дизайне."
 template = "posts"
 thumb = "/imgs/li-1.png"
+publication_date = "2024-01-01"
 +++
 
 # Что такое Lorem Ipsum?
