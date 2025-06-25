@@ -12,7 +12,7 @@ mixin _navbar(inp_urls, inp_pages)
           ul(class='font-medium flex flex-col p-4 mt-4 border border-gray-100 rounded-lg space-y-2 rtl:space-x-reverse bg-gray-800 border-gray-700 md:p-0 md:flex-row md:space-x-8 md:space-y-0 md:mt-0 md:border-0 md:bg-gray-900')
             each val in inp_urls
               li
-                a(class='block py-2 px-3 bg-blue-700 rounded md:bg-transparent md:p-0 text-white md:text-blue-500' aria-current='page' href=val.url)= val.text
+                a(class='block py-2 px-3 bg-blue-700 rounded md:bg-transparent md:p-0 text-white md:text-blue-400 hover:text-blue-300' aria-current='page' href=val.url)= val.text
             each val in inp_pages
               li
-                a(class='block py-2 px-3 rounded md:border-0 md:p-0 text-white md:hover:text-blue-500 hover:bg-gray-700 hover:text-white md:hover:bg-transparent' href=val.url)= val.text
+                a(class='block py-2 px-3 rounded md:border-0 md:p-0 text-white hover:text-blue-300 hover:bg-gray-700 md:hover:bg-transparent' href=val.url)= val.text
