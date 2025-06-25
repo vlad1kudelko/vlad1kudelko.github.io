@@ -8,15 +8,9 @@ block body
             div(class='flex flex-wrap justify-center')
                 - const all_posts = all.filter(x => x.url.match('^/posts/')).sort((a, b) => new Date(b.publication_date || 0) - new Date(a.publication_date || 0) )
                 each val in all_posts
-                    div(class='m-5')
+                    a(class='m-5 block max-w-sm border rounded-lg shadow bg-gray-800 border-gray-700 hover:opacity-75' href=val.url)
                         if val.thumb
-                            a(class='block max-w-sm border rounded-lg shadow bg-gray-800 border-gray-700 hover:opacity-75' href=val.url)
-                                img(class='rounded-t-lg bg-gray-100 object-cover max-h-40 w-full' loading='lazy' width='500' height='500' src=val.thumb alt=val.title)
-                                div(class='p-5')
-                                    h5(class='mb-2 text-2xl font-bold tracking-tight text-white')= val.title
-                                    p(class='font-normal text-gray-400')= val.description
-                        else
-                            a(class='block max-w-sm border rounded-lg shadow bg-gray-800 border-gray-700 hover:opacity-75 p-5' href=val.url)
-                                h5(class='mb-2 text-2xl font-bold tracking-tight text-white')= val.title
-                                p(class='font-normal text-gray-400')= val.description
-
+                            img(class='rounded-t-lg bg-gray-100 object-cover max-h-40 w-full' loading='lazy' width='500' height='500' src=val.thumb alt=val.title)
+                        div(class='p-5')
+                            h5(class='mb-2 text-2xl font-bold tracking-tight text-white')= val.title
+                            p(class='font-normal text-gray-400')= val.description
