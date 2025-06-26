@@ -345,4 +345,13 @@ footer {
 .portfolio .section-title {
     color: #f3f6fd;
     text-shadow: 0 2px 12px rgba(102,126,234,0.18);
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .service-card:hover,
+  .portfolio-item:hover {
+    box-shadow: none !important;
+    background: inherit !important;
+    transform: none !important;
+  }
 } 
