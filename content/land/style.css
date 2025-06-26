@@ -235,30 +235,70 @@ nav {
     background: white;
 }
 
-.process-steps {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
+/* === Process Timeline (линия с узлами) === */
+.process-timeline {
+    position: relative;
+    margin: 40px 0 0 0;
+    padding: 40px 0 0 0;
 }
-
+.process-steps {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    z-index: 2;
+}
 .step {
     text-align: center;
-    padding: 2rem;
+    width: 20%;
+    position: relative;
+    background: none;
+    box-shadow: none;
+    margin: 0 10px;
 }
-
-.step-number {
-    width: 60px;
-    height: 60px;
-    background: #667eea;
-    color: white;
+.step-node {
+    width: 36px;
+    height: 36px;
+    background: #fff;
+    border: 4px solid #4f8cff;
     border-radius: 50%;
+    margin: 0 auto 16px auto;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.5rem;
     font-weight: bold;
-    margin: 0 auto 1rem;
+    font-size: 18px;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 2px 8px rgba(79,140,255,0.1);
+}
+.process-line {
+    position: absolute;
+    top: 54px;
+    width: 100%;
+    height: 4px;
+    background: #4f8cff;
+    z-index: 1;
+    border-radius: 2px;
+}
+@media (max-width: 900px) {
+    .process-timeline {
+        margin: 0;
+        padding: 0;
+    }    
+    .process-steps {
+        flex-direction: column;
+        align-items: center;
+    }
+    .process-line {
+        display: none;
+    }
+    .step {
+        width: auto;
+        margin-bottom: 40px;
+    }
+    .step-node {
+        margin-bottom: 8px;
+    }
 }
 
 /* Contact Section */
