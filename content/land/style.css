@@ -221,6 +221,7 @@ nav {
 .portfolio-content h3 {
     color: #f3f6fd;
     font-weight: 700;
+    margin-bottom: 1rem;
 }
 
 .portfolio-content p {
