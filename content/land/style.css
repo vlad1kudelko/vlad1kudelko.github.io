@@ -59,6 +59,13 @@ nav {
     color: #667eea;
 }
 
+.cta-button.nav-cta {
+    margin-left: 1rem;
+    padding: 6px 14px;
+    font-size: 1rem;
+    line-height: 1;
+}
+
 /* Hero Section */
 .hero {
     position: relative;
@@ -132,12 +139,10 @@ nav {
     font-weight: 600;
     font-size: 1.1rem;
     transition: all 0.3s;
-    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
 }
 
 .cta-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+    background: #df4b4b;
 }
 
 /* Services Section */
@@ -322,7 +327,6 @@ nav {
     text-decoration: none;
     border-radius: 15px;
     padding: 2rem;
-    margin: 0 0 1.5rem 0;
     box-shadow: 0 2px 12px rgba(102,126,234,0.08);
     transition: box-shadow 0.2s, background 0.2s, transform 0.2s;
 }
