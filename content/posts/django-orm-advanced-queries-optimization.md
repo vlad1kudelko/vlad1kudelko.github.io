@@ -4,7 +4,7 @@ title = "Django ORM: продвинутые запросы и оптимизац
 description = "Подробное руководство по продвинутым возможностям Django ORM: сложные запросы, оптимизация производительности, аннотации, агрегации и лучшие практики."
 template = "posts"
 thumb = "/imgs/django-orm-advanced-queries-optimization.jpg"
-publication_date = "2025-01-15"
+publication_date = "2025-07-02"
 +++
 
 # Django ORM: продвинутые запросы и оптимизация
