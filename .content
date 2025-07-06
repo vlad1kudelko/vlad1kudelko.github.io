@@ -1,0 +1,82 @@
+"посмотри какие статьи уже есть и составь контент план блога, по разработке на python/fastapi/django/flask, nodejs/react/vue/svelte, reactnative"
+"учитывая структуру проекта добавь новую статью: ..."
+"добавь в статью побольше текстового пояснения к блокам кода"
+"добавь в статью побольше текстового пояснения к блокам кода и просто в статье"
+
+
+FastAPI + SQLAlchemy: работа с базой данных
+🔄 FastAPI + Pydantic: валидация данных
+�� FastAPI + JWT: аутентификация
+�� FastAPI + Celery: асинхронные задачи
+�� FastAPI + Docker: контейнеризация
+
+Flask
+🔄 Flask: легковесный веб-фреймворк
+🔄 Flask + SQLAlchemy: ORM и миграции
+�� Flask Blueprints: структурирование приложения
+🔄 Flask + Jinja2: шаблонизация
+�� Flask + Redis: кэширование
+
+Python общие темы
+🔄 Python async/await: асинхронное программирование
+🔄 Python Type Hints: типизация кода
+🔄 Python Testing: pytest и unittest
+🔄 Python Virtual Environments: управление зависимостями
+
+🟢 Node.js Backend
+
+Express.js
+🔄 Express.js: создание REST API
+🔄 Express.js + MongoDB: NoSQL база данных
+�� Express.js + JWT: аутентификация
+🔄 Express.js + Socket.io: real-time приложения
+�� Express.js + Multer: загрузка файлов
+
+NestJS
+🔄 NestJS: архитектурный фреймворк
+�� NestJS + TypeORM: работа с базой данных
+🔄 NestJS + Passport: аутентификация
+�� NestJS + Swagger: документация API
+⚛️ Frontend JavaScript/TypeScript
+
+React
+🔄 React: основы компонентного подхода
+🔄 React Hooks: useState, useEffect, useContext
+�� React Router: навигация в SPA
+🔄 React + Redux Toolkit: управление состоянием
+🔄 React + TypeScript: типизация компонентов
+🔄 React + Styled Components: стилизация
+
+Vue.js
+🔄 Vue.js 3: Composition API
+�� Vue Router: маршрутизация
+🔄 Vuex/Pinia: управление состоянием
+🔄 Vue.js + TypeScript
+�� Vue.js + Vuetify: UI компоненты
+
+Svelte
+🔄 Svelte: революционный фреймворк
+�� SvelteKit: полноценное приложение
+🔄 Svelte + TypeScript
+🔄 Svelte Stores: управление состоянием
+�� React Native
+
+Мобильная разработка
+🔄 React Native: создание мобильного приложения
+🔄 React Native + Expo: быстрая разработка
+🔄 React Native Navigation: навигация
+🔄 React Native + Redux: управление состоянием
+🔄 React Native + Firebase: backend as a service
+🔄 React Native + TypeScript
+🛠️ Инструменты и DevOps
+
+Сборка и развертывание
+�� Docker: контейнеризация приложений
+🔄 GitHub Actions: CI/CD
+�� Nginx: настройка веб-сервера
+🔄 PM2: управление Node.js процессами
+
+Базы данных
+�� PostgreSQL: реляционная БД
+�� MongoDB: NoSQL БД
+🔄 Redis: кэширование и очереди
