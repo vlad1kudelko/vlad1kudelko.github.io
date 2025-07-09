@@ -6,4 +6,5 @@ block body
         +_my_bread([])
         div(class='mx-auto max-w-3xl')
             div(class='p-5 bg-gray-300 md:rounded-lg')
+                div(class='text-xs text-gray-500 font-bold')= current.publication_date
                 div(class='prose max-w-none marker:text-gray-900')!= current.content

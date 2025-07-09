@@ -12,5 +12,6 @@ block body
                         if val.thumb
                             img(class='rounded-t-lg bg-gray-100 object-cover max-h-40 w-full' loading='lazy' width='500' height='500' src=val.thumb alt=val.title)
                         div(class='p-5')
+                            div(class='text-xs text-gray-400')= val.publication_date
                             h5(class='mb-2 text-2xl font-bold tracking-tight text-white')= val.title
                             p(class='font-normal text-gray-400')= val.description
