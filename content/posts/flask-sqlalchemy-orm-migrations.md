@@ -136,7 +136,7 @@ flask db upgrade
 - [Документация Flask-SQLAlchemy](https://flask-sqlalchemy.palletsprojects.com/) — подробное описание всех возможностей расширения.
 - [Документация Flask-Migrate](https://flask-migrate.readthedocs.io/) — как работать с миграциями.
 - [Документация Alembic](https://alembic.sqlalchemy.org/) — если нужно больше гибкости и ручных настроек.
-- [Официальный сайт Flask](https://flask.palletsprojects.com/ru/latest/) — общая документация по Flask.
+- [Официальный сайт Flask](https://flask.palletsprojects.com/) — общая документация по Flask.
 
 ## Заключение
 

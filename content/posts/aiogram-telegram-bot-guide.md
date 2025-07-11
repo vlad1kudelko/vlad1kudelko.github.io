@@ -93,7 +93,7 @@ async def send_sticker(message: types.Message):
 
 ## 8. Полезные ссылки
 
-- [Документация aiogram (RU)](https://docs.aiogram.dev/ru/latest/)
+- [Документация aiogram](https://docs.aiogram.dev/)
 - [Примеры ботов на aiogram](https://github.com/aiogram/aiogram/tree/dev-3.x/examples)
 - [Официальный чат aiogram](https://t.me/aiogram_ru)
 

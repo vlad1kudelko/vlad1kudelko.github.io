@@ -111,8 +111,7 @@ db = SQLAlchemy(app)
 
 ## 6. Полезные ссылки
 
-- [Официальный сайт Flask](https://flask.palletsprojects.com/ru/latest/)
-- [Документация (RU)](https://flask.palletsprojects.com/ru/latest/)
+- [Официальный сайт Flask](https://flask.palletsprojects.com/)
 - [Репозиторий на GitHub](https://github.com/pallets/flask)
 
 ## Заключение

@@ -1160,7 +1160,7 @@ WantedBy=multi-user.target
 ## 13. Полезные ссылки
 
 - [Официальная документация Celery](https://docs.celeryproject.org/)
-- [Celery с FastAPI](https://fastapi.tiangolo.com/advanced/background-tasks/)
+- [Celery с FastAPI](https://fastapi.tiangolo.com/advanced/)
 - [Flower — мониторинг Celery](https://flower.readthedocs.io/)
 - [Redis — брокер сообщений](https://redis.io/)
 - [RabbitMQ — альтернативный брокер](https://www.rabbitmq.com/)
