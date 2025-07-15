@@ -5,6 +5,9 @@ block body
     div
         +_my_bread([])
         div(class='mx-auto max-w-3xl')
-            div(class='p-5 bg-gray-300 md:rounded-lg')
-                div(class='text-xs text-gray-500 font-bold')= current.publication_date
-                div(class='prose max-w-none marker:text-gray-900')!= current.content
+            div(class='bg-gray-300 md:rounded-lg overflow-hidden')
+                if current.thumb
+                    img(class='bg-gray-100' loading='lazy' width='800' height='400' src=current.thumb alt=current.title)
+                div(class='p-5')
+                    div(class='text-xs text-gray-500 font-bold')= current.publication_date
+                    div(class='prose max-w-none marker:text-gray-900')!= current.content
