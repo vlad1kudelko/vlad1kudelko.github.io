@@ -3,7 +3,7 @@ lang = "ru"
 title = "Python async/await: асинхронное программирование"
 description = "Подробное руководство по асинхронному программированию в Python с использованием async/await: теория, примеры, лучшие практики."
 template = "posts"
-thumb = "/imgs/python-async-await.png"
+thumb = "/imgs/python-async-await-async-programming.png"
 publication_date = "2025-07-13"
 +++
 
