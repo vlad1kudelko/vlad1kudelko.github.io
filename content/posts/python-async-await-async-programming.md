@@ -149,7 +149,7 @@ async def safe_task():
 
 ## 8. Полезные ссылки
 
-- [Документация asyncio (RU)](https://docs.python.org/ru/3/library/asyncio.html)
+- [Документация asyncio](https://docs.python.org/3/library/asyncio.html)
 - [aiohttp — асинхронные HTTP-клиент и сервер](https://docs.aiohttp.org/)
 - [PEP 492 — Coroutines with async and await syntax](https://peps.python.org/pep-0492/)
 
