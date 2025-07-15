@@ -10,9 +10,9 @@ publication_date = "2025-07-07"
 # FastAPI + Pydantic: валидация данных
 
 > **Читайте также:**
-> - [FastAPI: современный фреймворк для API](/posts/fastapi-modern-api-framework)
+> - [Flask Blueprints: структурирование приложения](/posts/flask-blueprints-structuring)
 > - [FastAPI + SQLAlchemy: работа с базой данных](/posts/fastapi-sqlalchemy-database-guide)
-> - [Flask + SQLAlchemy: ORM и миграции](/posts/flask-sqlalchemy-orm-migrations)
+> - [Django: Аутентификация и авторизация](/posts/django-authentication-authorization)
 
 **Pydantic** — это библиотека для валидации и сериализации данных на Python, которая лежит в основе FastAPI. Благодаря Pydantic, FastAPI обеспечивает строгую проверку входных и выходных данных, автоматическую генерацию документации и удобную работу с типами данных. Это позволяет разработчикам сосредоточиться на бизнес-логике, не тратя время на ручную обработку ошибок и проверку формата данных.
 

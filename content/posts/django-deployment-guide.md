@@ -10,9 +10,9 @@ publication_date = "2025-07-04"
 # Django Deployment: развертывание на сервере
 
 > **Читайте также:**
-> - [Разработка сайта с использованием Django](/posts/django-development-guide)
-> - [Django REST Framework: создание API](/posts/django-rest-framework-api-guide)
 > - [FastAPI + Docker: контейнеризация](/posts/fastapi-docker-containerization)
+> - [Django ORM: продвинутые запросы и оптимизация](/posts/django-orm-advanced-queries-optimization)
+> - [Разработка сайта с использованием Django](/posts/django-development-guide)
 
 Развертывание Django-проекта на сервере — важный этап, позволяющий сделать ваше приложение доступным для пользователей в интернете. Даже если ваш проект отлично работает на локальной машине, для реального использования его нужно правильно и безопасно разместить на сервере. В этом руководстве мы подробно рассмотрим все основные шаги деплоя на Linux-сервере с использованием Gunicorn и Nginx, а также дадим пояснения к каждому этапу.
 

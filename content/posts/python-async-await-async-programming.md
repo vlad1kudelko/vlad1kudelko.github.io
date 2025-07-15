@@ -10,9 +10,9 @@ publication_date = "2025-07-13"
 # Python async/await: асинхронное программирование
 
 > **Читайте также:**
-> - [FastAPI: современный фреймворк для API](/posts/fastapi-modern-api-framework)
+> - [FastAPI + Docker: контейнеризация](/posts/fastapi-docker-containerization)
 > - [FastAPI + Celery: асинхронные задачи](/posts/fastapi-celery-async-tasks)
-> - [Создание первого Telegram-бота на aiogram](/posts/aiogram-telegram-bot-guide)
+> - [Django ORM: продвинутые запросы и оптимизация](/posts/django-orm-advanced-queries-optimization)
 
 Асинхронное программирование позволяет эффективно выполнять множество операций ввода-вывода (I/O) одновременно, не блокируя основной поток выполнения. В Python для этого используются ключевые слова `async` и `await`, которые появились начиная с версии 3.5. Такой подход особенно полезен для приложений, которые часто обращаются к сети, базам данных или работают с файлами, где время ожидания ответа может быть значительным.
 

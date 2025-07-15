@@ -10,9 +10,9 @@ publication_date = "2025-07-11"
 # Flask: легковесный веб-фреймворк
 
 > **Читайте также:**
-> - [FastAPI: современный фреймворк для API](/posts/fastapi-modern-api-framework)
-> - [Flask + SQLAlchemy: ORM и миграции](/posts/flask-sqlalchemy-orm-migrations)
-> - [Flask + Jinja2: шаблонизация](/posts/flask-jinja2-shablonizatsiya)
+> - [FastAPI + Docker: контейнеризация](/posts/fastapi-docker-containerization)
+> - [Flask Blueprints: структурирование приложения](/posts/flask-blueprints-structuring)
+> - [Разработка сайта с использованием Django](/posts/django-development-guide)
 
 **Flask** — это минималистичный и гибкий веб-фреймворк для Python, который позволяет быстро создавать веб-приложения любой сложности. Благодаря своей простоте, расширяемости и большому количеству расширений, Flask остаётся одним из самых популярных инструментов для веб-разработки на Python.
 

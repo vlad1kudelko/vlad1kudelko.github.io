@@ -10,9 +10,9 @@ publication_date = "2025-07-09"
 # FastAPI + Celery: асинхронные задачи
 
 > **Читайте также:**
-> - [FastAPI: современный фреймворк для API](/posts/fastapi-modern-api-framework)
-> - [Python async/await: асинхронное программирование](/posts/python-async-await-async-programming)
 > - [Flask + Redis: кэширование](/posts/flask-redis-caching)
+> - [Python async/await: асинхронное программирование](/posts/python-async-await-async-programming)
+> - [Django Deployment: развертывание на сервере](/posts/django-deployment-guide)
 
 **Celery** — это мощная библиотека для обработки асинхронных задач в Python, которая позволяет выполнять трудоёмкие операции в фоновом режиме, не блокируя основной поток выполнения. В сочетании с FastAPI она создаёт идеальную архитектуру для высоконагруженных приложений, где требуется обработка длительных операций, таких как отправка email, обработка файлов, генерация отчётов или интеграция с внешними API. В этой статье мы рассмотрим, как эффективно интегрировать Celery с FastAPI для создания масштабируемых приложений.
 

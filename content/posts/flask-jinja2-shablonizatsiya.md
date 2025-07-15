@@ -10,9 +10,9 @@ publication_date = "2025-07-15"
 # Flask + Jinja2: шаблонизация
 
 > **Читайте также:**
-> - [Flask: легковесный веб-фреймворк](/posts/flask-lightweight-web-framework)
+> - [Django REST Framework: создание API](/posts/django-rest-framework-api-guide)
 > - [Flask Blueprints: структурирование приложения](/posts/flask-blueprints-structuring)
-> - [Flask + SQLAlchemy: ORM и миграции](/posts/flask-sqlalchemy-orm-migrations)
+> - [FastAPI + SQLAlchemy: работа с базой данных](/posts/fastapi-sqlalchemy-database-guide)
 
 **Jinja2** — это мощный шаблонизатор, который используется во Flask для генерации HTML-страниц на основе данных из Python. Благодаря Jinja2 вы можете динамически формировать содержимое страниц, отделяя логику приложения от представления. Это делает код чище, облегчает поддержку и позволяет дизайнерам работать с шаблонами независимо от программистов.
 

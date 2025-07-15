@@ -10,9 +10,9 @@ publication_date = "2025-07-10"
 # FastAPI + Docker: контейнеризация
 
 > **Читайте также:**
-> - [FastAPI: современный фреймворк для API](/posts/fastapi-modern-api-framework)
-> - [FastAPI + SQLAlchemy: работа с базой данных](/posts/fastapi-sqlalchemy-database-guide)
 > - [Flask + SQLAlchemy: ORM и миграции](/posts/flask-sqlalchemy-orm-migrations)
+> - [Django Deployment: развертывание на сервере](/posts/django-deployment-guide)
+> - [Python async/await: асинхронное программирование](/posts/python-async-await-async-programming)
 
 **Docker** — это платформа для разработки, доставки и запуска приложений в контейнерах. Контейнеризация FastAPI приложений обеспечивает изоляцию зависимостей, упрощает развертывание и гарантирует консистентность среды выполнения между разработкой и продакшеном. В этой статье мы рассмотрим, как эффективно контейнеризировать FastAPI приложения с использованием Docker и docker-compose.
 

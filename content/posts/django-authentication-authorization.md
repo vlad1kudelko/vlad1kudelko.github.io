@@ -10,9 +10,9 @@ publication_date = "2025-07-03"
 # Django: Аутентификация и авторизация
 
 > **Читайте также:**
-> - [Разработка сайта с использованием Django](/posts/django-development-guide)
+> - [FastAPI + Pydantic: валидация данных](/posts/fastapi-pydantic-validation)
 > - [Django REST Framework: создание API](/posts/django-rest-framework-api-guide)
-> - [FastAPI + JWT: аутентификация](/posts/fastapi-jwt-authentication)
+> - [Flask + SQLAlchemy: ORM и миграции](/posts/flask-sqlalchemy-orm-migrations)
 
 Аутентификация и авторизация — ключевые аспекты безопасности любого веб-приложения. Без этих механизмов невозможно обеспечить приватность данных пользователей и разграничить доступ к различным разделам сайта. Django предоставляет мощные инструменты для управления пользователями, их правами и доступом к различным частям сайта, что позволяет быстро внедрять современные стандарты безопасности.
 

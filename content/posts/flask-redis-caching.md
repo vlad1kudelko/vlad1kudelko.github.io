@@ -10,9 +10,9 @@ publication_date = "2025-07-16"
 # Flask + Redis: кэширование
 
 > **Читайте также:**
-> - [Flask: легковесный веб-фреймворк](/posts/flask-lightweight-web-framework)
 > - [Flask + SQLAlchemy: ORM и миграции](/posts/flask-sqlalchemy-orm-migrations)
 > - [FastAPI + Celery: асинхронные задачи](/posts/fastapi-celery-async-tasks)
+> - [Создание первого Telegram-бота на aiogram](/posts/aiogram-telegram-bot-guide)
 
 **Redis** — это быстрый in-memory key-value store, который часто используют для кэширования данных в веб-приложениях. В связке с Flask Redis позволяет значительно ускорить работу сайта, снизить нагрузку на базу данных и повысить отзывчивость API.
 

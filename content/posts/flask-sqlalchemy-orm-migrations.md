@@ -10,9 +10,9 @@ publication_date = "2025-07-12"
 # Flask + SQLAlchemy: ORM и миграции
 
 > **Читайте также:**
-> - [Flask: легковесный веб-фреймворк](/posts/flask-lightweight-web-framework)
-> - [Flask Blueprints: структурирование приложения](/posts/flask-blueprints-structuring)
-> - [Flask + Jinja2: шаблонизация](/posts/flask-jinja2-shablonizatsiya)
+> - [Django: Аутентификация и авторизация](/posts/django-authentication-authorization)
+> - [Flask + Redis: кэширование](/posts/flask-redis-caching)
+> - [FastAPI + Docker: контейнеризация](/posts/fastapi-docker-containerization)
 
 **Flask** в сочетании с **SQLAlchemy** и расширением **Flask-Migrate** позволяет быстро и удобно работать с базой данных, используя объектно-реляционное отображение (ORM) и управлять изменениями структуры БД через миграции. В этой статье рассмотрим, как настроить связку Flask + SQLAlchemy, создавать модели и применять миграции. Материал рассчитан как на новичков, так и на тех, кто хочет структурировать свои знания.
 
