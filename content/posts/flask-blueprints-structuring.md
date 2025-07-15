@@ -9,6 +9,11 @@ publication_date = "2025-07-14"
 
 # Flask Blueprints: структурирование приложения
 
+> **Читайте также:**
+> - [Flask: легковесный веб-фреймворк](/posts/flask-lightweight-web-framework)
+> - [Flask + SQLAlchemy: ORM и миграции](/posts/flask-sqlalchemy-orm-migrations)
+> - [Flask + Jinja2: шаблонизация](/posts/flask-jinja2-shablonizatsiya)
+
 **Flask Blueprints** — это мощный инструмент для организации кода в крупных приложениях. Они позволяют разбивать проект на независимые модули, что облегчает поддержку, тестирование и масштабирование. В этой статье мы подробно разберём, зачем нужны Blueprints, как их использовать, и какие преимущества они дают при разработке реальных проектов.
 
 ## 1. Зачем нужны Blueprints?

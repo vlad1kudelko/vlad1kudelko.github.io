@@ -9,6 +9,11 @@ publication_date = "2025-07-03"
 
 # FastAPI: современный фреймворк для API
 
+> **Читайте также:**
+> - [Flask: легковесный веб-фреймворк](/posts/flask-lightweight-web-framework)
+> - [FastAPI + SQLAlchemy: работа с базой данных](/posts/fastapi-sqlalchemy-database-guide)
+> - [FastAPI + Pydantic: валидация данных](/posts/fastapi-pydantic-validation)
+
 **FastAPI** — это современный, быстрый (high-performance) веб-фреймворк для создания API на Python 3.7+ на основе стандартов OpenAPI и JSON Schema. Он позволяет быстро разрабатывать надёжные и масштабируемые RESTful-сервисы с минимальным количеством кода. Благодаря строгой типизации, автоматической генерации документации и поддержке асинхронности, FastAPI становится всё более популярным выбором среди разработчиков.
 
 ## 1. Преимущества FastAPI
