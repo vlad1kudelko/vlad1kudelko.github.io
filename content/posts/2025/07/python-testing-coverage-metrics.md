@@ -3,7 +3,7 @@ lang = "ru"
 title = "Python Testing: Покрытие кода и метрики качества"
 description = "Подробное руководство по измерению покрытия кода в Python: coverage.py, pytest-cov, интерпретация результатов, интеграция с CI/CD и метрики качества тестов."
 template = "posts"
-thumb = "/imgs/python-testing-coverage-metrics.webp"
+thumb = "/imgs/2025/07/python-testing-coverage-metrics.webp"
 publication_date = "2025-07-21"
 +++
 
@@ -703,7 +703,6 @@ pytest --cov=myapp --cov-report=html --cov-report=term-missing tests/
 **Дополнительные ресурсы:**
 - [Документация coverage.py](https://coverage.readthedocs.io/)
 - [Документация pytest-cov](https://pytest-cov.readthedocs.io/)
-- [Codecov](https://codecov.io/)
 - [SonarQube](https://www.sonarqube.org/)
 - [Python Testing: Основы тестирования и unittest](/posts/python-testing-basics-unittest)
 - [Python Testing: pytest - современный подход](/posts/python-testing-pytest-modern-approach)

@@ -3,7 +3,7 @@ lang = "ru"
 title = "Python Testing: pytest - современный подход"
 description = "Подробное руководство по pytest: установка, фикстуры, параметризация, маркировка тестов и современные практики тестирования."
 template = "posts"
-thumb = "/imgs/python-testing-pytest-modern-approach.png"
+thumb = "/imgs/2025/07/python-testing-pytest-modern-approach.png"
 publication_date = "2025-07-19"
 +++
 
