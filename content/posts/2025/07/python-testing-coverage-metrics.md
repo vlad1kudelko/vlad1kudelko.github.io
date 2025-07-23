@@ -10,9 +10,9 @@ publication_date = "2025-07-21"
 # Python Testing: Покрытие кода и метрики качества
 
 > **Читайте также:**
-> - [Python Testing: Основы тестирования и unittest](/posts/python-testing-basics-unittest)
-> - [Python Testing: pytest - современный подход](/posts/python-testing-pytest-modern-approach)
-> - [Python Testing: Моки и изоляция тестов](/posts/python-testing-mocks-isolation)
+> - [Python Testing: Основы тестирования и unittest](/posts/2025/07/python-testing-basics-unittest)
+> - [Python Testing: pytest - современный подход](/posts/2025/07/python-testing-pytest-modern-approach)
+> - [Python Testing: Моки и изоляция тестов](/posts/2025/07/python-testing-mocks-isolation)
 
 Покрытие кода (code coverage) — это метрика, которая показывает, какая часть исходного кода выполняется во время тестов. Это важный инструмент для оценки качества тестирования, но важно понимать, что высокое покрытие не гарантирует отсутствие ошибок.
 
@@ -704,6 +704,6 @@ pytest --cov=myapp --cov-report=html --cov-report=term-missing tests/
 - [Документация coverage.py](https://coverage.readthedocs.io/)
 - [Документация pytest-cov](https://pytest-cov.readthedocs.io/)
 - [SonarQube](https://www.sonarqube.org/)
-- [Python Testing: Основы тестирования и unittest](/posts/python-testing-basics-unittest)
-- [Python Testing: pytest - современный подход](/posts/python-testing-pytest-modern-approach)
-- [Python Testing: Моки и изоляция тестов](/posts/python-testing-mocks-isolation) 
+- [Python Testing: Основы тестирования и unittest](/posts/2025/07/python-testing-basics-unittest)
+- [Python Testing: pytest - современный подход](/posts/2025/07/python-testing-pytest-modern-approach)
+- [Python Testing: Моки и изоляция тестов](/posts/2025/07/python-testing-mocks-isolation) 

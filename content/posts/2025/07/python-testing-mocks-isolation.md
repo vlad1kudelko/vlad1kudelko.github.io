@@ -10,9 +10,9 @@ publication_date = "2025-07-20"
 # Python Testing: Моки и изоляция тестов
 
 > **Читайте также:**
-> - [Python Testing: Основы тестирования и unittest](/posts/python-testing-basics-unittest)
-> - [Python Testing: pytest - современный подход](/posts/python-testing-pytest-modern-approach)
-> - [Python Testing: Покрытие кода и метрики качества](/posts/python-testing-coverage-metrics)
+> - [Python Testing: Основы тестирования и unittest](/posts/2025/07/python-testing-basics-unittest)
+> - [Python Testing: pytest - современный подход](/posts/2025/07/python-testing-pytest-modern-approach)
+> - [Python Testing: Покрытие кода и метрики качества](/posts/2025/07/python-testing-coverage-metrics)
 
 Для изоляции тестов часто необходимо заменять внешние зависимости моками. Моки (mock objects) — это объекты, которые имитируют поведение реальных объектов, но в контролируемой среде. Это позволяет тестировать код независимо от внешних систем, таких как базы данных, веб-сервисы или файловая система.
 
@@ -626,10 +626,10 @@ def test_with_complex_mock(mock_database_complex):
 - Когда интеграционные тесты более подходят
 
 **Следующие шаги:**
-В следующей статье мы рассмотрим [покрытие кода и метрики качества](/posts/python-testing-coverage-metrics) — как измерять эффективность тестов.
+В следующей статье мы рассмотрим [покрытие кода и метрики качества](/posts/2025/07/python-testing-coverage-metrics) — как измерять эффективность тестов.
 
 **Дополнительные ресурсы:**
 - [Документация unittest.mock](https://docs.python.org/3/library/unittest.mock.html)
 - [Документация pytest-mock](https://pytest-mock.readthedocs.io/)
-- [Python Testing: Основы тестирования и unittest](/posts/python-testing-basics-unittest)
-- [Python Testing: pytest - современный подход](/posts/python-testing-pytest-modern-approach) 
+- [Python Testing: Основы тестирования и unittest](/posts/2025/07/python-testing-basics-unittest)
+- [Python Testing: pytest - современный подход](/posts/2025/07/python-testing-pytest-modern-approach) 

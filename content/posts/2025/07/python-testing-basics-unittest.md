@@ -10,9 +10,9 @@ publication_date = "2025-07-18"
 # Python Testing: Основы тестирования и unittest
 
 > **Читайте также:**
-> - [Python Testing: pytest - современный подход](/posts/python-testing-pytest-modern-approach)
-> - [Python Testing: Моки и изоляция тестов](/posts/python-testing-mocks-isolation)
-> - [Python Testing: Покрытие кода и метрики качества](/posts/python-testing-coverage-metrics)
+> - [Python Testing: pytest - современный подход](/posts/2025/07/python-testing-pytest-modern-approach)
+> - [Python Testing: Моки и изоляция тестов](/posts/2025/07/python-testing-mocks-isolation)
+> - [Python Testing: Покрытие кода и метрики качества](/posts/2025/07/python-testing-coverage-metrics)
 
 Тестирование — это не просто проверка работоспособности кода, это философия разработки, которая помогает создавать качественное и надёжное программное обеспечение. В современной разработке тестирование стало неотъемлемой частью процесса создания программ, и на это есть веские причины.
 
@@ -431,5 +431,5 @@ Unittest — это надёжный и проверенный временем 
 
 **Дополнительные ресурсы:**
 - [Документация unittest](https://docs.python.org/3/library/unittest.html)
-- [Python Testing: pytest - современный подход](/posts/python-testing-pytest-modern-approach)
-- [Python Testing: Моки и изоляция тестов](/posts/python-testing-mocks-isolation) 
+- [Python Testing: pytest - современный подход](/posts/2025/07/python-testing-pytest-modern-approach)
+- [Python Testing: Моки и изоляция тестов](/posts/2025/07/python-testing-mocks-isolation) 
