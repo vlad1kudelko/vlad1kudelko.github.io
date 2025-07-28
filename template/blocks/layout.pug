@@ -1,3 +1,4 @@
+include _canonical
 include _metrika
 include ../flowbite/_navbar
 include ../flowbite/_footer
@@ -31,6 +32,8 @@ html(lang=current.lang)
 
         meta(name="yandex-verification" content="afed2e8191b49d83")
         meta(name="google-site-verification" content="0ucXNR_uuGU7CMGE94--pwGePrFybbteXJfA9Esji-Q")
+        
+        +_canonical()
 
     - const nav_links = [{'url':'https://github.com/vlad1kudelko/','text':'Github'}];
     - const nav_pages = [{'url':'/contacts.html','text':'Контакты'}];

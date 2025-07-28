@@ -1,0 +1,6 @@
+
+mixin _canonical()
+    - let canonical = current.url;
+    - if (canonical.endsWith('/index.html')) { canonical = canonical.slice(0, -10); }
+    - if (canonical.endsWith('.html')) { canonical = canonical.slice(0, -5); }
+    link(rel="canonical" href=canonical)
