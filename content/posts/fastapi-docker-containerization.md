@@ -3,7 +3,7 @@ lang = "ru"
 title = "FastAPI + Docker: контейнеризация"
 description = "Подробное руководство по контейнеризации FastAPI приложений с Docker: создание Dockerfile, docker-compose, оптимизация образов и развертывание в продакшене."
 template = "posts"
-thumb = "/imgs/fastapi-docker-containerization.png"
+thumb = "/imgs/2025/07/fastapi-docker-containerization.png"
 publication_date = "2025-07-10"
 +++
 

@@ -3,7 +3,7 @@ lang = "ru"
 title = "FastAPI + Celery: асинхронные задачи"
 description = "Подробное руководство по интеграции FastAPI с Celery: настройка брокера сообщений, создание задач, мониторинг и лучшие практики для обработки фоновых задач."
 template = "posts"
-thumb = "/imgs/fastapi-celery-async-tasks.jpg"
+thumb = "/imgs/2025/07/fastapi-celery-async-tasks.jpg"
 publication_date = "2025-07-09"
 +++
 

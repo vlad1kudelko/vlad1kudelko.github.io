@@ -3,7 +3,7 @@ lang = "ru"
 title = "FastAPI + JWT: аутентификация"
 description = "Руководство по реализации аутентификации с использованием JWT токенов в FastAPI: настройка, примеры кода, безопасность."
 template = "posts"
-thumb = "/imgs/fastapi-jwt-authentication.png"
+thumb = "/imgs/2025/07/fastapi-jwt-authentication.png"
 publication_date = "2025-07-08"
 +++
 
