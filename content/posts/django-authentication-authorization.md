@@ -3,7 +3,7 @@ lang = "ru"
 title = "Django: Аутентификация и авторизация"
 description = "Руководство по аутентификации и авторизации пользователей в Django: базовые механизмы, настройка, примеры кода."
 template = "posts"
-thumb = "/imgs/django-authentication-authorization.png"
+thumb = "/imgs/2025/07/django-authentication-authorization.png"
 publication_date = "2025-07-03"
 +++
 
