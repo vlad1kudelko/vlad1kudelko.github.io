@@ -10,8 +10,8 @@ publication_date = "2025-08-01"
 # Frontend JavaScript/TypeScript: современная разработка
 
 > **Читайте также:**
-> - [Express.js: создание REST API](/posts/expressjs-rest-api-guide)
-> - [NestJS: архитектурный фреймворк](/posts/nestjs-architectural-framework)
+> - [Express.js: создание REST API](/posts/2025/07/expressjs-rest-api-guide)
+> - [NestJS: архитектурный фреймворк](/posts/2025/07/nestjs-architectural-framework)
 > - [FastAPI: современный фреймворк для API](/posts/fastapi-modern-api-framework)
 
 **JavaScript** и **TypeScript** являются основой современной фронтенд разработки. JavaScript — это динамически типизированный язык программирования, который изначально создавался для добавления интерактивности на веб-страницы. TypeScript — это надмножество JavaScript, которое добавляет статическую типизацию и дополнительные возможности для разработки масштабируемых приложений. В этой статье рассмотрим современные подходы к фронтенд разработке, включая ES6+ возможности, модульную архитектуру, асинхронное программирование и работу с DOM.

@@ -11,7 +11,7 @@ publication_date = "2025-07-27"
 
 > **Читайте также:**
 > - [Express.js: создание REST API](/posts/2025/07/expressjs-rest-api-guide)
-> - [Express.js + MongoDB: NoSQL база данных](/posts/expressjs-mongodb-nosql-guide)
+> - [Express.js + MongoDB: NoSQL база данных](/posts/2025/07/expressjs-mongodb-nosql-guide)
 > - [Express.js + JWT: аутентификация](/posts/2025/07/expressjs-jwt-authentication)
 
 **Multer** — это middleware для Express.js, который позволяет обрабатывать multipart/form-data, что необходимо для загрузки файлов. В этой статье рассмотрим, как настроить загрузку файлов, обрабатывать различные типы файлов, валидировать их и обеспечивать безопасность при работе с пользовательскими файлами.

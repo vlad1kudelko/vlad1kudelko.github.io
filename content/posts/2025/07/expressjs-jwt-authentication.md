@@ -10,7 +10,7 @@ publication_date = "2025-07-25"
 # Express.js + JWT: аутентификация
 
 > **Читайте также:**
-> - [Express.js + MongoDB: NoSQL база данных](/posts/expressjs-mongodb-nosql-guide)
+> - [Express.js + MongoDB: NoSQL база данных](/posts/2025/07/expressjs-mongodb-nosql-guide)
 > - [FastAPI + JWT: аутентификация](/posts/fastapi-jwt-authentication)
 > - [Django: аутентификация и авторизация](/posts/django-authentication-authorization)
 
