@@ -37,7 +37,10 @@ function getContentFromFile(inp_path, inp_url) {
     }
     content_toml = JSON.parse(JSON.stringify( toml.parse(content_toml) ));      // парсим TOML
     content_md = converter.makeHtml(content_md);                                // парсим MARKDOWN
-    return {...content_toml, 'content': content_md, 'url': inp_url};            // возвращаем результат парсинга
+    let canonical = inp_url;
+    if (canonical.endsWith('/index.html')) { canonical = canonical.slice(0, -10); }
+    if (canonical.endsWith('.html')) { canonical = canonical.slice(0, -5); }
+    return {...content_toml, 'content': content_md, 'url': inp_url, 'canonical': canonical};  // возвращаем результат парсинга
 }
 //-------------------------------------------------------------------
 // непосредственно сборка сайта
@@ -79,10 +82,13 @@ function _build(inp_domain, inp_path_pug, inp_path_content, inp_path_out) {
                 'other': otherAll,
             })));
         sitemap.push({
-            'url': markdownItem['contentFromFile']['url'], // сохраняем все url, которые создаем
+            'url': markdownItem['contentFromFile']['canonical'], // сохраняем все url, которые создаем
             'date': datePug,
         });
-        console.log(['MARKDOWN', markdownItem['contentFromFile']['url']]);
+        console.log(['MARKDOWN',
+            markdownItem['contentFromFile']['url'],
+            markdownItem['contentFromFile']['canonical'],
+        ]);
     }
     // sitemap.xml
     fs.writeFileSync(`${inp_path_out}/sitemap.xml`, [
