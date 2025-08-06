@@ -13,20 +13,23 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container:
-      image: vlad1kudelko/sitegen27:latest
-      options: --user root
-      env:
-        DOMAIN: vlad1kudelko.github.io
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
-      - run: node /app/build.js && cd tailwind && bash build.sh
+      - name: Build Docker image
+        run: docker build -t sitegen27 ./sitegen27
+      - name: Run build
+        run: |
+          docker run --rm \
+            -v ${{ github.workspace }}/www:/app/www \
+            -e DOMAIN=vlad1kudelko.github.io \
+            sitegen27 \
+            bash start.sh
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: public
+          path: www/public
       - uses: actions/deploy-pages@v4
         id: deployment
