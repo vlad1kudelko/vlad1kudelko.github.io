@@ -1,11 +1,11 @@
 services:
   sitegen27:
-    image: 'vlad1kudelko/sitegen27:1.1'
+    build: './sitegen27'
     volumes:
-      - '.:/app/www'
+      - './www:/app/www'
     environment:
       - 'DOMAIN=vlad1kudelko.github.io'
-    entrypoint: [ 'bash', '-c', 'node /app/build.js && cd tailwind && bash build.sh && tail -f /dev/null']
+    entrypoint: [ 'bash', '-c', 'bash start.sh && tail -f /dev/null']
     healthcheck:
       test: ["CMD", "test", "-f", "/app/www/public/index.html"]
       interval: 5s
@@ -18,8 +18,8 @@ services:
     ports:
       - '8000:80'
     volumes:
-      - './public:/usr/share/nginx/html'
-      - './nginx.conf:/etc/nginx/nginx.conf'
+      - './www/public:/usr/share/nginx/html'
+      - './nginx/nginx.conf:/etc/nginx/nginx.conf:ro'
     depends_on:
       sitegen27:
         condition: service_healthy
