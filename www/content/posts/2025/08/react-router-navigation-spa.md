@@ -775,8 +775,6 @@ React Router — это мощная и гибкая библиотека для
 
 React Router интегрируется с экосистемой React и позволяет создавать современные, быстрые и удобные веб-приложения с отличным пользовательским опытом.
 
----
-
 **Дополнительные ресурсы:**
 - [Официальная документация React Router](https://reactrouter.com/)
 - [React Router Tutorial](https://reactrouter.com/en/main/start/tutorial)
