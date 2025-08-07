@@ -9,11 +9,6 @@ publication_date = "2025-07-01"
 
 # Django REST Framework: создание API
 
-> **Читайте также:**
-> - [Django ORM: продвинутые запросы и оптимизация](/posts/django-orm-advanced-queries-optimization)
-> - [Django: Аутентификация и авторизация](/posts/django-authentication-authorization)
-> - [FastAPI: современный фреймворк для API](/posts/fastapi-modern-api-framework)
-
 **Django REST Framework (DRF)** — это мощная библиотека для создания REST API на основе Django. Она предоставляет набор инструментов для быстрой разработки веб-API, включая сериализацию данных, аутентификацию, документацию и многое другое. В этой статье мы рассмотрим основы создания API с помощью DRF.
 
 ## Установка и настройка

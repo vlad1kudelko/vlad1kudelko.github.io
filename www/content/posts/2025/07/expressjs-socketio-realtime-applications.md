@@ -9,11 +9,6 @@ publication_date = "2025-07-26"
 
 # Express.js + Socket.io: real-time приложения
 
-> **Читайте также:**
-> - [Express.js: создание REST API](/posts/2025/07/expressjs-rest-api-guide)
-> - [Express.js + MongoDB: NoSQL база данных](/posts/2025/07/expressjs-mongodb-nosql-guide)
-> - [Express.js + JWT: аутентификация](/posts/2025/07/expressjs-jwt-authentication)
-
 **Socket.io** — это библиотека для Node.js, которая обеспечивает real-time двустороннюю связь между клиентом и сервером. В связке с **Express.js** она позволяет создавать интерактивные приложения с мгновенными обновлениями: чаты, уведомления, live-дашборды и многое другое. В этой статье рассмотрим, как настроить Socket.io с Express.js, создать простой чат и реализовать различные real-time функции.
 
 ## Введение

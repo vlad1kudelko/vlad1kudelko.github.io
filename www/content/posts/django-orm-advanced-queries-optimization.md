@@ -9,11 +9,6 @@ publication_date = "2025-07-02"
 
 # Django ORM: продвинутые запросы и оптимизация
 
-> **Читайте также:**
-> - [FastAPI: современный фреймворк для API](/posts/fastapi-modern-api-framework)
-> - [Flask + Redis: кэширование](/posts/flask-redis-caching)
-> - [FastAPI + SQLAlchemy: работа с базой данных](/posts/fastapi-sqlalchemy-database-guide)
-
 **Django ORM (Object-Relational Mapping)** — это мощный инструмент для работы с базами данных, который позволяет писать сложные запросы на чистом Python. В этой статье мы рассмотрим продвинутые возможности ORM, методы оптимизации производительности и лучшие практики для создания эффективных запросов.
 
 ## Сложные запросы и фильтрация

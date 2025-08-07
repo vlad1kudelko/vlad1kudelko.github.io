@@ -9,11 +9,6 @@ publication_date = "2025-06-25"
 
 # Создание первого Telegram-бота на aiogram: пошаговая инструкция
 
-> **Читайте также:**
-> - [Python async/await: асинхронное программирование](/posts/python-async-await-async-programming)
-> - [FastAPI + JWT: аутентификация](/posts/fastapi-jwt-authentication)
-> - [Flask + Redis: кэширование](/posts/flask-redis-caching)
-
 **Telegram-боты** — это удобный способ автоматизировать задачи, общаться с пользователями и интегрировать различные сервисы. В этой статье мы рассмотрим, как создать своего первого бота на Python с помощью популярной библиотеки **aiogram**.
 
 ## 1. Что такое aiogram?

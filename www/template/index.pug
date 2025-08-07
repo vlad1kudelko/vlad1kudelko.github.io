@@ -6,9 +6,9 @@ block body
         +_my_bread([])
         div(class='mx-auto container')
             div(class='flex flex-wrap justify-center')
-                - const all_posts = all.filter(x => x.url.match('^/posts/')).sort((a, b) => new Date(b.publication_date || 0) - new Date(a.publication_date || 0) )
+                - const all_posts = all.filter(x => x.url.match('^/posts/')).sort((a, b) => new Date(b.publication_date || 0) - new Date(a.publication_date || 0))
                 each val in all_posts
-                    a(class='m-5 block max-w-sm border rounded-lg overflow-hidden shadow bg-gray-800 border-gray-700 hover:opacity-75' href=val.canonical)
+                    a(class='m-5 block max-w-sm border bg-gray-800 border-gray-700 hover:opacity-75' href=val.canonical)
                         if val.thumb
                             img(class='bg-gray-100' loading='lazy' width='800' height='400' src=val.thumb alt=val.title)
                         div(class='p-5')

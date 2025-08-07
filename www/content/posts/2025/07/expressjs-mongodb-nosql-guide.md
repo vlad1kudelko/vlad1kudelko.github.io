@@ -9,11 +9,6 @@ publication_date = "2025-07-24"
 
 # Express.js + MongoDB: NoSQL база данных
 
-> **Читайте также:**
-> - [Express.js: создание REST API](/posts/2025/07/expressjs-rest-api-guide)
-> - [FastAPI: современный фреймворк для API](/posts/fastapi-modern-api-framework)
-> - [Flask: легковесный веб-фреймворк](/posts/flask-lightweight-web-framework)
-
 **MongoDB** — это популярная NoSQL база данных, которая идеально подходит для хранения документов в формате JSON. В связке с **Express.js** и библиотекой **Mongoose** можно быстро создавать масштабируемые приложения с гибкой структурой данных. В этой статье рассмотрим, как подключить MongoDB к Express.js, создавать модели, выполнять CRUD-операции и использовать лучшие практики.
 
 ## Введение

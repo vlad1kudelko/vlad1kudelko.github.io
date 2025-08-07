@@ -9,11 +9,6 @@ publication_date = "2025-07-06"
 
 # FastAPI + SQLAlchemy: работа с базой данных
 
-> **Читайте также:**
-> - [Flask + Jinja2: шаблонизация](/posts/flask-jinja2-shablonizatsiya)
-> - [FastAPI + Pydantic: валидация данных](/posts/fastapi-pydantic-validation)
-> - [Разработка сайта с использованием Django](/posts/django-development-guide)
-
 **SQLAlchemy** — это мощная библиотека для работы с базами данных в Python, которая предоставляет как ORM (Object-Relational Mapping), так и Core API для прямого выполнения SQL-запросов. В сочетании с FastAPI она создаёт идеальную пару для разработки современных веб-приложений с надёжной работой с данными. В этой статье мы рассмотрим, как эффективно интегрировать SQLAlchemy с FastAPI для создания полноценных API с базой данных.
 
 ## 1. Установка и настройка

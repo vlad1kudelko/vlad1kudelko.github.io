@@ -9,11 +9,6 @@ publication_date = "2025-08-04"
 
 # React Router: навигация в SPA
 
-> **Читайте также:**
-> - [React: основы компонентного подхода](/posts/2025/08/react-component-basics-guide)
-> - [React Hooks: useState, useEffect, useContext](/posts/2025/08/react-hooks-usestate-useeffect-usecontext)
-> - [Frontend JavaScript/TypeScript: современная разработка](/posts/2025/08/frontend-javascript-typescript-guide)
-
 **React Router** — это стандартная библиотека для маршрутизации в React приложениях. Она позволяет создавать одностраничные приложения (SPA) с множественными "страницами" без перезагрузки браузера. React Router обеспечивает синхронизацию URL с состоянием приложения, что делает навигацию интуитивной и SEO-дружественной. В этой статье рассмотрим все аспекты работы с React Router, от базовой настройки до продвинутых техник.
 
 ## 1. Введение в React Router

@@ -9,11 +9,6 @@ publication_date = "2025-07-31"
 
 # NestJS + Swagger: документация API
 
-> **Читайте также:**
-> - [NestJS: архитектурный фреймворк](/posts/2025/07/nestjs-architectural-framework)
-> - [FastAPI: современный фреймворк для API](/posts/fastapi-modern-api-framework)
-> - [Django REST Framework: руководство по API](/posts/django-rest-framework-api-guide)
-
 **Swagger/OpenAPI** — это мощный инструмент для автоматической генерации интерактивной документации API. В сочетании с NestJS он предоставляет элегантный способ создания, тестирования и документирования ваших API endpoints. В этой статье мы рассмотрим, как эффективно интегрировать Swagger с NestJS для создания профессиональной документации API.
 
 ## 1. Установка и базовая настройка

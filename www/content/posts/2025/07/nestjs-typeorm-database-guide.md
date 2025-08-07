@@ -9,11 +9,6 @@ publication_date = "2025-07-29"
 
 # NestJS + TypeORM: работа с базой данных
 
-> **Читайте также:**
-> - [FastAPI + SQLAlchemy: работа с базой данных](/posts/fastapi-sqlalchemy-database-guide)
-> - [Django ORM: продвинутые запросы и оптимизация](/posts/django-orm-advanced-queries-optimization)
-> - [FastAPI: современный фреймворк для API](/posts/fastapi-modern-api-framework)
-
 **TypeORM** — это мощная ORM (Object-Relational Mapping) библиотека для TypeScript и JavaScript, которая предоставляет элегантный способ работы с базами данных. В сочетании с NestJS она создаёт идеальную пару для разработки масштабируемых серверных приложений с надёжной работой с данными. В этой статье мы рассмотрим, как эффективно интегрировать TypeORM с NestJS для создания полноценных API с базой данных.
 
 ## 1. Установка и настройка
