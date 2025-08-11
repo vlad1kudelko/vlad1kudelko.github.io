@@ -4,7 +4,7 @@ title = "Vue.js + Vuetify: UI компоненты"
 description = "Подробное руководство по созданию современных веб-интерфейсов с помощью Vue.js и Vuetify. Примеры компонентов, настройка и лучшие практики."
 template = "posts"
 thumb = "/imgs/2025/08/vuejs-vuetify-ui-components.jpg"
-publication_date = "2025-08-12"
+publication_date = "2025-08-11"
 +++
 
 # Vue.js + Vuetify: UI компоненты
