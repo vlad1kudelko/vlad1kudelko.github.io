@@ -3,7 +3,7 @@ lang = "ru"
 title = "Инструменты и DevOps: основные концепции и инструментарий"
 description = "Полное руководство по DevOps: CI/CD, инфраструктура как код, мониторинг и лучшие практики автоматизации процессов разработки."
 template = "posts"
-thumb = "/imgs/2025/08/devops-tools-guide.webp"
+thumb = "/imgs/2025/08/instrumenty-i-devops.webp"
 publication_date = "2025-08-24"
 +++
 
