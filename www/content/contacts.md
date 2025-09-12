@@ -7,7 +7,7 @@ template = "posts"
 
 # Контакты
 
-- 📱 Telegram - [@vlad1kudelko_bot](https://t.me/vlad1kudelko_bot)
-- 📧 Email - **vlad1kudelko@gmail.com**
-- 💻 GitHub - [@vlad1kudelko](https://github.com/vlad1kudelko)
-- 🐳 Docker Hub - [@vlad1kudelko](https://hub.docker.com/u/vlad1kudelko)
+- ✅ YouTube - [@crafthomelab](https://www.youtube.com/@crafthomelab)
+- ✅ Telegram - [@crafthomelab](https://t.me/+8opZmB8MPXViMmUy)
+- ✅ Dzen - [crafthomelab](https://dzen.ru/crafthomelab)
+- ✅ RuTube - [crafthomelab](https://rutube.ru/channel/68763186/)
