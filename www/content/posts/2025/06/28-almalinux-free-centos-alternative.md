@@ -1154,18 +1154,3 @@ EXPOSE 80
 # Запуск
 CMD ["nginx", "-g", "daemon off;"]
 ```
-
-## Решение типичных проблем
-
-### Проблемы с сетью
-
-```bash
-# Перезапуск сетевой службы
-sudo systemctl restart NetworkManager
-
-# Диагностика сетевых интерфейсов
-ip addr show
-ip route show
-
-# Проверка DNS
-nslookup example
