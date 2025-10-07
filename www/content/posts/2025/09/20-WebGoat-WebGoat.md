@@ -53,23 +53,31 @@ WebGoat активно применяется в образовательных 
 WebGoat можно установить несколькими способами:
 
 1. **С помощью Docker**: 
+
    - Запуск с установленным браузером и инструментами ZAP/Burp:
+
      ```bash
      docker run -it -p 127.0.0.1:8080:8080 webgoat/webgoat
      ```
+
    - Для использования прокси:
+
      ```bash
      docker run -it -p 127.0.0.1:8080:8080 -e WEBGOAT_HOST=www.webgoat.local -e WEBWOLF_HOST=www.webwolf.local webgoat/webgoat
      ```
 
 2. **Запускиз исходников**: 
+
    - Клонирование репозитория:
+
      ```bash
      git clone git@github.com:WebGoat/WebGoat.git
      cd WebGoat
      ./mvnw clean install
      ```
+
    - Запуск приложения:
+
      ```bash
      ./mvnw spring-boot:run
      ```
