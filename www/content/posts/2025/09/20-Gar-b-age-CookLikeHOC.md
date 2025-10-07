@@ -5,6 +5,7 @@ description = "Платформа на базе Docker, предлагающая
 template = "posts"
 thumb = "/imgs/2025/09/20-Gar-b-age-CookLikeHOC.png"
 publication_date = "2025-09-20"
+github = "https://github.com/Gar-b-age/CookLikeHOC"
 +++
 
 # CookLikeHOC: Проект для любителей готовить, вдохновленный Laoxiangji

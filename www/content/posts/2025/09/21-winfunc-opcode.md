@@ -5,6 +5,7 @@ description = "Мощное приложение с графическим ин�
 template = "posts"
 thumb = "/imgs/2025/09/21-winfunc-opcode.png"
 publication_date = "2025-09-21"
+github = "https://github.com/winfunc/opcode"
 +++
 
 # opcode: Удобный GUI инструмент для работы с Claude Code
