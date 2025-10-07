@@ -12,6 +12,12 @@ block body
                     div(class='text-xs text-gray-500 font-bold')= current.publication_date
                     div(class='prose max-w-none marker:text-gray-900')!= current.content
 
+                if current.github
+                    div(class='p-5')
+                        a(class='block p-5 bg-gray-800 text-gray-100 flex items-center' rel='nofollow' href=current.github)
+                            img(class='size-10' src='https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png')
+                            div(class='ml-5 font-bold text-lg')= current.github
+
                 //- Читайте также
                 - const all_posts = all.filter(x => x.url.match('^/posts/')).sort((a, b) => new Date(b.publication_date || 0) - new Date(a.publication_date || 0))
                 - const key_current = all_posts.findIndex(x => x.url === current.url)
@@ -41,7 +47,7 @@ block body
                                     div= all_posts[next_2].title
 
                 div(class="p-5 pt-0")
-                    a(target="_new" href="https://timeweb.com/ru/?i=73933&a=237")
+                    a(target="_new" rel='nofollow' href="https://timeweb.com/ru/?i=73933&a=237")
                         img(style="border:0px;" src="https://wm.timeweb.ru/images/posters/970x250/970x250.jpg")
-                    //- a(target="_new" href="https://timeweb.com/ru/?i=73933&a=233")
+                    //- a(target="_new" rel='nofollow' href="https://timeweb.com/ru/?i=73933&a=233")
                         //- img(style="border:0px;" src="https://wm.timeweb.ru/images/posters/970x250/970x250-1.jpg")
