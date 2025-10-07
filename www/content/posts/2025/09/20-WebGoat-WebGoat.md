@@ -5,6 +5,7 @@ description = "WebGoat — это преднамеренно уязвимое в
 template = "posts"
 thumb = "/imgs/2025/09/20-WebGoat-WebGoat.png"
 publication_date = "2025-09-20"
+github = "https://github.com/WebGoat/WebGoat"
 +++
 
 # WebGoat: Уязвимое Веб-Приложение для Обучения Безопасности

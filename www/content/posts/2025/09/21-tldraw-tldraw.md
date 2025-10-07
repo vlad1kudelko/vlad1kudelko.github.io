@@ -5,6 +5,7 @@ description = "tldraw — это мощная библиотека для соз
 template = "posts"
 thumb = "/imgs/2025/09/21-tldraw-tldraw.png"
 publication_date = "2025-09-21"
+github = "https://github.com/tldraw/tldraw"
 +++
 
 # tldraw: Библиотека для Создания Бесконечных Канвасов в React
