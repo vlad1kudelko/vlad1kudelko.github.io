@@ -42,8 +42,7 @@ yt-dlp решает несколько задач:
    yt-dlp -f "bestvideo[height<=1080]+bestaudio" [URL]
    ```
 
-3. **Дополнительные функции**:
-   - Запись метаданных:
+3. **Запись метаданных**:
    ```bash
    yt-dlp --write-info-json [URL]
    ```
