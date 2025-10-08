@@ -8,7 +8,7 @@ mixin _footer(inp_urls, inp_pages)
           ul(class='flex flex-wrap items-center mb-6 text-sm font-medium sm:mb-0 text-gray-400')
             each val in inp_urls
                 li
-                  a(class='mx-2 hover:underline md:mx-3 text-blue-400 hover:text-blue-300' href=val.url)= val.text
+                  a(class='mx-2 hover:underline md:mx-3 text-blue-400 hover:text-blue-300' rel='nofollow' href=val.url)= val.text
             each val in inp_pages
                 li
                   a(class='mx-2 hover:underline md:mx-3 text-gray-400 hover:text-blue-300' href=val.url)= val.text
