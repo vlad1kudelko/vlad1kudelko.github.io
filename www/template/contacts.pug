@@ -1,0 +1,30 @@
+extends blocks/layout
+include blocks/_my_bread
+
+block body
+    div
+        +_my_bread([])
+        div(class='mx-auto max-w-3xl')
+            div(class='bg-gray-300')
+                div(class='p-5')
+                    img(class='mx-auto rounded-full' src='/imgs/logo.webp')
+                div(class='p-5 prose max-w-none text-center')
+                    h1 Контакты
+
+                    p Для вопросов и предложений:
+
+                    ul
+                        li(class='bg-gray-200')
+                            a(href='mailto:vlad1kudelko@gmail.com') Email
+
+                    p Не забывайте подписаться на нас в других социальных сетях:
+
+                    ul
+                        li(class='bg-gray-200')
+                            a(href='https://www.youtube.com/@crafthomelab') YouTube
+                        li(class='bg-gray-200')
+                            a(href='https://t.me/+URA3cZoIm603MjUy') Telegram
+                        li(class='bg-gray-200')
+                            a(href='https://dzen.ru/crafthomelab') Dzen
+                        li(class='bg-gray-200')
+                            a(href='https://rutube.ru/channel/68763186/') RuTube
