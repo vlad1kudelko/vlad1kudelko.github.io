@@ -7,6 +7,7 @@ html(lang=current.lang)
     head
         meta(charset='UTF-8')
         meta(name='viewport', content='width=device-width, initial-scale=1.0')
+        link(rel='sitemap' href='/sitemap.xml')
         meta(name='robots' content='noarchive')
         title= current.title
         meta(name='description' content=current.description)
@@ -32,7 +33,7 @@ html(lang=current.lang)
         meta(name="yandex-verification" content="afed2e8191b49d83")
         meta(name="google-site-verification" content="0ucXNR_uuGU7CMGE94--pwGePrFybbteXJfA9Esji-Q")
         
-        link(rel="canonical" href=current.canonical)
+        link(rel="canonical" href='https://vlad1kudelko.github.io'+current.canonical)
 
     - const nav_links = [{'url':'https://t.me/+URA3cZoIm603MjUy','text':'Telegram'}];
     - const nav_pages = [{'url':'/contacts','text':'Контакты'}];
