@@ -96,8 +96,8 @@ function _build(inp_domain, inp_path_pug, inp_path_content, inp_path_out) {
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
         sitemap.map(({url, date}) => [
         '   <url>',
-                '<loc>https://' + inp_domain + url + '</loc>',
-        date ?  '<lastmod>' + date + '</lastmod>' : '',
+        '        <loc>https://' + inp_domain + url + '</loc>',
+date ?  '        <lastmod>' + date + '</lastmod>' : '',
         '   </url>',
         ].join('\n')).join('\n'),
         '</urlset>',
