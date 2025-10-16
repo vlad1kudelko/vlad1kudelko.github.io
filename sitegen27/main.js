@@ -105,7 +105,7 @@ date ?  '        <lastmod>' + date + '</lastmod>' : '',
     // sitemap.txt
     fs.writeFileSync(`${inp_path_out}/sitemap.txt`, sitemap.map(({url, date}) => {
         return 'https://' + inp_domain + url;
-    }).join('\n'));
+    }).join('\n') + '\n');
     // robots.txt
     fs.writeFileSync(`${inp_path_out}/robots.txt`, [
         'User-agent: *',
