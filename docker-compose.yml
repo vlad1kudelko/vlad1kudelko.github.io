@@ -4,7 +4,7 @@ services:
     volumes:
       - './www:/app/www'
     environment:
-      - 'DOMAIN=vlad1kudelko.github.io'
+      - 'DOMAIN=crafthomelab.ru'
     entrypoint: [ 'bash', '-c', 'bash start.sh && tail -f /dev/null']
     healthcheck:
       test: ["CMD", "test", "-f", "/app/www/public/index.html"]

@@ -24,7 +24,7 @@ jobs:
         run: |
           docker run --rm \
             -v ${{ github.workspace }}/www:/app/www \
-            -e DOMAIN=vlad1kudelko.github.io \
+            -e DOMAIN=crafthomelab.ru \
             sitegen27 \
             bash start.sh
       - uses: actions/configure-pages@v5
