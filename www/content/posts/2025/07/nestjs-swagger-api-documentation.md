@@ -3,7 +3,7 @@ lang = "ru"
 title = "NestJS + Swagger: документация API"
 description = "Подробное руководство по интеграции Swagger/OpenAPI с NestJS: автоматическая генерация документации API, декораторы, схемы, аутентификация и лучшие практики."
 template = "posts"
-thumb = "/imgs/2025/07/nestjs-swagger-api-documentation.png"
+thumb = "/imgs/2025/07/nestjs-swagger-api-documentation.webp"
 publication_date = "2025-07-31"
 +++
 
