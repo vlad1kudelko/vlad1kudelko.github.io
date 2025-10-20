@@ -3,7 +3,7 @@ lang = "ru"
 title = "NixOS: уникальная Linux-система с управлением конфигурациями и изоляцией пакетов  "
 description = "Обзор операционной системы NixOS с её особенностями управления пакетами и конфигурациями, безопасностью и воспроизводимостью среды.  "
 template = "posts"
-thumb = "/imgs/2025/06/27-nixos-unikalnaya-linux-sistema.png"
+thumb = "/imgs/2025/06/27-nixos-unikalnaya-linux-sistema.webp"
 publication_date = "2025-06-27"
 +++
 
