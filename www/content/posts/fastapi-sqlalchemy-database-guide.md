@@ -3,7 +3,7 @@ lang = "ru"
 title = "FastAPI + SQLAlchemy: работа с базой данных"
 description = "Подробное руководство по интеграции FastAPI с SQLAlchemy: настройка подключения к БД, создание моделей, CRUD операции, миграции и лучшие практики."
 template = "posts"
-thumb = "/imgs/2025/07/fastapi-sqlalchemy-database-guide.png"
+thumb = "/imgs/2025/07/fastapi-sqlalchemy-database-guide.webp"
 publication_date = "2025-07-06"
 +++
 
