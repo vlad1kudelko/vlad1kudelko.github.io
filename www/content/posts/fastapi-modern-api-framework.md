@@ -3,7 +3,7 @@ lang = "ru"
 title = "FastAPI: современный фреймворк для API"
 description = "Обзор возможностей FastAPI, его преимуществ, примеры кода и сравнение с другими фреймворками для создания современных API на Python."
 template = "posts"
-thumb = "/imgs/2025/07/fastapi-modern-api-framework.png"
+thumb = "/imgs/2025/07/fastapi-modern-api-framework.webp"
 publication_date = "2025-07-03"
 +++
 
