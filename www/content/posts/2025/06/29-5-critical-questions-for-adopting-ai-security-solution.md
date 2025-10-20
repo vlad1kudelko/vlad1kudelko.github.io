@@ -3,7 +3,7 @@ lang = "ru"
 title = "5 ключевых вопросов при выборе AI-решения для безопасности"
 description = "Основные вопросы, которые помогут оценить и выбрать эффективное AI-решение для защиты данных и систем."
 template = "posts"
-thumb = "/imgs/2025/06/29-5-critical-questions-for-adopting-ai-security-solution.png"
+thumb = "/imgs/2025/06/29-5-critical-questions-for-adopting-ai-security-solution.webp"
 publication_date = "2025-06-29"
 +++
 
