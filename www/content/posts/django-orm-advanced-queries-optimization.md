@@ -3,7 +3,7 @@ lang = "ru"
 title = "Django ORM: продвинутые запросы и оптимизация"
 description = "Подробное руководство по продвинутым возможностям Django ORM: сложные запросы, оптимизация производительности, аннотации, агрегации и лучшие практики."
 template = "posts"
-thumb = "/imgs/2025/07/django-orm-advanced-queries-optimization.jpg"
+thumb = "/imgs/2025/07/django-orm-advanced-queries-optimization.webp"
 publication_date = "2025-07-02"
 +++
 
