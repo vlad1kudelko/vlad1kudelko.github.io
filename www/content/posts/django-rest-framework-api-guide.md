@@ -3,7 +3,7 @@ lang = "ru"
 title = "Django REST Framework: создание API"
 description = "Подробное руководство по созданию REST API с использованием Django REST Framework: сериализаторы, представления, аутентификация и документация API."
 template = "posts"
-thumb = "/imgs/2025/07/django-rest-framework-api-guide.jpg"
+thumb = "/imgs/2025/07/django-rest-framework-api-guide.webp"
 publication_date = "2025-07-01"
 +++
 
