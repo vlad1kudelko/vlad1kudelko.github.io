@@ -3,7 +3,7 @@ lang = "ru"
 title = "AlmaLinux: надежная бесплатная альтернатива CentOS для серверов"
 description = "Обзор AlmaLinux — стабильной и бесплатной операционной системы на базе RHEL для замены CentOS в корпоративной среде."
 template = "posts"
-thumb = "/imgs/2025/06/28-almalinux-free-centos-alternative.png"
+thumb = "/imgs/2025/06/28-almalinux-free-centos-alternative.webp"
 publication_date = "2025-06-28"
 +++
 
