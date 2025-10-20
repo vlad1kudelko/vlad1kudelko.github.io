@@ -3,7 +3,7 @@ lang = "ru"
 title = "Meta Llama: все, что нужно знать об открытой генеративной модели ИИ"
 description = "Подробное руководство по Meta Llama — открытой модели искусственного интеллекта для генерации текста и других задач."
 template = "posts"
-thumb = "/imgs/2025/09/18-meta-llama-everything-you-need-to-know.png"
+thumb = "/imgs/2025/09/18-meta-llama-everything-you-need-to-know.webp"
 publication_date = "2025-09-18"
 +++
 
