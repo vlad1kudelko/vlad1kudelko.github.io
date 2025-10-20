@@ -3,7 +3,7 @@ lang = "ru"
 title = "Flask: легковесный веб-фреймворк"
 description = "Обзор Flask — минималистичного Python-фреймворка для веб-разработки. Преимущества, примеры кода, сравнение с FastAPI и Django."
 template = "posts"
-thumb = "/imgs/2025/07/flask-lightweight-web-framework.png"
+thumb = "/imgs/2025/07/flask-lightweight-web-framework.webp"
 publication_date = "2025-07-11"
 +++
 
