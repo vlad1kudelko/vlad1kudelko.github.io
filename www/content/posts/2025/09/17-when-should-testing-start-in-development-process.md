@@ -3,7 +3,7 @@ lang = "ru"
 title = "Когда начинать тестирование в процессе разработки? Полное руководство"
 description = "Руководство по оптимальному времени начала тестирования в процессе разработки программного обеспечения."
 template = "posts"
-thumb = "/imgs/2025/09/17-when-should-testing-start-in-development-process.png"
+thumb = "/imgs/2025/09/17-when-should-testing-start-in-development-process.webp"
 publication_date = "2025-09-17"
 +++
 
