@@ -3,7 +3,7 @@ lang = "ru"
 title = "Express.js + Multer: загрузка файлов"
 description = "Подробное руководство по загрузке файлов в Express.js с помощью Multer: настройка middleware, обработка различных типов файлов, валидация, безопасность и практические примеры."
 template = "posts"
-thumb = "/imgs/2025/07/expressjs-multer-file-upload-guide.png"
+thumb = "/imgs/2025/07/expressjs-multer-file-upload-guide.webp"
 publication_date = "2025-07-27"
 +++
 

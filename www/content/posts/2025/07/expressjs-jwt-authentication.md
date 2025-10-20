@@ -3,7 +3,7 @@ lang = "ru"
 title = "Express.js + JWT: аутентификация"
 description = "Полное руководство по реализации JWT аутентификации в Express.js: настройка, middleware, защищенные маршруты, обновление токенов и безопасность."
 template = "posts"
-thumb = "/imgs/2025/07/expressjs-jwt-authentication.png"
+thumb = "/imgs/2025/07/expressjs-jwt-authentication.webp"
 publication_date = "2025-07-25"
 +++
 
