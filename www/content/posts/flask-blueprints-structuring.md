@@ -3,7 +3,7 @@ lang = "ru"
 title = "Flask Blueprints: структурирование приложения"
 description = "Практическое руководство по использованию Flask Blueprints для модульной архитектуры. Примеры кода, структура проекта, лучшие практики."
 template = "posts"
-thumb = "/imgs/2025/07/flask-blueprints-structuring.png"
+thumb = "/imgs/2025/07/flask-blueprints-structuring.webp"
 publication_date = "2025-07-14"
 +++
 
