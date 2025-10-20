@@ -3,7 +3,7 @@ lang = "ru"
 title = "Топ-10 нейросетей для создания текстов в 2025 году"
 description = "Обзор лучших нейросетевых технологий для генерации текста, их возможностей и применения в различных областях."
 template = "posts"
-thumb = "/imgs/2025/09/19-top-10-neurosystems-for-text-writing-2025.png"
+thumb = "/imgs/2025/09/19-top-10-neurosystems-for-text-writing-2025.webp"
 publication_date = "2025-09-19"
 +++
 
