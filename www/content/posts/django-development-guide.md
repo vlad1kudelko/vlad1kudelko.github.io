@@ -3,7 +3,7 @@ lang = "ru"
 title = "Разработка сайта с использованием Django"
 description = "Подробное руководство по созданию веб-приложений на Django: обзор структуры проекта, работа с базами данных, модели и административный интерфейс."
 template = "posts"
-thumb = "/imgs/2025/06/django-development-guide.jpg"
+thumb = "/imgs/2025/06/django-development-guide.webp"
 publication_date = "2025-06-26"
 +++
 
