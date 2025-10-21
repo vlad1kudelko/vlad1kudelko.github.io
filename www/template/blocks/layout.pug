@@ -1,54 +1,9 @@
-include _metrika
 include ../flowbite/_navbar
 include ../flowbite/_footer
 
-doctype html
-html(lang=current.lang)
-    head
-        meta(charset='UTF-8')
-        meta(name='viewport', content='width=device-width, initial-scale=1.0')
-        link(rel='sitemap' href='/sitemap.xml')
-        meta(name='robots' content='noarchive')
-        title= current.title
-        meta(name='description' content=current.description)
-        link(href='/styles.css' rel='stylesheet')
-
-        //- BEGIN - стили внутрестатейных картинок
-        style.
-            .prose img {
-                max-height: 300px;
-                width: 600px;
-                object-fit: cover;
-                margin-left: auto;
-                margin-right: auto;
-            }
-            .prose table th {
-                text-align: center;
-            }
-            .prose table td + td, .prose table th + th {
-                border-left: 1px solid white;
-            }
-        //- END - стили внутрестатейных картинок
-
-        //- vlad1kudelko.github.io -> crafthomelab.ru
-        meta(name="yandex-verification" content="afed2e8191b49d83")
-        meta(name="yandex-verification" content="83fbe8f4a2bd4ea2")
-        meta(name="google-site-verification" content="0ucXNR_uuGU7CMGE94--pwGePrFybbteXJfA9Esji-Q")
-        meta(name="google-site-verification" content="yriRKj3WiqQZMoStRv5tbdCNAXH4LOuDssYPURO6QRw")
-        
-        link(rel="canonical" href='https://crafthomelab.ru'+current.canonical)
-
-        //- Open Graph
-        meta(property="og:title" content=current.title)
-        meta(property="og:description" content=current.description)
-        if current.thumb
-            meta(property="og:image" content=current.thumb)
-        meta(property="og:url" content='https://crafthomelab.ru'+current.canonical)
-        meta(property="og:type" content="website")
-
     - const nav_links = [{'url':'https://t.me/+URA3cZoIm603MjUy','text':'Telegram'}];
     - const nav_pages = [{'url':'/contacts','text':'Контакты'}];
-    body(class='bg-gray-800')
+
         +_navbar(nav_links, nav_pages)
         main
             block body
@@ -60,5 +15,3 @@ html(lang=current.lang)
         link(rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.11.1/build/styles/atom-one-dark.min.css")
         script(src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.11.1/build/highlight.min.js")
         script hljs.highlightAll();
-        
-        +_metrika()
