@@ -1,0 +1,50 @@
+---
+import '../styles/fonts.css';
+import '../styles/global.css';
+
+import type { ImageMetadata } from 'astro';
+import { SITE_TITLE } from '../consts';
+
+interface Props {
+	title: string;
+	description: string;
+}
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+const { title, description } = Astro.props;
+---
+
+<!-- Global Metadata -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="sitemap" href="/sitemap-index.xml" />
+<link
+	rel="alternate"
+	type="application/rss+xml"
+	title={SITE_TITLE}
+	href={new URL('rss.xml', Astro.site)}
+/>
+<meta name="generator" content={Astro.generator} />
+<meta name='robots' content='noarchive' />
+
+<!-- Canonical URL -->
+<link rel="canonical" href={canonicalURL} />
+
+<!-- Open Graph -->
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<!-- og:image -->
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:type" content="website" />
+
+<!-- Primary Meta Tags -->
+<title>{title}</title>
+<meta name="title" content={title} />
+<meta name="description" content={description} />
+
+<!-- vlad1kudelko.github.io -> crafthomelab.ru -->
+<meta name="yandex-verification" content="afed2e8191b49d83" />
+<meta name="yandex-verification" content="83fbe8f4a2bd4ea2" />
+<meta name="google-site-verification" content="0ucXNR_uuGU7CMGE94--pwGePrFybbteXJfA9Esji-Q" />
+<meta name="google-site-verification" content="yriRKj3WiqQZMoStRv5tbdCNAXH4LOuDssYPURO6QRw" />
