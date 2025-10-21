@@ -33,6 +33,24 @@ const json_ld = [{
 
 export async function getStaticPaths() {
     const posts = await getCollection('posts');
+    if (posts.length > 5) {
+        for (let key_current in posts) {
+            key_current = Number(key_current);
+            const other_keys = [];
+            other_keys.push(key_current - 2 >= 0           ? key_current - 2 : posts.length + key_current - 2);
+            other_keys.push(key_current - 1 >= 0           ? key_current - 1 : posts.length + key_current - 1);
+            other_keys.push(key_current + 1 < posts.length ? key_current + 1 : key_current - posts.length + 1);
+            other_keys.push(key_current + 2 < posts.length ? key_current + 2 : key_current - posts.length + 2);
+            posts[key_current].other_pages = [];
+            for (const other_key of other_keys) {
+                posts[key_current].other_pages.push({
+                    title: posts[other_key].data.title,
+                    url:   '/posts/' + posts[other_key].id + '/',
+                    img:   posts[other_key].data.heroImage.src,
+                });
+            }
+        }
+    }
     return posts.map((post) => ({
         params: { slug: post.id },
         props: post,
@@ -69,6 +87,20 @@ export async function getStaticPaths() {
                         </a>
                     </div>
                 )}
+
+                <div class='p-5 text-gray-900'>
+                    <h2 class='text-2xl text-center font-bold mb-8'>Читайте также</h2>
+                    <div class='grid grid-cols-2 gap-4 text-center'>
+                        { post.other_pages.map((other_page) => (
+                            <div>
+                                <a href={other_page.url}>
+                                    <img class='bg-gray-100' loading='lazy' width='800' height='400' src={other_page.img} alt={other_page.title} />
+                                    <div>{other_page.title}</div>
+                                </a>
+                            </div>
+                        )) }
+                    </div>
+                </div>
 
                 <div class='p-5 pt-0'>
                     <a target='_blank' rel='nofollow' href='/go/timeweb-cloud'>
