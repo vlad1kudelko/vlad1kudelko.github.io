@@ -3,7 +3,7 @@ lang = "ru"
 title = "Trend Finder: Оставайтесь на гребне волны популярных тем в соцсетях"
 description = "Trend Finder собирает и анализирует посты от ключевых влияющих лиц, уведомляя вас через Slack или Discord о новых трендах и запусках продуктов — ваш помощник в быстром реагировании на новые возможности и актуальные разговоры."
 template = "posts"
-thumb = "/imgs/2025/09/27-ericciarla-trendFinder.png"
+thumb = "/imgs/2025/09/27-ericciarla-trendFinder.webp"
 publication_date = "2025-09-27"
 github = "https://github.com/ericciarla/trendFinder"
 +++
