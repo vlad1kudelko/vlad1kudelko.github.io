@@ -3,7 +3,7 @@ lang = "ru"
 title = "MongoDB: NoSQL БД"
 description = "Обзор MongoDB как NoSQL базы данных, основные концепции, преимущества и примеры использования."
 template = "posts"
-thumb = "/imgs/2025/08/mongodb-nosql-db.png"
+thumb = "/imgs/2025/08/mongodb-nosql-db.webp"
 publication_date = "2025-08-30"
 +++
 
