@@ -3,7 +3,7 @@ lang = "ru"
 title = "SvelteKit: полноценное приложение"
 description = "Практическое руководство по созданию полноценного веб‑приложения на SvelteKit: структура, маршруты, загрузка данных, формы и действия, API‑эндпоинты, аутентификация, развертывание и лучшие практики."
 template = "posts"
-thumb = "/imgs/2025/08/sveltekit-polnotsennoe-prilozhenie.png"
+thumb = "/imgs/2025/08/sveltekit-polnotsennoe-prilozhenie.webp"
 publication_date = "2025-08-15"
 +++
 
