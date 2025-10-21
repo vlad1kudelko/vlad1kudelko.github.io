@@ -1116,8 +1116,8 @@ async def http_exception_handler(request: Request, exc: HTTPException):
 ## 12. Документация API
 
 FastAPI автоматически генерирует документацию. Откройте:
-- [http://localhost:8000/docs](http://localhost:8000/docs) — Swagger UI
-- [http://localhost:8000/redoc](http://localhost:8000/redoc) — ReDoc
+- `http://localhost:8000/docs` — Swagger UI
+- `http://localhost:8000/redoc` — ReDoc
 
 ## Заключение
 
