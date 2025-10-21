@@ -3,7 +3,7 @@ lang = "ru"
 title = "TigerBeetle: высоконадежная база данных финансовых транзакций"
 description = "TigerBeetle — это современная база данных OLTP, обеспечивающая безопасность и высокую производительность для хранения и обработки финансовых операций на ближайшие 30 лет."
 template = "posts"
-thumb = "/imgs/2025/10/05-tigerbeetle-tigerbeetle.png"
+thumb = "/imgs/2025/10/05-tigerbeetle-tigerbeetle.webp"
 publication_date = "2025-10-05"
 github = "https://github.com/tigerbeetle/tigerbeetle"
 +++

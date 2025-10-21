@@ -3,7 +3,7 @@ lang = "ru"
 title = "Stremio: современный медиацентр для удобного просмотра видео"
 description = "Stremio — это универсальный медиаплеер, который позволяет легко находить, смотреть и организовывать видеоконтент с помощью простых в установке аддонов."
 template = "posts"
-thumb = "/imgs/2025/10/05-Stremio-stremio-web.png"
+thumb = "/imgs/2025/10/05-Stremio-stremio-web.webp"
 publication_date = "2025-10-05"
 github = "https://github.com/Stremio/stremio-web"
 +++
