@@ -3,7 +3,7 @@ lang = "ru"
 title = "MiniCPM-V: LLM для Мобильных Устройств"
 description = "Мультимодальный ИИ, способный перенести возможности GPT-4o прямо на ваши мобильные устройства."
 template = "posts"
-thumb = "/imgs/2025/08/minicpm-v.png"
+thumb = "/imgs/2025/08/minicpm-v.webp"
 publication_date = "2025-08-31"
 +++
 
