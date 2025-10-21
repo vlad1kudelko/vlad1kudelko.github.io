@@ -3,7 +3,7 @@ lang = "ru"
 title = "React + Redux Toolkit: управление состоянием"
 description = "Подробное руководство по использованию Redux Toolkit с React для эффективного управления состоянием приложения. Создание store, slices, actions и лучшие практики."
 template = "posts"
-thumb = "/imgs/2025/08/react-redux-toolkit-state-management.jpg"
+thumb = "/imgs/2025/08/react-redux-toolkit-state-management.webp"
 publication_date = "2025-08-05"
 +++
 
