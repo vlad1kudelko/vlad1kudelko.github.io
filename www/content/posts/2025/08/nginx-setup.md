@@ -3,7 +3,7 @@ lang = "ru"
 title = "Nginx: настройка веб-сервера"
 description = "Пошаговое руководство по настройке Nginx как веб-сервера и обратного прокси для приложений."
 template = "posts"
-thumb = "/imgs/2025/08/nginx-setup.jpg"
+thumb = "/imgs/2025/08/nginx-setup.webp"
 publication_date = "2025-08-27"
 +++
 
