@@ -3,7 +3,7 @@ lang = "ru"
 title = "Onyx: Открытая Платформа Искусственного Интеллекта для Чата"
 description = "Onyx — это функциональный интерфейс чата с возможностью саморазвертывания, совместимый с любыми LLM и работающий в изолированных средах. Он включает агенты, веб-поиск, RAG, поддержку 40+ источников знаний и множество других возможностей."
 template = "posts"
-thumb = "/imgs/2025/09/26-onyx-dot-app-onyx.png"
+thumb = "/imgs/2025/09/26-onyx-dot-app-onyx.webp"
 publication_date = "2025-09-26"
 github = "https://github.com/onyx-dot-app/onyx"
 +++
