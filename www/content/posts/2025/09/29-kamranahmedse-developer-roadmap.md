@@ -3,7 +3,7 @@ lang = "ru"
 title = "Developer Roadmap: Путеводитель для Разработчиков"
 description = "Сообщество разработчиков создало интерактивные дорожные карты, статьи и ресурсы для навигации по карьерным путям в сфере технологий."
 template = "posts"
-thumb = "/imgs/2025/09/29-kamranahmedse-developer-roadmap.png"
+thumb = "/imgs/2025/09/29-kamranahmedse-developer-roadmap.webp"
 publication_date = "2025-09-29"
 github = "https://github.com/kamranahmedse/developer-roadmap"
 +++

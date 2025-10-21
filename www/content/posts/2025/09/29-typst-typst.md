@@ -3,7 +3,7 @@ lang = "ru"
 title = "Typst: Новая Маркерная Система Верстки"
 description = "Typst — это новая система верстки на основе разметки, которая обладает мощностью LaTeX, но ею легко овладеть."
 template = "posts"
-thumb = "/imgs/2025/09/29-typst-typst.png"
+thumb = "/imgs/2025/09/29-typst-typst.webp"
 publication_date = "2025-09-29"
 github = "https://github.com/typst/typst"
 +++
