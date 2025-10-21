@@ -1,0 +1,79 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Footer   from '../../components/Footer.astro';
+import Header   from '../../components/Header.astro';
+
+import { Image } from 'astro:assets';
+
+import { getCollection, render } from 'astro:content';
+const post = Astro.props;
+const { Content } = await render(post);
+
+const json_ld = [{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": Astro.site },
+        { "@type": "ListItem", "position": 2, "name": post.data.title }
+    ]
+},{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": post.data.title,
+    "image": [ post.data.heroImage.src ],
+    "datePublished": post.data.pubDate.toISOString(),
+    "author": [{
+        "@type": "Person",
+        "name": "Craft Trade",
+        "url": Astro.site
+    }]
+}];
+
+export async function getStaticPaths() {
+    const posts = await getCollection('posts');
+    return posts.map((post) => ({
+        params: { slug: post.id },
+        props: post,
+    }));
+}
+---
+
+<!doctype html>
+<html lang="ru">
+	<head>
+		<BaseHead title={post.data.title} description={post.data.description} />
+        <script type="application/ld+json" set:html={JSON.stringify(json_ld)} />
+        <meta property="og:image" content={post.data.heroImage.src} />
+    </head>
+	<body class="bg-gray-800 text-gray-100">
+		<Header />
+        <main>
+            <div class='mx-auto max-w-3xl bg-gray-300'>
+                <Image class='bg-gray-100' loading='lazy' width={800} height={400} src={post.data.heroImage} alt={post.data.title} />
+
+                <div class="p-5">
+                    <div class='text-xs text-gray-500 font-bold'>{post.data.pubDate.toDateString()}</div>
+                    <div class="prose max-w-none marker:text-gray-900">
+                         <Content />
+                    </div>
+                </div>
+
+                {post.data.github && (
+                    <div class='p-5'>
+                        <a class='block p-5 bg-gray-800 text-gray-100 flex items-center' rel='nofollow' href={post.data.github}>
+                            <img class='size-10' src='/res/github.webp' alt='github' />
+                            <div class='ml-5 font-bold text-lg'>{post.data.github}</div>
+                        </a>
+                    </div>
+                )}
+
+                <div class='p-5 pt-0'>
+                    <a target='_blank' rel='nofollow' href='/go/timeweb-cloud'>
+                        <img loading='lazy' src='/res/timeweb.webp' alt='timeweb-cloud' />
+                    </a>
+                </div>
+            </div>
+        </main>
+		<Footer />
+	</body>
+</html>
