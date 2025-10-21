@@ -3,7 +3,7 @@ lang = "ru"
 title = "Vue Router: маршрутизация"
 description = "Подробное руководство по Vue Router - официальной библиотеке маршрутизации для Vue.js. Настройка маршрутов, навигация, защищенные маршруты и лучшие практики."
 template = "posts"
-thumb = "/imgs/2025/08/vue-router-marshrutizatsiya.jpg"
+thumb = "/imgs/2025/08/vue-router-marshrutizatsiya.webp"
 publication_date = "2025-08-09"
 +++
 
