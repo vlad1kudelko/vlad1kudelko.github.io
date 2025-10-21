@@ -1,26 +1,5 @@
 services:
-  sitegen27:
-    build: './sitegen27'
-    volumes:
-      - './www:/app/www'
-    environment:
-      - 'DOMAIN=crafthomelab.ru'
-    entrypoint: [ 'bash', '-c', 'bash start.sh && tail -f /dev/null']
-    healthcheck:
-      test: ["CMD", "test", "-f", "/app/www/public/index.html"]
-      interval: 5s
-      timeout: 3s
-      retries: 10
-      start_period: 10s
-
-  server:
-    image: 'nginx:alpine'
+  app:
+    build: .
     ports:
-      - '8000:80'
-    volumes:
-      - './www/public:/usr/share/nginx/html'
-      - './nginx/nginx.conf:/etc/nginx/nginx.conf:ro'
-    depends_on:
-      sitegen27:
-        condition: service_healthy
-    restart: unless-stopped
+      - 8080:8080
