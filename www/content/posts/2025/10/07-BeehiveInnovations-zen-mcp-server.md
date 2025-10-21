@@ -3,7 +3,7 @@ lang = "ru"
 title = "Zen MCP: мульти-модельный сервер контекстного протокола для ИИ-инструментов"
 description = "Zen MCP объединяет множество ИИ-моделей и CLI-инструментов в единую команду для комплексного анализа кода, систематической отладки и совместной разработки."
 template = "posts"
-thumb = "/imgs/2025/10/07-BeehiveInnovations-zen-mcp-server.png"
+thumb = "/imgs/2025/10/07-BeehiveInnovations-zen-mcp-server.webp"
 publication_date = "2025-10-07"
 github = "https://github.com/BeehiveInnovations/zen-mcp-server"
 +++
