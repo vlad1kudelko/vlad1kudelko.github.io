@@ -1,0 +1,23 @@
+---
+import { Image } from 'astro:assets';
+
+const { posts, level, h1 } = Astro.props;
+---
+
+<h1 class='mx-auto container p-5 text-center text-2xl text-gray-400'>{h1}</h1>
+
+<div class='mx-auto container'>
+    <div class='flex flex-wrap justify-center'>
+        { posts.map((post) => (
+            <a class='m-5 block max-w-sm border bg-gray-800 border-gray-700 hover:opacity-75' href=`/posts/${post.id}/`>
+                <Image class='bg-gray-100' loading='lazy' width={800} height={400} src={post.data.heroImage} alt={post.data.title} />
+                <div class='p-5'>
+                    <div class='text-xs text-gray-400'>{post.data.pubDate}</div>
+                    <h2 class='mb-2 text-2xl font-bold tracking-tight text-white'>{post.data.title}</h2>
+                    <p class='font-normal text-gray-400'>{post.data.description}</p>
+                </div>
+            </a>
+        )) }
+    </div>
+</div>
+
