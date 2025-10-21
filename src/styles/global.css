@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+@plugin '@tailwindcss/typography';
+
+body { font-family: "Rubik"; }
+
+.prose img {
+    margin-left: auto;
+    margin-right: auto;
+}
