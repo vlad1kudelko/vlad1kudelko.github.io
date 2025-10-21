@@ -3,7 +3,7 @@ lang = "ru"
 title = "React Native Navigation: навигация"
 description = "Практическое руководство по React Navigation: стек, табы, drawer, типобезопасные параметры, модальные экраны, deep linking и лучшие практики."
 template = "posts"
-thumb = "/imgs/2025/08/react-native-navigation-navigaciya.jpeg"
+thumb = "/imgs/2025/08/react-native-navigation-navigaciya.webp"
 publication_date = "2025-08-20"
 +++
 
