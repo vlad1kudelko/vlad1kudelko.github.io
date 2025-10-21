@@ -3,7 +3,7 @@ lang = "ru"
 title = "Библиотека {fmt}: Быстрое и Безопасное Форматирование в C++"
 description = "{fmt} — это открытая библиотека форматирования, предлагающая быструю и безопасную альтернативу стандартным средствам форматирования C и C++."
 template = "posts"
-thumb = "/imgs/2025/09/22-fmtlib-fmt.png"
+thumb = "/imgs/2025/09/22-fmtlib-fmt.webp"
 publication_date = "2025-09-22"
 github = "https://github.com/fmtlib/fmt"
 +++
