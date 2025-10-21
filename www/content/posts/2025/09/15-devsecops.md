@@ -3,7 +3,7 @@ lang = "ru"
 title = "Введение в DevSecOps: Интеграция безопасности в CI/CD"
 description = "DevSecOps — это методология, которая объединяет разработку (Development), безопасность (Security) и операции (Operations) в единый непрерывный процесс."
 template = "posts"
-thumb = "/imgs/2025/09/15-devsecops.png"
+thumb = "/imgs/2025/09/15-devsecops.webp"
 publication_date = "2025-09-15"
 +++
 
