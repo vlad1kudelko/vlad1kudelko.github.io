@@ -1,7 +1,7 @@
 ---
 title: "XiaoZhi-esp32: голосовой чатбот на базе MCP с поддержкой больших моделей ИИ"
 description: "Проект представляет собой голосового чатбота с мультиязычным интерфейсом, использующего MCP-протокол для управления устройствами на базе ESP32."
-heroImage: "/imgs/2025/10/10-78-xiaozhi-esp32.webp"
+heroImage: "../../../../assets/imgs/2025/10/10-78-xiaozhi-esp32.webp"
 pubDate: "2025-10-10"
 github: "https://github.com/78/xiaozhi-esp32"
 ---

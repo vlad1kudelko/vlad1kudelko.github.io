@@ -1,7 +1,7 @@
 ---
 title: "Vue.js + TypeScript: полное руководство"
 description: "Подробное руководство по использованию TypeScript с Vue.js: настройка проекта, типизация компонентов, Composition API, лучшие практики и примеры."
-heroImage: "/imgs/2025/08/vuejs-typescript-guide.webp"
+heroImage: "../../../../assets/imgs/2025/08/vuejs-typescript-guide.webp"
 pubDate: "2025-08-12"
 ---
 

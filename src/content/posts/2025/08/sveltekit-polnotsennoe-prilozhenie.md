@@ -1,7 +1,7 @@
 ---
 title: "SvelteKit: полноценное приложение"
 description: "Практическое руководство по созданию полноценного веб‑приложения на SvelteKit: структура, маршруты, загрузка данных, формы и действия, API‑эндпоинты, аутентификация, развертывание и лучшие практики."
-heroImage: "/imgs/2025/08/sveltekit-polnotsennoe-prilozhenie.webp"
+heroImage: "../../../../assets/imgs/2025/08/sveltekit-polnotsennoe-prilozhenie.webp"
 pubDate: "2025-08-15"
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "React Native + Redux: управление состоянием"
 description: "Как настроить Redux Toolkit в React Native: структура стора, слайсы, асинхронные операции, Redux Persist, типизация и производительность. Минимум кода — максимум пояснений."
-heroImage: "/imgs/2025/08/react-native-redux-upravlenie-sostoyaniem.webp"
+heroImage: "../../../../assets/imgs/2025/08/react-native-redux-upravlenie-sostoyaniem.webp"
 pubDate: "2025-08-21"
 ---
 

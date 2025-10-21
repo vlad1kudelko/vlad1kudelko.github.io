@@ -1,7 +1,7 @@
 ---
 title: "Terraform: Инфраструктура как код для облачных провайдеров"
 description: "Terraform — это инструмент с открытым исходным кодом от HashiCorp, который позволяет описывать и управлять инфраструктурой с помощью декларативного подхода."
-heroImage: "/imgs/2025/09/10-terraform.webp"
+heroImage: "../../../../assets/imgs/2025/09/10-terraform.webp"
 pubDate: "2025-09-10"
 ---
 

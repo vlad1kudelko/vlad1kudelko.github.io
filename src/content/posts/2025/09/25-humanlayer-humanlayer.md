@@ -1,7 +1,7 @@
 ---
 title: "CodeLayer: Открытое IDE для Оркестрации AI Агентов Программирования"
 description: "CodeLayer — это мощное инструментальное средство с проверенными рабочими процессами, позволяющее AI решать сложные задачи в больших кодовых базах."
-heroImage: "/imgs/2025/09/25-humanlayer-humanlayer.webp"
+heroImage: "../../../../assets/imgs/2025/09/25-humanlayer-humanlayer.webp"
 pubDate: "2025-09-25"
 github: "https://github.com/humanlayer/humanlayer"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "Handy: свободное и открытое приложение для преобразования речи в текст"
 description: "Handy — это кроссплатформенное приложение с акцентом на приватность и простоту использования, которое позволяет преобразовывать речь в текст полностью офлайн."
-heroImage: "/imgs/2025/10/03-cjpais-Handy.webp"
+heroImage: "../../../../assets/imgs/2025/10/03-cjpais-Handy.webp"
 pubDate: "2025-10-03"
 github: "https://github.com/cjpais/Handy"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "Docker: контейнеризация приложений"
 description: "Подробный обзор принципов контейнеризации, Dockerfile, docker-compose, лучшие практики и примеры развертывания."
-heroImage: "/imgs/2025/08/docker-containerization.webp"
+heroImage: "../../../../assets/imgs/2025/08/docker-containerization.webp"
 pubDate: "2025-08-25"
 ---
 

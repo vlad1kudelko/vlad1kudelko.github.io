@@ -1,7 +1,7 @@
 ---
 title: "NixOS: уникальная Linux-система с управлением конфигурациями и изоляцией пакетов  "
 description: "Обзор операционной системы NixOS с её особенностями управления пакетами и конфигурациями, безопасностью и воспроизводимостью среды.  "
-heroImage: "/imgs/2025/06/27-nixos-unikalnaya-linux-sistema.webp"
+heroImage: "../../../../assets/imgs/2025/06/27-nixos-unikalnaya-linux-sistema.webp"
 pubDate: "2025-06-27"
 ---
 

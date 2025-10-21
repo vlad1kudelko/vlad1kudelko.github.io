@@ -1,7 +1,7 @@
 ---
 title: "React + Redux Toolkit: управление состоянием"
 description: "Подробное руководство по использованию Redux Toolkit с React для эффективного управления состоянием приложения. Создание store, slices, actions и лучшие практики."
-heroImage: "/imgs/2025/08/react-redux-toolkit-state-management.webp"
+heroImage: "../../../../assets/imgs/2025/08/react-redux-toolkit-state-management.webp"
 pubDate: "2025-08-05"
 ---
 

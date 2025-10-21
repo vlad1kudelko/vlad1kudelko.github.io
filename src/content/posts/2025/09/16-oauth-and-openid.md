@@ -1,7 +1,7 @@
 ---
 title: "OAuth 2.0 и OpenID Connect: Основы аутентификации и авторизации"
 description: "OAuth 2.0 (Open Authorization) — это протокол авторизации, который позволяет приложениям получать ограниченный доступ к ресурсам пользователя без раскрытия его учетных данных."
-heroImage: "/imgs/2025/09/16-oauth-and-openid.webp"
+heroImage: "../../../../assets/imgs/2025/09/16-oauth-and-openid.webp"
 pubDate: "2025-09-16"
 ---
 

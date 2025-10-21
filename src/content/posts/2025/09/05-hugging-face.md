@@ -1,7 +1,7 @@
 ---
 title: "Основы обработки естественного языка (NLP) с Hugging Face Transformers"
 description: "В этой статье мы рассмотрим основы NLP, познакомимся с архитектурой Transformer и изучим, как использовать библиотеку Hugging Face Transformers для решения популярных задач."
-heroImage: "/imgs/2025/09/05-hugging-face.webp"
+heroImage: "../../../../assets/imgs/2025/09/05-hugging-face.webp"
 pubDate: "2025-09-05"
 ---
 

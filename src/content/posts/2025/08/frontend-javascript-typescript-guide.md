@@ -1,7 +1,7 @@
 ---
 title: "Frontend JavaScript/TypeScript: современная разработка"
 description: "Полное руководство по современной фронтенд разработке: JavaScript ES6+, TypeScript, модули, асинхронность, DOM API и лучшие практики."
-heroImage: "/imgs/2025/08/frontend-javascript-typescript-guide.webp"
+heroImage: "../../../../assets/imgs/2025/08/frontend-javascript-typescript-guide.webp"
 pubDate: "2025-08-01"
 ---
 

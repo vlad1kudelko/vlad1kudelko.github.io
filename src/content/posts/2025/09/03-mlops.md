@@ -1,7 +1,7 @@
 ---
 title: "MLOps: Автоматизация жизненного цикла моделей машинного обучения"
 description: "MLOps (Machine Learning Operations) — это набор практик, инструментов и методологий для автоматизации и оптимизации жизненного цикла моделей машинного обучения."
-heroImage: "/imgs/2025/09/03-mlops.webp"
+heroImage: "../../../../assets/imgs/2025/09/03-mlops.webp"
 pubDate: "2025-09-03"
 ---
 

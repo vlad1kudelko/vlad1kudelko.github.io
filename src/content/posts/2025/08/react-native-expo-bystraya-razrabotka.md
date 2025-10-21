@@ -1,7 +1,7 @@
 ---
 title: "React Native + Expo: быстрая разработка"
 description: "Самый быстрый путь к рабочему мобильному приложению: создание проекта на Expo, Expo Router, популярные модули, работа с API и состоянием, EAS Build и OTA‑обновления, советы по производительности и переходу на Bare."
-heroImage: "/imgs/2025/08/react-native-expo-bystraya-razrabotka.webp"
+heroImage: "../../../../assets/imgs/2025/08/react-native-expo-bystraya-razrabotka.webp"
 pubDate: "2025-08-19"
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "Pathway: Python ETL фреймворк для потоковой обработки данных"
 description: "Pathway – мощный фреймворк на Python для потоковой обработки, анализа в реальном времени и построения LLM-пайплайнов, предлагающий легкий в использовании API и возможность интеграции с популярными ML библиотеками."
-heroImage: "/imgs/2025/10/03-pathwaycom-pathway.webp"
+heroImage: "../../../../assets/imgs/2025/10/03-pathwaycom-pathway.webp"
 pubDate: "2025-10-03"
 github: "https://github.com/pathwaycom/pathway"
 ---

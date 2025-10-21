@@ -1,7 +1,7 @@
 ---
 title: "ThingsBoard: открытая платформа для Интернета вещей с визуализацией данных"
 description: "ThingsBoard — масштабируемое и универсальное решение для управления IoT-устройствами, обработки данных и создания настраиваемых дашбордов в реальном времени."
-heroImage: "/imgs/2025/10/09-thingsboard-thingsboard.webp"
+heroImage: "../../../../assets/imgs/2025/10/09-thingsboard-thingsboard.webp"
 pubDate: "2025-10-09"
 github: "https://github.com/thingsboard/thingsboard"
 ---

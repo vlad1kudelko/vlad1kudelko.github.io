@@ -1,7 +1,7 @@
 ---
 title: "EverShop: современная eCommerce платформа с модульной архитектурой на TypeScript"
 description: "EverShop — это современная платформа для электронной коммерции с использованием TypeScript, GraphQL и React."
-heroImage: "/imgs/2025/10/12-evershopcommerce-evershop.webp"
+heroImage: "../../../../assets/imgs/2025/10/12-evershopcommerce-evershop.webp"
 pubDate: "2025-10-12"
 github: "https://github.com/evershopcommerce/evershop"
 ---

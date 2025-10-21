@@ -1,7 +1,7 @@
 ---
 title: "Tunix: библиотека для пост-тренировки больших языковых моделей на базе JAX"
 description: "Tunix упрощает пост-тренировку больших языковых моделей, обеспечивая поддержку методов дообучения, обучения с подкреплением и дистилляции."
-heroImage: "/imgs/2025/10/02-google-tunix.webp"
+heroImage: "../../../../assets/imgs/2025/10/02-google-tunix.webp"
 pubDate: "2025-10-02"
 github: "https://github.com/google/tunix"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "FastAPI + SQLAlchemy: работа с базой данных"
 description: "Подробное руководство по интеграции FastAPI с SQLAlchemy: настройка подключения к БД, создание моделей, CRUD операции, миграции и лучшие практики."
-heroImage: "/imgs/2025/07/fastapi-sqlalchemy-database-guide.webp"
+heroImage: "../../assets/imgs/2025/07/fastapi-sqlalchemy-database-guide.webp"
 pubDate: "2025-07-06"
 ---
 

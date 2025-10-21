@@ -1,7 +1,7 @@
 ---
 title: "Vue Router: маршрутизация"
 description: "Подробное руководство по Vue Router - официальной библиотеке маршрутизации для Vue.js. Настройка маршрутов, навигация, защищенные маршруты и лучшие практики."
-heroImage: "/imgs/2025/08/vue-router-marshrutizatsiya.webp"
+heroImage: "../../../../assets/imgs/2025/08/vue-router-marshrutizatsiya.webp"
 pubDate: "2025-08-09"
 ---
 

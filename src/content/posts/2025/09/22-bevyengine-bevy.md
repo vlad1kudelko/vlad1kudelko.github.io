@@ -1,7 +1,7 @@
 ---
 title: "Bevy: Простой и Мощный Игровой Движок на Rust"
 description: "Bevy — это простой и мощный игровой движок, разработанный на языке Rust, предлагающий разработчикам гибкие возможности для создания 2D и 3D игр."
-heroImage: "/imgs/2025/09/22-bevyengine-bevy.webp"
+heroImage: "../../../../assets/imgs/2025/09/22-bevyengine-bevy.webp"
 pubDate: "2025-09-22"
 github: "https://github.com/bevyengine/bevy"
 ---

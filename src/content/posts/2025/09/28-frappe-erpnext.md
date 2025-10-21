@@ -1,7 +1,7 @@
 ---
 title: "ERPNext: Мощная и Интуитивно Понятная Открытая ERP Система"
 description: "ERPNext — это бесплатная, полностью открытая ERP-система, помогающая управлять бизнесом, интегрируя все необходимые инструменты для учета, управления заказами, производства и проектов в одном месте."
-heroImage: "/imgs/2025/09/28-frappe-erpnext.webp"
+heroImage: "../../../../assets/imgs/2025/09/28-frappe-erpnext.webp"
 pubDate: "2025-09-28"
 github: "https://github.com/frappe/erpnext"
 ---

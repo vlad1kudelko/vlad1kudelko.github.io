@@ -1,7 +1,7 @@
 ---
 title: "Fiber: Быстрый Веб-Фреймворк для Go, Вдохновленный Express"
 description: "Fiber — это веб-фреймворк, созданный с целью облегчить разработку приложений на Go, отличающийся высокой производительностью и минимальным использованием памяти."
-heroImage: "/imgs/2025/09/24-gofiber-fiber.webp"
+heroImage: "../../../../assets/imgs/2025/09/24-gofiber-fiber.webp"
 pubDate: "2025-09-24"
 github: "https://github.com/gofiber/fiber"
 ---

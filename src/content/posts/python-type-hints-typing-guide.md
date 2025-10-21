@@ -1,7 +1,7 @@
 ---
 title: "Python Type Hints: типизация кода"
 description: "Подробное руководство по использованию Type Hints в Python: основы типизации, аннотации типов, mypy, лучшие практики и примеры."
-heroImage: "/imgs/2025/07/python-type-hints-typing-guide.webp"
+heroImage: "../../assets/imgs/2025/07/python-type-hints-typing-guide.webp"
 pubDate: "2025-07-17"
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "FastAPI + JWT: аутентификация"
 description: "Руководство по реализации аутентификации с использованием JWT токенов в FastAPI: настройка, примеры кода, безопасность."
-heroImage: "/imgs/2025/07/fastapi-jwt-authentication.webp"
+heroImage: "../../assets/imgs/2025/07/fastapi-jwt-authentication.webp"
 pubDate: "2025-07-08"
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "FastAPI + Pydantic: валидация данных"
 description: "Практическое руководство по валидации данных в FastAPI с помощью Pydantic: основы, примеры, типичные ошибки и лучшие практики."
-heroImage: "/imgs/2025/07/fastapi-pydantic-validation.webp"
+heroImage: "../../assets/imgs/2025/07/fastapi-pydantic-validation.webp"
 pubDate: "2025-07-07"
 ---
 

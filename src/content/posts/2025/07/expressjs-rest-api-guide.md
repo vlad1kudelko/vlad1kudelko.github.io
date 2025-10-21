@@ -1,7 +1,7 @@
 ---
 title: "Express.js: создание REST API"
 description: "Пошаговое руководство по созданию REST API с помощью Express.js: установка, роутинг, обработка запросов, ошибки и лучшие практики."
-heroImage: "/imgs/2025/07/expressjs-rest-api-guide.webp"
+heroImage: "../../../../assets/imgs/2025/07/expressjs-rest-api-guide.webp"
 pubDate: "2025-07-23"
 ---
 

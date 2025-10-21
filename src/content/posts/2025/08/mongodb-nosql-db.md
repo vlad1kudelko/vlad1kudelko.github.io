@@ -1,7 +1,7 @@
 ---
 title: "MongoDB: NoSQL БД"
 description: "Обзор MongoDB как NoSQL базы данных, основные концепции, преимущества и примеры использования."
-heroImage: "/imgs/2025/08/mongodb-nosql-db.webp"
+heroImage: "../../../../assets/imgs/2025/08/mongodb-nosql-db.webp"
 pubDate: "2025-08-30"
 ---
 

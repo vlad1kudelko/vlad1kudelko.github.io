@@ -1,7 +1,7 @@
 ---
 title: "Python Testing: Покрытие кода и метрики качества"
 description: "Подробное руководство по измерению покрытия кода в Python: coverage.py, pytest-cov, интерпретация результатов, интеграция с CI/CD и метрики качества тестов."
-heroImage: "/imgs/2025/07/python-testing-coverage-metrics.webp"
+heroImage: "../../../../assets/imgs/2025/07/python-testing-coverage-metrics.webp"
 pubDate: "2025-07-21"
 ---
 

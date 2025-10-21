@@ -1,7 +1,7 @@
 ---
 title: "n8n + Docker Compose: настройка и развертывание"
 description: "Полное руководство по настройке и развертыванию n8n workflow automation платформы с использованием Docker Compose: от базовой установки до продакшен конфигурации."
-heroImage: "/imgs/2025/08/n8n-docker-compose-deployment.webp"
+heroImage: "../../../../assets/imgs/2025/08/n8n-docker-compose-deployment.webp"
 pubDate: "2025-08-14"
 ---
 

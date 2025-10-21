@@ -1,7 +1,7 @@
 ---
 title: "Express.js + JWT: аутентификация"
 description: "Полное руководство по реализации JWT аутентификации в Express.js: настройка, middleware, защищенные маршруты, обновление токенов и безопасность."
-heroImage: "/imgs/2025/07/expressjs-jwt-authentication.webp"
+heroImage: "../../../../assets/imgs/2025/07/expressjs-jwt-authentication.webp"
 pubDate: "2025-07-25"
 ---
 

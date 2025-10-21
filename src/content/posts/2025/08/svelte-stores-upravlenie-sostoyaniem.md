@@ -1,7 +1,7 @@
 ---
 title: "Svelte Stores: управление состоянием"
 description: "Понимание и практики работы со сторами в Svelte и SvelteKit: writable/readable/derived, реактивный синтаксис, кастомные стора, персистентность, SSR‑нюансы и лучшие паттерны. Больше пояснений, меньше кода."
-heroImage: "/imgs/2025/08/svelte-stores-upravlenie-sostoyaniem.webp"
+heroImage: "../../../../assets/imgs/2025/08/svelte-stores-upravlenie-sostoyaniem.webp"
 pubDate: "2025-08-17"
 ---
 

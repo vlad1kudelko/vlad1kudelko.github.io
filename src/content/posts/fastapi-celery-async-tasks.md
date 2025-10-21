@@ -1,7 +1,7 @@
 ---
 title: "FastAPI + Celery: асинхронные задачи"
 description: "Подробное руководство по интеграции FastAPI с Celery: настройка брокера сообщений, создание задач, мониторинг и лучшие практики для обработки фоновых задач."
-heroImage: "/imgs/2025/07/fastapi-celery-async-tasks.webp"
+heroImage: "../../assets/imgs/2025/07/fastapi-celery-async-tasks.webp"
 pubDate: "2025-07-09"
 ---
 

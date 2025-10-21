@@ -1,7 +1,7 @@
 ---
 title: "Meshery: самостоятельная платформа для управления облачной инфраструктурой Kubernetes"
 description: "Meshery - это открытая платформа, которая предоставляет инструменты для проектирования и управления многими кластерами Kubernetes, обеспечивая интеграцию с более чем 300 облачными решениями."
-heroImage: "/imgs/2025/10/04-meshery-meshery.webp"
+heroImage: "../../../../assets/imgs/2025/10/04-meshery-meshery.webp"
 pubDate: "2025-10-04"
 github: "https://github.com/meshery/meshery"
 ---

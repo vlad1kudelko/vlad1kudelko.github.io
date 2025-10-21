@@ -1,7 +1,7 @@
 ---
 title: "WebGoat: Уязвимое Веб-Приложение для Обучения Безопасности"
 description: "WebGoat — это преднамеренно уязвимое веб-приложение от OWASP, разработанное для обучения вопросам безопасности веб-приложений и методам тестирования на проникновение."
-heroImage: "/imgs/2025/09/20-WebGoat-WebGoat.webp"
+heroImage: "../../../../assets/imgs/2025/09/20-WebGoat-WebGoat.webp"
 pubDate: "2025-09-20"
 github: "https://github.com/WebGoat/WebGoat"
 ---

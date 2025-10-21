@@ -1,7 +1,7 @@
 ---
 title: "OpenEMR: бесплатная система электронных медицинских записей с открытым исходным кодом"
 description: "OpenEMR — это система для управления медицинскими записями, поддерживающее множество платформ, международную локализацию и активное сообщество разработчиков и врачей."
-heroImage: "/imgs/2025/10/09-openemr-openemr.webp"
+heroImage: "../../../../assets/imgs/2025/10/09-openemr-openemr.webp"
 pubDate: "2025-10-09"
 github: "https://github.com/openemr/openemr"
 ---

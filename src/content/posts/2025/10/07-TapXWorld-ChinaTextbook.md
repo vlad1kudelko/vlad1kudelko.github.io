@@ -1,7 +1,7 @@
 ---
 title: "Открытые учебники по математике: доступное образование для всех"
 description: "Проект предоставляет бесплатные учебники по математике для разных уровней обучения, объединяя ресурсы для борьбы с образовательным неравенством и помогая китайским семьям по всему миру."
-heroImage: "/imgs/2025/10/07-TapXWorld-ChinaTextbook.webp"
+heroImage: "../../../../assets/imgs/2025/10/07-TapXWorld-ChinaTextbook.webp"
 pubDate: "2025-10-07"
 github: "https://github.com/TapXWorld/ChinaTextbook"
 ---

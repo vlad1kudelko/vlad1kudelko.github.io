@@ -1,7 +1,7 @@
 ---
 title: "FastAPI + Docker: контейнеризация"
 description: "Подробное руководство по контейнеризации FastAPI приложений с Docker: создание Dockerfile, docker-compose, оптимизация образов и развертывание в продакшене."
-heroImage: "/imgs/2025/07/fastapi-docker-containerization.webp"
+heroImage: "../../assets/imgs/2025/07/fastapi-docker-containerization.webp"
 pubDate: "2025-07-10"
 ---
 

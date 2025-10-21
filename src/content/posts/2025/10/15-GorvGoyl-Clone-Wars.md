@@ -1,7 +1,7 @@
 ---
 title: "Clone Wars: более 100 открытых реплик популярных сайтов и приложений"
 description: "Обширный набор бесплатных клонов и альтернатив известных сервисов, включая Airbnb, Instagram, Netflix, Spotify и других, с подробными туториалами, демо и описанием."
-heroImage: "/imgs/2025/10/15-GorvGoyl-Clone-Wars.webp"
+heroImage: "../../../../assets/imgs/2025/10/15-GorvGoyl-Clone-Wars.webp"
 pubDate: "2025-10-15"
 github: "https://github.com/GorvGoyl/Clone-Wars"
 ---

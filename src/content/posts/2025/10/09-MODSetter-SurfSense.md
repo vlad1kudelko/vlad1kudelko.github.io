@@ -1,7 +1,7 @@
 ---
 title: "SurfSense: настраиваемый ИИ-агент для исследований с интеграцией личной базы знаний"
 description: "SurfSense — это гибкий ИИ-агент для исследований, объединяющий личную базу знаний с внешними сервисами и поддерживающий поиск, чат, цитирование и создание подкастов."
-heroImage: "/imgs/2025/10/09-MODSetter-SurfSense.webp"
+heroImage: "../../../../assets/imgs/2025/10/09-MODSetter-SurfSense.webp"
 pubDate: "2025-10-09"
 github: "https://github.com/MODSetter/SurfSense"
 ---

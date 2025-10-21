@@ -1,7 +1,7 @@
 ---
 title: "Daytona: безопасная и быстрая инфраструктура для выполнения AI-кода"
 description: "Проект Daytona предоставляет защищённую и масштабируемую среду для запуска AI-сгенерированного кода с высокой скоростью и изоляцией."
-heroImage: "/imgs/2025/10/13-daytonaio-daytona.webp"
+heroImage: "../../../../assets/imgs/2025/10/13-daytonaio-daytona.webp"
 pubDate: "2025-10-13"
 github: "https://github.com/daytonaio/daytona"
 ---

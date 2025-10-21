@@ -1,7 +1,7 @@
 ---
 title: "Flask + SQLAlchemy: ORM и миграции"
 description: "Практическое руководство по интеграции Flask с SQLAlchemy и управлению миграциями с помощью Flask-Migrate. Примеры кода, настройка, лучшие практики."
-heroImage: "/imgs/2025/07/flask-sqlalchemy-orm-migrations.webp"
+heroImage: "../../assets/imgs/2025/07/flask-sqlalchemy-orm-migrations.webp"
 pubDate: "2025-07-12"
 ---
 

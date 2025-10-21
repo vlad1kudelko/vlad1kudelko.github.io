@@ -1,7 +1,7 @@
 ---
 title: "Разработка сайта с использованием Django"
 description: "Подробное руководство по созданию веб-приложений на Django: обзор структуры проекта, работа с базами данных, модели и административный интерфейс."
-heroImage: "/imgs/2025/06/django-development-guide.webp"
+heroImage: "../../assets/imgs/2025/06/django-development-guide.webp"
 pubDate: "2025-06-26"
 ---
 

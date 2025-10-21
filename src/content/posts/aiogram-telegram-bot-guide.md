@@ -1,7 +1,7 @@
 ---
 title: "Создание первого Telegram-бота на aiogram"
 description: "Пошаговая инструкция по созданию Telegram-бота на Python с использованием библиотеки aiogram: примеры кода, настройка и расширение возможностей."
-heroImage: "/imgs/2025/06/aiogram-telegram-bot-guide.webp"
+heroImage: "../../assets/imgs/2025/06/aiogram-telegram-bot-guide.webp"
 pubDate: "2025-06-25"
 ---
 

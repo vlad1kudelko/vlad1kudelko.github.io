@@ -1,7 +1,7 @@
 ---
 title: "Svelte + TypeScript: практическое руководство"
 description: "Как добавить и эффективно использовать TypeScript в Svelte и SvelteKit: настройка, типизация пропсов, событий, сторах, загрузчиков и действий, лучшие практики."
-heroImage: "/imgs/2025/08/svelte-typescript-guide.webp"
+heroImage: "../../../../assets/imgs/2025/08/svelte-typescript-guide.webp"
 pubDate: "2025-08-16"
 ---
 

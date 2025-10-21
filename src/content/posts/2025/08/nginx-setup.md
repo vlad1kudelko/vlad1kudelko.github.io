@@ -1,7 +1,7 @@
 ---
 title: "Nginx: настройка веб-сервера"
 description: "Пошаговое руководство по настройке Nginx как веб-сервера и обратного прокси для приложений."
-heroImage: "/imgs/2025/08/nginx-setup.webp"
+heroImage: "../../../../assets/imgs/2025/08/nginx-setup.webp"
 pubDate: "2025-08-27"
 ---
 

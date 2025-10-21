@@ -1,7 +1,7 @@
 ---
 title: "React + TypeScript: типизация компонентов"
 description: "Подробное руководство по типизации React компонентов с TypeScript: интерфейсы пропсов, типизация событий, хуки, дженерики и лучшие практики."
-heroImage: "/imgs/2025/08/react-typescript-component-typing.webp"
+heroImage: "../../../../assets/imgs/2025/08/react-typescript-component-typing.webp"
 pubDate: "2025-08-06"
 ---
 

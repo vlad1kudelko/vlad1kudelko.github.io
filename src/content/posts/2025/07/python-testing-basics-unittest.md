@@ -1,7 +1,7 @@
 ---
 title: "Python Testing: Основы тестирования и unittest"
 description: "Подробное руководство по основам тестирования в Python: зачем нужно тестирование, типы тестов, встроенный unittest и лучшие практики."
-heroImage: "/imgs/2025/07/python-testing-basics-unittest.webp"
+heroImage: "../../../../assets/imgs/2025/07/python-testing-basics-unittest.webp"
 pubDate: "2025-07-18"
 ---
 

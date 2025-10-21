@@ -1,7 +1,7 @@
 ---
 title: "PostgreSQL: реляционная БД"
 description: "Полное руководство по PostgreSQL – популярной реляционной базе данных с открытым исходным кодом. В статье рассматриваются основные возможности, установка, базовые SQL‑операции, индексы, транзакции и лучшие практики."
-heroImage: "/imgs/2025/08/postgresql-relational-db.webp"
+heroImage: "../../../../assets/imgs/2025/08/postgresql-relational-db.webp"
 pubDate: "2025-08-29"
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "GitHub Actions: CI/CD"
 description: "Полное руководство по настройке CI/CD пайплайнов с использованием GitHub Actions, включая примеры, лучшие практики и расширенные возможности."
-heroImage: "/imgs/2025/08/github-actions-ci-cd.webp"
+heroImage: "../../../../assets/imgs/2025/08/github-actions-ci-cd.webp"
 pubDate: "2025-08-26"
 ---
 

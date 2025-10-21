@@ -1,7 +1,7 @@
 ---
 title: "WinBoat: запуск Windows-приложений на Linux с нативной интеграцией"
 description: "Проект WinBoat позволяет запускать любые приложения Windows в Linux с помощью контейнеризации, обеспечивая удобный интерфейс и глубокую интеграцию в рабочую среду Linux."
-heroImage: "/imgs/2025/10/10-TibixDev-winboat.webp"
+heroImage: "../../../../assets/imgs/2025/10/10-TibixDev-winboat.webp"
 pubDate: "2025-10-10"
 github: "https://github.com/TibixDev/winboat"
 ---

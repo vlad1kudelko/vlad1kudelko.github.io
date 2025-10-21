@@ -1,7 +1,7 @@
 ---
 title: "Обзор продукта: как Passwork 7 решает сложные задачи корпоративной безопасности"
 description: "Подробный разбор возможностей Passwork 7 для обеспечения комплексной безопасности на уровне предприятий"
-heroImage: "/imgs/2025/06/30-product-walkthrough-passwork-7-enterprise-security.webp"
+heroImage: "../../../../assets/imgs/2025/06/30-product-walkthrough-passwork-7-enterprise-security.webp"
 pubDate: "2025-06-30"
 ---
 

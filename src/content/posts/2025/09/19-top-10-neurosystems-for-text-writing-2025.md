@@ -1,7 +1,7 @@
 ---
 title: "Топ-10 нейросетей для создания текстов в 2025 году"
 description: "Обзор лучших нейросетевых технологий для генерации текста, их возможностей и применения в различных областях."
-heroImage: "/imgs/2025/09/19-top-10-neurosystems-for-text-writing-2025.webp"
+heroImage: "../../../../assets/imgs/2025/09/19-top-10-neurosystems-for-text-writing-2025.webp"
 pubDate: "2025-09-19"
 ---
 

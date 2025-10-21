@@ -1,7 +1,7 @@
 ---
 title: "Node Version Manager (nvm): удобное управление версиями Node.js"
 description: "Проект nvm позволяет быстро устанавливать и переключаться между разными версиями Node.js, облегчая разработку и тестирование приложений с разными версиями среды."
-heroImage: "/imgs/2025/10/14-nvm-sh-nvm.webp"
+heroImage: "../../../../assets/imgs/2025/10/14-nvm-sh-nvm.webp"
 pubDate: "2025-10-14"
 github: "https://github.com/nvm-sh/nvm"
 ---

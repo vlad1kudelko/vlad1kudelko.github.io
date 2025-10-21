@@ -1,7 +1,7 @@
 ---
 title: "Glide Browser: расширяемый веб-браузер с управлением с клавиатуры на основе Firefox"
 description: "Glide Browser — это веб-браузер с поддержкой клавиатурного управления, расширяемым API и настройками на TypeScript, построенный на движке Firefox."
-heroImage: "/imgs/2025/10/06-glide-browser-glide.webp"
+heroImage: "../../../../assets/imgs/2025/10/06-glide-browser-glide.webp"
 pubDate: "2025-10-06"
 github: "https://github.com/glide-browser/glide"
 ---
