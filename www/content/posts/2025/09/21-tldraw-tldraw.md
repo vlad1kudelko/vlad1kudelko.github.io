@@ -3,7 +3,7 @@ lang = "ru"
 title = "tldraw: Библиотека для Создания Бесконечных Канвасов в React"
 description = "tldraw — это мощная библиотека для создания цифровых белых досок и бесконечных холстов, которая позволяет легко интегрировать интерактивные элементы в ваши React-приложения."
 template = "posts"
-thumb = "/imgs/2025/09/21-tldraw-tldraw.png"
+thumb = "/imgs/2025/09/21-tldraw-tldraw.webp"
 publication_date = "2025-09-21"
 github = "https://github.com/tldraw/tldraw"
 +++

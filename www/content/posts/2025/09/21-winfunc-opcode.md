@@ -3,7 +3,7 @@ lang = "ru"
 title = "opcode: Удобный GUI инструмент для работы с Claude Code"
 description = "Мощное приложение с графическим интерфейсом для управления сеансами Claude Code, создания кастомных агентов и аналитики использования."
 template = "posts"
-thumb = "/imgs/2025/09/21-winfunc-opcode.png"
+thumb = "/imgs/2025/09/21-winfunc-opcode.webp"
 publication_date = "2025-09-21"
 github = "https://github.com/winfunc/opcode"
 +++
