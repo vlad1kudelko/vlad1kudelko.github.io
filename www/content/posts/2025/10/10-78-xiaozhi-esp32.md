@@ -3,7 +3,7 @@ lang = "ru"
 title = "XiaoZhi-esp32: голосовой чатбот на базе MCP с поддержкой больших моделей ИИ"
 description = "Проект представляет собой голосового чатбота с мультиязычным интерфейсом, использующего MCP-протокол для управления устройствами на базе ESP32."
 template = "posts"
-thumb = "/imgs/2025/10/10-78-xiaozhi-esp32.png"
+thumb = "/imgs/2025/10/10-78-xiaozhi-esp32.webp"
 publication_date = "2025-10-10"
 github = "https://github.com/78/xiaozhi-esp32"
 +++
