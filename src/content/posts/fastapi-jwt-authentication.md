@@ -1053,8 +1053,8 @@ curl -X GET "http://localhost:8000/protected" \
 
 FastAPI автоматически генерирует интерактивную документацию:
 
-- **Swagger UI**: http://localhost:8000/docs
-- **ReDoc**: http://localhost:8000/redoc
+- **Swagger UI**: `http://localhost:8000/docs`
+- **ReDoc**: `http://localhost:8000/redoc`
 
 Эти интерфейсы позволяют тестировать API прямо в браузере, что очень удобно для разработки и демонстрации.
 
