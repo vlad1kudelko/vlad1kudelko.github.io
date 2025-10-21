@@ -3,7 +3,7 @@ lang = "ru"
 title = "Pathway: Python ETL фреймворк для потоковой обработки данных"
 description = "Pathway – мощный фреймворк на Python для потоковой обработки, анализа в реальном времени и построения LLM-пайплайнов, предлагающий легкий в использовании API и возможность интеграции с популярными ML библиотеками."
 template = "posts"
-thumb = "/imgs/2025/10/03-pathwaycom-pathway.png"
+thumb = "/imgs/2025/10/03-pathwaycom-pathway.webp"
 publication_date = "2025-10-03"
 github = "https://github.com/pathwaycom/pathway"
 +++
