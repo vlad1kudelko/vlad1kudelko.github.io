@@ -3,7 +3,7 @@ lang = "ru"
 title = "MoneyPrinterTurbo: Автоматизированный генератор видео для создания контента"
 description = "MoneyPrinterTurbo позволяет создавать короткие видео с текстом, субтитрами и музыкой на основе просто указанных тем или ключевых слов, всё автоматизировано."
 template = "posts"
-thumb = "/imgs/2025/09/28-harry0703-MoneyPrinterTurbo.png"
+thumb = "/imgs/2025/09/28-harry0703-MoneyPrinterTurbo.webp"
 publication_date = "2025-09-28"
 github = "https://github.com/harry0703/MoneyPrinterTurbo"
 +++
