@@ -1,7 +1,7 @@
 ---
 title: "Flowise: визуальное создание AI-агентов с открытым исходным кодом"
 description: "Flowise — это платформа с открытым исходным кодом для визуального создания и развертывания AI-агентов с поддержкой различных облачных и локальных инфраструктур."
-heroImage: "/imgs/2025/10/08-FlowiseAI-Flowise.webp"
+heroImage: "../../../../assets/imgs/2025/10/08-FlowiseAI-Flowise.webp"
 pubDate: "2025-10-08"
 github: "https://github.com/FlowiseAI/Flowise"
 ---

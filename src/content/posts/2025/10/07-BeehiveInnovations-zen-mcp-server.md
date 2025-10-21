@@ -1,7 +1,7 @@
 ---
 title: "Zen MCP: мульти-модельный сервер контекстного протокола для ИИ-инструментов"
 description: "Zen MCP объединяет множество ИИ-моделей и CLI-инструментов в единую команду для комплексного анализа кода, систематической отладки и совместной разработки."
-heroImage: "/imgs/2025/10/07-BeehiveInnovations-zen-mcp-server.webp"
+heroImage: "../../../../assets/imgs/2025/10/07-BeehiveInnovations-zen-mcp-server.webp"
 pubDate: "2025-10-07"
 github: "https://github.com/BeehiveInnovations/zen-mcp-server"
 ---

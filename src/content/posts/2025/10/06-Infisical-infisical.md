@@ -1,7 +1,7 @@
 ---
 title: "Infisical: открытая платформа для управления секретами и внутренним PKI"
 description: "Infisical — это открытая платформа для централизованного управления конфигурациями и секретами приложений."
-heroImage: "/imgs/2025/10/06-Infisical-infisical.webp"
+heroImage: "../../../../assets/imgs/2025/10/06-Infisical-infisical.webp"
 pubDate: "2025-10-06"
 github: "https://github.com/Infisical/infisical"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "Express.js + Socket.io: real-time приложения"
 description: "Полное руководство по созданию real-time приложений с Express.js и Socket.io: чаты, уведомления, live-обновления и интерактивные функции."
-heroImage: "/imgs/2025/07/expressjs-socketio-realtime-applications.webp"
+heroImage: "../../../../assets/imgs/2025/07/expressjs-socketio-realtime-applications.webp"
 pubDate: "2025-07-26"
 ---
 

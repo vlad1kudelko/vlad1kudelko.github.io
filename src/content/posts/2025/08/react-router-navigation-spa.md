@@ -1,7 +1,7 @@
 ---
 title: "React Router: навигация в SPA"
 description: "Подробное руководство по React Router: настройка маршрутизации, защищенные маршруты, динамические параметры, вложенные маршруты и лучшие практики для SPA приложений."
-heroImage: "/imgs/2025/08/react-router-navigation-spa.webp"
+heroImage: "../../../../assets/imgs/2025/08/react-router-navigation-spa.webp"
 pubDate: "2025-08-04"
 ---
 

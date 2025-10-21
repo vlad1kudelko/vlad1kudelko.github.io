@@ -1,7 +1,7 @@
 ---
 title: "NestJS + TypeORM: работа с базой данных"
 description: "Подробное руководство по интеграции NestJS с TypeORM: настройка подключения к БД, создание сущностей, репозитории, миграции и лучшие практики."
-heroImage: "/imgs/2025/07/nestjs-typeorm-database-guide.webp"
+heroImage: "../../../../assets/imgs/2025/07/nestjs-typeorm-database-guide.webp"
 pubDate: "2025-07-29"
 ---
 

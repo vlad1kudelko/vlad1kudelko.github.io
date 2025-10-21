@@ -1,7 +1,7 @@
 ---
 title: "opcode: Удобный GUI инструмент для работы с Claude Code"
 description: "Мощное приложение с графическим интерфейсом для управления сеансами Claude Code, создания кастомных агентов и аналитики использования."
-heroImage: "/imgs/2025/09/21-winfunc-opcode.webp"
+heroImage: "../../../../assets/imgs/2025/09/21-winfunc-opcode.webp"
 pubDate: "2025-09-21"
 github: "https://github.com/winfunc/opcode"
 ---

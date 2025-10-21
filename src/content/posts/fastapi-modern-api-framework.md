@@ -1,7 +1,7 @@
 ---
 title: "FastAPI: современный фреймворк для API"
 description: "Обзор возможностей FastAPI, его преимуществ, примеры кода и сравнение с другими фреймворками для создания современных API на Python."
-heroImage: "/imgs/2025/07/fastapi-modern-api-framework.webp"
+heroImage: "../../assets/imgs/2025/07/fastapi-modern-api-framework.webp"
 pubDate: "2025-07-03"
 ---
 

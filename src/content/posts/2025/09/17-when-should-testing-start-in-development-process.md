@@ -1,7 +1,7 @@
 ---
 title: "Когда начинать тестирование в процессе разработки? Полное руководство"
 description: "Руководство по оптимальному времени начала тестирования в процессе разработки программного обеспечения."
-heroImage: "/imgs/2025/09/17-when-should-testing-start-in-development-process.webp"
+heroImage: "../../../../assets/imgs/2025/09/17-when-should-testing-start-in-development-process.webp"
 pubDate: "2025-09-17"
 ---
 

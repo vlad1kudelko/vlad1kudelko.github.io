@@ -1,7 +1,7 @@
 ---
 title: "Оптимизация запросов в PostgreSQL: Индексы, EXPLAIN ANALYZE и партиционирование"
 description: "В этой статье мы рассмотрим три основных направления оптимизации: создание эффективных индексов, анализ планов выполнения с помощью EXPLAIN ANALYZE и использование партиционирования."
-heroImage: "/imgs/2025/09/06-postgresql-explain-analyze.webp"
+heroImage: "../../../../assets/imgs/2025/09/06-postgresql-explain-analyze.webp"
 pubDate: "2025-09-06"
 ---
 

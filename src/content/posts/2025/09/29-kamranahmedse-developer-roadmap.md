@@ -1,7 +1,7 @@
 ---
 title: "Developer Roadmap: Путеводитель для Разработчиков"
 description: "Сообщество разработчиков создало интерактивные дорожные карты, статьи и ресурсы для навигации по карьерным путям в сфере технологий."
-heroImage: "/imgs/2025/09/29-kamranahmedse-developer-roadmap.webp"
+heroImage: "../../../../assets/imgs/2025/09/29-kamranahmedse-developer-roadmap.webp"
 pubDate: "2025-09-29"
 github: "https://github.com/kamranahmedse/developer-roadmap"
 ---

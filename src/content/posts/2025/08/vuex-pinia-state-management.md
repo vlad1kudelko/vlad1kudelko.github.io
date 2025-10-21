@@ -1,7 +1,7 @@
 ---
 title: "Vuex/Pinia: управление состоянием"
 description: "Подробное руководство по управлению состоянием в Vue.js: Vuex 4, Pinia, архитектура store, модули, действия и лучшие практики."
-heroImage: "/imgs/2025/08/vuex-pinia-state-management.webp"
+heroImage: "../../../../assets/imgs/2025/08/vuex-pinia-state-management.webp"
 pubDate: "2025-08-10"
 ---
 

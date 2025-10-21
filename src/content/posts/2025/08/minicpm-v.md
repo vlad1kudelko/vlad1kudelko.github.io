@@ -1,7 +1,7 @@
 ---
 title: "MiniCPM-V: LLM для Мобильных Устройств"
 description: "Мультимодальный ИИ, способный перенести возможности GPT-4o прямо на ваши мобильные устройства."
-heroImage: "/imgs/2025/08/minicpm-v.webp"
+heroImage: "../../../../assets/imgs/2025/08/minicpm-v.webp"
 pubDate: "2025-08-31"
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "React Native + TypeScript: Полное руководство по типизации"
 description: "Подробное руководство по использованию TypeScript в React Native разработке: типизация компонентов, навигация, хуки, контекст и лучшие практики."
-heroImage: "/imgs/2025/08/react-native-typescript-guide.webp"
+heroImage: "../../../../assets/imgs/2025/08/react-native-typescript-guide.webp"
 pubDate: "2025-08-23"
 ---
 

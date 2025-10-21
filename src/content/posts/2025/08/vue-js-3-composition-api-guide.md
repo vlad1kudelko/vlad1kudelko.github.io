@@ -1,7 +1,7 @@
 ---
 title: "Vue.js 3: Composition API"
 description: "Подробное руководство по Composition API в Vue.js 3: основы, хуки, композиция логики, лучшие практики и примеры использования."
-heroImage: "/imgs/2025/08/vue-js-3-composition-api-guide.webp"
+heroImage: "../../../../assets/imgs/2025/08/vue-js-3-composition-api-guide.webp"
 pubDate: "2025-08-08"
 ---
 

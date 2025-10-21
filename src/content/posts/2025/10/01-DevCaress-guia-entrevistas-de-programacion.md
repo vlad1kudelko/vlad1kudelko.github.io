@@ -1,7 +1,7 @@
 ---
 title: "Guía для прохождения технических интервью для инженеров-программистов"
 description: "Полное руководство по подготовке к техническим интервью с упором на лучшие практики, алгоритмы и архитектуру программного обеспечения."
-heroImage: "/imgs/2025/10/01-DevCaress-guia-entrevistas-de-programacion.webp"
+heroImage: "../../../../assets/imgs/2025/10/01-DevCaress-guia-entrevistas-de-programacion.webp"
 pubDate: "2025-10-01"
 github: "https://github.com/DevCaress/guia-entrevistas-de-programacion"
 ---

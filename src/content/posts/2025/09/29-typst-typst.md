@@ -1,7 +1,7 @@
 ---
 title: "Typst: Новая Маркерная Система Верстки"
 description: "Typst — это новая система верстки на основе разметки, которая обладает мощностью LaTeX, но ею легко овладеть."
-heroImage: "/imgs/2025/09/29-typst-typst.webp"
+heroImage: "../../../../assets/imgs/2025/09/29-typst-typst.webp"
 pubDate: "2025-09-29"
 github: "https://github.com/typst/typst"
 ---

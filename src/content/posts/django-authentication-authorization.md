@@ -1,7 +1,7 @@
 ---
 title: "Django: Аутентификация и авторизация"
 description: "Руководство по аутентификации и авторизации пользователей в Django: базовые механизмы, настройка, примеры кода."
-heroImage: "/imgs/2025/07/django-authentication-authorization.webp"
+heroImage: "../../assets/imgs/2025/07/django-authentication-authorization.webp"
 pubDate: "2025-07-05"
 ---
 

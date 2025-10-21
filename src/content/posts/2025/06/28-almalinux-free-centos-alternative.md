@@ -1,7 +1,7 @@
 ---
 title: "AlmaLinux: надежная бесплатная альтернатива CentOS для серверов"
 description: "Обзор AlmaLinux — стабильной и бесплатной операционной системы на базе RHEL для замены CentOS в корпоративной среде."
-heroImage: "/imgs/2025/06/28-almalinux-free-centos-alternative.webp"
+heroImage: "../../../../assets/imgs/2025/06/28-almalinux-free-centos-alternative.webp"
 pubDate: "2025-06-28"
 ---
 

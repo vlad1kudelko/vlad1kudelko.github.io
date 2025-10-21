@@ -1,7 +1,7 @@
 ---
 title: "NestJS + Swagger: документация API"
 description: "Подробное руководство по интеграции Swagger/OpenAPI с NestJS: автоматическая генерация документации API, декораторы, схемы, аутентификация и лучшие практики."
-heroImage: "/imgs/2025/07/nestjs-swagger-api-documentation.webp"
+heroImage: "../../../../assets/imgs/2025/07/nestjs-swagger-api-documentation.webp"
 pubDate: "2025-07-31"
 ---
 

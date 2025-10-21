@@ -1,7 +1,7 @@
 ---
 title: "yt-dlp: Многофункциональный Загрузчик Мультимедиа для Командной Строки"
 description: "yt-dlp — мощный загрузчик аудио и видео с поддержкой тысяч сайтов и множества опций для настройки."
-heroImage: "/imgs/2025/09/26-yt-dlp-yt-dlp.webp"
+heroImage: "../../../../assets/imgs/2025/09/26-yt-dlp-yt-dlp.webp"
 pubDate: "2025-09-26"
 github: "https://github.com/yt-dlp/yt-dlp"
 ---

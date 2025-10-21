@@ -1,7 +1,7 @@
 ---
 title: "Flask + Redis: кэширование"
 description: "Практическое руководство по кэшированию во Flask с использованием Redis. Примеры кода, настройка и лучшие практики."
-heroImage: "/imgs/2025/07/flask-redis-caching.webp"
+heroImage: "../../assets/imgs/2025/07/flask-redis-caching.webp"
 pubDate: "2025-07-16"
 ---
 

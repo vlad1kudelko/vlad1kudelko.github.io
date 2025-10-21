@@ -1,7 +1,7 @@
 ---
 title: "NestJS: архитектурный фреймворк"
 description: "Подробное руководство по NestJS: архитектура, модули, контроллеры, сервисы, декораторы и создание масштабируемых приложений на Node.js."
-heroImage: "/imgs/2025/07/nestjs-architectural-framework.webp"
+heroImage: "../../../../assets/imgs/2025/07/nestjs-architectural-framework.webp"
 pubDate: "2025-07-28"
 ---
 

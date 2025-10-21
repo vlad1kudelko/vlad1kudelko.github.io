@@ -1,7 +1,7 @@
 ---
 title: "Archon: платформа для управления знаниями и задачами с интеграцией ИИ"
 description: "Archon – это микросервисный MCP-сервер для создания, управления и совместного использования базы знаний, контекста и задач проектов с помощью ИИ-помощников."
-heroImage: "/imgs/2025/10/14-coleam00-Archon.webp"
+heroImage: "../../../../assets/imgs/2025/10/14-coleam00-Archon.webp"
 pubDate: "2025-10-14"
 github: "https://github.com/coleam00/Archon"
 ---

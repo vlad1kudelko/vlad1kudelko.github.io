@@ -1,7 +1,7 @@
 ---
 title: "Flask: легковесный веб-фреймворк"
 description: "Обзор Flask — минималистичного Python-фреймворка для веб-разработки. Преимущества, примеры кода, сравнение с FastAPI и Django."
-heroImage: "/imgs/2025/07/flask-lightweight-web-framework.webp"
+heroImage: "../../assets/imgs/2025/07/flask-lightweight-web-framework.webp"
 pubDate: "2025-07-11"
 ---
 

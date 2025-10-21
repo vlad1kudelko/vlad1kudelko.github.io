@@ -1,7 +1,7 @@
 ---
 title: "Интерактивный курс по промпт-инжинирингу от Anthropic"
 description: "Подробное обучение созданию и оптимизации запросов для ИИ-модели Claude с пошаговыми уроками и практическими заданиями."
-heroImage: "/imgs/2025/10/13-anthropics-prompt-eng-interactive-tutorial.webp"
+heroImage: "../../../../assets/imgs/2025/10/13-anthropics-prompt-eng-interactive-tutorial.webp"
 pubDate: "2025-10-13"
 github: "https://github.com/anthropics/prompt-eng-interactive-tutorial"
 ---

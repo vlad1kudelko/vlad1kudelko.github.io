@@ -1,7 +1,7 @@
 ---
 title: "Hugo PaperMod: Уникальная Тематическая Настройка для Hugo"
 description: "Проект Hugo PaperMod представляет собой улучшение оригинальной темы hugo-paper с дополнительными функциями и возможностями настройки, обеспечивая высокую скорость и адаптивность для пользователей."
-heroImage: "/imgs/2025/09/30-adityatelange-hugo-PaperMod.webp"
+heroImage: "../../../../assets/imgs/2025/09/30-adityatelange-hugo-PaperMod.webp"
 pubDate: "2025-09-30"
 github: "https://github.com/adityatelange/hugo-PaperMod"
 ---

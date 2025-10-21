@@ -1,7 +1,7 @@
 ---
 title: "React Native Navigation: навигация"
 description: "Практическое руководство по React Navigation: стек, табы, drawer, типобезопасные параметры, модальные экраны, deep linking и лучшие практики."
-heroImage: "/imgs/2025/08/react-native-navigation-navigaciya.webp"
+heroImage: "../../../../assets/imgs/2025/08/react-native-navigation-navigaciya.webp"
 pubDate: "2025-08-20"
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "Tile Language: оптимизированный язык для разработки GPU/CPU ядер"
 description: "Tile Language (tile-lang) — это специализированный язык, упрощающий создание высокопроизводительных ядер для GPU и CPU, обеспечивая низкоуровневую оптимизацию и Python-подобный синтаксис для повышения продуктивности."
-heroImage: "/imgs/2025/10/02-tile-ai-tilelang.webp"
+heroImage: "../../../../assets/imgs/2025/10/02-tile-ai-tilelang.webp"
 pubDate: "2025-10-02"
 github: "https://github.com/tile-ai/tilelang"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "Gin: Высокопроизводительный HTTP веб-фреймворк на Go"
 description: "Gin — это высокопроизводительный HTTP веб-фреймворк, обеспечивающий быстрое развитие REST API и микроуслуг с минимальными затратами на ресурсы."
-heroImage: "/imgs/2025/09/24-gin-gonic-gin.webp"
+heroImage: "../../../../assets/imgs/2025/09/24-gin-gonic-gin.webp"
 pubDate: "2025-09-24"
 github: "https://github.com/gin-gonic/gin"
 ---

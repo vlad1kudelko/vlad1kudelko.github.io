@@ -1,7 +1,7 @@
 ---
 title: "Flask + Jinja2: шаблонизация"
 description: "Практическое руководство по использованию Jinja2 в Flask: шаблоны, переменные, наследование, макросы и лучшие практики. Примеры кода и советы."
-heroImage: "/imgs/2025/07/flask-jinja2-shablonizatsiya.webp"
+heroImage: "../../assets/imgs/2025/07/flask-jinja2-shablonizatsiya.webp"
 pubDate: "2025-07-15"
 ---
 

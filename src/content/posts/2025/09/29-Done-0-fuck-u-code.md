@@ -1,7 +1,7 @@
 ---
 title: "Fuck-U-Code: Инструмент для Анализа Качества Кода"
 description: "Уникальный инструмент, который с юмором и критикой помогает выявить слабые места в вашем коде, поддерживает множество языков и предоставляет детальные отчеты."
-heroImage: "/imgs/2025/09/29-Done-0-fuck-u-code.webp"
+heroImage: "../../../../assets/imgs/2025/09/29-Done-0-fuck-u-code.webp"
 pubDate: "2025-09-29"
 github: "https://github.com/Done-0/fuck-u-code"
 ---

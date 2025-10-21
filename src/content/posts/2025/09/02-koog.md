@@ -1,7 +1,7 @@
 ---
 title: "Koog: Ваш путь в мир AI-агентов на Kotlin"
 description: "Koog — это фреймворк на базе Kotlin, разработанный JetBrains для создания и запуска AI-агентов."
-heroImage: "/imgs/2025/09/02-koog.webp"
+heroImage: "../../../../assets/imgs/2025/09/02-koog.webp"
 pubDate: "2025-09-02"
 ---
 

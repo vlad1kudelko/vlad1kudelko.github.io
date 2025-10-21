@@ -1,7 +1,7 @@
 ---
 title: "React Hooks: useState, useEffect, useContext"
 description: "Подробное руководство по React Hooks: useState для управления состоянием, useEffect для побочных эффектов, useContext для контекста и лучшие практики использования."
-heroImage: "/imgs/2025/08/react-hooks-usestate-useeffect-usecontext.webp"
+heroImage: "../../../../assets/imgs/2025/08/react-hooks-usestate-useeffect-usecontext.webp"
 pubDate: "2025-08-03"
 ---
 

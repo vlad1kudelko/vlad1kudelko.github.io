@@ -1,7 +1,7 @@
 ---
 title: "Spring AI Alibaba: платформа для создания многозадачных агентных AI-приложений"
 description: "Spring AI Alibaba — фреймворк для быстрого построения чат-ботов, рабочих процессов и многокомпонентных AI-систем с инструментами визуального проектирования."
-heroImage: "/imgs/2025/10/15-alibaba-spring-ai-alibaba.webp"
+heroImage: "../../../../assets/imgs/2025/10/15-alibaba-spring-ai-alibaba.webp"
 pubDate: "2025-10-15"
 github: "https://github.com/alibaba/spring-ai-alibaba"
 ---

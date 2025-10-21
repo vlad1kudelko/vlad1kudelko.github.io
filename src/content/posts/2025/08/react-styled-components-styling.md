@@ -1,7 +1,7 @@
 ---
 title: "React + Styled Components: стилизация"
 description: "Подробное руководство по Styled Components в React: CSS-in-JS подход, создание компонентов, темизация, анимации и лучшие практики стилизации."
-heroImage: "/imgs/2025/08/react-styled-components-styling.webp"
+heroImage: "../../../../assets/imgs/2025/08/react-styled-components-styling.webp"
 pubDate: "2025-08-07"
 ---
 

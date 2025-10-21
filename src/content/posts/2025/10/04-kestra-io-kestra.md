@@ -1,7 +1,7 @@
 ---
 title: "Kestra: платформа для оркестрации рабочих процессов на основе событий"
 description: "Kestra — это открытая платформа для оркестрации, способная легко управлять как запланированными, так и событийными рабочими процессами с помощью простого интерфейса YAML."
-heroImage: "/imgs/2025/10/04-kestra-io-kestra.webp"
+heroImage: "../../../../assets/imgs/2025/10/04-kestra-io-kestra.webp"
 pubDate: "2025-10-04"
 github: "https://github.com/kestra-io/kestra"
 ---

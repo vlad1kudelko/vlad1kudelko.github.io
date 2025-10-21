@@ -1,7 +1,7 @@
 ---
 title: "React: основы компонентного подхода"
 description: "Подробное руководство по React: компоненты, JSX, состояние, пропсы, жизненный цикл и лучшие практики разработки."
-heroImage: "/imgs/2025/08/react-component-basics-guide.webp"
+heroImage: "../../../../assets/imgs/2025/08/react-component-basics-guide.webp"
 pubDate: "2025-08-02"
 ---
 

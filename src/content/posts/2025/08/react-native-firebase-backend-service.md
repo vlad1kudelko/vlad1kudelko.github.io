@@ -1,7 +1,7 @@
 ---
 title: "React Native + Firebase: Backend as a Service"
 description: "Полное руководство по интеграции Firebase с React Native: аутентификация, Cloud Firestore, Cloud Functions, хостинг и аналитика. Практические примеры использования BaaS для мобильной разработки."
-heroImage: "/imgs/2025/08/react-native-firebase-backend-service.webp"
+heroImage: "../../../../assets/imgs/2025/08/react-native-firebase-backend-service.webp"
 pubDate: "2025-08-22"
 ---
 

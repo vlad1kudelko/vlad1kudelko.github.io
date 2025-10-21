@@ -1,7 +1,7 @@
 ---
 title: "Svelte: революционный фреймворк"
 description: "Почему Svelte — это новый взгляд на фронтенд: реактивность без виртуального DOM, компиляция во время сборки, примеры и лучшие практики."
-heroImage: "/imgs/2025/08/svelte-revolyutsionnyy-freymvork.webp"
+heroImage: "../../../../assets/imgs/2025/08/svelte-revolyutsionnyy-freymvork.webp"
 pubDate: "2025-08-13"
 ---
 

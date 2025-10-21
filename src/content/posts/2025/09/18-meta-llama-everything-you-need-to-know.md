@@ -1,7 +1,7 @@
 ---
 title: "Meta Llama: все, что нужно знать об открытой генеративной модели ИИ"
 description: "Подробное руководство по Meta Llama — открытой модели искусственного интеллекта для генерации текста и других задач."
-heroImage: "/imgs/2025/09/18-meta-llama-everything-you-need-to-know.webp"
+heroImage: "../../../../assets/imgs/2025/09/18-meta-llama-everything-you-need-to-know.webp"
 pubDate: "2025-09-18"
 ---
 

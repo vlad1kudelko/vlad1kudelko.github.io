@@ -1,7 +1,7 @@
 ---
 title: "Python async/await: асинхронное программирование"
 description: "Подробное руководство по асинхронному программированию в Python с использованием async/await: теория, примеры, лучшие практики."
-heroImage: "/imgs/2025/07/python-async-await-async-programming.webp"
+heroImage: "../../assets/imgs/2025/07/python-async-await-async-programming.webp"
 pubDate: "2025-07-13"
 ---
 

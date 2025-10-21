@@ -1,7 +1,7 @@
 ---
 title: "Stremio: современный медиацентр для удобного просмотра видео"
 description: "Stremio — это универсальный медиаплеер, который позволяет легко находить, смотреть и организовывать видеоконтент с помощью простых в установке аддонов."
-heroImage: "/imgs/2025/10/05-Stremio-stremio-web.webp"
+heroImage: "../../../../assets/imgs/2025/10/05-Stremio-stremio-web.webp"
 pubDate: "2025-10-05"
 github: "https://github.com/Stremio/stremio-web"
 ---

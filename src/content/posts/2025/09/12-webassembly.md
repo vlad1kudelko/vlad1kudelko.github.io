@@ -1,7 +1,7 @@
 ---
 title: "WebAssembly (Wasm): Производительность на стороне клиента"
 description: "WebAssembly (сокращенно Wasm) — это современная технология, которая кардинально меняет подход к разработке высокопроизводительных веб-приложений."
-heroImage: "/imgs/2025/09/12-webassembly.webp"
+heroImage: "../../../../assets/imgs/2025/09/12-webassembly.webp"
 pubDate: "2025-09-12"
 ---
 

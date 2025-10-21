@@ -1,7 +1,7 @@
 ---
 title: "Django REST Framework: создание API"
 description: "Подробное руководство по созданию REST API с использованием Django REST Framework: сериализаторы, представления, аутентификация и документация API."
-heroImage: "/imgs/2025/07/django-rest-framework-api-guide.webp"
+heroImage: "../../assets/imgs/2025/07/django-rest-framework-api-guide.webp"
 pubDate: "2025-07-01"
 ---
 

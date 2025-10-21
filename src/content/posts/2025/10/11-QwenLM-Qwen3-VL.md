@@ -1,7 +1,7 @@
 ---
 title: "Qwen3-VL: мощная мультизадачная модель с глубоким пониманием текста, изображения и видео"
 description: "Qwen3-VL — мультимодальная модель с улучшенным анализом текста, изображений и видео, 3D-локацией и взаимодействием с устройствами."
-heroImage: "/imgs/2025/10/11-QwenLM-Qwen3-VL.webp"
+heroImage: "../../../../assets/imgs/2025/10/11-QwenLM-Qwen3-VL.webp"
 pubDate: "2025-10-11"
 github: "https://github.com/QwenLM/Qwen3-VL"
 ---

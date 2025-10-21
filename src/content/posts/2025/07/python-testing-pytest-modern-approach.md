@@ -1,7 +1,7 @@
 ---
 title: "Python Testing: pytest - современный подход"
 description: "Подробное руководство по pytest: установка, фикстуры, параметризация, маркировка тестов и современные практики тестирования."
-heroImage: "/imgs/2025/07/python-testing-pytest-modern-approach.webp"
+heroImage: "../../../../assets/imgs/2025/07/python-testing-pytest-modern-approach.webp"
 pubDate: "2025-07-19"
 ---
 
