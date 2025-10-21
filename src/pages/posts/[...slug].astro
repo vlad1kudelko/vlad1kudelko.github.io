@@ -3,6 +3,8 @@ import BaseHead from '../../components/BaseHead.astro';
 import Footer   from '../../components/Footer.astro';
 import Header   from '../../components/Header.astro';
 
+import { AUTHOR_NAME, AUTHOR_LINK } from '../../consts';
+
 import { Image } from 'astro:assets';
 
 import { getCollection, render } from 'astro:content';
@@ -24,8 +26,8 @@ const json_ld = [{
     "datePublished": post.data.pubDate.toISOString(),
     "author": [{
         "@type": "Person",
-        "name": "Craft Trade",
-        "url": Astro.site
+        "name": AUTHOR_NAME,
+        "url": AUTHOR_LINK
     }]
 }];
 

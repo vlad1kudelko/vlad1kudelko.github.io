@@ -4,3 +4,6 @@ export const SITE_DESCRIPTION = 'Подробные статьи и пошаго
 
 export const LINK_CONTACTS    = '/contacts/'
 export const TELEGRAM_CHANNEL = 'https://t.me/+URA3cZoIm603MjUy'
+
+export const AUTHOR_NAME      = 'Vlad Kudelko'
+export const AUTHOR_LINK      = 'https://github.com/vlad1kudelko/'
