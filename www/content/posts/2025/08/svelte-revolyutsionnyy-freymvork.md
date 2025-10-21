@@ -3,7 +3,7 @@ lang = "ru"
 title = "Svelte: революционный фреймворк"
 description = "Почему Svelte — это новый взгляд на фронтенд: реактивность без виртуального DOM, компиляция во время сборки, примеры и лучшие практики."
 template = "posts"
-thumb = "/imgs/2025/08/svelte-revolyutsionnyy-freymvork.png"
+thumb = "/imgs/2025/08/svelte-revolyutsionnyy-freymvork.webp"
 publication_date = "2025-08-13"
 +++
 

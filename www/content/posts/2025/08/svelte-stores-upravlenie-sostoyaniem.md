@@ -3,7 +3,7 @@ lang = "ru"
 title = "Svelte Stores: управление состоянием"
 description = "Понимание и практики работы со сторами в Svelte и SvelteKit: writable/readable/derived, реактивный синтаксис, кастомные стора, персистентность, SSR‑нюансы и лучшие паттерны. Больше пояснений, меньше кода."
 template = "posts"
-thumb = "/imgs/2025/08/svelte-stores-upravlenie-sostoyaniem.png"
+thumb = "/imgs/2025/08/svelte-stores-upravlenie-sostoyaniem.webp"
 publication_date = "2025-08-17"
 +++
 
