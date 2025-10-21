@@ -3,7 +3,7 @@ lang = "ru"
 title = "Claude Code: агент для ускорения программирования в терминале"
 description = "Инструмент с поддержкой естественного языка, который помогает разработчикам быстрее писать код, пояснять сложные участки, выполнять рутинные задачи и управлять git-процессами прямо из терминала или IDE."
 template = "posts"
-thumb = "/imgs/2025/10/11-anthropics-claude-code.png"
+thumb = "/imgs/2025/10/11-anthropics-claude-code.webp"
 publication_date = "2025-10-11"
 github = "https://github.com/anthropics/claude-code"
 +++
