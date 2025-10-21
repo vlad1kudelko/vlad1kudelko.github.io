@@ -3,7 +3,7 @@ lang = "ru"
 title = "Открытые учебники по математике: доступное образование для всех"
 description = "Проект предоставляет бесплатные учебники по математике для разных уровней обучения, объединяя ресурсы для борьбы с образовательным неравенством и помогая китайским семьям по всему миру."
 template = "posts"
-thumb = "/imgs/2025/10/07-TapXWorld-ChinaTextbook.png"
+thumb = "/imgs/2025/10/07-TapXWorld-ChinaTextbook.webp"
 publication_date = "2025-10-07"
 github = "https://github.com/TapXWorld/ChinaTextbook"
 +++

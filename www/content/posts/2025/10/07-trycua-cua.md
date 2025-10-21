@@ -3,7 +3,7 @@ lang = "ru"
 title = "CUA: платформа для автоматизации управления ОС с помощью ИИ-агентов в контейнерах"
 description = "CUA позволяет запускать и контролировать виртуальные машины с Windows, Linux и macOS через единый API, создавать, тестировать и интегрировать ИИ агентов."
 template = "posts"
-thumb = "/imgs/2025/10/07-trycua-cua.png"
+thumb = "/imgs/2025/10/07-trycua-cua.webp"
 publication_date = "2025-10-07"
 github = "https://github.com/trycua/cua"
 +++
