@@ -1,11 +1,9 @@
-+++
-lang = "ru"
-title = "Python Virtual Environments: управление зависимостями"
-description = "Практическое руководство по использованию виртуальных окружений в Python: зачем нужны, как создавать, управлять зависимостями и лучшие практики."
-template = "posts"
-thumb = "/imgs/2025/07/python-virtual-environments-dependency-management.webp"
-publication_date = "2025-07-22"
-+++
+---
+title: "Python Virtual Environments: управление зависимостями"
+description: "Практическое руководство по использованию виртуальных окружений в Python: зачем нужны, как создавать, управлять зависимостями и лучшие практики."
+heroImage: "/imgs/2025/07/python-virtual-environments-dependency-management.webp"
+pubDate: "2025-07-22"
+---
 
 # Python Virtual Environments: управление зависимостями
 

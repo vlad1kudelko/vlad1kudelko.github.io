@@ -1,12 +1,10 @@
-+++
-lang = "ru"
-title = "Sunshine: Self-hosted игровой хост для Moonlight"
-description = "Sunshine — это саморазмещаемый хост для игр, который обеспечивает низкую задержку и возможности облачного игрового сервера с поддержкой различных графических процессоров. Простая настройка через веб-интерфейс."
-template = "posts"
-thumb = "/imgs/2025/09/23-LizardByte-Sunshine.webp"
-publication_date = "2025-09-23"
-github = "https://github.com/LizardByte/Sunshine"
-+++
+---
+title: "Sunshine: Self-hosted игровой хост для Moonlight"
+description: "Sunshine — это саморазмещаемый хост для игр, который обеспечивает низкую задержку и возможности облачного игрового сервера с поддержкой различных графических процессоров. Простая настройка через веб-интерфейс."
+heroImage: "/imgs/2025/09/23-LizardByte-Sunshine.webp"
+pubDate: "2025-09-23"
+github: "https://github.com/LizardByte/Sunshine"
+---
 
 # Sunshine: Self-hosted игровой хост для Moonlight
 

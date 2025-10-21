@@ -1,11 +1,9 @@
-+++
-lang = "ru"
-title = "React + Styled Components: стилизация"
-description = "Подробное руководство по Styled Components в React: CSS-in-JS подход, создание компонентов, темизация, анимации и лучшие практики стилизации."
-template = "posts"
-thumb = "/imgs/2025/08/react-styled-components-styling.webp"
-publication_date = "2025-08-07"
-+++
+---
+title: "React + Styled Components: стилизация"
+description: "Подробное руководство по Styled Components в React: CSS-in-JS подход, создание компонентов, темизация, анимации и лучшие практики стилизации."
+heroImage: "/imgs/2025/08/react-styled-components-styling.webp"
+pubDate: "2025-08-07"
+---
 
 # React + Styled Components: стилизация
 

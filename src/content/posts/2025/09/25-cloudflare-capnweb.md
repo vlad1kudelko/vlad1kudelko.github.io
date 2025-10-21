@@ -1,12 +1,10 @@
-+++
-lang = "ru"
-title = "Cap'n Web: JavaScript-ориентированная RPC система"
-description = "Cap'n Web - это мощный объектно-способностный протокол, специально разработанный для веб-окружений, объединяющий простоту использования с типобезопасностью TypeScript и возможность двунаправленных вызовов."
-template = "posts"
-thumb = "/imgs/2025/09/25-cloudflare-capnweb.webp"
-publication_date = "2025-09-25"
-github = "https://github.com/cloudflare/capnweb"
-+++
+---
+title: "Cap'n Web: JavaScript-ориентированная RPC система"
+description: "Cap'n Web - это мощный объектно-способностный протокол, специально разработанный для веб-окружений, объединяющий простоту использования с типобезопасностью TypeScript и возможность двунаправленных вызовов."
+heroImage: "/imgs/2025/09/25-cloudflare-capnweb.webp"
+pubDate: "2025-09-25"
+github: "https://github.com/cloudflare/capnweb"
+---
 
 # Cap'n Web: JavaScript-ориентированная RPC система
 

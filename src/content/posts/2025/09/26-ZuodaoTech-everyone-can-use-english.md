@@ -1,12 +1,10 @@
-+++
-lang = "ru"
-title = "Everyone Can Use English: ИИ как лучший помощник в изучении английского языка"
-description = "Проект предлагает инновационные решения для обучения английскому языку с помощью ИИ, включая веб-версию и настольные приложения."
-template = "posts"
-thumb = "/imgs/2025/09/26-ZuodaoTech-everyone-can-use-english.webp"
-publication_date = "2025-09-26"
-github = "https://github.com/ZuodaoTech/everyone-can-use-english"
-+++
+---
+title: "Everyone Can Use English: ИИ как лучший помощник в изучении английского языка"
+description: "Проект предлагает инновационные решения для обучения английскому языку с помощью ИИ, включая веб-версию и настольные приложения."
+heroImage: "/imgs/2025/09/26-ZuodaoTech-everyone-can-use-english.webp"
+pubDate: "2025-09-26"
+github: "https://github.com/ZuodaoTech/everyone-can-use-english"
+---
 
 # Everyone Can Use English: ИИ как лучший помощник в изучении английского языка
 

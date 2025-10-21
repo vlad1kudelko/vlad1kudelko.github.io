@@ -1,11 +1,9 @@
-+++
-lang = "ru"
-title = "Python Testing: Моки и изоляция тестов"
-description = "Подробное руководство по мокам в Python: unittest.mock, pytest-mock, патчинг, изоляция тестов и лучшие практики работы с внешними зависимостями."
-template = "posts"
-thumb = "/imgs/2025/07/python-testing-mocks-isolation.webp"
-publication_date = "2025-07-20"
-+++
+---
+title: "Python Testing: Моки и изоляция тестов"
+description: "Подробное руководство по мокам в Python: unittest.mock, pytest-mock, патчинг, изоляция тестов и лучшие практики работы с внешними зависимостями."
+heroImage: "/imgs/2025/07/python-testing-mocks-isolation.webp"
+pubDate: "2025-07-20"
+---
 
 # Python Testing: Моки и изоляция тестов
 

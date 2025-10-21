@@ -1,12 +1,10 @@
-+++
-lang = "ru"
-title = "Computer Use Preview: управление браузером через команды на естественном языке"
-description = "Проект позволяет управлять браузером с помощью команд на естественном языке, используя API Gemini или Vertex AI, с поддержкой локального или удалённого запуска."
-template = "posts"
-thumb = "/imgs/2025/10/10-google-computer-use-preview.webp"
-publication_date = "2025-10-10"
-github = "https://github.com/google/computer-use-preview"
-+++
+---
+title: "Computer Use Preview: управление браузером через команды на естественном языке"
+description: "Проект позволяет управлять браузером с помощью команд на естественном языке, используя API Gemini или Vertex AI, с поддержкой локального или удалённого запуска."
+heroImage: "/imgs/2025/10/10-google-computer-use-preview.webp"
+pubDate: "2025-10-10"
+github: "https://github.com/google/computer-use-preview"
+---
 
 # Computer Use Preview: управление браузером через команды на естественном языке
 

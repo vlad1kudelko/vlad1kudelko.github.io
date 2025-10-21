@@ -1,11 +1,9 @@
-+++
-lang = "ru"
-title = "React Native: создание мобильного приложения"
-description = "Пошаговое, практико‑ориентированное введение в React Native: выбор между Expo и RN CLI, структура проекта, навигация, работа с API и состоянием, платформенные отличия, сборка релиза."
-template = "posts"
-thumb = "/imgs/2025/08/react-native-sozdanie-mobilnogo-prilozheniya.webp"
-publication_date = "2025-08-18"
-+++
+---
+title: "React Native: создание мобильного приложения"
+description: "Пошаговое, практико‑ориентированное введение в React Native: выбор между Expo и RN CLI, структура проекта, навигация, работа с API и состоянием, платформенные отличия, сборка релиза."
+heroImage: "/imgs/2025/08/react-native-sozdanie-mobilnogo-prilozheniya.webp"
+pubDate: "2025-08-18"
+---
 
 # React Native: создание мобильного приложения
 

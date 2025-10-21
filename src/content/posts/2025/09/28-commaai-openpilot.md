@@ -1,12 +1,10 @@
-+++
-lang = "ru"
-title = "openpilot: Операционная Система для Робототехники и Автопилота"
-description = "openpilot — это ОС для робототехники, которая значительно улучшает системы помощи водителю в более чем 300 поддерживаемых автомобилях, обеспечивая надежную и безопасную работу."
-template = "posts"
-thumb = "/imgs/2025/09/28-commaai-openpilot.webp"
-publication_date = "2025-09-28"
-github = "https://github.com/commaai/openpilot"
-+++
+---
+title: "openpilot: Операционная Система для Робототехники и Автопилота"
+description: "openpilot — это ОС для робототехники, которая значительно улучшает системы помощи водителю в более чем 300 поддерживаемых автомобилях, обеспечивая надежную и безопасную работу."
+heroImage: "/imgs/2025/09/28-commaai-openpilot.webp"
+pubDate: "2025-09-28"
+github: "https://github.com/commaai/openpilot"
+---
 
 # openpilot: Операционная Система для Робототехники и Автопилота
 

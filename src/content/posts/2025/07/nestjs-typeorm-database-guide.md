@@ -1,11 +1,9 @@
-+++
-lang = "ru"
-title = "NestJS + TypeORM: работа с базой данных"
-description = "Подробное руководство по интеграции NestJS с TypeORM: настройка подключения к БД, создание сущностей, репозитории, миграции и лучшие практики."
-template = "posts"
-thumb = "/imgs/2025/07/nestjs-typeorm-database-guide.webp"
-publication_date = "2025-07-29"
-+++
+---
+title: "NestJS + TypeORM: работа с базой данных"
+description: "Подробное руководство по интеграции NestJS с TypeORM: настройка подключения к БД, создание сущностей, репозитории, миграции и лучшие практики."
+heroImage: "/imgs/2025/07/nestjs-typeorm-database-guide.webp"
+pubDate: "2025-07-29"
+---
 
 # NestJS + TypeORM: работа с базой данных
 

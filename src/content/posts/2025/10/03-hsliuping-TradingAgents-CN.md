@@ -1,12 +1,10 @@
-+++
-lang = "ru"
-title = "TradingAgents-CN: продвинутая платформа для финансового анализа на основе ИИ"
-description = "TradingAgents-CN — это современный инструмент для анализа финансовых данных, оптимизированный для китайского рынка с поддержкой нескольких языков и интеграцией с различными большим языковыми моделями (LLM)."
-template = "posts"
-thumb = "/imgs/2025/10/03-hsliuping-TradingAgents-CN.webp"
-publication_date = "2025-10-03"
-github = "https://github.com/hsliuping/TradingAgents-CN"
-+++
+---
+title: "TradingAgents-CN: продвинутая платформа для финансового анализа на основе ИИ"
+description: "TradingAgents-CN — это современный инструмент для анализа финансовых данных, оптимизированный для китайского рынка с поддержкой нескольких языков и интеграцией с различными большим языковыми моделями (LLM)."
+heroImage: "/imgs/2025/10/03-hsliuping-TradingAgents-CN.webp"
+pubDate: "2025-10-03"
+github: "https://github.com/hsliuping/TradingAgents-CN"
+---
 
 # TradingAgents-CN: продвинутая платформа для финансового анализа на основе ИИ
 

@@ -1,12 +1,10 @@
-+++
-lang = "ru"
-title = "Omarchy: Превратите Arch в современную систему веб-разработки"
-description = "Одной командой вы можете настроить свежую установку Arch на базе Hyprland, избавляясь от необходимости ручной настройки инструментов."
-template = "posts"
-thumb = "/imgs/2025/09/20-basecamp-omarchy.webp"
-publication_date = "2025-09-20"
-github = "https://github.com/basecamp/omarchy"
-+++
+---
+title: "Omarchy: Превратите Arch в современную систему веб-разработки"
+description: "Одной командой вы можете настроить свежую установку Arch на базе Hyprland, избавляясь от необходимости ручной настройки инструментов."
+heroImage: "/imgs/2025/09/20-basecamp-omarchy.webp"
+pubDate: "2025-09-20"
+github: "https://github.com/basecamp/omarchy"
+---
 
 # Omarchy: Превратите Arch в современную систему веб-разработки
 

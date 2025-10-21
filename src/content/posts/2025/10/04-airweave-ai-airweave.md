@@ -1,12 +1,10 @@
-+++
-lang = "ru"
-title = "Airweave: мощное решение для поиска в приложениях с помощью ИИ"
-description = "Airweave позволяет агентам искать и извлекать данные из любых приложений, создавая доступные для поиска базы знаний через стандартизированный интерфейс."
-template = "posts"
-thumb = "/imgs/2025/10/04-airweave-ai-airweave.webp"
-publication_date = "2025-10-04"
-github = "https://github.com/airweave-ai/airweave"
-+++
+---
+title: "Airweave: мощное решение для поиска в приложениях с помощью ИИ"
+description: "Airweave позволяет агентам искать и извлекать данные из любых приложений, создавая доступные для поиска базы знаний через стандартизированный интерфейс."
+heroImage: "/imgs/2025/10/04-airweave-ai-airweave.webp"
+pubDate: "2025-10-04"
+github: "https://github.com/airweave-ai/airweave"
+---
 
 # Airweave: мощное решение для поиска в приложениях с помощью ИИ
 

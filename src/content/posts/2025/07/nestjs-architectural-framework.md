@@ -1,11 +1,9 @@
-+++
-lang = "ru"
-title = "NestJS: архитектурный фреймворк"
-description = "Подробное руководство по NestJS: архитектура, модули, контроллеры, сервисы, декораторы и создание масштабируемых приложений на Node.js."
-template = "posts"
-thumb = "/imgs/2025/07/nestjs-architectural-framework.webp"
-publication_date = "2025-07-28"
-+++
+---
+title: "NestJS: архитектурный фреймворк"
+description: "Подробное руководство по NestJS: архитектура, модули, контроллеры, сервисы, декораторы и создание масштабируемых приложений на Node.js."
+heroImage: "/imgs/2025/07/nestjs-architectural-framework.webp"
+pubDate: "2025-07-28"
+---
 
 # NestJS: архитектурный фреймворк
 

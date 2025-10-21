@@ -1,11 +1,9 @@
-+++
-lang = "ru"
-title = "Meta Llama: все, что нужно знать об открытой генеративной модели ИИ"
-description = "Подробное руководство по Meta Llama — открытой модели искусственного интеллекта для генерации текста и других задач."
-template = "posts"
-thumb = "/imgs/2025/09/18-meta-llama-everything-you-need-to-know.webp"
-publication_date = "2025-09-18"
-+++
+---
+title: "Meta Llama: все, что нужно знать об открытой генеративной модели ИИ"
+description: "Подробное руководство по Meta Llama — открытой модели искусственного интеллекта для генерации текста и других задач."
+heroImage: "/imgs/2025/09/18-meta-llama-everything-you-need-to-know.webp"
+pubDate: "2025-09-18"
+---
 
 # Обзор модели Meta Llama: Флагман в мире генеративного искусственного интеллекта
 

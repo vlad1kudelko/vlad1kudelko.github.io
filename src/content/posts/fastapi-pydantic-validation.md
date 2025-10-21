@@ -1,11 +1,9 @@
-+++
-lang = "ru"
-title = "FastAPI + Pydantic: валидация данных"
-description = "Практическое руководство по валидации данных в FastAPI с помощью Pydantic: основы, примеры, типичные ошибки и лучшие практики."
-template = "posts"
-thumb = "/imgs/2025/07/fastapi-pydantic-validation.webp"
-publication_date = "2025-07-07"
-+++
+---
+title: "FastAPI + Pydantic: валидация данных"
+description: "Практическое руководство по валидации данных в FastAPI с помощью Pydantic: основы, примеры, типичные ошибки и лучшие практики."
+heroImage: "/imgs/2025/07/fastapi-pydantic-validation.webp"
+pubDate: "2025-07-07"
+---
 
 # FastAPI + Pydantic: валидация данных
 

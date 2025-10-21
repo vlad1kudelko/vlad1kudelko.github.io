@@ -1,11 +1,9 @@
-+++
-lang = "ru"
-title = "Мониторинг и логирование в DevOps: Prometheus, Grafana и ELK Stack"
-description = "Prometheus представляет собой open-source систему мониторинга и алертинга, которая стала де-факто стандартом в экосистеме Kubernetes и cloud-native приложений."
-template = "posts"
-thumb = "/imgs/2025/09/11-grafana-and-prometheus.webp"
-publication_date = "2025-09-11"
-+++
+---
+title: "Мониторинг и логирование в DevOps: Prometheus, Grafana и ELK Stack"
+description: "Prometheus представляет собой open-source систему мониторинга и алертинга, которая стала де-факто стандартом в экосистеме Kubernetes и cloud-native приложений."
+heroImage: "/imgs/2025/09/11-grafana-and-prometheus.webp"
+pubDate: "2025-09-11"
+---
 
 # Мониторинг и логирование в DevOps: Prometheus, Grafana и ELK Stack
 

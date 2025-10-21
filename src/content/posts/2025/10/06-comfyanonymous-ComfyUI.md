@@ -1,12 +1,10 @@
-+++
-lang = "ru"
-title = "ComfyUI: мощный и модульный визуальный движок для создания сложных графов Stable Diffusion"
-description = "ComfyUI — это кроссплатформенный визуальный AI-движок с графовым интерфейсом для создания и выполнения сложных пайплайнов Stable Diffusion без необходимости программирования."
-template = "posts"
-thumb = "/imgs/2025/10/06-comfyanonymous-ComfyUI.webp"
-publication_date = "2025-10-06"
-github = "https://github.com/comfyanonymous/ComfyUI"
-+++
+---
+title: "ComfyUI: мощный и модульный визуальный движок для создания сложных графов Stable Diffusion"
+description: "ComfyUI — это кроссплатформенный визуальный AI-движок с графовым интерфейсом для создания и выполнения сложных пайплайнов Stable Diffusion без необходимости программирования."
+heroImage: "/imgs/2025/10/06-comfyanonymous-ComfyUI.webp"
+pubDate: "2025-10-06"
+github: "https://github.com/comfyanonymous/ComfyUI"
+---
 
 # ComfyUI: мощный и модульный визуальный движок для создания сложных графов Stable Diffusion
 

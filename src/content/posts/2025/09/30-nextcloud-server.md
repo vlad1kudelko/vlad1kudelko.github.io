@@ -1,12 +1,10 @@
-+++
-lang = "ru"
-title = "Nextcloud Server: Безопасное Хранилище Ваших Данных"
-description = "Nextcloud — это платформа, позволяющая хранить, синхронизировать и делиться файлами, контактами и календарями, обеспечивая при этом высокий уровень безопасности и возможность расширения с помощью множества приложений."
-template = "posts"
-thumb = "/imgs/2025/09/30-nextcloud-server.webp"
-publication_date = "2025-09-30"
-github = "https://github.com/nextcloud/server"
-+++
+---
+title: "Nextcloud Server: Безопасное Хранилище Ваших Данных"
+description: "Nextcloud — это платформа, позволяющая хранить, синхронизировать и делиться файлами, контактами и календарями, обеспечивая при этом высокий уровень безопасности и возможность расширения с помощью множества приложений."
+heroImage: "/imgs/2025/09/30-nextcloud-server.webp"
+pubDate: "2025-09-30"
+github: "https://github.com/nextcloud/server"
+---
 
 # Nextcloud Server: Безопасное Хранилище Ваших Данных
 

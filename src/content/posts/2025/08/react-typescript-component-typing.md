@@ -1,11 +1,9 @@
-+++
-lang = "ru"
-title = "React + TypeScript: типизация компонентов"
-description = "Подробное руководство по типизации React компонентов с TypeScript: интерфейсы пропсов, типизация событий, хуки, дженерики и лучшие практики."
-template = "posts"
-thumb = "/imgs/2025/08/react-typescript-component-typing.webp"
-publication_date = "2025-08-06"
-+++
+---
+title: "React + TypeScript: типизация компонентов"
+description: "Подробное руководство по типизации React компонентов с TypeScript: интерфейсы пропсов, типизация событий, хуки, дженерики и лучшие практики."
+heroImage: "/imgs/2025/08/react-typescript-component-typing.webp"
+pubDate: "2025-08-06"
+---
 
 # React + TypeScript: типизация компонентов
 

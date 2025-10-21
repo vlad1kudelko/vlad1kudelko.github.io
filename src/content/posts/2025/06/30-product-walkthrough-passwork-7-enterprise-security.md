@@ -1,11 +1,9 @@
-+++
-lang = "ru"
-title = "Обзор продукта: как Passwork 7 решает сложные задачи корпоративной безопасности"
-description = "Подробный разбор возможностей Passwork 7 для обеспечения комплексной безопасности на уровне предприятий"
-template = "posts"
-thumb = "/imgs/2025/06/30-product-walkthrough-passwork-7-enterprise-security.webp"
-publication_date = "2025-06-30"
-+++
+---
+title: "Обзор продукта: как Passwork 7 решает сложные задачи корпоративной безопасности"
+description: "Подробный разбор возможностей Passwork 7 для обеспечения комплексной безопасности на уровне предприятий"
+heroImage: "/imgs/2025/06/30-product-walkthrough-passwork-7-enterprise-security.webp"
+pubDate: "2025-06-30"
+---
 
 # Как Passwork 7 решает проблему сложности безопасности в корпоративной среде
 

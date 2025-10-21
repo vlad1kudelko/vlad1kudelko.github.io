@@ -1,12 +1,10 @@
-+++
-lang = "ru"
-title = "FastAPI: современный и быстрый фреймворк для создания API на Python"
-description = "FastAPI — это высокопроизводительный веб-фреймворк для разработки API на Python, обеспечивающий простоту в изучении и быструю разработку."
-template = "posts"
-thumb = "/imgs/2025/10/01-fastapi-fastapi.webp"
-publication_date = "2025-10-01"
-github = "https://github.com/fastapi/fastapi"
-+++
+---
+title: "FastAPI: современный и быстрый фреймворк для создания API на Python"
+description: "FastAPI — это высокопроизводительный веб-фреймворк для разработки API на Python, обеспечивающий простоту в изучении и быструю разработку."
+heroImage: "/imgs/2025/10/01-fastapi-fastapi.webp"
+pubDate: "2025-10-01"
+github: "https://github.com/fastapi/fastapi"
+---
 
 # FastAPI: современный и быстрый фреймворк для создания API на Python
 

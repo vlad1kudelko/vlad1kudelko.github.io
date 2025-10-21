@@ -1,12 +1,10 @@
-+++
-lang = "ru"
-title = "Ladybird: Независимый Веб-Браузер на Основе Современных Веб-Стандартов"
-description = "Ladybird — это независимый веб-браузер с новаторским движком, разработанный с учетом современных стандартов. Находится на этапе пред-альфа и предназначен для разработчиков."
-template = "posts"
-thumb = "/imgs/2025/09/24-LadybirdBrowser-ladybird.webp"
-publication_date = "2025-09-24"
-github = "https://github.com/LadybirdBrowser/ladybird"
-+++
+---
+title: "Ladybird: Независимый Веб-Браузер на Основе Современных Веб-Стандартов"
+description: "Ladybird — это независимый веб-браузер с новаторским движком, разработанный с учетом современных стандартов. Находится на этапе пред-альфа и предназначен для разработчиков."
+heroImage: "/imgs/2025/09/24-LadybirdBrowser-ladybird.webp"
+pubDate: "2025-09-24"
+github: "https://github.com/LadybirdBrowser/ladybird"
+---
 
 # Ladybird: Независимый Веб-Браузер на Основе Современных Веб-Стандартов
 
