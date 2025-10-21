@@ -3,7 +3,7 @@ lang = "ru"
 title = "RAG-Anything: Универсальная Модульная Система для Обработки Документов"
 description = "RAG-Anything — это всеобъемлющая платформа для обработки многомодальных документов, интегрирующая текст, изображения, таблицы и формулы под единой оболочкой."
 template = "posts"
-thumb = "/imgs/2025/09/25-HKUDS-RAG-Anything.png"
+thumb = "/imgs/2025/09/25-HKUDS-RAG-Anything.webp"
 publication_date = "2025-09-25"
 github = "https://github.com/HKUDS/RAG-Anything"
 +++
