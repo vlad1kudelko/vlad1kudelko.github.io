@@ -3,7 +3,7 @@ lang = "ru"
 title = "Kubernetes для начинающих: Развертывание приложений"
 description = "Kubernetes (часто сокращается как k8s) — это система оркестрации контейнеров с открытым исходным кодом, разработанная Google."
 template = "posts"
-thumb = "/imgs/2025/09/09-kubernetes.avif"
+thumb = "/imgs/2025/09/09-kubernetes.webp"
 publication_date = "2025-09-09"
 +++
 
