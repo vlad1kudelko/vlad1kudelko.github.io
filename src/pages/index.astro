@@ -1,0 +1,37 @@
+---
+import BaseHead   from '../components/BaseHead.astro';
+import Footer     from '../components/Footer.astro';
+import Header     from '../components/Header.astro';
+import ListPosts  from '../components/ListPosts.astro';
+
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+
+import { getCollection } from 'astro:content';
+
+const json_ld = [{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home" },
+    ]
+}];
+
+const posts = (await getCollection('posts')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+---
+
+<!doctype html>
+<html lang="ru">
+	<head>
+        <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+        <script type="application/ld+json" set:html={JSON.stringify(json_ld)} />
+	</head>
+	<body class="bg-gray-800 text-gray-100">
+		<Header />
+        <main>
+            <ListPosts posts={posts} level={2} h1="Последние статьи" />
+        </main>
+		<Footer />
+	</body>
+</html>
