@@ -3,7 +3,7 @@ lang = "ru"
 title = "Tunix: библиотека для пост-тренировки больших языковых моделей на базе JAX"
 description = "Tunix упрощает пост-тренировку больших языковых моделей, обеспечивая поддержку методов дообучения, обучения с подкреплением и дистилляции."
 template = "posts"
-thumb = "/imgs/2025/10/02-google-tunix.png"
+thumb = "/imgs/2025/10/02-google-tunix.webp"
 publication_date = "2025-10-02"
 github = "https://github.com/google/tunix"
 +++

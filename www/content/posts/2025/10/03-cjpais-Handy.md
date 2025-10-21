@@ -3,7 +3,7 @@ lang = "ru"
 title = "Handy: свободное и открытое приложение для преобразования речи в текст"
 description = "Handy — это кроссплатформенное приложение с акцентом на приватность и простоту использования, которое позволяет преобразовывать речь в текст полностью офлайн."
 template = "posts"
-thumb = "/imgs/2025/10/03-cjpais-Handy.png"
+thumb = "/imgs/2025/10/03-cjpais-Handy.webp"
 publication_date = "2025-10-03"
 github = "https://github.com/cjpais/Handy"
 +++
