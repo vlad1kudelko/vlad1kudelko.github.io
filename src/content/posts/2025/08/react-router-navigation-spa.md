@@ -770,5 +770,4 @@ React Router интегрируется с экосистемой React и по�
 
 **Дополнительные ресурсы:**
 - [Официальная документация React Router](https://reactrouter.com/)
-- [React Router Tutorial](https://reactrouter.com/en/main/start/tutorial)
 - [React Router Examples](https://github.com/remix-run/react-router/tree/main/examples)

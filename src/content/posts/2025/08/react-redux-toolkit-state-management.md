@@ -679,6 +679,5 @@ Redux Toolkit значительно упрощает работу с Redux, п�
 ### Дополнительные ресурсы
 
 - [Официальная документация Redux Toolkit](https://redux-toolkit.js.org/)
-- [Redux Toolkit Quick Start](https://redux-toolkit.js.org/introduction/quick-start)
 - [Redux Style Guide](https://redux.js.org/style-guide/)
 - [React Redux Hooks](https://react-redux.js.org/api/hooks)
