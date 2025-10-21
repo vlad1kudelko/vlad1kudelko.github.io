@@ -3,7 +3,7 @@ lang = "ru"
 title = "Основы обработки естественного языка (NLP) с Hugging Face Transformers"
 description = "В этой статье мы рассмотрим основы NLP, познакомимся с архитектурой Transformer и изучим, как использовать библиотеку Hugging Face Transformers для решения популярных задач."
 template = "posts"
-thumb = "/imgs/2025/09/05-hugging-face.avif"
+thumb = "/imgs/2025/09/05-hugging-face.webp"
 publication_date = "2025-09-05"
 +++
 

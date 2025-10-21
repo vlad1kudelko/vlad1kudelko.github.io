@@ -3,7 +3,7 @@ lang = "ru"
 title = "TensorFlow vs PyTorch: Сравнение фреймворков для глубокого обучения"
 description = "В этой статье мы проведем детальное сравнение этих платформ и рассмотрим практические примеры их использования."
 template = "posts"
-thumb = "/imgs/2025/09/04-tensorflow-vs-pytorch.jpg"
+thumb = "/imgs/2025/09/04-tensorflow-vs-pytorch.webp"
 publication_date = "2025-09-04"
 +++
 
