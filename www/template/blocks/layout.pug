@@ -38,6 +38,14 @@ html(lang=current.lang)
         
         link(rel="canonical" href='https://crafthomelab.ru'+current.canonical)
 
+        //- Open Graph
+        meta(property="og:title" content=current.title)
+        meta(property="og:description" content=current.description)
+        if current.thumb:
+            meta(property="og:image" content=current.thumb)
+        meta(property="og:url" content='https://crafthomelab.ru'+current.canonical)
+        meta(property="og:type" content="website")
+
     - const nav_links = [{'url':'https://t.me/+URA3cZoIm603MjUy','text':'Telegram'}];
     - const nav_pages = [{'url':'/contacts','text':'Контакты'}];
     body(class='bg-gray-800')
