@@ -3,7 +3,7 @@ lang = "ru"
 title = "Tile Language: оптимизированный язык для разработки GPU/CPU ядер"
 description = "Tile Language (tile-lang) — это специализированный язык, упрощающий создание высокопроизводительных ядер для GPU и CPU, обеспечивая низкоуровневую оптимизацию и Python-подобный синтаксис для повышения продуктивности."
 template = "posts"
-thumb = "/imgs/2025/10/02-tile-ai-tilelang.png"
+thumb = "/imgs/2025/10/02-tile-ai-tilelang.webp"
 publication_date = "2025-10-02"
 github = "https://github.com/tile-ai/tilelang"
 +++
