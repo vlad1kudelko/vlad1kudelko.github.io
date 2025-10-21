@@ -3,7 +3,7 @@ lang = "ru"
 title = "CookLikeHOC: Проект для любителей готовить, вдохновленный Laoxiangji"
 description = "Платформа на базе Docker, предлагающая доступ к рецептам и свежей информации о блюдах Laoxiangji. Участвуйте в развитии, добавив свои фотографии и идеи!"
 template = "posts"
-thumb = "/imgs/2025/09/20-Gar-b-age-CookLikeHOC.png"
+thumb = "/imgs/2025/09/20-Gar-b-age-CookLikeHOC.webp"
 publication_date = "2025-09-20"
 github = "https://github.com/Gar-b-age/CookLikeHOC"
 +++
