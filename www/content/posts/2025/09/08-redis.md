@@ -3,7 +3,7 @@ lang = "ru"
 title = "Redis как кэш и брокер сообщений: Практическое применение"
 description = "Redis (REmote DIctionary Server) — это высокопроизводительное хранилище данных в памяти, которое стало неотъемлемой частью современных распределенных систем."
 template = "posts"
-thumb = "/imgs/2025/09/08-redis.png"
+thumb = "/imgs/2025/09/08-redis.webp"
 publication_date = "2025-09-08"
 +++
 
