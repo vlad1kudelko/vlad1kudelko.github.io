@@ -3,7 +3,7 @@ import BaseHead from '../../components/BaseHead.astro';
 import Footer   from '../../components/Footer.astro';
 import Header   from '../../components/Header.astro';
 
-import { AUTHOR_NAME, AUTHOR_LINK } from '../../consts';
+import { AUTHOR_NAME } from '../../consts';
 
 import { Image } from 'astro:assets';
 
@@ -27,7 +27,7 @@ const json_ld = [{
     "author": [{
         "@type": "Person",
         "name": AUTHOR_NAME,
-        "url": AUTHOR_LINK
+        "url": Astro.site
     }]
 }];
 
@@ -51,6 +51,7 @@ export async function getStaticPaths() {
 		<Header />
         <main>
             <div class='mx-auto max-w-3xl bg-gray-300'>
+                <!-- post -->
                 <Image class='bg-gray-100' loading='lazy' width={800} height={400} src={post.data.heroImage} alt={post.data.title} />
 
                 <div class="p-5">
@@ -74,6 +75,7 @@ export async function getStaticPaths() {
                         <img loading='lazy' src='/res/timeweb.webp' alt='timeweb-cloud' />
                     </a>
                 </div>
+                <!-- post -->
             </div>
         </main>
 		<Footer />
