@@ -3,7 +3,7 @@ lang = "ru"
 title = "Автоматизированный скрипт для покупки билетов на Дамай"
 description = "Скрипт на Python с использованием Selenium, который автоматически проходит весь процесс покупки билетов на концерты, включая настройку параметров для выбора даты, города и ценового диапазона."
 template = "posts"
-thumb = "/imgs/2025/09/22-WECENG-ticket-purchase.png"
+thumb = "/imgs/2025/09/22-WECENG-ticket-purchase.webp"
 publication_date = "2025-09-22"
 github = "https://github.com/WECENG/ticket-purchase"
 +++
