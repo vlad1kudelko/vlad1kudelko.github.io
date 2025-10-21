@@ -12,7 +12,7 @@ const { posts, level, h1 } = Astro.props;
             <a class='m-5 block max-w-sm border bg-gray-800 border-gray-700 hover:opacity-75' href=`/posts/${post.id}/`>
                 <Image class='bg-gray-100' loading='lazy' width={800} height={400} src={post.data.heroImage} alt={post.data.title} />
                 <div class='p-5'>
-                    <div class='text-xs text-gray-400'>{post.data.pubDate}</div>
+                    <div class='text-xs text-gray-400'>{post.data.pubDate.toDateString()}</div>
                     <h2 class='mb-2 text-2xl font-bold tracking-tight text-white'>{post.data.title}</h2>
                     <p class='font-normal text-gray-400'>{post.data.description}</p>
                 </div>

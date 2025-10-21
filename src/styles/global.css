@@ -8,3 +8,19 @@ body { font-family: "Rubik"; }
     margin-left: auto;
     margin-right: auto;
 }
+
+/*
+.prose img {
+    max-height: 300px;
+    width: 600px;
+    object-fit: cover;
+    margin-left: auto;
+    margin-right: auto;
+}
+.prose table th {
+    text-align: center;
+}
+.prose table td + td, .prose table th + th {
+    border-left: 1px solid white;
+}
+*/
