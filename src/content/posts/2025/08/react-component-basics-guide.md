@@ -1,11 +1,9 @@
-+++
-lang = "ru"
-title = "React: основы компонентного подхода"
-description = "Подробное руководство по React: компоненты, JSX, состояние, пропсы, жизненный цикл и лучшие практики разработки."
-template = "posts"
-thumb = "/imgs/2025/08/react-component-basics-guide.webp"
-publication_date = "2025-08-02"
-+++
+---
+title: "React: основы компонентного подхода"
+description: "Подробное руководство по React: компоненты, JSX, состояние, пропсы, жизненный цикл и лучшие практики разработки."
+heroImage: "/imgs/2025/08/react-component-basics-guide.webp"
+pubDate: "2025-08-02"
+---
 
 # React: основы компонентного подхода
 

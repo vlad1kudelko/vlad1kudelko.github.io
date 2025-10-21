@@ -1,12 +1,10 @@
-+++
-lang = "ru"
-title = "Lobe Chat: современный интерфейс для ChatGPT и LLM с открытым исходным кодом"
-description = "Инновационная платформа, поддерживающая синтез речи, многофункциональные плагины и мгновенное развертывание приватных ChatGPT-приложений."
-template = "posts"
-thumb = "/imgs/2025/10/02-lobehub-lobe-chat.webp"
-publication_date = "2025-10-02"
-github = "https://github.com/lobehub/lobe-chat"
-+++
+---
+title: "Lobe Chat: современный интерфейс для ChatGPT и LLM с открытым исходным кодом"
+description: "Инновационная платформа, поддерживающая синтез речи, многофункциональные плагины и мгновенное развертывание приватных ChatGPT-приложений."
+heroImage: "/imgs/2025/10/02-lobehub-lobe-chat.webp"
+pubDate: "2025-10-02"
+github: "https://github.com/lobehub/lobe-chat"
+---
 
 # Lobe Chat: современный интерфейс для ChatGPT и LLM с открытым исходным кодом
 

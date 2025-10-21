@@ -1,12 +1,10 @@
-+++
-lang = "ru"
-title = "ytDownloader: видеозагрузчик с поддержкой сотен сайтов и удобным GUI"
-description = "ytDownloader — приложение с графическим интерфейсом для скачивания видео и аудио с сотен сайтов, включая YouTube, Facebook, TikTok и другие."
-template = "posts"
-thumb = "/imgs/2025/10/08-aandrew-me-ytDownloader.webp"
-publication_date = "2025-10-08"
-github = "https://github.com/aandrew-me/ytDownloader"
-+++
+---
+title: "ytDownloader: видеозагрузчик с поддержкой сотен сайтов и удобным GUI"
+description: "ytDownloader — приложение с графическим интерфейсом для скачивания видео и аудио с сотен сайтов, включая YouTube, Facebook, TikTok и другие."
+heroImage: "/imgs/2025/10/08-aandrew-me-ytDownloader.webp"
+pubDate: "2025-10-08"
+github: "https://github.com/aandrew-me/ytDownloader"
+---
 
 # ytDownloader: видеозагрузчик с поддержкой сотен сайтов и удобным GUI
 

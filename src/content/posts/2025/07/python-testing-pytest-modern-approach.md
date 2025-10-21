@@ -1,11 +1,9 @@
-+++
-lang = "ru"
-title = "Python Testing: pytest - современный подход"
-description = "Подробное руководство по pytest: установка, фикстуры, параметризация, маркировка тестов и современные практики тестирования."
-template = "posts"
-thumb = "/imgs/2025/07/python-testing-pytest-modern-approach.webp"
-publication_date = "2025-07-19"
-+++
+---
+title: "Python Testing: pytest - современный подход"
+description: "Подробное руководство по pytest: установка, фикстуры, параметризация, маркировка тестов и современные практики тестирования."
+heroImage: "/imgs/2025/07/python-testing-pytest-modern-approach.webp"
+pubDate: "2025-07-19"
+---
 
 # Python Testing: pytest - современный подход
 

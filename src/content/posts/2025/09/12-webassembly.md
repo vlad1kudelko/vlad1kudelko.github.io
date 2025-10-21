@@ -1,11 +1,9 @@
-+++
-lang = "ru"
-title = "WebAssembly (Wasm): Производительность на стороне клиента"
-description = "WebAssembly (сокращенно Wasm) — это современная технология, которая кардинально меняет подход к разработке высокопроизводительных веб-приложений."
-template = "posts"
-thumb = "/imgs/2025/09/12-webassembly.webp"
-publication_date = "2025-09-12"
-+++
+---
+title: "WebAssembly (Wasm): Производительность на стороне клиента"
+description: "WebAssembly (сокращенно Wasm) — это современная технология, которая кардинально меняет подход к разработке высокопроизводительных веб-приложений."
+heroImage: "/imgs/2025/09/12-webassembly.webp"
+pubDate: "2025-09-12"
+---
 
 # WebAssembly (Wasm): Производительность на стороне клиента
 

@@ -1,11 +1,9 @@
-+++
-lang = "ru"
-title = "Django Deployment: развертывание на сервере"
-description = "Пошаговое руководство по деплою Django-проекта на сервер: подготовка окружения, настройка Gunicorn, Nginx, миграции, статика и запуск."
-template = "posts"
-thumb = "/imgs/2025/07/django-deployment-guide.webp"
-publication_date = "2025-07-04"
-+++
+---
+title: "Django Deployment: развертывание на сервере"
+description: "Пошаговое руководство по деплою Django-проекта на сервер: подготовка окружения, настройка Gunicorn, Nginx, миграции, статика и запуск."
+heroImage: "/imgs/2025/07/django-deployment-guide.webp"
+pubDate: "2025-07-04"
+---
 
 # Django Deployment: развертывание на сервере
 

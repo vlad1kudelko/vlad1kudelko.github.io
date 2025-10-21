@@ -1,12 +1,10 @@
-+++
-lang = "ru"
-title = "EverShop: современная eCommerce платформа с модульной архитектурой на TypeScript"
-description = "EverShop — это современная платформа для электронной коммерции с использованием TypeScript, GraphQL и React."
-template = "posts"
-thumb = "/imgs/2025/10/12-evershopcommerce-evershop.webp"
-publication_date = "2025-10-12"
-github = "https://github.com/evershopcommerce/evershop"
-+++
+---
+title: "EverShop: современная eCommerce платформа с модульной архитектурой на TypeScript"
+description: "EverShop — это современная платформа для электронной коммерции с использованием TypeScript, GraphQL и React."
+heroImage: "/imgs/2025/10/12-evershopcommerce-evershop.webp"
+pubDate: "2025-10-12"
+github: "https://github.com/evershopcommerce/evershop"
+---
 
 <!-- [68.49, 87] > [0, 79] -->
 

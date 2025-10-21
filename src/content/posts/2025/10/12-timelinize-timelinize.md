@@ -1,12 +1,10 @@
-+++
-lang = "ru"
-title = "Timelinize: персональная хронология жизни с полным контролем над данными"
-description = "Timelinize позволяет импортировать и объединять личные данные из разных источников в единую интерактивную временную шкалу на вашем компьютере."
-template = "posts"
-thumb = "/imgs/2025/10/12-timelinize-timelinize.webp"
-publication_date = "2025-10-12"
-github = "https://github.com/timelinize/timelinize"
-+++
+---
+title: "Timelinize: персональная хронология жизни с полным контролем над данными"
+description: "Timelinize позволяет импортировать и объединять личные данные из разных источников в единую интерактивную временную шкалу на вашем компьютере."
+heroImage: "/imgs/2025/10/12-timelinize-timelinize.webp"
+pubDate: "2025-10-12"
+github: "https://github.com/timelinize/timelinize"
+---
 
 <!-- [35.16, 86] > [0, 80] -->
 

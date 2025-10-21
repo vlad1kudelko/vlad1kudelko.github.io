@@ -1,12 +1,10 @@
-+++
-lang = "ru"
-title = "MiniMind: сверхлёгкая открытая серия языковых моделей с обучением за 2 часа и 3 юаня"
-description = "Проект MiniMind предлагает полностью открытый исходный код для обучения компактных языковых моделей с минимальными затратами времени и средств."
-template = "posts"
-thumb = "/imgs/2025/10/15-jingyaogong-minimind.webp"
-publication_date = "2025-10-15"
-github = "https://github.com/jingyaogong/minimind"
-+++
+---
+title: "MiniMind: сверхлёгкая открытая серия языковых моделей с обучением за 2 часа и 3 юаня"
+description: "Проект MiniMind предлагает полностью открытый исходный код для обучения компактных языковых моделей с минимальными затратами времени и средств."
+heroImage: "/imgs/2025/10/15-jingyaogong-minimind.webp"
+pubDate: "2025-10-15"
+github: "https://github.com/jingyaogong/minimind"
+---
 
 <!-- [0, 64] -->
 

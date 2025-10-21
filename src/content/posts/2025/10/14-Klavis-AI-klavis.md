@@ -1,12 +1,10 @@
-+++
-lang = "ru"
-title = "Klavis AI: универсальные интеллектуальные коннекторы и интеграции для ИИ-агентов"
-description = "Платформа Klavis AI предоставляет готовые решения Strata и более 100 интеграций с поддержкой OAuth для быстрого развертывания и управления ИИ-агентами."
-template = "posts"
-thumb = "/imgs/2025/10/14-Klavis-AI-klavis.webp"
-publication_date = "2025-10-14"
-github = "https://github.com/Klavis-AI/klavis"
-+++
+---
+title: "Klavis AI: универсальные интеллектуальные коннекторы и интеграции для ИИ-агентов"
+description: "Платформа Klavis AI предоставляет готовые решения Strata и более 100 интеграций с поддержкой OAuth для быстрого развертывания и управления ИИ-агентами."
+heroImage: "/imgs/2025/10/14-Klavis-AI-klavis.webp"
+pubDate: "2025-10-14"
+github: "https://github.com/Klavis-AI/klavis"
+---
 
 <!-- [33.27, 82] > [0, 65] -->
 

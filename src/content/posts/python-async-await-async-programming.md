@@ -1,11 +1,9 @@
-+++
-lang = "ru"
-title = "Python async/await: асинхронное программирование"
-description = "Подробное руководство по асинхронному программированию в Python с использованием async/await: теория, примеры, лучшие практики."
-template = "posts"
-thumb = "/imgs/2025/07/python-async-await-async-programming.webp"
-publication_date = "2025-07-13"
-+++
+---
+title: "Python async/await: асинхронное программирование"
+description: "Подробное руководство по асинхронному программированию в Python с использованием async/await: теория, примеры, лучшие практики."
+heroImage: "/imgs/2025/07/python-async-await-async-programming.webp"
+pubDate: "2025-07-13"
+---
 
 # Python async/await: асинхронное программирование
 

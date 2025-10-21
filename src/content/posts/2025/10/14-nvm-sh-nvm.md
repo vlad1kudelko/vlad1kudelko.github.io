@@ -1,12 +1,10 @@
-+++
-lang = "ru"
-title = "Node Version Manager (nvm): удобное управление версиями Node.js"
-description = "Проект nvm позволяет быстро устанавливать и переключаться между разными версиями Node.js, облегчая разработку и тестирование приложений с разными версиями среды."
-template = "posts"
-thumb = "/imgs/2025/10/14-nvm-sh-nvm.webp"
-publication_date = "2025-10-14"
-github = "https://github.com/nvm-sh/nvm"
-+++
+---
+title: "Node Version Manager (nvm): удобное управление версиями Node.js"
+description: "Проект nvm позволяет быстро устанавливать и переключаться между разными версиями Node.js, облегчая разработку и тестирование приложений с разными версиями среды."
+heroImage: "/imgs/2025/10/14-nvm-sh-nvm.webp"
+pubDate: "2025-10-14"
+github: "https://github.com/nvm-sh/nvm"
+---
 
 <!-- [44.24, 80] > [1.52, 61] -->
 

@@ -1,11 +1,9 @@
-+++
-lang = "ru"
-title = "Vue.js + TypeScript: полное руководство"
-description = "Подробное руководство по использованию TypeScript с Vue.js: настройка проекта, типизация компонентов, Composition API, лучшие практики и примеры."
-template = "posts"
-thumb = "/imgs/2025/08/vuejs-typescript-guide.webp"
-publication_date = "2025-08-12"
-+++
+---
+title: "Vue.js + TypeScript: полное руководство"
+description: "Подробное руководство по использованию TypeScript с Vue.js: настройка проекта, типизация компонентов, Composition API, лучшие практики и примеры."
+heroImage: "/imgs/2025/08/vuejs-typescript-guide.webp"
+pubDate: "2025-08-12"
+---
 
 # Vue.js + TypeScript: полное руководство
 

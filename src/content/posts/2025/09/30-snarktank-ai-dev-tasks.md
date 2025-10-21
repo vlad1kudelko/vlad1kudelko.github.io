@@ -1,12 +1,10 @@
-+++
-lang = "ru"
-title = "AI Dev Tasks: Упрощение Разработки с Помощью ИИ"
-description = "Проект AI Dev Tasks предлагает структурированный подход к разработке с использованием документа требований, генерацию списка задач и пошаговое выполнение с помощью ИИ."
-template = "posts"
-thumb = "/imgs/2025/09/30-snarktank-ai-dev-tasks.webp"
-publication_date = "2025-09-30"
-github = "https://github.com/snarktank/ai-dev-tasks"
-+++
+---
+title: "AI Dev Tasks: Упрощение Разработки с Помощью ИИ"
+description: "Проект AI Dev Tasks предлагает структурированный подход к разработке с использованием документа требований, генерацию списка задач и пошаговое выполнение с помощью ИИ."
+heroImage: "/imgs/2025/09/30-snarktank-ai-dev-tasks.webp"
+pubDate: "2025-09-30"
+github: "https://github.com/snarktank/ai-dev-tasks"
+---
 
 # AI Dev Tasks: Упрощение Разработки с Помощью ИИ
 

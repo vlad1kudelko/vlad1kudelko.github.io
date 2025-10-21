@@ -1,12 +1,10 @@
-+++
-lang = "ru"
-title = "Stagehand: инновационный фреймворк для автоматизации браузера с применением ИИ"
-description = "Stagehand объединяет код и естественный язык, позволяя создавать надежные браузерные автоматизации с использованием моделей OpenAI и Anthropic."
-template = "posts"
-thumb = "/imgs/2025/10/08-browserbase-stagehand.webp"
-publication_date = "2025-10-08"
-github = "https://github.com/browserbase/stagehand"
-+++
+---
+title: "Stagehand: инновационный фреймворк для автоматизации браузера с применением ИИ"
+description: "Stagehand объединяет код и естественный язык, позволяя создавать надежные браузерные автоматизации с использованием моделей OpenAI и Anthropic."
+heroImage: "/imgs/2025/10/08-browserbase-stagehand.webp"
+pubDate: "2025-10-08"
+github: "https://github.com/browserbase/stagehand"
+---
 
 # Stagehand: инновационный фреймворк для автоматизации браузера с применением ИИ
 

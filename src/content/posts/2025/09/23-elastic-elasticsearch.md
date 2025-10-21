@@ -1,12 +1,10 @@
-+++
-lang = "ru"
-title = "Elasticsearch: распределённый поисковый движок"
-description = "Elasticsearch — это масштабируемая система для поиска и анализа данных, оптимизированная для высоких нагрузок и предоставляющая поддержку векторного поиска и интеграции с приложениями на базе ИИ."
-template = "posts"
-thumb = "/imgs/2025/09/23-elastic-elasticsearch.webp"
-publication_date = "2025-09-23"
-github = "https://github.com/elastic/elasticsearch"
-+++
+---
+title: "Elasticsearch: распределённый поисковый движок"
+description: "Elasticsearch — это масштабируемая система для поиска и анализа данных, оптимизированная для высоких нагрузок и предоставляющая поддержку векторного поиска и интеграции с приложениями на базе ИИ."
+heroImage: "/imgs/2025/09/23-elastic-elasticsearch.webp"
+pubDate: "2025-09-23"
+github: "https://github.com/elastic/elasticsearch"
+---
 
 # Elasticsearch: распределённый поисковый движок
 

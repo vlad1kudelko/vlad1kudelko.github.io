@@ -1,11 +1,9 @@
-+++
-lang = "ru"
-title = "PM2: управление Node.js процессами"
-description = "Полное руководство по использованию PM2 для управления, мониторинга и масштабирования Node.js приложений."
-template = "posts"
-thumb = "/imgs/2025/08/pm2-nodejs-processes.webp"
-publication_date = "2025-08-28"
-+++
+---
+title: "PM2: управление Node.js процессами"
+description: "Полное руководство по использованию PM2 для управления, мониторинга и масштабирования Node.js приложений."
+heroImage: "/imgs/2025/08/pm2-nodejs-processes.webp"
+pubDate: "2025-08-28"
+---
 
 # PM2: управление Node.js процессами
 

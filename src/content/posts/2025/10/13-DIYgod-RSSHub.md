@@ -1,12 +1,10 @@
-+++
-lang = "ru"
-title = "RSSHub: крупнейшая глобальная сеть для создания RSS-потоков"
-description = "RSSHub — это крупнейшая в мире сеть из более чем 5000 инстансов, предоставляющая миллионы агрегированных RSS-контентов с разнообразных источников и поддерживаемая активным open source сообществом."
-template = "posts"
-thumb = "/imgs/2025/10/13-DIYgod-RSSHub.webp"
-publication_date = "2025-10-13"
-github = "https://github.com/DIYgod/RSSHub"
-+++
+---
+title: "RSSHub: крупнейшая глобальная сеть для создания RSS-потоков"
+description: "RSSHub — это крупнейшая в мире сеть из более чем 5000 инстансов, предоставляющая миллионы агрегированных RSS-контентов с разнообразных источников и поддерживаемая активным open source сообществом."
+heroImage: "/imgs/2025/10/13-DIYgod-RSSHub.webp"
+pubDate: "2025-10-13"
+github: "https://github.com/DIYgod/RSSHub"
+---
 
 <!-- [46.06, 92] > [1.79, 71] -->
 

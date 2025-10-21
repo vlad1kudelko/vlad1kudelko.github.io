@@ -1,11 +1,9 @@
-+++
-lang = "ru"
-title = "Express.js + MongoDB: NoSQL база данных"
-description = "Практическое руководство по интеграции Express.js с MongoDB: настройка подключения, создание моделей, CRUD-операции, лучшие практики и примеры кода."
-template = "posts"
-thumb = "/imgs/2025/07/expressjs-mongodb-nosql-guide.webp"
-publication_date = "2025-07-24"
-+++
+---
+title: "Express.js + MongoDB: NoSQL база данных"
+description: "Практическое руководство по интеграции Express.js с MongoDB: настройка подключения, создание моделей, CRUD-операции, лучшие практики и примеры кода."
+heroImage: "/imgs/2025/07/expressjs-mongodb-nosql-guide.webp"
+pubDate: "2025-07-24"
+---
 
 # Express.js + MongoDB: NoSQL база данных
 

@@ -1,12 +1,10 @@
-+++
-lang = "ru"
-title = "Meshtastic Firmware: открытая прошивка для LoRa mesh сетей"
-description = "Прошивка Meshtastic обеспечивает децентрализованную связь на базе LoRa с поддержкой различных платформ для обмена сообщениями и геопозиционированием без интернета."
-template = "posts"
-thumb = "/imgs/2025/10/06-meshtastic-firmware.webp"
-publication_date = "2025-10-06"
-github = "https://github.com/meshtastic/firmware"
-+++
+---
+title: "Meshtastic Firmware: открытая прошивка для LoRa mesh сетей"
+description: "Прошивка Meshtastic обеспечивает децентрализованную связь на базе LoRa с поддержкой различных платформ для обмена сообщениями и геопозиционированием без интернета."
+heroImage: "/imgs/2025/10/06-meshtastic-firmware.webp"
+pubDate: "2025-10-06"
+github: "https://github.com/meshtastic/firmware"
+---
 
 # Meshtastic Firmware: открытая прошивка для LoRa mesh сетей
 

@@ -1,12 +1,10 @@
-+++
-lang = "ru"
-title = "Daytona: безопасная и быстрая инфраструктура для выполнения AI-кода"
-description = "Проект Daytona предоставляет защищённую и масштабируемую среду для запуска AI-сгенерированного кода с высокой скоростью и изоляцией."
-template = "posts"
-thumb = "/imgs/2025/10/13-daytonaio-daytona.webp"
-publication_date = "2025-10-13"
-github = "https://github.com/daytonaio/daytona"
-+++
+---
+title: "Daytona: безопасная и быстрая инфраструктура для выполнения AI-кода"
+description: "Проект Daytona предоставляет защищённую и масштабируемую среду для запуска AI-сгенерированного кода с высокой скоростью и изоляцией."
+heroImage: "/imgs/2025/10/13-daytonaio-daytona.webp"
+pubDate: "2025-10-13"
+github: "https://github.com/daytonaio/daytona"
+---
 
 <!-- [38.48, 77] > [0, 73] -->
 

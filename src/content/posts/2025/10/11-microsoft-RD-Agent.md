@@ -1,12 +1,10 @@
-+++
-lang = "ru"
-title = "R&D-Agent: автоматизация исследований и разработок с помощью ИИ на базе LLM"
-description = "Проект R&D-Agent предлагает многоагентский фреймворк для автоматизации полного цикла исследований и разработок в области data-driven моделей и количественного анализа."
-template = "posts"
-thumb = "/imgs/2025/10/11-microsoft-RD-Agent.webp"
-publication_date = "2025-10-11"
-github = "https://github.com/microsoft/RD-Agent"
-+++
+---
+title: "R&D-Agent: автоматизация исследований и разработок с помощью ИИ на базе LLM"
+description: "Проект R&D-Agent предлагает многоагентский фреймворк для автоматизации полного цикла исследований и разработок в области data-driven моделей и количественного анализа."
+heroImage: "/imgs/2025/10/11-microsoft-RD-Agent.webp"
+pubDate: "2025-10-11"
+github: "https://github.com/microsoft/RD-Agent"
+---
 
 # R&D-Agent: автоматизация исследований и разработок с помощью ИИ на базе LLM
 

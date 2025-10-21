@@ -1,11 +1,9 @@
-+++
-lang = "ru"
-title = "Flask + Jinja2: шаблонизация"
-description = "Практическое руководство по использованию Jinja2 в Flask: шаблоны, переменные, наследование, макросы и лучшие практики. Примеры кода и советы."
-template = "posts"
-thumb = "/imgs/2025/07/flask-jinja2-shablonizatsiya.webp"
-publication_date = "2025-07-15"
-+++
+---
+title: "Flask + Jinja2: шаблонизация"
+description: "Практическое руководство по использованию Jinja2 в Flask: шаблоны, переменные, наследование, макросы и лучшие практики. Примеры кода и советы."
+heroImage: "/imgs/2025/07/flask-jinja2-shablonizatsiya.webp"
+pubDate: "2025-07-15"
+---
 
 # Flask + Jinja2: шаблонизация
 

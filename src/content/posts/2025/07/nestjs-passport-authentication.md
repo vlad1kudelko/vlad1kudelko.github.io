@@ -1,11 +1,9 @@
-+++
-lang = "ru"
-title = "NestJS + Passport: аутентификация"
-description = "Подробное руководство по реализации аутентификации в NestJS с использованием Passport: JWT, сессии, OAuth, Guards и стратегии безопасности."
-template = "posts"
-thumb = "/imgs/2025/07/nestjs-passport-authentication.webp"
-publication_date = "2025-07-30"
-+++
+---
+title: "NestJS + Passport: аутентификация"
+description: "Подробное руководство по реализации аутентификации в NestJS с использованием Passport: JWT, сессии, OAuth, Guards и стратегии безопасности."
+heroImage: "/imgs/2025/07/nestjs-passport-authentication.webp"
+pubDate: "2025-07-30"
+---
 
 # NestJS + Passport: аутентификация
 

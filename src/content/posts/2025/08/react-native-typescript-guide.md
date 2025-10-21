@@ -1,11 +1,9 @@
-+++
-lang = "ru"
-title = "React Native + TypeScript: Полное руководство по типизации"
-description = "Подробное руководство по использованию TypeScript в React Native разработке: типизация компонентов, навигация, хуки, контекст и лучшие практики."
-template = "posts"
-thumb = "/imgs/2025/08/react-native-typescript-guide.webp"
-publication_date = "2025-08-23"
-+++
+---
+title: "React Native + TypeScript: Полное руководство по типизации"
+description: "Подробное руководство по использованию TypeScript в React Native разработке: типизация компонентов, навигация, хуки, контекст и лучшие практики."
+heroImage: "/imgs/2025/08/react-native-typescript-guide.webp"
+pubDate: "2025-08-23"
+---
 
 # React Native + TypeScript: Полное руководство по типизации
 

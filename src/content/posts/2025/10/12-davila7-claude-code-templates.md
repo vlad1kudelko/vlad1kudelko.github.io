@@ -1,12 +1,10 @@
-+++
-lang = "ru"
-title = "Claude Code Templates: готовые конфигурации и инструменты для Anthropic's Claude Code"
-description = "Коллекция агентов, команд, интеграций и шаблонов проектов для эффективной разработки с Claude Code."
-template = "posts"
-thumb = "/imgs/2025/10/12-davila7-claude-code-templates.webp"
-publication_date = "2025-10-12"
-github = "https://github.com/davila7/claude-code-templates"
-+++
+---
+title: "Claude Code Templates: готовые конфигурации и инструменты для Anthropic's Claude Code"
+description: "Коллекция агентов, команд, интеграций и шаблонов проектов для эффективной разработки с Claude Code."
+heroImage: "/imgs/2025/10/12-davila7-claude-code-templates.webp"
+pubDate: "2025-10-12"
+github: "https://github.com/davila7/claude-code-templates"
+---
 
 <!-- [23.09, 82] > [0, 75] -->
 

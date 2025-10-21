@@ -1,11 +1,9 @@
-+++
-lang = "ru"
-title = "React Native + Firebase: Backend as a Service"
-description = "Полное руководство по интеграции Firebase с React Native: аутентификация, Cloud Firestore, Cloud Functions, хостинг и аналитика. Практические примеры использования BaaS для мобильной разработки."
-template = "posts"
-thumb = "/imgs/2025/08/react-native-firebase-backend-service.webp"
-publication_date = "2025-08-22"
-+++
+---
+title: "React Native + Firebase: Backend as a Service"
+description: "Полное руководство по интеграции Firebase с React Native: аутентификация, Cloud Firestore, Cloud Functions, хостинг и аналитика. Практические примеры использования BaaS для мобильной разработки."
+heroImage: "/imgs/2025/08/react-native-firebase-backend-service.webp"
+pubDate: "2025-08-22"
+---
 
 # React Native + Firebase: Backend as a Service
 

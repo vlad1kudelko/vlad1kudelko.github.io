@@ -1,12 +1,10 @@
-+++
-lang = "ru"
-title = "Claude Agent SDK для Python: эффективное взаимодействие с Claude Code"
-description = "Библиотека Python для работы с Claude Agent, позволяющая легко интегрировать и использовать возможности Claude Code в приложениях."
-template = "posts"
-thumb = "/imgs/2025/10/01-anthropics-claude-agent-sdk-python.webp"
-publication_date = "2025-10-01"
-github = "https://github.com/anthropics/claude-agent-sdk-python"
-+++
+---
+title: "Claude Agent SDK для Python: эффективное взаимодействие с Claude Code"
+description: "Библиотека Python для работы с Claude Agent, позволяющая легко интегрировать и использовать возможности Claude Code в приложениях."
+heroImage: "/imgs/2025/10/01-anthropics-claude-agent-sdk-python.webp"
+pubDate: "2025-10-01"
+github: "https://github.com/anthropics/claude-agent-sdk-python"
+---
 
 # Claude Agent SDK для Python: эффективное взаимодействие с Claude Code
 
