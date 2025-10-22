@@ -2,7 +2,7 @@
 title: "LangChain.js – фреймворк для создания AI-приложений на базе больших языковых моделей"
 description: "LangChain.js упрощает разработку AI-приложений, обеспечивая интеграцию моделей, инструментов и данных через единый интерфейс для масштабируемых и адаптивных решений."
 heroImage: "../../../../assets/imgs/2025/10/16-langchain-ai-langchainjs.webp"
-pubDate: "2025-10-17"
+pubDate: "2025-10-16"
 github: "https://github.com/langchain-ai/langchainjs"
 ---
 
