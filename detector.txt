@@ -1,11 +1,5 @@
-/posts/2025/06/27-nixos-unikalnaya-linux-sistema.md
 /posts/2025/06/28-almalinux-free-centos-alternative.md
-/posts/2025/08/minicpm-v.md
-/posts/2025/09/11-grafana-and-prometheus.md
-/posts/2025/09/24-LadybirdBrowser-ladybird.md
-/posts/2025/09/24-gin-gonic-gin.md
-/posts/2025/10/13-DIYgod-RSSHub.md
-/posts/2025/10/13-daytonaio-daytona.md
+['025'] /posts/2025/10/13-DIYgod-RSSHub.md
 ['048'] /posts/2025/09/07-apache-kafka.md
 ['051'] /posts/2025/10/17-nitrojs-nitro.md
 ['053'] /posts/2025/10/15-alibaba-spring-ai-alibaba.md
@@ -14,19 +8,20 @@
 ['055'] /posts/2025/10/14-nvm-sh-nvm.md
 ['057'] /posts/2025/10/15-GorvGoyl-Clone-Wars.md
 ['058'] /posts/2025/10/16-langchain-ai-langchainjs.md
-['059'] /posts/2025/10/20-lfnovo-open-notebook.md
 ['061'] /posts/2025/10/12-davila7-claude-code-templates.md
 ['064'] /posts/2025/10/13-anthropics-prompt-eng-interactive-tutorial.md
 ['064'] /posts/2025/10/14-coleam00-Archon.md
 ['065'] /posts/2025/10/16-devlikeapro-waha.md
 ['067'] /posts/2025/10/14-Klavis-AI-klavis.md
+['072'] /posts/2025/10/13-daytonaio-daytona.md
 ['076'] /posts/2025/10/04-meshery-meshery.md
 ['077'] /posts/2025/10/12-timelinize-timelinize.md
 ['083'] /posts/2025/08/react-native-sozdanie-mobilnogo-prilozheniya.md
 ['083'] /posts/2025/08/svelte-stores-upravlenie-sostoyaniem.md
+['085'] /posts/2025/06/27-nixos-unikalnaya-linux-sistema.md
 ['086'] /posts/2025/08/react-component-basics-guide.md
+['088'] /posts/2025/08/minicpm-v.md
 ['088'] /posts/2025/08/react-native-redux-upravlenie-sostoyaniem.md
-['088'] /posts/2025/10/19-hulaspark-hula.md
 ['089'] /posts/2025/10/05-tigerbeetle-tigerbeetle.md
 ['090'] /posts/2025/08/react-hooks-usestate-useeffect-usecontext.md
 ['090'] /posts/2025/08/react-router-navigation-spa.md
@@ -39,6 +34,7 @@
 ['093'] /posts/2025/09/02-koog.md
 ['093'] /posts/2025/09/13-microfrontends.md
 ['093'] /posts/2025/10/03-pathwaycom-pathway.md
+['094'] /posts/2025/09/11-grafana-and-prometheus.md
 ['094'] /posts/2025/09/20-Gar-b-age-CookLikeHOC.md
 ['094'] /posts/2025/09/22-fmtlib-fmt.md
 ['094'] /posts/2025/10/10-78-xiaozhi-esp32.md
@@ -124,6 +120,8 @@
 ['100'] /posts/2025/09/22-WECENG-ticket-purchase.md
 ['100'] /posts/2025/09/22-bevyengine-bevy.md
 ['100'] /posts/2025/09/23-elastic-elasticsearch.md
+['100'] /posts/2025/09/24-LadybirdBrowser-ladybird.md
+['100'] /posts/2025/09/24-gin-gonic-gin.md
 ['100'] /posts/2025/09/24-gofiber-fiber.md
 ['100'] /posts/2025/09/25-HKUDS-RAG-Anything.md
 ['100'] /posts/2025/09/25-cloudflare-capnweb.md
