@@ -4,6 +4,7 @@ description: "Timelinize позволяет импортировать и объ
 heroImage: "../../../../assets/imgs/2025/10/12-timelinize-timelinize.webp"
 pubDate: "2025-10-12"
 github: "https://github.com/timelinize/timelinize"
+top: true
 ---
 
 <!-- [35.16, 86] > [0, 80] -->

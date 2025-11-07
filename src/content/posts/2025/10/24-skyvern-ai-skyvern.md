@@ -4,6 +4,7 @@ description: "Skyvern автоматизирует браузерные зада
 heroImage: "../../../../assets/imgs/2025/10/24-skyvern-ai-skyvern.webp"
 pubDate: "2025-10-24"
 github: "https://github.com/Skyvern-AI/skyvern"
+top: true
 ---
 
 # Skyvern: когда нейросеть берёт в руки мышку
