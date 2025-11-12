@@ -1,8 +1,8 @@
 ---
 title: "Ubicloud — открытое облако для управления bare metal серверами и экономии затрат"
 description: "Ubicloud — это open source облачная платформа, обеспечивающая IaaS-сервисы на bare metal серверах с поддержкой управления, безопасности и масштабируемости, предлагая альтернативу дорогим публичным облакам."
-heroImage: "../../../../assets/imgs/2025/10/26-ubicloud-ubicloud.webp"
-pubDate: "2025-10-26"
+heroImage: "../../../../assets/imgs/2025/10/29-ubicloud-ubicloud.webp"
+pubDate: "2025-10-29"
 github: "https://github.com/ubicloud/ubicloud"
 ---
 
