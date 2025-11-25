@@ -4,7 +4,7 @@ description: "Atuin Desktop объединяет документацию и а�
 heroImage: "../../../../assets/imgs/2025/10/19-atuinsh-desktop.webp"
 pubDate: "2025-10-19"
 github: "https://github.com/atuinsh/desktop"
-top: true
+tags: "top"
 ---
 
 # Когда документация живёт своей жизнью

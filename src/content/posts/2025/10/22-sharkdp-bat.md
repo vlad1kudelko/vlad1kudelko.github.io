@@ -4,7 +4,7 @@ description: "bat — это улучшенная замена cat с расши
 heroImage: "../../../../assets/imgs/2025/10/22-sharkdp-bat.webp"
 pubDate: "2025-10-22"
 github: "https://github.com/sharkdp/bat"
-top: true
+tags: "top"
 ---
 
 # bat: когда cat уже не торт

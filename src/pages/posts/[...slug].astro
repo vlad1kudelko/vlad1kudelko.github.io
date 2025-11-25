@@ -73,6 +73,11 @@ export async function getStaticPaths() {
                 <Image class='bg-gray-100' loading='lazy' width={800} height={400} src={post.data.heroImage} alt={post.data.title} />
 
                 <div class="p-5">
+                    <div class="flex">
+                        { post.data.tags && post.data.tags.split(' ').map((tag) => (
+                            <div class='bg-blue-500 font-bold px-2 mr-2 mb-2 rounded-lg'>{tag}</div>
+                        )) }
+                    </div>
                     <div class='text-xs text-gray-500 font-bold'>{post.data.pubDate.toDateString()}</div>
                     <div class="prose max-w-none marker:text-gray-900">
                          <Content />
