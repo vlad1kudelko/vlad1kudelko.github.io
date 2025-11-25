@@ -2,7 +2,10 @@
 
 @plugin '@tailwindcss/typography';
 
-body { font-family: "Nunito"; }
+body {
+    font-family: "Nunito", sans-serif;
+    font-optical-sizing: auto;
+}
 
 .prose img {
     margin-left: auto;
