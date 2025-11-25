@@ -2,7 +2,7 @@
 
 @plugin '@tailwindcss/typography';
 
-body { font-family: "Rubik"; }
+body { font-family: "Nunito"; }
 
 .prose img {
     margin-left: auto;
