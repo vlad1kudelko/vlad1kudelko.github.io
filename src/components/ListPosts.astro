@@ -12,7 +12,7 @@ const { posts, level, h1 } = Astro.props;
             <a class='m-5 block max-w-sm border bg-gray-800 border-gray-700 hover:opacity-75' href=`/posts/${post.id}/`>
                 <div class='absolute flex'>
                     { post.data.tags && post.data.tags.split(' ').map((tag) => (
-                        <div class='bg-blue-500 font-bold px-2 mx-1 rounded-b-lg'>{tag}</div>
+                        <div class='bg-blue-500 font-bold px-2 ml-2 rounded-b-lg'>{tag}</div>
                     )) }
                 </div>
                 <Image class='bg-gray-100' loading='lazy' width={800} height={400} src={post.data.heroImage} alt={post.data.title} />
