@@ -10,6 +10,11 @@ const { posts, level, h1 } = Astro.props;
     <div class='flex flex-wrap justify-center'>
         { posts.map((post) => (
             <a class='m-5 block max-w-sm border bg-gray-800 border-gray-700 hover:opacity-75' href=`/posts/${post.id}/`>
+                <div class='absolute flex'>
+                    { post.data.tags && post.data.tags.split(' ').map((tag) => (
+                        <div class='bg-blue-500 font-bold px-2 mx-1 rounded-b-lg'>{tag}</div>
+                    )) }
+                </div>
                 <Image class='bg-gray-100' loading='lazy' width={800} height={400} src={post.data.heroImage} alt={post.data.title} />
                 <div class='p-5'>
                     <div class='text-xs text-gray-400'>{post.data.pubDate.toDateString()}</div>
