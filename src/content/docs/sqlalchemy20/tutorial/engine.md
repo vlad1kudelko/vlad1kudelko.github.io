@@ -1,6 +1,6 @@
 ---
-title = "Установка подключения - Engine в SQLAlchemy"
-description = "Руководство по созданию и настройке Engine в SQLAlchemy для подключения к базе данных. Описание URL-строки подключения, ленивой инициализации и параметров логирования SQL-запросов."
+title: "Установка подключения - Engine в SQLAlchemy"
+description: "Руководство по созданию и настройке Engine в SQLAlchemy для подключения к базе данных. Описание URL-строки подключения, ленивой инициализации и параметров логирования SQL-запросов."
 pubDate: "2025-11-26"
 official: "https://docs.sqlalchemy.org/en/20/tutorial/engine.html"
 ---
