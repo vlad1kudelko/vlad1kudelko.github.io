@@ -1,0 +1,39 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Footer   from '../../components/Footer.astro';
+import Header   from '../../components/Header.astro';
+
+import { getCollection, render } from 'astro:content';
+const doc = Astro.props;
+const { Content } = await render(doc);
+
+export async function getStaticPaths() {
+    const docs = await getCollection('docs');
+    return docs.map((doc) => ({
+        params: { slug: doc.id },
+        props: doc,
+    }));
+}
+---
+
+<!doctype html>
+<html lang="ru">
+	<head>
+		<BaseHead title={doc.data.title} description={doc.data.description} />
+    </head>
+	<body class="bg-gray-800 text-gray-100">
+		<Header />
+        <main>
+            <div class='mx-auto max-w-3xl bg-gray-300'>
+                <!-- doc -->
+                <div class="p-5">
+                    <div class="prose max-w-none marker:text-gray-900">
+                         <Content />
+                    </div>
+                </div>
+                <!-- doc -->
+            </div>
+        </main>
+		<Footer />
+	</body>
+</html>
