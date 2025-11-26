@@ -11,7 +11,7 @@ pubDate: "2025-11-26"
     - [Установка подключения - Engine](tutorial/engine/)
     - [Работа с транзакциями и DBAPI](tutorial/dbapi-transactions/)
     - [Работа с метаданными базы данных](tutorial/metadata/)
-    - Работа с данными
+    - [Работа с данными](tutorial/data/)
         - Использование операторов INSERT
         - Использование операторов SELECT
         - Использование операторов UPDATE и DELETE
