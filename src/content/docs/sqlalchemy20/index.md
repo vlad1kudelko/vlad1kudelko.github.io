@@ -12,7 +12,7 @@ pubDate: "2025-11-26"
     - [Работа с транзакциями и DBAPI](tutorial/dbapi-transactions/)
     - [Работа с метаданными базы данных](tutorial/metadata/)
     - [Работа с данными](tutorial/data/)
-        - Использование операторов INSERT
+        - [Использование операторов INSERT](tutorial/data/insert/)
         - Использование операторов SELECT
         - Использование операторов UPDATE и DELETE
     - Манипулирование данными с помощью ORM
