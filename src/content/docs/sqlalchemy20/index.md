@@ -9,7 +9,7 @@ pubDate: "2025-11-26"
 - [Обзор SQLAlchemy](intro/)
 - [SQLAlchemy Единое Руководство](tutorial/)
     - [Установка подключения - Engine](tutorial/engine/)
-    - Работа с транзакциями и DBAPI
+    - [Работа с транзакциями и DBAPI](tutorial/dbapi-transactions/)
     - Работа с метаданными базы данных
     - Работа с данными
         - Использование операторов INSERT
