@@ -22,7 +22,7 @@ official: "https://docs.sqlalchemy.org/en/20/tutorial/data_insert.html"
 >>> stmt = insert(user_table).values(name="spongebob", fullname="Spongebob Squarepants")
 ```
 
-Переменная `stmt` (переводится как statement) — это экземпляр `Insert`. Большинство SQL-выражений можно вывести в виде строки, чтобы увидеть общий вид генерируемого запроса:
+Переменная `stmt` (расшифровывается как statement) — это экземпляр `Insert`. Большинство SQL-выражений можно вывести в виде строки, чтобы увидеть общий вид генерируемого запроса:
 
 ```python
 >>> print(stmt)
