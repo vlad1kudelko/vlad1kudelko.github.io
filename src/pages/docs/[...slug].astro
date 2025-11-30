@@ -16,7 +16,7 @@ export async function getStaticPaths() {
 }
 
 const docs = await getCollection('docs');
-function buildTree() {
+function buildTree_many() {
     const root = {};
     for (const local_doc of docs) {
         // фильтруем только те страницы, которые относятся к текущему "курсу"
@@ -35,6 +35,28 @@ function buildTree() {
             }
             current = current[part].children;
         });
+    }
+    return root;
+}
+
+function buildTree_one() {
+    const root = {};
+    const stack = [{ depth: 0, node: root }];
+    let count = 0;
+    for (const item of doc.rendered.metadata.headings) {
+        while (stack[stack.length - 1].depth >= item.depth) { stack.pop(); }
+        const parent = stack[stack.length - 1].node;
+        parent[item.slug] = {
+            url: '#' + item.slug,
+            title: item.text,
+            order: count,
+            children: {},
+        };
+        stack.push({
+            depth: item.depth,
+            node: parent[item.slug].children,
+        });
+        count += 1;
     }
     return root;
 }
@@ -73,9 +95,10 @@ function treeToHtml(tree) {
                 <div class="p-5">
                     <div class="prose max-w-none marker:text-gray-900">
 
-                         <div set:html={ treeToHtml(buildTree()) }></div>
+                        {(!doc.id.includes('/')) && ( <div set:html={ treeToHtml(buildTree_many()) }></div> )}
+                        {( doc.id.includes('/')) && ( <div set:html={ treeToHtml(buildTree_one())  }></div> )}
 
-                         <Content />
+                        <Content />
                     </div>
                 </div>
                 <!-- doc -->
