@@ -19,6 +19,7 @@ const docs = defineCollection({
         title: z.string(),
         description: z.string(),
         pubDate: z.coerce.date(),
+        order: z.number(),
         official: z.string().optional(),
     }),
 });

@@ -2,6 +2,7 @@
 title: "SQLAlchemy Core: использование INSERT запросов для добавления данных"
 description: "Руководство по созданию INSERT запросов в SQLAlchemy Core: от простых одиночных вставок до продвинутых приёмов с подзапросами. Рассмотрим обычные конструкции Core, и особенности при работе с ORM."
 pubDate: "2025-11-26"
+order: 7
 official: "https://docs.sqlalchemy.org/en/20/tutorial/data_insert.html"
 ---
 

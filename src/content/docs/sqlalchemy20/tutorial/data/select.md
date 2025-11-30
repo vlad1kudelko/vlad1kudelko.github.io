@@ -2,6 +2,7 @@
 title: "Использование SELECT запросов в SQLAlchemy (Core и ORM) для получения данных"
 description: "Построение и выполнение SQLAlchemy SELECT-запросов: примеры кода, объяснение генеративного подхода, работа с ORM-сущностями, JOIN, WHERE, ORDER BY, GROUP BY, подзапросы, CTE, оконные функции."
 pubDate: "2025-11-26"
+order: 8
 official: "https://docs.sqlalchemy.org/en/20/tutorial/data_select.html"
 ---
 

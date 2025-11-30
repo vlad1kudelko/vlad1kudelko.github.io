@@ -2,6 +2,7 @@
 title: "Работа с метаданными базы данных в SQLAlchemy: таблицы, колонки и DDL"
 description: "Полное руководство по работе с метаданными SQLAlchemy: создание таблиц с MetaData, Table и Column, декларативный стиль ORM, генерация DDL, ограничения и рефлексия существующих таблиц."
 pubDate: "2025-11-26"
+order: 5
 official: "https://docs.sqlalchemy.org/en/20/tutorial/metadata.html"
 ---
 

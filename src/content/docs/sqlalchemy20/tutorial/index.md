@@ -2,6 +2,7 @@
 title: "SQLAlchemy Единое Руководство: Полное введение в Core и ORM компоненты"
 description: "Комплексное руководство по SQLAlchemy 2.0, объединяющее Core и ORM подходы. Изучите работу с базами данных, транзакциями, метаданными и ORM для создания мощных приложений на Python."
 pubDate: "2025-11-26"
+order: 2
 official: "https://docs.sqlalchemy.org/en/20/tutorial/index.html"
 ---
 

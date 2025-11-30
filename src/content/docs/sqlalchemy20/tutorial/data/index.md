@@ -2,6 +2,7 @@
 title: "Работа с данными в SQLAlchemy: INSERT, SELECT, UPDATE и DELETE"
 description: "Изучаем создание, выборку и изменение данных в реляционных БД через SQLAlchemy. Работа с конструкциями Insert, Select, Update и Delete в транзакционном контексте для Core и ORM.."
 pubDate: "2025-11-26"
+order: 6
 official: "https://docs.sqlalchemy.org/en/20/tutorial/data.html"
 ---
 

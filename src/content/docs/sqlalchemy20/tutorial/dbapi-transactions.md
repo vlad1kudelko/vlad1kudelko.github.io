@@ -2,6 +2,7 @@
 title: "Работа с транзакциями и DBAPI в SQLAlchemy"
 description: "Подробное руководство по использованию Engine, Connection и Session в SQLAlchemy. Узнайте, как выполнять SQL-запросы, управлять транзакциями и работать с результатами запросов."
 pubDate: "2025-11-26"
+order: 4
 official: "https://docs.sqlalchemy.org/en/20/tutorial/dbapi_transactions.html"
 ---
 
