@@ -14,6 +14,50 @@ export async function getStaticPaths() {
         props: doc,
     }));
 }
+
+const docs = await getCollection('docs');
+function buildTree() {
+    const root = {};
+    for (const local_doc of docs) {
+        // фильтруем только те страницы, которые относятся к текущему "курсу"
+        if (local_doc.id.split('/')[0] !== doc.id.split('/')[0]) { continue; }
+        // убираем из иерархии страницу оглавления
+        const parts = local_doc.id.split('/').slice(1);
+        let current = root;
+        parts.forEach((part, i) => {
+            if (!current[part]) {
+                current[part] = { url: null, title: null, order: null, children: {} };
+            }
+            if (i === parts.length - 1) {
+                current[part].url   = '/docs/' + local_doc.id + '/';
+                current[part].title = local_doc.rendered.metadata.headings[0].text;
+                current[part].order = local_doc.data.order;
+            }
+            current = current[part].children;
+        });
+    }
+    return root;
+}
+
+function treeToHtml(tree) {
+    let html = "<ul>";
+    const entries = Object.entries(tree);
+    entries.sort((a, b) => {
+        const orderA = a[1].order ?? Infinity;
+        const orderB = b[1].order ?? Infinity;
+        return orderA - orderB; // null в конец
+    });
+    for (const [key, value] of entries) {
+    html += `<li><a href="${value.url}">${value.title}`;
+        const children = value.children;
+        if (Object.keys(children).length > 0) {
+            html += treeToHtml(children);
+        }
+        html += "</a></li>";
+    }
+    html += "</ul>";
+    return html;
+}
 ---
 
 <!doctype html>
@@ -28,6 +72,9 @@ export async function getStaticPaths() {
                 <!-- doc -->
                 <div class="p-5">
                     <div class="prose max-w-none marker:text-gray-900">
+
+                         <div set:html={ treeToHtml(buildTree()) }></div>
+
                          <Content />
                     </div>
                 </div>
