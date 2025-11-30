@@ -2,6 +2,7 @@
 title: "SQLAlchemy: SQL инструментарий и ORM для работы с базами данных в Python"
 description: "Полное руководство по SQLAlchemy — мощной библиотеке для работы с базами данных в Python. Включает описание Core, ORM, SQL Expression Language и инструкции по установке для версии 2.0 и выше."
 pubDate: "2025-11-26"
+order: 1
 official: "https://docs.sqlalchemy.org/en/20/intro.html"
 ---
 
