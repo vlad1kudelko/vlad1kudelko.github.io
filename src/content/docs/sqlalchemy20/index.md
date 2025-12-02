@@ -16,7 +16,7 @@ order: 0
         - [Использование операторов INSERT](tutorial/data/insert/)
         - [Использование операторов SELECT](tutorial/data/select/)
         - [Использование операторов UPDATE и DELETE](tutorial/data/update/)
-    - Манипулирование данными с помощью ORM
+    - [Манипулирование данными с помощью ORM](tutorial/orm-data-manipulation/)
     - Работа с объектами, связанными с ORM
     - Дальнейшее чтение
 - SQLAlchemy ORM
