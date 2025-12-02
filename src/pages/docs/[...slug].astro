@@ -89,21 +89,27 @@ function treeToHtml(tree) {
     </head>
 	<body class="bg-gray-800 text-gray-100">
 		<Header />
-        <main>
-            <div class='mx-auto max-w-3xl bg-gray-300'>
-                <!-- doc -->
-                <div class="p-5">
+        <div class='mx-auto max-w-7xl lg:grid grid-cols-3 gap-5'>
+            <div>
+                <div id='up-page'></div>
+                <nav class='bg-gray-300 p-5 lg:pl-0'>
                     <div class="prose max-w-none marker:text-gray-900">
-
-                        {(!doc.id.includes('/')) && ( <div set:html={ treeToHtml(buildTree_many()) }></div> )}
-                        {( doc.id.includes('/')) && ( <div set:html={ treeToHtml(buildTree_one())  }></div> )}
-
-                        <Content />
+                        <div set:html={ treeToHtml(buildTree_many()) }></div>
                     </div>
-                </div>
-                <!-- doc -->
+                </nav>
+                <nav class='hidden lg:block bg-gray-300 p-5 pl-5 mt-5'>
+                    <div class="prose max-w-none marker:text-gray-900">
+                        <div set:html={ treeToHtml(buildTree_one())  }></div>
+                    </div>
+                </nav>
+                <a class="hidden lg:block bg-gray-300 p-5 mt-5 text-gray-900 block text-center font-bold sticky top-0" href="#up-page"> Home </a>
             </div>
-        </main>
+            <main class='bg-gray-300 p-5 col-span-2'>
+                <div class="prose max-w-none marker:text-gray-900">
+                    <Content />
+                </div>
+            </main>
+        </div>
 		<Footer />
 	</body>
 </html>
