@@ -32,6 +32,9 @@ function buildTree_many() {
                 current[part].url   = '/docs/' + local_doc.id + '/';
                 current[part].title = local_doc.rendered.metadata.headings[0].text;
                 current[part].order = local_doc.data.order;
+                if (local_doc.id === doc.id) {
+                    current[part].select = true;
+                }
             }
             current = current[part].children;
         });
@@ -70,7 +73,8 @@ function treeToHtml(tree) {
         return orderA - orderB; // null в конец
     });
     for (const [key, value] of entries) {
-    html += `<li><a href="${value.url}">${value.title}`;
+        const cls = value.select ? 'bg-gray-400' : '';
+        html += `<li class="${cls}"><a href="${value.url}">${value.title}`;
         const children = value.children;
         if (Object.keys(children).length > 0) {
             html += treeToHtml(children);
