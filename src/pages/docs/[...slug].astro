@@ -74,8 +74,8 @@ function treeToHtml(tree) {
         return orderA - orderB; // null в конец
     });
     for (const [key, value] of entries) {
-        const cls = value.select ? 'bg-gray-400' : '';
-        html += `<li class="${cls}"><a href="${value.url}">${value.title}`;
+        const cls = value.select ? 'bg-blue-300' : '';
+        html += `<li><a class="${cls}" href="${value.url}">${value.title}`;
         const children = value.children;
         if (Object.keys(children).length > 0) {
             html += treeToHtml(children);
