@@ -2,6 +2,7 @@
 import BaseHead from '../../components/BaseHead.astro';
 import Footer   from '../../components/Footer.astro';
 import Header   from '../../components/Header.astro';
+import { TELEGRAM_CHANNEL } from '../../consts';
 
 import { getCollection, render } from 'astro:content';
 const doc = Astro.props;
@@ -106,7 +107,10 @@ function treeToHtml(tree) {
                         <div set:html={ treeToHtml(buildTree_one())  }></div>
                     </div>
                 </nav>
-                <a class="hidden lg:block bg-gray-300 p-5 mt-5 text-gray-900 block text-center font-bold sticky top-0" href="#up-page"> Home </a>
+                <div class="hidden lg:grid gap-5 sticky top-5 mt-5">
+                    <a class="bg-gray-300 p-5 text-gray-900 text-center font-bold" href="#up-page"> Home </a>
+                    <a href={TELEGRAM_CHANNEL}><img loading="lazy" src="/res/telegram.webp" alt="telegram" /></a>
+                </div>
             </div>
             <main class='bg-gray-300 p-5 col-span-2'>
                 <div class="prose max-w-none marker:text-gray-900">

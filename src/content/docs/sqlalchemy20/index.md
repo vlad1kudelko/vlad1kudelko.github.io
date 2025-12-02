@@ -15,7 +15,7 @@ order: 0
     - [Работа с данными](tutorial/data/)
         - [Использование операторов INSERT](tutorial/data/insert/)
         - [Использование операторов SELECT](tutorial/data/select/)
-        - Использование операторов UPDATE и DELETE
+        - [Использование операторов UPDATE и DELETE](tutorial/data/update/)
     - Манипулирование данными с помощью ORM
     - Работа с объектами, связанными с ORM
     - Дальнейшее чтение
