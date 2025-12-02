@@ -16,7 +16,10 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 	</head>
 	<body>
         <main class="p-5 mx-auto container">
-            <Search id="search" className="pagefind-ui" uiOptions={{ showImages: false }} />
+            <Search id="search" className="pagefind-ui" uiOptions={{
+                pageSize: 10,
+                showImages: true,
+            }} />
         </main>
 	</body>
 </html>
