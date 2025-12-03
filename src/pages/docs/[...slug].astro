@@ -6,6 +6,7 @@ import { TELEGRAM_CHANNEL } from '../../consts';
 
 import { getCollection, render } from 'astro:content';
 const doc = Astro.props;
+const docs = await getCollection('docs');
 const { Content } = await render(doc);
 
 export async function getStaticPaths() {
@@ -16,7 +17,6 @@ export async function getStaticPaths() {
     }));
 }
 
-const docs = await getCollection('docs');
 function buildTree_many() {
     const root = {};
     for (const local_doc of docs) {
@@ -85,6 +85,25 @@ function treeToHtml(tree) {
     html += "</ul>";
     return html;
 }
+
+function btns_left_right() {
+    const arr = [];
+    for (const item of docs) {
+        if (item.id.split('/')[0] === doc.id.split('/')[0]) {
+            arr.push(item);
+        }
+    }
+    const arr_sort = arr.sort((a, b) => a.data.order - b.data.order);
+    const index = arr_sort.findIndex((index) => index.id === doc.id);
+    const left_id  = index > 0                   ? arr_sort[index - 1].id : null;
+    const right_id = index < arr_sort.length - 1 ? arr_sort[index + 1].id : null;
+    const left  = left_id  ? `/docs/${left_id}/`  : null;
+    const right = right_id ? `/docs/${right_id}/` : null;
+    return { left, right };
+}
+
+const btn_left  = btns_left_right().left;
+const btn_right = btns_left_right().right;
 ---
 
 <!doctype html>
@@ -115,6 +134,10 @@ function treeToHtml(tree) {
             <main class='bg-gray-300 p-5 col-span-2'>
                 <div class="prose max-w-none marker:text-gray-900">
                     <Content />
+                    <div class="flex justify-between">
+                        {( btn_left  ) ? ( <a href={btn_left } class="no-underline bg-gray-800 text-gray-100 p-5">⬅️ Назад</a>  ) : ( <div></div> )}
+                        {( btn_right ) ? ( <a href={btn_right} class="no-underline bg-gray-800 text-gray-100 p-5">Вперед ➡️</a> ) : ( <div></div> )}
+                    </div>
                 </div>
             </main>
         </div>
