@@ -1,6 +1,6 @@
 ---
-title: "title alembic"
-description: "description alembic"
+title: "Настройка Alembic с нуля: alembic.ini, pyproject.toml, sqlalchemy.url и шаблоны"
+description: "Самый полный русскоязычный гайд по настройке Alembic: разбор всех параметров alembic.ini и pyproject.toml, правильное экранирование %% и паролей с @/% в sqlalchemy.url, настройка нескольких баз, file_template, version_paths, env.py, автогенерация миграций и переход с ini на toml-формат."
 pubDate: "2025-12-04"
 order: 0
 official: "https://alembic.sqlalchemy.org/en/latest/tutorial.html"
