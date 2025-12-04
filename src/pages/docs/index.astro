@@ -1,0 +1,48 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Footer   from '../../components/Footer.astro';
+import Header   from '../../components/Header.astro';
+import { SITE_TITLE, SITE_DESCRIPTION, DOCS_H1 } from '../../consts';
+
+import { getCollection } from 'astro:content';
+const docs = await getCollection('docs');
+const docs_hub = {};
+
+for (const doc of docs) {
+    const group = doc.id.split('/')[0];
+    if ((!docs_hub[group]) || (docs_hub[group].order > doc.data.order)) {
+        docs_hub[group] = {
+            url: `/docs/${group}/`,
+            thumb: `/res/docs/${group}.webp`,
+            order: doc.data.order,
+            title: doc.data.title,
+            description: doc.data.description,
+        };
+    }
+}
+---
+
+<!doctype html>
+<html lang="ru">
+	<head>
+        <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    </head>
+	<body class="bg-gray-800 text-gray-100">
+		<Header />
+            <div class='mx-auto container'>
+                <h1 class='p-5 text-center text-2xl text-gray-400'>{DOCS_H1}</h1>
+                <div class='flex flex-wrap justify-center'>
+                    { Object.entries(docs_hub).map(([key, item]) => (
+                        <a class='m-5 block max-w-sm border bg-gray-800 border-gray-700 hover:opacity-75' href={item.url}>
+                            <img class='bg-gray-100' loading='lazy' width={800} height={400} src={item.thumb} alt={item.title} />
+                            <div class='p-5'>
+                                <h2 class='mb-2 text-2xl font-bold tracking-tight text-white'>{item.title}</h2>
+                                <p class='font-normal text-gray-400'>{item.description}</p>
+                            </div>
+                        </a>
+                    )) }
+                </div>
+            </div>
+		<Footer />
+	</body>
+</html>
