@@ -26,7 +26,7 @@ const posts = (await getCollection('posts')).sort(
 	<head>
         <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
         <script type="application/ld+json" set:html={JSON.stringify(json_ld)} />
-        <meta property="og:image" content="/thumb.webp" />
+        <meta property="og:image" content="/res/all/thumb.webp" />
 	</head>
 	<body class="bg-gray-800 text-gray-100">
 		<Header />
