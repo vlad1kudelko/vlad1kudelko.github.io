@@ -4,7 +4,7 @@ import Footer    from '../components/Footer.astro';
 import Header    from '../components/Header.astro';
 import ListPosts from '../components/ListPosts.astro';
 
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import { SITE_TITLE, SITE_DESCRIPTION, HOME_H1 } from '../consts';
 
 import { getCollection } from 'astro:content';
 
@@ -31,7 +31,7 @@ const posts = (await getCollection('posts')).sort(
 	<body class="bg-gray-800 text-gray-100">
 		<Header />
         <main>
-            <ListPosts posts={posts} level={2} h1="Полезные гайды и инструкции для разработчиков" />
+            <ListPosts posts={posts} level={2} h1={HOME_H1} />
         </main>
 		<Footer />
 	</body>

@@ -22,8 +22,7 @@ function buildTree_many() {
     for (const local_doc of docs) {
         // фильтруем только те страницы, которые относятся к текущему "курсу"
         if (local_doc.id.split('/')[0] !== doc.id.split('/')[0]) { continue; }
-        // убираем из иерархии страницу оглавления
-        const parts = local_doc.id.split('/').slice(1);
+        const parts = local_doc.id.split('/');;
         let current = root;
         parts.forEach((part, i) => {
             if (!current[part]) {
@@ -121,7 +120,7 @@ const btn_right = btns_left_right().right;
                         <div set:html={ treeToHtml(buildTree_many()) }></div>
                     </div>
                 </nav>
-                <nav class='hidden lg:block bg-gray-300 p-5 pl-5 mt-5'>
+                <nav class='hidden lg:block bg-gray-300 p-5 pl-0 mt-5'>
                     <div class="prose max-w-none marker:text-gray-900">
                         <div set:html={ treeToHtml(buildTree_one())  }></div>
                     </div>
