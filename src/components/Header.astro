@@ -1,5 +1,5 @@
 ---
-import { SITE_NAME, LINK_CONTACTS, TELEGRAM_CHANNEL } from '../consts';
+import { SITE_NAME, LINK_DOCS, LINK_CONTACTS, TELEGRAM_CHANNEL } from '../consts';
 ---
 
 <div class="bg-gray-900" style="font-weight:800;">
@@ -9,6 +9,7 @@ import { SITE_NAME, LINK_CONTACTS, TELEGRAM_CHANNEL } from '../consts';
             <span>{SITE_NAME}</span>
         </a>
         <span class="flex gap-8 items-center uppercase text-sm">
+            <a class="hover:text-gray-300" href={LINK_DOCS}>Docs</a>
             <a class="hover:text-gray-300" href={LINK_CONTACTS}>Контакты</a>
             <a class="hover:text-blue-500 text-blue-400" href={TELEGRAM_CHANNEL}>Telegram</a>
         </span>
