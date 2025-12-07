@@ -6,7 +6,7 @@ import tailwindcss from '@tailwindcss/vite';
 import pagefind from 'astro-pagefind';
 
 export default defineConfig({
-    site: 'https://crafthomelab.ru',
+    site: 'https://vlad1kudelko.github.io',
     integrations: [mdx(), sitemap(), pagefind()],
 
     vite: {
