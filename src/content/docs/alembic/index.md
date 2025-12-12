@@ -103,7 +103,7 @@ Alembic поместил файл `alembic.ini` в текущий каталог
 
 Ниже представлен универсальный .ini-файл, созданный `Generic`:
 
-```
+```ini
 # A generic, single database configuration.
 
 [alembic]
