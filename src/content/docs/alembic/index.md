@@ -468,7 +468,7 @@ Please edit configuration/connection/logging settings in
 
 В файле `pyproject.toml` сгенерированный раздел по умолчанию в основном похож на файл `alembic.ini`, за приятным исключением того, что списки значений поддерживаются напрямую; это означает, что значения `prepend_sys_path` и `version_locations` указываются в виде списков. Токен `%(here)s` также остаётся доступным в качестве абсолютного пути к файлу `pyproject.toml`:
 
-```
+```ini
 [tool.alembic]
 # path to migration scripts
 script_location = "%(here)s/alembic"
@@ -545,7 +545,7 @@ prepend_sys_path = [
 
 Файл `alembic.ini` для этого шаблона усечен и содержит только конфигурацию базы данных и конфигурацию ведения журнала:
 
-```
+```ini
 [alembic]
 
 # database URL.  This is consumed by the user-maintained env.py script only.
