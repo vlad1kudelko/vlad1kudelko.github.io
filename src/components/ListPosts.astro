@@ -2,14 +2,59 @@
 import { Image } from 'astro:assets';
 
 const { posts, level, h1 } = Astro.props;
+
+let tags_all = [];
+for (const post of posts) {
+    if (!post.data.tags) { continue; }
+    const tags = post.data.tags.split(' ');
+    for (const tag of tags) {
+        if (!tags_all.includes(tag)) {
+            tags_all.push(tag);
+        }
+    }
+}
 ---
+
+<script>
+    function hideBlogs() {
+        this.classList.toggle('bg-gray-500');
+        this.classList.toggle('bg-blue-500');
+        const activeElem = document.querySelectorAll('#filter > .bg-blue-500');
+        const activeTags = Array.from(activeElem).map(el => el.textContent.trim());
+        const posts = document.querySelectorAll('#posts > *');
+        if (activeTags.length === 0) {
+            posts.forEach(post => { post.style.display = ''; });
+            document.querySelector('#empty').style.display = '';
+            return;
+        }
+        let isEmpty = true;
+        posts.forEach(post => {
+            const postTags = post.getAttribute('data-tags')?.split(' ') || [];
+            const isVisible = activeTags.every(tag => postTags.includes(tag));
+            post.style.display = isVisible ? '' : 'none';
+            isEmpty = isVisible ? false : isEmpty;
+        });
+        document.querySelector('#empty').style.display = isEmpty ? 'block' : '';
+    }
+
+    document.querySelectorAll("#filter > *").forEach((e) => {
+        e.addEventListener("click", hideBlogs);
+    });
+</script>
 
 <h1 class='mx-auto container p-5 text-center text-2xl text-gray-400'>{h1}</h1>
 
 <div class='mx-auto container'>
-    <div class='flex flex-wrap justify-center'>
+    <div class='flex flex-wrap justify-center gap-5' id='filter'>
+        { tags_all.map((tag) => (
+            <div class='bg-gray-500 font-bold px-2 rounded-lg cursor-pointer'>{tag}</div>
+        )) }
+    </div>
+    <div class='p-5 text-center text-gray-400 hidden' id='empty'> Таких постов нет </div>
+    <div class='flex flex-wrap justify-center' id='posts'>
         { posts.map((post) => (
-            <a class='m-5 block max-w-sm border bg-gray-800 border-gray-700 hover:opacity-75' href=`/posts/${post.id}/`>
+            <a class='m-5 block max-w-sm border bg-gray-800 border-gray-700 hover:opacity-75'
+               href=`/posts/${post.id}/` data-tags={post.data.tags}>
                 <div class='absolute flex'>
                     { post.data.tags && post.data.tags.split(' ').map((tag) => (
                         <div class='bg-blue-500 font-bold px-2 ml-2 rounded-b-lg'>{tag}</div>
