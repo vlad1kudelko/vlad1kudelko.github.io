@@ -1,54 +1,51 @@
 ---
-title: "Паттерн Unit of Work в Python: атомарность и транзакции"
-description: "Узнайте, как паттерн Unit of Work (UoW) обеспечивает атомарность операций и упрощает управление транзакциями. Применяйте контекстные менеджеры для надежного кода."
+title: "Паттерн Unit of Work: атомарность операций и транзакции"
+description: "Узнайте, как паттерн UoW обеспечивает атомарность операций, упрощает управление транзакциями и связывает репозиторий с сервисным слоем."
 pubDate: "2026-02-23"
 order: 6
 ---
 
 # 6. Паттерн UoW (стр. 120-135)
 
-`UoW (Unit of Work)` — абстракция над атомарными операциями. Работает в паре с репозиторием.
+## Что такое Unit of Work?
 
-Пример использования:
+**Unit of Work (UoW)** — абстракция над атомарными операциями. Если репозиторий абстрагирует доступ к данным, то UoW абстрагирует **целостность транзакций**.
+
+**Проблема без UoW**: сервисный слой зависит и от репозитория, и от сеанса БД:
 
 ```python
-def allocate(orderid: str, sku: str, qty: int, uow: AbstractUnitOfWork) -> str:
+# Без UoW: много зависимостей
+def allocate(line: OrderLine, repo, session):
+    batches = repo.list()
+    batchref = model.allocate(line, batches)
+    session.commit()  # ← Зависимость от session
+```
+
+**Решение**: UoW объединяет репозиторий и транзакцию в одной абстракции:
+
+```python
+# С UoW: одна зависимость
+def allocate(orderid: str, sku: str, qty: int, uow: AbstractUnitOfWork):
     line = OrderLine(orderid, sku, qty)
-    with uow:  # ← Контекстный менеджер
+    with uow:
         batches = uow.batches.list()
         batchref = model.allocate(line, batches)
-        uow.commit()  # ← Явная фиксация
+        uow.commit()
     return batchref
 ```
 
-## Три преимущества UoW:
+## Три преимущества UoW
 
- 1. Стабильный снимок БД — объекты не меняются mid-operation
- 2. Атомарность — всё или ничего (нет частичных обновлений)
- 3. Единый API для репозиториев и транзакций
+1. **Стабильный снимок БД** — объекты не меняются во время операции
+2. **Атомарность** — всё или ничего (нет частичных обновлений)
+3. **Единый API** — одно место для получения репозиториев и фиксации
 
-## Тестирование UoW интеграционными тестами
+## Реализация UoW
 
-```python
-def test_uow_can_retrieve_a_batch_and_allocate_to_it(session_factory):
-    session = session_factory()
-    insert_batch(session, 'batch1', 'HIPSTER-WORKBENCH', 100, None)
-    session.commit()
-    uow = unit_of_work.SqlAlchemyUnitOfWork(session_factory)
-    with uow:
-        batch = uow.batches.get(reference='batch1')
-        line = OrderLine('o1', 'HIPSTER-WORKBENCH', 10)
-        batch.allocate(line)
-        uow.commit()
-    batchref = get_allocated_batch_ref(session, 'o1', 'HIPSTER-WORKBENCH')
-    assert batchref == 'batch1'
-```
-
-## UoW и его контекстный менеджер
-
-Абстрактный UoW:
+### Абстрактный базовый класс
 
 ```python
+# unit_of_work.py
 class AbstractUnitOfWork(abc.ABC):
     batches: repository.AbstractRepository
 
@@ -64,7 +61,7 @@ class AbstractUnitOfWork(abc.ABC):
         raise NotImplementedError
 ```
 
-Реализация для SQLAlchemy:
+### Реализация для SQLAlchemy
 
 ```python
 class SqlAlchemyUnitOfWork(AbstractUnitOfWork):
@@ -87,7 +84,11 @@ class SqlAlchemyUnitOfWork(AbstractUnitOfWork):
         self.session.rollback()
 ```
 
-Поддельный UoW для тестов:
+**Контекстный менеджер** (`with uow:`) — идиоматичный способ для Python:
+- `__enter__` — создаёт сеанс и репозиторий
+- `__exit__` — закрывает сеанс, делает откат если не было commit()
+
+### Поддельный UoW для тестов
 
 ```python
 class FakeUnitOfWork(AbstractUnitOfWork):
@@ -102,42 +103,73 @@ class FakeUnitOfWork(AbstractUnitOfWork):
         pass
 ```
 
-## Использование паттерна UoW в сервисном слое
+## Тестирование UoW
 
-До:
+### Интеграционный тест
 
 ```python
-def allocate(line: OrderLine, repo, session):
-    batches = repo.list()
-    batchref = model.allocate(line, batches)
+def test_uow_can_retrieve_a_batch_and_allocate_to_it(session_factory):
+    # Подготовка: вставляем данные напрямую в БД
+    session = session_factory()
+    insert_batch(session, 'batch1', 'HIPSTER-WORKBENCH', 100, None)
     session.commit()
+    
+    # Тест: используем UoW
+    uow = unit_of_work.SqlAlchemyUnitOfWork(session_factory)
+    with uow:
+        batch = uow.batches.get(reference='batch1')
+        line = model.OrderLine('o1', 'HIPSTER-WORKBENCH', 10)
+        batch.allocate(line)
+        uow.commit()
+    
+    # Проверка: данные сохранились
+    batchref = get_allocated_batch_ref(session, 'o1', 'HIPSTER-WORKBENCH')
+    assert batchref == 'batch1'
 ```
 
-После:
+### Тесты на откат
 
 ```python
-def allocate(orderid: str, sku: str, qty: int, uow: AbstractUnitOfWork):
-    line = OrderLine(orderid, sku, qty)
+def test_rolls_back_uncommitted_work_by_default(session_factory):
+    uow = unit_of_work.SqlAlchemyUnitOfWork(session_factory)
     with uow:
-        batches = uow.batches.list()
-        batchref = model.allocate(line, batches)
-        uow.commit()
-    return batchref
+        insert_batch(uow.session, 'batch1', 'MEDIUM-PLINTH', 100, None)
+        # commit() не вызываем!
+    
+    # Данные не сохранились
+    new_session = session_factory()
+    rows = list(new_session.execute('SELECT * FROM batches'))
+    assert rows == []
+
+def test_rolls_back_on_error(session_factory):
+    uow = unit_of_work.SqlAlchemyUnitOfWork(session_factory)
+    with pytest.raises(MyException):
+        with uow:
+            insert_batch(uow.session, 'batch1', 'LARGE-FORK', 100, None)
+            raise MyException()
+    
+    # Откат произошёл
+    new_session = session_factory()
+    rows = list(new_session.execute('SELECT * FROM batches'))
+    assert rows == []
 ```
 
-`Преимущество`: сервисный слой зависит только от одной абстракции (UoW), а не от session + repo.
+## Явная vs неявная фиксация
 
-## Явные и неявные фиксации
-
-Вариант 1: Явная фиксация (рекомендуется)
+### Вариант 1: Явная фиксация (рекомендуется)
 
 ```python
 with uow:
     uow.batches.add(batch)
-    uow.commit()  # ← Явно
+    uow.commit()  # ← Явно вызываем
 ```
 
-Вариант 2: Неявная фиксация
+**Преимущества**:
+- Безопасно по умолчанию (ничего не меняется без commit())
+- Понятно, когда происходит фиксация
+- Один путь к изменениям: полный успех + явная фиксация
+
+### Вариант 2: Неявная фиксация
 
 ```python
 class AbstractUnitOfWork:
@@ -148,45 +180,96 @@ class AbstractUnitOfWork:
             self.rollback()
 ```
 
-Авторы предпочитают явную фиксацию: безопаснее по умолчанию, код понятнее.
+```python
+# Не нужно писать commit()
+with uow:
+    uow.batches.add(batch)
+```
 
-## Примеры: группировка операций в атомарную единицу
+**Недостатки**:
+- Менее явно, когда происходит фиксация
+- Ранний выход из блока может зафиксировать частичные изменения
 
-Пример 1: Повторное размещение
+**Мы предпочитаем явную фиксацию** — безопаснее и понятнее.
+
+## Примеры использования UoW
+
+### Пример 1: Повторное размещение
 
 ```python
 def reallocate(line: OrderLine, uow: AbstractUnitOfWork):
     with uow:
         batch = uow.batches.get(sku=line.sku)
+        if batch is None:
+            raise InvalidSku(f'Недопустимый артикул {line.sku}')
+        
         batch.deallocate(line)  # ← Если ошибка — откат
         allocate(line)          # ← Если ошибка — откат
         uow.commit()            # ← Всё или ничего
 ```
 
-Пример 2: Изменение количества товаров
+Если `deallocate()` или `allocate()` выбросит ошибку — всё откатится.
+
+### Пример 2: Изменение количества товара
 
 ```python
 def change_batch_quantity(batchref: str, new_qty: int, uow: AbstractUnitOfWork):
     with uow:
         batch = uow.batches.get(reference=batchref)
         batch.change_purchased_quantity(new_qty)
-        # Автоматически отменяем размещения, если товара не хватает
+        
+        # Если товара стало меньше — отменяем размещения
         while batch.available_quantity < 0:
             line = batch.deallocate_one()
+        
         uow.commit()
 ```
 
-## Ключевые выводы Главы 6:
+Если на каком-то этапе возникнет ошибка — все изменения откатятся.
 
- 1. UoW — абстракция над атомарными операциями
- 2. Контекстный менеджер (`with uow:`) — идиоматичный Python-способ
- 3. Явная фиксация безопаснее неявной
- 4. UoW + Репозиторий работают в паре
- 5. Откат по умолчанию — система безопасна при ошибках
+## Почему UoW, а не просто Session?
 
-## Вопросы для проверки:
+**Вопрос**: зачем создавать UoW, если SQLAlchemy Session уже делает то же самое?
 
- 1. Что такое Unit of Work и зачем он нужен?
- 2. Почему контекстный менеджер удобен для UoW?
- 3. В чём разница между явной и неявной фиксацией?
- 4. Как UoW помогает с атомарностью операций?
+**Ответ**: UoW проще и понятнее:
+
+| Session (SQLAlchemy) | UoW |
+|---------------------|-----|
+| Сложный объект с кучей методов | Простой интерфейс: commit(), rollback(), .batches |
+| Можно делать произвольные запросы | Только репозитории и транзакции |
+| Сложно подделывать в тестах | Легко создать FakeUnitOfWork |
+
+**Принцип**: «Не владеешь — не имитируй». Лучше создать простую абстракцию, чем зависеть от сложного Session.
+
+## Структура тестов после внедрения UoW
+
+```
+tests/
+├── unit/
+│   ├── test_allocate.py      # Модель предметной области
+│   └── test_services.py      # Сервисный слой с FakeUoW
+├── integration/
+│   └── test_uow.py           # UoW с реальной БД
+└── e2e/
+    └── test_api.py           # Сквозные тесты API
+```
+
+**Правило**: тестировать на максимально высоком уровне абстракции. Если test_uow.py покрывает то же, что test_repository.py — удаляем последний.
+
+## Выводы
+
+1. **UoW — абстракция атомарных операций** — всё или ничего
+2. **Контекстный менеджер** — идиоматичный Python-способ (`with uow:`)
+3. **Явная фиксация безопаснее** — по умолчанию ничего не меняется
+4. **UoW + репозиторий работают в паре** — коллабораторы
+5. **Откат по умолчанию** — система безопасна при ошибках
+6. **Проще чем Session** — не нужно зависеть от сложного ORM
+
+## Вопросы
+
+1. Что такое Unit of Work и зачем он нужен?
+2. Почему контекстный менеджер удобен для UoW?
+3. В чём разница между явной и неявной фиксацией?
+4. Как UoW помогает с атомарностью операций?
+5. Почему не использовать напрямую Session из SQLAlchemy?
+6. Что такое принцип «Не владеешь — не имитируй»?
