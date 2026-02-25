@@ -1,20 +1,20 @@
 ---
-title: "Внедрение зависимостей и Bootstrap: Чистая сборка приложения"
-description: "Узнайте, как паттерн Dependency Injection (DI) и скрипт начальной загрузки (Bootstrap) превращают монолитный код в гибкую и тестируемую систему. Избавьтесь от mock.patch навсегда."
+title: "Внедрение зависимостей и Bootstrap: чистая сборка приложения"
+description: "Узнайте, как паттерн Dependency Injection и скрипт начальной загрузки превращают код в гибкую и тестируемую систему."
 pubDate: "2026-02-23"
 order: 13
 ---
 
 # 13. Внедрение зависимостей (и начальная загрузка) (стр. 246-267)
 
+## Проблема: неявные зависимости
 
-`Проблема`: до сих пор мы управляли зависимостями по-разному:
+До сих пор мы управляли зависимостями по-разному:
 
-UoW — явная зависимость:
+**UoW — явная зависимость** (хорошо):
 
 ```python
-# handlers.py
-def allocate(cmd: commands.Allocate, uow: unit_of_work.AbstractUnitOfWork):
+def allocate(cmd: Allocate, uow: AbstractUnitOfWork):
     with uow:
         ...
 
@@ -23,53 +23,48 @@ uow = FakeUnitOfWork()
 messagebus.handle(cmd, uow)
 ```
 
-Email — неявная зависимость:
+**Email — неявная зависимость** (плохо):
 
 ```python
-# handlers.py
 from allocation.adapters import email
 
-def send_out_of_stock_notification(event: events.OutOfStock, uow):
+def send_out_of_stock_notification(event, uow):
     email.send('stock@made.com', f'Артикула {event.sku} нет в наличии')
 
 # Тесты — mock.patch для каждого теста
-with mock.patch("allocation.adapters.email.send") as mock_send:
+with mock.patch("allocation.adapters.email.send"):
     ...
 ```
 
-Проблемы неявных зависимостей:
- - ❌ mock.patch привязывает к реализации (импорт, имя функции)
- - ❌ Нужно патчить в каждом тесте
- - ❌ Рефакторинг ломает тесты
+**Проблемы неявных зависимостей**:
+- `mock.patch` привязывает к реализации (импорт, имя функции)
+- Нужно патчить в каждом тесте
+- Рефакторинг ломает тесты
 
-`Решение`: явная зависимость
+## Решение: явные зависимости
 
 ```python
 def send_out_of_stock_notification(
-    event: events.OutOfStock,
+    event: OutOfStock,
     send_mail: Callable  # ← Явная зависимость!
 ):
     send_mail('stock@made.com', f'Артикула {event.sku} нет в наличии')
 ```
 
-Разве явные зависимости не кажутся странными и Java-подобными?
+**Преимущества**:
+1. **Тестируемость** — легко подменить в тестах
+2. **Инверсия зависимостей** — зависимость от абстракций
+3. **Явное лучше неявного** (Дзен Python)
 
-`Вопрос`: зачем передавать зависимости вручную, если можно импортировать?
+**Вопрос**: кто будет создавать и передавать зависимости?
 
-Ответ:
- 1. Тестируемость — легко подменить в тестах
- 2. Принцип инверсии зависимостей — зависимость от абстракций
- 3. Явное лучше неявного (Дзен Python)
+## Подготовка обработчиков: 3 способа внедрения
 
-Но кто будет создавать и передавать зависимости?
-
-`Подготовка обработчиков`: внедрение зависимостей вручную
-
-## Способ 1: Замыкания
+### Способ 1: Замыкания
 
 ```python
 # handlers.py
-def allocate(cmd: commands.Allocate, uow: unit_of_work.AbstractUnitOfWork):
+def allocate(cmd: Allocate, uow: AbstractUnitOfWork):
     with uow:
         ...
 
@@ -78,7 +73,7 @@ def send_out_of_stock_notification(event, send_mail: Callable):
 
 # bootstrap.py
 def bootstrap():
-    uow = unit_of_work.SqlAlchemyUnitOfWork()
+    uow = SqlAlchemyUnitOfWork()
 
     # Замыкание захватывает uow
     def allocate_composed(cmd):
@@ -91,13 +86,13 @@ def bootstrap():
     return allocate_composed, sosn_composed
 ```
 
-## Способ 2: functools.partial
+### Способ 2: functools.partial
 
 ```python
 import functools
 
 def bootstrap():
-    uow = unit_of_work.SqlAlchemyUnitOfWork()
+    uow = SqlAlchemyUnitOfWork()
     allocate_composed = functools.partial(allocate, uow=uow)
     sosn_composed = functools.partial(
         send_out_of_stock_notification,
@@ -106,21 +101,21 @@ def bootstrap():
     return allocate_composed, sosn_composed
 ```
 
-## Альтернатива с использованием классов
+### Способ 3: Классы
 
 ```python
 # handlers.py
 class AllocateHandler:
-    def __init__(self, uow: unit_of_work.AbstractUnitOfWork):
+    def __init__(self, uow: AbstractUnitOfWork):
         self.uow = uow
 
-    def __call__(self, cmd: commands.Allocate):
+    def __call__(self, cmd: Allocate):
         with self.uow:
             # Логика обработчика
             ...
 
 # bootstrap.py
-uow = unit_of_work.SqlAlchemyUnitOfWork()
+uow = SqlAlchemyUnitOfWork()
 allocate = AllocateHandler(uow)  # ← Внедрение зависимости!
 
 # Позже
@@ -129,32 +124,35 @@ allocate(cmd)  # ← Вызов без передачи зависимостей
 
 ## Сценарий начальной загрузки (Bootstrap)
 
-Задачи bootstrap:
- 1. Объявляет зависимости по умолчанию
- 2. Выполняет инициализацию (ORM, logging)
- 3. Внедряет зависимости в обработчики
- 4. Возвращает шину сообщений
+**Задачи bootstrap**:
+1. Объявляет зависимости по умолчанию
+2. Выполняет инициализацию (ORM, logging)
+3. Внедряет зависимости в обработчики
+4. Возвращает шину сообщений
 
-Реализация:
+**Реализация**:
 
 ```python
+# bootstrap.py
 import inspect
 from functools import partial
 
 def bootstrap(
     start_orm: bool = True,
-    uow: unit_of_work.AbstractUnitOfWork = unit_of_work.SqlAlchemyUnitOfWork(),
+    uow: AbstractUnitOfWork = SqlAlchemyUnitOfWork(),
     send_mail: Callable = email.send,
     publish: Callable = redis_eventpublisher.publish,
-) -> messagebus.MessageBus:
+) -> MessageBus:
     if start_orm:
         orm.start_mappers()
+    
     # Зависимости
     dependencies = {
         'uow': uow,
         'send_mail': send_mail,
         'publish': publish
     }
+    
     # Внедряем зависимости в обработчики событий
     injected_event_handlers = {
         event_type: [
@@ -163,12 +161,14 @@ def bootstrap(
         ]
         for event_type, event_handlers in handlers.EVENT_HANDLERS.items()
     }
+    
     # Внедряем зависимости в обработчики команд
     injected_command_handlers = {
         command_type: inject_dependencies(handler, dependencies)
         for command_type, handler in handlers.COMMAND_HANDLERS.items()
     }
-    return messagebus.MessageBus(
+    
+    return MessageBus(
         uow=uow,
         event_handlers=injected_event_handlers,
         command_handlers=injected_command_handlers,
@@ -187,9 +187,9 @@ def inject_dependencies(handler, dependencies):
     return lambda message: handler(message, **deps)
 ```
 
-## «Ручное» внедрение зависимостей (альтернатива)
+### «Ручное» внедрение (альтернатива без inspect)
 
-Если inspect() кажется сложным:
+Если `inspect()` кажется сложным:
 
 ```python
 def bootstrap(uow, send_mail, publish):
@@ -211,37 +211,37 @@ def bootstrap(uow, send_mail, publish):
         commands.CreateBatch: lambda c: handlers.add_batch(c, uow),
         commands.ChangeBatchQuantity: lambda c: handlers.change_batch_quantity(c, uow),
     }
-    return messagebus.MessageBus(
+    return MessageBus(
         uow=uow,
         event_handlers=injected_event_handlers,
         command_handlers=injected_command_handlers,
     )
- ```
-
-`Преимущество`: проще понять, нет «магии» с inspect().
-
-Использование начальной загрузки в точках входа
-
-Flask:
-
-```python
-  1 # flask_app.py
-  2 from allocation import bootstrap
-  3
-  4 bus = bootstrap.bootstrap()
-  5
-  6 @app.route('/allocate', methods=['POST'])
-  7 def allocate_endpoint():
-  8     cmd = commands.Allocate(
-  9         request.json['orderid'],
- 10         request.json['sku'],
- 11         request.json['qty']
- 12     )
- 13     bus.handle(cmd)
- 14     return '', 202
 ```
 
-Redis Consumer:
+**Преимущество**: проще понять, нет «магии» с `inspect()`.
+
+## Использование bootstrap в точках входа
+
+**Flask**:
+
+```python
+# flask_app.py
+from allocation import bootstrap
+
+bus = bootstrap.bootstrap()
+
+@app.route('/allocate', methods=['POST'])
+def allocate_endpoint():
+    cmd = commands.Allocate(
+        request.json['orderid'],
+        request.json['sku'],
+        request.json['qty']
+    )
+    bus.handle(cmd)
+    return '', 202
+```
+
+**Redis Consumer**:
 
 ```python
 from allocation import bootstrap
@@ -251,7 +251,6 @@ bus = bootstrap.bootstrap()
 def main():
     pubsub = r.pubsub()
     pubsub.subscribe('change_batch_quantity')
-
     for m in pubsub.listen():
         cmd = commands.ChangeBatchQuantity(...)
         bus.handle(cmd)
@@ -259,7 +258,7 @@ def main():
 
 ## Внедрение зависимостей в тестах
 
-Тестовый bootstrap:
+**Тестовый bootstrap**:
 
 ```python
 # tests/conftest.py
@@ -277,13 +276,13 @@ def test_allocate():
     bus.handle(commands.CreateBatch('b1', 'SKU', 100, None))
     bus.handle(commands.Allocate('order1', 'SKU', 10))
     assert bus.uow.committed
- ```
+```
 
-## «Правильное» создание адаптера: рабочий пример
+## «Правильное» создание адаптера
 
-`Проблема`: как создать реальный email-адаптер?
+**Проблема**: как создать реальный email-адаптер?
 
-`Решение`: фабрика адаптеров в bootstrap:
+**Решение**: фабрика адаптеров в bootstrap:
 
 ```python
 # adapters/email.py
@@ -306,7 +305,7 @@ def bootstrap(...):
     ...
 ```
 
-В тестах:
+**В тестах**:
 
 ```python
 def test_bootstrap():
@@ -315,18 +314,18 @@ def test_bootstrap():
     )
 ```
 
-## Ключевые выводы Главы 13:
+## Выводы
 
- 1. Явные зависимости лучше неявных (тестируемость, рефакторинг)
- 2. Bootstrap — единое место для инициализации и внедрения
- 3. Замыкания / partial / классы — три способа внедрения
- 4. Inspect — автоматическое внедрение по имени параметра
- 5. Тесты — подменяем зависимости в bootstrap
+1. **Явные зависимости лучше неявных** — тестируемость, рефакторинг
+2. **Bootstrap** — единое место для инициализации и внедрения
+3. **Три способа внедрения**: замыкания, `partial`, классы
+4. **Inspect** — автоматическое внедрение по имени параметра
+5. **Тесты** — подменяем зависимости в bootstrap
 
-## Вопросы для проверки:
+## Вопросы
 
- 1. Зачем нужны явные зависимости вместо импортов?
- 2. Что делает функция bootstrap()?
- 3. Какие есть способы внедрения зависимостей (3 способа)?
- 4. Как упростить тестирование с помощью bootstrap?
- 5. Что такое Composition Root?
+1. Зачем нужны явные зависимости вместо импортов?
+2. Что делает функция `bootstrap()`?
+3. Какие есть способы внедрения зависимостей (3 способа)?
+4. Как упростить тестирование с помощью bootstrap?
+5. Что такое Composition Root?
