@@ -1,260 +1,190 @@
-# План публикаций статей
-
-+------------|-------------------------------------------|--------------------------------------------------------------------------------+
-| Дата       | Тема                                      | Описание                                                                       |
-+------------|-------------------------------------------|--------------------------------------------------------------------------------+
-| 01.12.2025 | Kubernetes: от pod до кластера            | Deployments, Services, ConfigMaps, Secrets                                     |
-| 02.12.2025 | Helm: пакетный менеджер K8s               | Чарты, values, templates, репозитории                                          |
-| 03.12.2025 | Terraform: инфраструктура как код         | Providers, resources, state, модули                                            |
-| 04.12.2025 | Ansible: конфигурационный менеджмент      | Playbooks, roles, inventories                                                  |
-| 05.12.2025 | CI/CD: GitHub Actions продвинутый         | Matrix, caching, self-hosted runners                                           |
-| 06.12.2025 | Мониторинг: Prometheus + Grafana          | Метрики, алерты, дашборды                                                      |
-| 07.12.2025 | OWASP Top 10: уязвимости веб-приложений   | SQLi, XSS, CSRF, инъекции                                                      |
-| 08.12.2025 | HTTPS и TLS: как работает шифрование      | Сертификаты, handshake, HSTS                                                   |
-| 09.12.2025 | OAuth 2.0 и OpenID Connect                | Flows, tokens, providers                                                       |
-| 10.12.2025 | JWT: глубокий разбор                      | Структура, алгоритмы, best practices                                           |
-| 11.12.2025 | Аутентификация: сессии vs токены          | Плюсы и минусы подходов                                                        |
-| 12.12.2025 | Rate Limiting и защита от DDoS            | Алгоритмы, реализация, Nginx                                                   |
-| 13.12.2025 | Security headers и CSP                    | Заголовки безопасности, Content Security Policy                                |
-| 14.12.2025 | React Server Components                   | SSR, streaming, suspense                                                       |
-| 15.12.2025 | Next.js 15: новые возможности             | App Router, Server Actions, caching                                            |
-| 16.12.2025 | Vue 3.5: что нового                       | Reactivity, performance, DevTools                                              |
-| 17.12.2025 | Svelte 5: Runes и реактивность            | Новая система реактивности                                                     |
-| 18.12.2025 | Tailwind CSS: продвинутые техники         | Custom config, plugins, оптимизация                                            |
-| 19.12.2025 | CSS Grid и Flexbox: полное руководство    | Layout, responsive, примеры                                                    |
-| 20.12.2025 | Web Components: стандарты браузера        | Custom Elements, Shadow DOM, Templates                                         |
-| 21.12.2025 | React Native: навигация 2025              | React Navigation 7, deep linking                                               |
-| 22.12.2025 | React Native: состояние и данные          | Zustand, TanStack Query, offline                                               |
-| 23.12.2025 | Flutter 3.x: новые виджеты                | Material 3, адаптивный UI                                                      |
-| 24.12.2025 | Kotlin Multiplatform: кроссплатформа      | Shared code, UI, данные                                                        |
-| 25.12.2025 | Expo 2025: полный цикл разработки         | EAS Build, Updates, Modules                                                    |
-| 26.12.2025 | PWA: прогрессивные веб-приложения         | Service Workers, manifest, offline                                             |
-| 27.12.2025 | Mobile CI/CD: Fastlane и EAS              | Автоматизация билдов и релизов                                                 |
-| 28.12.2025 | Write-ahead logging и журналирование      | WAL в PostgreSQL, redo/undo логи, recovery                                     |
-| 29.12.2025 | Lock-free структуры данных                | Атомарные операции, CAS, memory ordering                                       |
-| 30.12.2025 | Распределённые транзакции и 2PC           | Two-Phase Commit, Saga, Paxos, Raft                                            |
-| 31.12.2025 | Zero-copy и mmap в Linux                  | sendfile, splice, memory-mapped файлы                                          |
-+------------|-------------------------------------------|--------------------------------------------------------------------------------+
-
-## Январь 2026: AI и машинное обучение
-
-+------------|-----------------------------------------|--------------------------------------+
-| Дата       | Тема                                    | Описание                             |
-+------------|-----------------------------------------|--------------------------------------+
-| 01.01.2026 | LLM-модели: обзор 2026                  | GPT, Claude, Gemini, Llama, Qwen     |
-| 02.01.2026 | RAG-системы: поиск + векторы            | Embeddings, векторные БД, retrieval  |
-| 03.01.2026 | Векторные базы данных                   | Pinecone, Weaviate, Qdrant, Milvus   |
-| 04.01.2026 | LangChain: оркестрация LLM              | Chains, Agents, Tools, Memory        |
-| 05.01.2026 | LangGraph: агенты с состоянием          | Graphs, nodes, edges, persistence    |
-| 06.01.2026 | MCP (Model Context Protocol)            | Протокол, серверы, клиенты           |
-| 07.01.2026 | AI-агенты: архитектура                  | Planning, tools, memory, multi-agent |
-| 08.01.2026 | Fine-tuning LLM моделей                 | LoRA, QLoRA, данные, обучение        |
-| 09.01.2026 | Prompt Engineering: продвинутые техники | CoT, ReAct, few-shot, templates      |
-| 10.01.2026 | Ollama: локальные LLM                   | Установка, модели, API               |
-| 11.01.2026 | vLLM: быстрый инференс                  | PagedAttention, batching             |
-| 12.01.2026 | LlamaIndex: работа с документами        | Indexes, query engines, routers      |
-| 13.01.2026 | AI-агенты в продакшене                  | Мониторинг, логирование, тесты       |
-| 14.01.2026 | Multimodal модели                       | Текст + изображение + аудио          |
-| 15.01.2026 | Speech-to-Text и TTS                    | Whisper, ElevenLabs, локальные       |
-| 16.01.2026 | Computer Vision 2026                    | YOLO, SAM, DETR, сегментация         |
-| 17.01.2026 | PyTorch 2.x: что нового                 | torch.compile, dynamo                |
-| 18.01.2026 | TensorFlow 3.x: обзор                   | Keras 3, JAX integration             |
-| 19.01.2026 | Hugging Face: экосистема                | Transformers, Datasets, Spaces       |
-| 20.01.2026 | MLOps: пайплайны обучения               | DVC, MLflow, Kubeflow                |
-| 21.01.2026 | Feature Stores                          | Feast, Tecton, хранение признаков    |
-| 22.01.2026 | Model Monitoring                        | Дрифт данных, деградация             |
-| 23.01.2026 | A/B тестирование моделей                | Метрики, фреймворки                  |
-| 24.01.2026 | ONNX: универсальный формат              | Конвертация, оптимизация             |
-| 25.01.2026 | TensorRT: ускорение инференса           | Оптимизация для NVIDIA               |
-| 26.01.2026 | Квантование моделей                     | INT8, FP16, pruning                  |
-| 27.01.2026 | Distillation: сжатие моделей            | Teacher-student обучение             |
-| 28.01.2026 | Synthetic Data для ML                   | Генерация данных для обучения        |
-| 29.01.2026 | Federated Learning                      | Обучение без централизации данных    |
-| 30.01.2026 | AI Ethics и безопасность                | Bias, privacy, alignment             |
-| 31.01.2026 | Градиентный спуск и оптимизаторы        | Adam, SGD, learning rate schedules   |
-+------------|-----------------------------------------|--------------------------------------+
-
-## Февраль 2026: Backend разработка
-
-+------------|------------------------------------|----------------------------------------+
-| Дата       | Тема                               | Описание                               |
-+------------|------------------------------------|----------------------------------------+
-| 01.02.2026 | FastAPI 2026: новые возможности    | Что изменилось, best practices         |
-| 02.02.2026 | Django 5.x: полный обзор           | ORM, templates, async                  |
-| 03.02.2026 | Flask 3.x: минимализм в 2026       | Blueprints, extensions                 |
-| 04.02.2026 | Celery: распределённые задачи      | Workers, beats, мониторинг             |
-| 05.02.2026 | RQ и Dramatiq: альтернативы Celery | Проще и быстрее                        |
-| 06.02.2026 | Asyncio: глубокое погружение       | Event loop, tasks, queues              |
-| 07.02.2026 | HTTP/2 и HTTP/3                    | Multiplexing, QUIC, производительность |
-| 08.02.2026 | gRPC в Python                      | Protobuf, aio, streaming               |
-| 09.02.2026 | Message Brokers: сравнение         | RabbitMQ vs Kafka vs Redis             |
-| 10.02.2026 | RabbitMQ: паттерны                 | Exchanges, queues, routing             |
-| 11.02.2026 | NATS: лёгкий мессенджер            | Pub/sub, jetstream                     |
-| 12.02.2026 | WebSockets в продакшене            | Scaling, sticky sessions               |
-| 13.02.2026 | Server-Sent Events                 | Альтернатива WebSocket                 |
-| 14.02.2026 | Background jobs: сравнение         | Celery, Huey, APScheduler              |
-| 15.02.2026 | Caching стратегии                  | Cache-aside, write-through             |
-| 16.02.2026 | Database pooling                   | PgBouncer, connection limits           |
-| 17.02.2026 | Database sharding                  | Горизонтальное разделение              |
-| 18.02.2026 | Database replication               | Master-slave, master-master            |
-| 19.02.2026 | Full-text search: сравнение        | PostgreSQL vs Elasticsearch            |
-| 20.02.2026 | Geo-данные в БД                    | PostGIS, индексы, запросы              |
-| 21.02.2026 | Timeseries базы данных             | TimescaleDB, InfluxDB                  |
-| 22.02.2026 | Graph базы данных                  | Neo4j, Cypher queries                  |
-| 23.02.2026 | Column-oriented БД                 | ClickHouse, аналитика                  |
-| 24.02.2026 | ORM: SQLAlchemy 2.0+               | Async, 2.0 style                       |
-| 25.02.2026 | Tortoise ORM: async ORM            | Django-like для async                  |
-| 26.02.2026 | Pydantic 2.x: валидация            | V2 changes, serializers                |
-| 27.02.2026 | Dependency injection               | FastAPI Depends, injector              |
-| 28.02.2026 | Connection pooling и PgBouncer     | Режимы работы, настройка, мониторинг   |
-+------------|------------------------------------|----------------------------------------+
-
-## Март 2026: DevOps и Cloud Native
-
-+------------|----------------------------------|---------------------------------+
-| Дата       | Тема                             | Описание                        |
-+------------|----------------------------------|---------------------------------+
-| 01.03.2026 | Docker best practices 2026       | Оптимизация образов             |
-| 02.03.2026 | Docker Compose: продвинутый      | Profiles, overrides             |
-| 03.03.2026 | Kubernetes: networking           | Ingress, NetworkPolicy          |
-| 04.03.2026 | Kubernetes: storage              | PV, PVC, StorageClass           |
-| 05.03.2026 | Kubernetes: security             | RBAC, PodSecurityPolicy         |
-| 06.03.2026 | Helm: создание чартов            | Templates, hooks, tests         |
-| 07.03.2026 | Kustomize: альтернатива Helm     | Overlays, patches               |
-| 08.03.2026 | ArgoCD: GitOps                   | Sync, health, rollback          |
-| 09.03.2026 | Flux CD: GitOps                  | Sources, Kustomizations         |
-| 10.03.2026 | Terraform: state management      | Remote state, locking           |
-| 11.03.2026 | Terraform: модули                | Создание, версионирование       |
-| 12.03.2026 | Pulumi: инфраструктура на Python | IaC без HCL                     |
-| 13.03.2026 | Ansible: роли и коллекции        | Galaxy, best practices          |
-| 14.03.2026 | Vault: секреты                   | Secrets engines, auth           |
-| 15.03.2026 | Consul: service discovery        | DNS, HTTP, service mesh         |
-| 16.03.2026 | Istio: service mesh              | Sidecar, mTLS, observability    |
-| 17.03.2026 | Linkerd: лёгкий service mesh     | Сравнение с Istio               |
-| 18.03.2026 | Prometheus: advanced             | Recording rules, federation     |
-| 19.03.2026 | Grafana: дашборды и алерты       | Panels, notifications           |
-| 20.03.2026 | Loki: логирование                | LogQL, labels                   |
-| 21.03.2026 | Tempo: трассировка               | Distributed tracing             |
-| 22.03.2026 | OpenTelemetry                    | Instrumentation, exporters      |
-| 23.03.2026 | AWS для разработчика             | EC2, S3, Lambda, RDS            |
-| 24.03.2026 | GCP для разработчика             | Compute, Storage, Functions     |
-| 25.03.2026 | Azure для разработчика           | VMs, Blob, Functions            |
-| 26.03.2026 | Cloud Functions vs Containers    | Когда что выбрать               |
-| 27.03.2026 | Serverless фреймворки            | Serverless, SST, Claudia        |
-| 28.03.2026 | Edge computing                   | Cloudflare Workers, Deno Deploy |
-| 29.03.2026 | Multi-cloud стратегии            | Избегаем vendor lock-in         |
-| 30.03.2026 | Cost optimization в облаке       | Spot instances, rightsizing     |
-| 31.03.2026 | eBPF и observability             | BPF-программы, трассировка ядра |
-+------------|----------------------------------|---------------------------------+
-
-## Апрель 2026: Frontend и Mobile
-
-+------------|----------------------------------|------------------------------+
-| Дата       | Тема                             | Описание                     |
-+------------|----------------------------------|------------------------------+
-| 01.04.2026 | React 19: что нового             | Новые хуки, оптимизация      |
-| 02.04.2026 | React: состояние в 2026          | Zustand, Jotai, Valtio       |
-| 03.04.2026 | React Query (TanStack)           | Caching, mutations, infinite |
-| 04.04.2026 | Next.js: Server Actions          | Формы без API                |
-| 05.04.2026 | Next.js: оптимизация             | Images, fonts, scripts       |
-| 06.04.2026 | Remix: веб-стандарты             | Loaders, actions             |
-| 07.04.2026 | Vue 4: ожидания                  | Что готовит команда          |
-| 08.04.2026 | Nuxt 4: fullstack Vue            | Server routes, islands       |
-| 09.04.2026 | SvelteKit: продакшен             | Adapters, deployment         |
-| 10.04.2026 | SolidJS: реактивность            | Signals, fine-grained        |
-| 11.04.2026 | Qwik: resumability               | Zero hydration               |
-| 12.04.2026 | Astro: контент-сайты             | Islands, MDX                 |
-| 13.04.2026 | Tailwind CSS 4.0                 | Новый движок                 |
-| 14.04.2026 | CSS-in-JS в 2026                 | Emotion, styled-components   |
-| 15.04.2026 | Vanilla Extract: type-safe CSS   | CSS-in-TypeScript            |
-| 16.04.2026 | Storybook: компонентный дизайн   | Stories, addons              |
-| 17.04.2026 | Testing Library                  | React, Vue, RTL              |
-| 18.04.2026 | Playwright: E2E тесты            | Cross-browser, mobile        |
-| 19.04.2026 | Vitest: быстрый тестраннер       | Vite integration             |
-| 20.04.2026 | Webpack 6 vs Vite                | Сборка в 2026                |
-| 21.04.2026 | Turbopack: будущее сборки        | Incremental computation      |
-| 22.04.2026 | Bun: runtime и bundler           | Быстрее Node.js              |
-| 23.04.2026 | Deno 2.0: npm совместимость      | Что изменилось               |
-| 24.04.2026 | React Native: новый архитектор   | Fabric, TurboModules         |
-| 25.04.2026 | React Native: производительность | Optimization techniques      |
-| 26.04.2026 | Expo: кастомные нативные модули  | Dev Modules                  |
-| 27.04.2026 | Flutter: кастомные виджеты       | Painting, animations         |
-| 28.04.2026 | Flutter: состояние               | Riverpod, Bloc               |
-| 29.04.2026 | Kotlin Multiplatform: UI         | Compose Multiplatform        |
-| 30.04.2026 | WebAssembly и WASI               | Компоненты, интерфейсы, SIMD |
-+------------|----------------------------------|------------------------------+
-
-## Май 2026: Безопасность и тестирование
-
-+------------|--------------------------------|-------------------------------+
-| Дата       | Тема                           | Описание                      |
-+------------|--------------------------------|-------------------------------+
-| 01.05.2026 | Penetration testing basics     | Recon, scanning, exploitation |
-| 02.05.2026 | Burp Suite: руководство        | Proxy, scanner, intruder      |
-| 03.05.2026 | SQL injection: защита          | Prepared statements, ORM      |
-| 04.05.2026 | XSS: защита                    | CSP, escaping, sanitization   |
-| 05.05.2026 | CSRF: защита                   | Tokens, SameSite cookies      |
-| 06.05.2026 | SSRF: защита                   | Validation, allowlists        |
-| 07.05.2026 | XXE: защита                    | Disable external entities     |
-| 08.05.2026 | Deserialization атаки          | Safe unpickling               |
-| 09.05.2026 | Dependency scanning            | Snyk, Dependabot              |
-| 10.05.2026 | SAST: статический анализ       | SonarQube, Semgrep            |
-| 11.05.2026 | DAST: динамический анализ      | OWASP ZAP, Burp               |
-| 12.05.2026 | Secrets management             | GitGuardian, detect-secrets   |
-| 13.05.2026 | Secure coding Python           | Best practices                |
-| 14.05.2026 | Secure coding JavaScript       | Best practices                |
-| 15.05.2026 | Unit тесты: pytest             | Fixtures, parametrize         |
-| 16.05.2026 | Mocking и patching             | unittest.mock, responses      |
-| 17.05.2026 | Integration тесты              | Testcontainers                |
-| 18.05.2026 | E2E тесты: Cypress             | Commands, fixtures            |
-| 19.05.2026 | Visual regression тесты        | Percy, Chromatic              |
-| 20.05.2026 | Performance тесты              | Locust, k6                    |
-| 21.05.2026 | Load тесты                     | JMeter, Gatling               |
-| 22.05.2026 | Chaos engineering              | Chaos Mesh, Litmus            |
-| 23.05.2026 | Mutation тестирование          | Mutmut, Stryker               |
-| 24.05.2026 | Property-based тестирование    | Hypothesis, fast-check        |
-| 25.05.2026 | TDD: разработка через тесты    | Red-green-refactor            |
-| 26.05.2026 | BDD: поведение системы         | Cucumber, Behave              |
-| 27.05.2026 | Contract тестирование          | Pact, consumer-driven         |
-| 28.05.2026 | Snapshot тестирование          | Jest snapshots                |
-| 29.05.2026 | Accessibility тесты            | axe, pa11y                    |
-| 30.05.2026 | Fuzzing и security auditing    | AFL, libFuzzer, cargo-audit   |
-| 31.05.2026 | Formal verification и TLA+     | Спецификация, model checking  |
-+------------|--------------------------------|-------------------------------+
-
-## Июнь 2026: Карьера и софт-скиллы
-
-+------------|------------------------------|-------------------------------+
-| Дата       | Тема                         | Описание                      |
-+------------|------------------------------|-------------------------------+
-| 01.06.2026 | Резюме разработчика          | Структура, примеры            |
-| 02.06.2026 | LinkedIn профиль             | Оптимизация, networking       |
-| 03.06.2026 | GitHub портфолио             | Projects, README              |
-| 04.06.2026 | Собеседования: алгоритмы     | LeetCode patterns             |
-| 05.06.2026 | Собеседования: system design | Масштабирование, trade-offs   |
-| 06.06.2026 | Собеседования: поведенческие | STAR метод                    |
-| 07.06.2026 | Salary negotiation           | Как просить больше            |
-| 08.06.2026 | Freelance vs Full-time       | Плюсы и минусы                |
-| 09.06.2026 | Remote работа                | Tools, productivity           |
-| 10.06.2026 | Time management              | Pomodoro, time blocking       |
-| 11.06.2026 | Learning strategies          | Как учить新技术               |
-| 12.06.2026 | Technical writing            | Документация, статьи          |
-| 13.06.2026 | Public speaking              | Доклады, митапы               |
-| 14.06.2026 | Networking                   | Конференции, комьюнити        |
-| 15.06.2026 | Mentorship                   | Как найти ментора             |
-| 16.06.2026 | Code review best practices   | Как ревьюить код              |
-| 17.06.2026 | Git workflow                 | GitFlow, trunk-based          |
-| 18.06.2026 | Agile и Scrum                | Ceremonies, artifacts         |
-| 19.06.2026 | Kanban для разработчиков     | WIP limits, flow              |
-| 20.06.2026 | Управление техдолгом         | Когда рефакторить             |
-| 21.06.2026 | Работа с легаси              | Стратегии модернизации        |
-| 22.06.2026 | Debugging мастерство         | Tools, techniques             |
-| 23.06.2026 | Profiling приложений         | cProfile, py-spy              |
-| 24.06.2026 | Logging best practices       | Структурированные логи        |
-| 25.06.2026 | Documentation as code        | MkDocs, Docusaurus            |
-| 26.06.2026 | API documentation            | OpenAPI, Swagger              |
-| 27.06.2026 | Team communication           | Slack, async comms            |
-| 28.06.2026 | Conflict resolution          | В команде                     |
-| 29.06.2026 | Career paths разработчика    | IC vs Management              |
-| 30.06.2026 | Advanced Linux networking    | netfilter, iptables, nftables |
-+------------|------------------------------|-------------------------------+
++------------|-----------------------------------------|----------------------------------------+
+| date       | title                                   | description                            |
++------------|-----------------------------------------|----------------------------------------+
+| 2026-01-01 | LLM-модели: обзор 2026                  | GPT, Claude, Gemini, Llama, Qwen       |
+| 2026-01-02 | RAG-системы: поиск + векторы            | Embeddings, векторные БД, retrieval    |
+| 2026-01-03 | Векторные базы данных                   | Pinecone, Weaviate, Qdrant, Milvus     |
+| 2026-01-04 | LangChain: оркестрация LLM              | Chains, Agents, Tools, Memory          |
+| 2026-01-05 | LangGraph: агенты с состоянием          | Graphs, nodes, edges, persistence      |
+| 2026-01-06 | MCP (Model Context Protocol)            | Протокол, серверы, клиенты             |
+| 2026-01-07 | AI-агенты: архитектура                  | Planning, tools, memory, multi-agent   |
+| 2026-01-08 | Fine-tuning LLM моделей                 | LoRA, QLoRA, данные, обучение          |
+| 2026-01-09 | Prompt Engineering: продвинутые техники | CoT, ReAct, few-shot, templates        |
+| 2026-01-10 | Ollama: локальные LLM                   | Установка, модели, API                 |
+| 2026-01-11 | vLLM: быстрый инференс                  | PagedAttention, batching               |
+| 2026-01-12 | LlamaIndex: работа с документами        | Indexes, query engines, routers        |
+| 2026-01-13 | AI-агенты в продакшене                  | Мониторинг, логирование, тесты         |
+| 2026-01-14 | Multimodal модели                       | Текст + изображение + аудио            |
+| 2026-01-15 | Speech-to-Text и TTS                    | Whisper, ElevenLabs, локальные         |
+| 2026-01-16 | Computer Vision 2026                    | YOLO, SAM, DETR, сегментация           |
+| 2026-01-17 | PyTorch 2.x: что нового                 | torch.compile, dynamo                  |
+| 2026-01-18 | TensorFlow 3.x: обзор                   | Keras 3, JAX integration               |
+| 2026-01-19 | Hugging Face: экосистема                | Transformers, Datasets, Spaces         |
+| 2026-01-20 | MLOps: пайплайны обучения               | DVC, MLflow, Kubeflow                  |
+| 2026-01-21 | Feature Stores                          | Feast, Tecton, хранение признаков      |
+| 2026-01-22 | Model Monitoring                        | Дрифт данных, деградация               |
+| 2026-01-23 | A/B тестирование моделей                | Метрики, фреймворки                    |
+| 2026-01-24 | ONNX: универсальный формат              | Конвертация, оптимизация               |
+| 2026-01-25 | TensorRT: ускорение инференса           | Оптимизация для NVIDIA                 |
+| 2026-01-26 | Квантование моделей                     | INT8, FP16, pruning                    |
+| 2026-01-27 | Distillation: сжатие моделей            | Teacher-student обучение               |
+| 2026-01-28 | Synthetic Data для ML                   | Генерация данных для обучения          |
+| 2026-01-29 | Federated Learning                      | Обучение без централизации данных      |
+| 2026-01-30 | AI Ethics и безопасность                | Bias, privacy, alignment               |
+| 2026-01-31 | Градиентный спуск и оптимизаторы        | Adam, SGD, learning rate schedules     |
++------------|-----------------------------------------|----------------------------------------+
+| 2026-02-01 | FastAPI 2026: новые возможности         | Что изменилось, best practices         |
+| 2026-02-02 | Django 5.x: полный обзор                | ORM, templates, async                  |
+| 2026-02-03 | Flask 3.x: минимализм в 2026            | Blueprints, extensions                 |
+| 2026-02-04 | Celery: распределённые задачи           | Workers, beats, мониторинг             |
+| 2026-02-05 | RQ и Dramatiq: альтернативы Celery      | Проще и быстрее                        |
+| 2026-02-06 | Asyncio: глубокое погружение            | Event loop, tasks, queues              |
+| 2026-02-07 | HTTP/2 и HTTP/3                         | Multiplexing, QUIC, производительность |
+| 2026-02-08 | gRPC в Python                           | Protobuf, aio, streaming               |
+| 2026-02-09 | Message Brokers: сравнение              | RabbitMQ vs Kafka vs Redis             |
+| 2026-02-10 | RabbitMQ: паттерны                      | Exchanges, queues, routing             |
+| 2026-02-11 | NATS: лёгкий мессенджер                 | Pub/sub, jetstream                     |
+| 2026-02-12 | WebSockets в продакшене                 | Scaling, sticky sessions               |
+| 2026-02-13 | Server-Sent Events                      | Альтернатива WebSocket                 |
+| 2026-02-14 | Background jobs: сравнение              | Celery, Huey, APScheduler              |
+| 2026-02-15 | Caching стратегии                       | Cache-aside, write-through             |
+| 2026-02-16 | Database pooling                        | PgBouncer, connection limits           |
+| 2026-02-17 | Database sharding                       | Горизонтальное разделение              |
+| 2026-02-18 | Database replication                    | Master-slave, master-master            |
+| 2026-02-19 | Full-text search: сравнение             | PostgreSQL vs Elasticsearch            |
+| 2026-02-20 | Geo-данные в БД                         | PostGIS, индексы, запросы              |
+| 2026-02-21 | Timeseries базы данных                  | TimescaleDB, InfluxDB                  |
+| 2026-02-22 | Graph базы данных                       | Neo4j, Cypher queries                  |
+| 2026-02-23 | Column-oriented БД                      | ClickHouse, аналитика                  |
+| 2026-02-24 | ORM: SQLAlchemy 2.0+                    | Async, 2.0 style                       |
+| 2026-02-25 | Tortoise ORM: async ORM                 | Django-like для async                  |
+| 2026-02-26 | Pydantic 2.x: валидация                 | V2 changes, serializers                |
+| 2026-02-27 | Dependency injection                    | FastAPI Depends, injector              |
+| 2026-02-28 | Connection pooling и PgBouncer          | Режимы работы, настройка, мониторинг   |
++------------|-----------------------------------------|----------------------------------------+
+| 2026-03-01 | Docker best practices 2026              | Оптимизация образов                    |
+| 2026-03-02 | Docker Compose: продвинутый             | Profiles, overrides                    |
+| 2026-03-03 | Kubernetes: networking                  | Ingress, NetworkPolicy                 |
+| 2026-03-04 | Kubernetes: storage                     | PV, PVC, StorageClass                  |
+| 2026-03-05 | Kubernetes: security                    | RBAC, PodSecurityPolicy                |
+| 2026-03-06 | Helm: создание чартов                   | Templates, hooks, tests                |
+| 2026-03-07 | Kustomize: альтернатива Helm            | Overlays, patches                      |
+| 2026-03-08 | ArgoCD: GitOps                          | Sync, health, rollback                 |
+| 2026-03-09 | Flux CD: GitOps                         | Sources, Kustomizations                |
+| 2026-03-10 | Terraform: state management             | Remote state, locking                  |
+| 2026-03-11 | Terraform: модули                       | Создание, версионирование              |
+| 2026-03-12 | Pulumi: инфраструктура на Python        | IaC без HCL                            |
+| 2026-03-13 | Ansible: роли и коллекции               | Galaxy, best practices                 |
+| 2026-03-14 | Vault: секреты                          | Secrets engines, auth                  |
+| 2026-03-15 | Consul: service discovery               | DNS, HTTP, service mesh                |
+| 2026-03-16 | Istio: service mesh                     | Sidecar, mTLS, observability           |
+| 2026-03-17 | Linkerd: лёгкий service mesh            | Сравнение с Istio                      |
+| 2026-03-18 | Prometheus: advanced                    | Recording rules, federation            |
+| 2026-03-19 | Grafana: дашборды и алерты              | Panels, notifications                  |
+| 2026-03-20 | Loki: логирование                       | LogQL, labels                          |
+| 2026-03-21 | Tempo: трассировка                      | Distributed tracing                    |
+| 2026-03-22 | OpenTelemetry                           | Instrumentation, exporters             |
+| 2026-03-23 | AWS для разработчика                    | EC2, S3, Lambda, RDS                   |
+| 2026-03-24 | GCP для разработчика                    | Compute, Storage, Functions            |
+| 2026-03-25 | Azure для разработчика                  | VMs, Blob, Functions                   |
+| 2026-03-26 | Cloud Functions vs Containers           | Когда что выбрать                      |
+| 2026-03-27 | Serverless фреймворки                   | Serverless, SST, Claudia               |
+| 2026-03-28 | Edge computing                          | Cloudflare Workers, Deno Deploy        |
+| 2026-03-29 | Multi-cloud стратегии                   | Избегаем vendor lock-in                |
+| 2026-03-30 | Cost optimization в облаке              | Spot instances, rightsizing            |
+| 2026-03-31 | eBPF и observability                    | BPF-программы, трассировка ядра        |
++------------|-----------------------------------------|----------------------------------------+
+| 2026-04-01 | React 19: что нового                    | Новые хуки, оптимизация                |
+| 2026-04-02 | React: состояние в 2026                 | Zustand, Jotai, Valtio                 |
+| 2026-04-03 | React Query (TanStack)                  | Caching, mutations, infinite           |
+| 2026-04-04 | Next.js: Server Actions                 | Формы без API                          |
+| 2026-04-05 | Next.js: оптимизация                    | Images, fonts, scripts                 |
+| 2026-04-06 | Remix: веб-стандарты                    | Loaders, actions                       |
+| 2026-04-07 | Vue 4: ожидания                         | Что готовит команда                    |
+| 2026-04-08 | Nuxt 4: fullstack Vue                   | Server routes, islands                 |
+| 2026-04-09 | SvelteKit: продакшен                    | Adapters, deployment                   |
+| 2026-04-10 | SolidJS: реактивность                   | Signals, fine-grained                  |
+| 2026-04-11 | Qwik: resumability                      | Zero hydration                         |
+| 2026-04-12 | Astro: контент-сайты                    | Islands, MDX                           |
+| 2026-04-13 | Tailwind CSS 4.0                        | Новый движок                           |
+| 2026-04-14 | CSS-in-JS в 2026                        | Emotion, styled-components             |
+| 2026-04-15 | Vanilla Extract: type-safe CSS          | CSS-in-TypeScript                      |
+| 2026-04-16 | Storybook: компонентный дизайн          | Stories, addons                        |
+| 2026-04-17 | Testing Library                         | React, Vue, RTL                        |
+| 2026-04-18 | Playwright: E2E тесты                   | Cross-browser, mobile                  |
+| 2026-04-19 | Vitest: быстрый тестраннер              | Vite integration                       |
+| 2026-04-20 | Webpack 6 vs Vite                       | Сборка в 2026                          |
+| 2026-04-21 | Turbopack: будущее сборки               | Incremental computation                |
+| 2026-04-22 | Bun: runtime и bundler                  | Быстрее Node.js                        |
+| 2026-04-23 | Deno 2.0: npm совместимость             | Что изменилось                         |
+| 2026-04-24 | React Native: новый архитектор          | Fabric, TurboModules                   |
+| 2026-04-25 | React Native: производительность        | Optimization techniques                |
+| 2026-04-26 | Expo: кастомные нативные модули         | Dev Modules                            |
+| 2026-04-27 | Flutter: кастомные виджеты              | Painting, animations                   |
+| 2026-04-28 | Flutter: состояние                      | Riverpod, Bloc                         |
+| 2026-04-29 | Kotlin Multiplatform: UI                | Compose Multiplatform                  |
+| 2026-04-30 | WebAssembly и WASI                      | Компоненты, интерфейсы, SIMD           |
++------------|-----------------------------------------|----------------------------------------+
+| 2026-05-01 | Penetration testing basics              | Recon, scanning, exploitation          |
+| 2026-05-02 | Burp Suite: руководство                 | Proxy, scanner, intruder               |
+| 2026-05-03 | SQL injection: защита                   | Prepared statements, ORM               |
+| 2026-05-04 | XSS: защита                             | CSP, escaping, sanitization            |
+| 2026-05-05 | CSRF: защита                            | Tokens, SameSite cookies               |
+| 2026-05-06 | SSRF: защита                            | Validation, allowlists                 |
+| 2026-05-07 | XXE: защита                             | Disable external entities              |
+| 2026-05-08 | Deserialization атаки                   | Safe unpickling                        |
+| 2026-05-09 | Dependency scanning                     | Snyk, Dependabot                       |
+| 2026-05-10 | SAST: статический анализ                | SonarQube, Semgrep                     |
+| 2026-05-11 | DAST: динамический анализ               | OWASP ZAP, Burp                        |
+| 2026-05-12 | Secrets management                      | GitGuardian, detect-secrets            |
+| 2026-05-13 | Secure coding Python                    | Best practices                         |
+| 2026-05-14 | Secure coding JavaScript                | Best practices                         |
+| 2026-05-15 | Unit тесты: pytest                      | Fixtures, parametrize                  |
+| 2026-05-16 | Mocking и patching                      | unittest.mock, responses               |
+| 2026-05-17 | Integration тесты                       | Testcontainers                         |
+| 2026-05-18 | E2E тесты: Cypress                      | Commands, fixtures                     |
+| 2026-05-19 | Visual regression тесты                 | Percy, Chromatic                       |
+| 2026-05-20 | Performance тесты                       | Locust, k6                             |
+| 2026-05-21 | Load тесты                              | JMeter, Gatling                        |
+| 2026-05-22 | Chaos engineering                       | Chaos Mesh, Litmus                     |
+| 2026-05-23 | Mutation тестирование                   | Mutmut, Stryker                        |
+| 2026-05-24 | Property-based тестирование             | Hypothesis, fast-check                 |
+| 2026-05-25 | TDD: разработка через тесты             | Red-green-refactor                     |
+| 2026-05-26 | BDD: поведение системы                  | Cucumber, Behave                       |
+| 2026-05-27 | Contract тестирование                   | Pact, consumer-driven                  |
+| 2026-05-28 | Snapshot тестирование                   | Jest snapshots                         |
+| 2026-05-29 | Accessibility тесты                     | axe, pa11y                             |
+| 2026-05-30 | Fuzzing и security auditing             | AFL, libFuzzer, cargo-audit            |
+| 2026-05-31 | Formal verification и TLA+              | Спецификация, model checking           |
++------------|-----------------------------------------|----------------------------------------+
+| 2026-06-01 | Резюме разработчика                     | Структура, примеры                     |
+| 2026-06-02 | LinkedIn профиль                        | Оптимизация, networking                |
+| 2026-06-03 | GitHub портфолио                        | Projects, README                       |
+| 2026-06-04 | Собеседования: алгоритмы                | LeetCode patterns                      |
+| 2026-06-05 | Собеседования: system design            | Масштабирование, trade-offs            |
+| 2026-06-06 | Собеседования: поведенческие            | STAR метод                             |
+| 2026-06-07 | Salary negotiation                      | Как просить больше                     |
+| 2026-06-08 | Freelance vs Full-time                  | Плюсы и минусы                         |
+| 2026-06-09 | Remote работа                           | Tools, productivity                    |
+| 2026-06-10 | Time management                         | Pomodoro, time blocking                |
+| 2026-06-11 | Learning strategies                     | Как учить新技术                        |
+| 2026-06-12 | Technical writing                       | Документация, статьи                   |
+| 2026-06-13 | Public speaking                         | Доклады, митапы                        |
+| 2026-06-14 | Networking                              | Конференции, комьюнити                 |
+| 2026-06-15 | Mentorship                              | Как найти ментора                      |
+| 2026-06-16 | Code review best practices              | Как ревьюить код                       |
+| 2026-06-17 | Git workflow                            | GitFlow, trunk-based                   |
+| 2026-06-18 | Agile и Scrum                           | Ceremonies, artifacts                  |
+| 2026-06-19 | Kanban для разработчиков                | WIP limits, flow                       |
+| 2026-06-20 | Управление техдолгом                    | Когда рефакторить                      |
+| 2026-06-21 | Работа с легаси                         | Стратегии модернизации                 |
+| 2026-06-22 | Debugging мастерство                    | Tools, techniques                      |
+| 2026-06-23 | Profiling приложений                    | cProfile, py-spy                       |
+| 2026-06-24 | Logging best practices                  | Структурированные логи                 |
+| 2026-06-25 | Documentation as code                   | MkDocs, Docusaurus                     |
+| 2026-06-26 | API documentation                       | OpenAPI, Swagger                       |
+| 2026-06-27 | Team communication                      | Slack, async comms                     |
+| 2026-06-28 | Conflict resolution                     | В команде                              |
+| 2026-06-29 | Career paths разработчика               | IC vs Management                       |
+| 2026-06-30 | Advanced Linux networking               | netfilter, iptables, nftables          |
++------------|-----------------------------------------|----------------------------------------+
