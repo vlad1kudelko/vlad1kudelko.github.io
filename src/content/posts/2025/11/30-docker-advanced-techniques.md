@@ -1,6 +1,6 @@
 ---
-title: "Docker: продвинутые техники в 2026"
-description: "Продвинутые техники Docker: Multi-stage сборка, volumes, networks, docker-compose. Оптимизация образов для production."
+title: "Docker продвинутый — multi-stage, volumes, networks"
+description: "Освойте продвинутые техники Docker: multi-stage сборка, volumes, networks. Оптимизируйте образы для продакшена — читайте руководство."
 heroImage: "../../../../assets/imgs/2025/11/30-docker-advanced-techniques.webp"
 pubDate: "2025-11-30"
 ---

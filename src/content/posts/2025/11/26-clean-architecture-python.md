@@ -1,6 +1,6 @@
 ---
-title: "Clean Architecture в Python: полное руководство"
-description: "Архитектура Clean Architecture в Python: Entities, Use Cases, Interface Adapters. Как писать тестируемый и поддерживаемый код."
+title: "Clean Architecture в Python — полное руководство"
+description: "Изучите Clean Architecture в Python: Entities, Use Cases, Interface Adapters. Пишите тестируемый и поддерживаемый код уже сегодня."
 heroImage: "../../../../assets/imgs/2025/11/26-clean-architecture-python.webp"
 pubDate: "2025-11-26"
 ---

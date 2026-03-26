@@ -1,6 +1,6 @@
 ---
-title: "Паттерны проектирования GoF: основные шаблоны"
-description: "Паттерны проектирования GoF: Singleton, Factory, Observer, Strategy и другие. Примеры реализации на Python."
+title: "Паттерны проектирования GoF — руководство с примерами"
+description: "Изучите паттерны GoF: Singleton, Factory, Observer, Strategy. Примеры реализации на Python. Начните применять паттерны в проекте."
 heroImage: "../../../../assets/imgs/2025/11/27-gof-design-patterns.webp"
 pubDate: "2025-11-27"
 ---
