@@ -170,6 +170,256 @@ self.addEventListener('fetch', (event) => {
 });
 ```
 
-## Заключение
+## Критерии PWA
 
-PWA позволяют веб-приложениям конкурировать с нативными по функциональности.
+**Lighthouse требования:**
+- HTTPS соединение
+- Valid manifest.json
+- Service Worker registered
+- Offline поддержка
+- Responsive дизайн
+- Fast load time (LCP < 2.5s)
+
+## Стратегии кэширования
+
+**Cache First:**
+```javascript
+registerRoute(
+  ({ request }) => request.destination === 'image',
+  new CacheFirst({
+    cacheName: 'images-cache'
+  })
+);
+```
+
+**Network First:**
+```javascript
+registerRoute(
+  ({ url }) => url.pathname.startsWith('/api/'),
+  new NetworkFirst({
+    cacheName: 'api-cache',
+    networkTimeoutSeconds: 3
+  })
+);
+```
+
+**Stale While Revalidate:**
+```javascript
+registerRoute(
+  ({ request }) => request.destination === 'script' ||
+                   request.destination === 'style',
+  new StaleWhileRevalidate({
+    cacheName: 'static-resources'
+  })
+);
+```
+
+## Background Sync
+
+```javascript
+// Регистрация синхронизации
+async function queueMessage(message) {
+  const registration = await navigator.serviceWorker.ready;
+  await registration.sync.register('send-message');
+  
+  // Сохраняем в IndexedDB
+  const db = await openDB();
+  await db.add('messages', message);
+}
+
+// Обработка в SW
+self.addEventListener('sync', (event) => {
+  if (event.tag === 'send-message') {
+    event.waitUntil(sendQueuedMessages());
+  }
+});
+```
+
+## IndexedDB
+
+```javascript
+import { openDB } from 'idb';
+
+const dbPromise = openDB('my-pwa', 1, {
+  upgrade(db) {
+    db.createObjectStore('posts', { keyPath: 'id' });
+    db.createObjectStore('users', { keyPath: 'id' });
+  }
+});
+
+// Запись
+async function savePost(post) {
+  const db = await dbPromise;
+  await db.put('posts', post);
+}
+
+// Чтение
+async function getPost(id) {
+  const db = await dbPromise;
+  return await db.get('posts', id);
+}
+
+// Все записи
+async function getAllPosts() {
+  const db = await dbPromise;
+  return await db.getAll('posts');
+}
+```
+
+## Install Prompt
+
+```javascript
+let deferredPrompt;
+
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  showInstallButton();
+});
+
+async function install() {
+  if (!deferredPrompt) return;
+  
+  deferredPrompt.prompt();
+  const { outcome } = await deferredPrompt.userChoice;
+  
+  if (outcome === 'accepted') {
+    console.log('User accepted install');
+  }
+  
+  deferredPrompt = null;
+}
+```
+
+## App Shell Architecture
+
+```
+┌─────────────────────────┐
+│     App Shell (HTML)    │
+│  - Header               │
+│  - Navigation           │
+│  - Footer               │
+└─────────────────────────┘
+         │
+┌─────────────────────────┐
+│    Dynamic Content      │
+│  - Загружается через    │
+│    API/Service Worker   │
+└─────────────────────────┘
+```
+
+**Преимущества:**
+- Мгновенная загрузка оболочки
+- Кэширование UI отдельно от данных
+- Offline навигация работает
+
+## Push Notifications
+
+**VAPID ключи:**
+```bash
+npx web-push generate-vapid-keys
+```
+
+**Серверная часть:**
+```javascript
+import webpush from 'web-push';
+
+webpush.setVapidDetails(
+  'mailto:example@example.com',
+  publicKey,
+  privateKey
+);
+
+// Отправка
+webpush.sendNotification(subscription, JSON.stringify({
+  title: 'New Message',
+  body: 'You have a new message'
+}));
+```
+
+## Performance оптимизация
+
+**Critical CSS:**
+```html
+<head>
+  <style>
+    /* Критичные стили inline */
+    body { margin: 0; font-family: system-ui; }
+    header { background: #333; }
+  </style>
+  <link rel="preload" href="/styles.css" as="style">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+```
+
+**Lazy loading:**
+```html
+<img src="hero.jpg" alt="Hero" loading="eager">
+<img src="lazy.jpg" alt="Lazy" loading="lazy">
+
+<script>
+  // Динамический импорт
+  const module = await import('./heavy-module.js');
+</script>
+```
+
+## Тестирование PWA
+
+**Lighthouse:**
+```bash
+npm install -g lighthouse
+lighthouse https://example.com --view
+```
+
+**Chrome DevTools:**
+- Application tab → Manifest
+- Application tab → Service Workers
+- Network tab → Offline mode
+
+**Workbox CLI:**
+```bash
+workbox generateSW workbox-config.js
+```
+
+## Деплой
+
+**Vercel:**
+```json
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "devCommand": "npm run dev"
+}
+```
+
+**Netlify:**
+```toml
+# netlify.toml
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+```
+
+## Ограничения
+
+- Нет доступа ко всем native API
+- Ограниченный доступ к файловой системе
+- Push notifications не работают на iOS < 16.4
+- Некоторые функции требуют HTTPS
+
+## Когда использовать PWA
+
+**Подходит:**
+- Контент-ориентированные приложения
+- Нужен offline режим
+- Быстрый запуск без установки
+
+**Не подходит:**
+- Требуется доступ к hardware
+- Сложная графика/игры
+- Интенсивная работа с файлами

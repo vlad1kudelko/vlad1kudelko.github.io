@@ -112,6 +112,123 @@ actual val database = Database(
 )
 ```
 
-## Заключение
+## Преимущества KMP
 
-KMP позволяет эффективно делиться кодом между платформами, сохраняя нативную производительность.
+**Экономия времени:**
+- До 70% кода может быть общим
+- Единая бизнес-логика для всех платформ
+- Синхронизация фич между iOS и Android
+
+**Нативная производительность:**
+- Компиляция в нативный код (не WebView)
+- Прямой доступ к API платформы
+- Никаких мостов для выполнения кода
+
+**Гибкость:**
+- Постепенное внедрение в существующие проекты
+- Выбор уровня шаринга (логика, UI, данные)
+- Совместимость с любыми нативными библиотеками
+
+## Архитектура KMP проекта
+
+```
+shared/                    # Общий модуль
+├── commonMain/           # Код для всех платформ
+│   ├── kotlin/
+│   │   ├── data/        # Модели данных
+│   │   ├── domain/      # Бизнес-логика
+│   │   └── utils/       # Утилиты
+│   └── resources/       # Общие ресурсы
+├── androidMain/         # Android реализация
+├── iosMain/            # iOS реализация
+├── jvmMain/            # JVM реализация
+└── jsMain/             # JS реализация
+```
+
+## Паттерны в KMP
+
+**Expect/Actual:**
+```kotlin
+// commonMain
+expect class Platform {
+    val name: String
+}
+
+// androidMain
+actual class Platform {
+    actual val name: String = "Android ${Build.VERSION.SDK_INT}"
+}
+
+// iosMain
+actual class Platform {
+    actual val name: String = "iOS ${UIDevice.currentDevice.systemVersion()}"
+}
+```
+
+**Dependency Injection:**
+- Koin — лёгкий DI для KMP
+- Kodein — альтернатива с похожим API
+- Руной сборка графа зависимостей
+
+## Тестирование
+
+```kotlin
+// commonTest
+class SharedTests {
+    @Test
+    fun testBusinessLogic() {
+        val repo = UserRepository()
+        assertEquals("John", repo.getUserName(1))
+    }
+}
+
+// Запуск тестов
+./gradlew jvmTest
+./gradlew androidTest
+./gradlew iosTest
+```
+
+## Публикация библиотеки
+
+```kotlin
+// build.gradle.kts
+plugins {
+    id("com.vanniktech.maven.publish")
+}
+
+mavenPublishing {
+    publishToMavenCentral()
+    signAllPublications()
+}
+
+// Публикация
+./gradlew publishToMavenLocal
+```
+
+## Популярные KMP библиотеки
+
+- **Ktor** — HTTP клиент/сервер
+- **SQLDelight** — типобезопасная работа с БД
+- **Kotlinx Serialization** — сериализация JSON/XML
+- **Kotlinx Coroutines** — асинхронность
+- **Kermit** — логирование
+- **Moko** — набор библиотек для KMP
+
+## Ограничения
+
+- UI требует нативной реализации или Compose Multiplatform
+- Некоторые платформы имеют ограниченную поддержку
+- Увеличенное время сборки при большом количестве платформ
+- Меньше готовых решений по сравнению с чистым Kotlin
+
+## Когда использовать KMP
+
+**Подходит:**
+- Кроссплатформенное приложение с общей логикой
+- Существующие нативные приложения нужно объединить
+- Команда знает Kotlin
+
+**Не подходит:**
+- Приложение только для одной платформы
+- Требуется максимальная производительность UI
+- Команда не знает Kotlin
