@@ -3,22 +3,22 @@
 +------------|-------------------------------------------|--------------------------------------------------------------------------------+
 | Дата       | Тема                                      | Описание                                                                       |
 +------------|-------------------------------------------|--------------------------------------------------------------------------------+
-| 01.12.2025 | Kubernetes: от pod до кластера            | Deployments, Services, ConfigMaps, Secrets                                     |
-| 02.12.2025 | Helm: пакетный менеджер K8s               | Чарты, values, templates, репозитории                                          |
-| 03.12.2025 | Terraform: инфраструктура как код         | Providers, resources, state, модули                                            |
-| 04.12.2025 | Ansible: конфигурационный менеджмент      | Playbooks, roles, inventories                                                  |
-| 05.12.2025 | CI/CD: GitHub Actions продвинутый         | Matrix, caching, self-hosted runners                                           |
-| 06.12.2025 | Мониторинг: Prometheus + Grafana          | Метрики, алерты, дашборды                                                      |
-| 07.12.2025 | OWASP Top 10: уязвимости веб-приложений   | SQLi, XSS, CSRF, инъекции                                                      |
-| 08.12.2025 | HTTPS и TLS: как работает шифрование      | Сертификаты, handshake, HSTS                                                   |
-| 09.12.2025 | OAuth 2.0 и OpenID Connect                | Flows, tokens, providers                                                       |
-| 10.12.2025 | JWT: глубокий разбор                      | Структура, алгоритмы, best practices                                           |
-| 11.12.2025 | Аутентификация: сессии vs токены          | Плюсы и минусы подходов                                                        |
-| 12.12.2025 | Rate Limiting и защита от DDoS            | Алгоритмы, реализация, Nginx                                                   |
-| 13.12.2025 | Security headers и CSP                    | Заголовки безопасности, Content Security Policy                                |
-| 14.12.2025 | React Server Components                   | SSR, streaming, suspense                                                       |
-| 15.12.2025 | Next.js 15: новые возможности             | App Router, Server Actions, caching                                            |
-| 16.12.2025 | Vue 3.5: что нового                       | Reactivity, performance, DevTools                                              |
+    | 01.12.2025 | Kubernetes: от pod до кластера            | Deployments, Services, ConfigMaps, Secrets                                     |
+    | 02.12.2025 | Helm: пакетный менеджер K8s               | Чарты, values, templates, репозитории                                          |
+    | 03.12.2025 | Terraform: инфраструктура как код         | Providers, resources, state, модули                                            |
+    | 04.12.2025 | Ansible: конфигурационный менеджмент      | Playbooks, roles, inventories                                                  |
+    | 05.12.2025 | CI/CD: GitHub Actions продвинутый         | Matrix, caching, self-hosted runners                                           |
+    | 06.12.2025 | Мониторинг: Prometheus + Grafana          | Метрики, алерты, дашборды                                                      |
+    | 07.12.2025 | OWASP Top 10: уязвимости веб-приложений   | SQLi, XSS, CSRF, инъекции                                                      |
+    | 08.12.2025 | HTTPS и TLS: как работает шифрование      | Сертификаты, handshake, HSTS                                                   |
+    | 09.12.2025 | OAuth 2.0 и OpenID Connect                | Flows, tokens, providers                                                       |
+    | 10.12.2025 | JWT: глубокий разбор                      | Структура, алгоритмы, best practices                                           |
+    | 11.12.2025 | Аутентификация: сессии vs токены          | Плюсы и минусы подходов                                                        |
+    | 12.12.2025 | Rate Limiting и защита от DDoS            | Алгоритмы, реализация, Nginx                                                   |
+    | 13.12.2025 | Security headers и CSP                    | Заголовки безопасности, Content Security Policy                                |
+    | 14.12.2025 | React Server Components                   | SSR, streaming, suspense                                                       |
+    | 15.12.2025 | Next.js 15: новые возможности             | App Router, Server Actions, caching                                            |
+    | 16.12.2025 | Vue 3.5: что нового                       | Reactivity, performance, DevTools                                              |
 | 17.12.2025 | Svelte 5: Runes и реактивность            | Новая система реактивности                                                     |
 | 18.12.2025 | Tailwind CSS: продвинутые техники         | Custom config, plugins, оптимизация                                            |
 | 19.12.2025 | CSS Grid и Flexbox: полное руководство    | Layout, responsive, примеры                                                    |
