@@ -132,12 +132,12 @@ npm install svelte@5
 ```svelte
 <script>
     import { writable } from 'svelte/store';
-	
-	const count = writable(0);
+    
+    const count = writable(0);
 </script>
 
 <button onclick={() => count.update(n => n + 1)}>
-	{$count}
+    {$count}
 </button>
 ```
 

@@ -11,13 +11,19 @@ React Navigation — стандартная библиотека для нави
 
 ## Установка
 
+React Navigation требует установки нескольких пакетов: ядро навигации, нативные зависимости и типизацию.
+
 ```bash
 npm install @react-navigation/native @react-navigation/native-stack
 npm install @react-navigation/bottom-tabs
 npm install react-native-screens react-native-safe-area-context
 ```
 
+Для Expo проектов используйте `npx expo install` для автоматической установки совместимых версий.
+
 ## Stack Navigator
+
+Stack Navigator реализует навигацию по стеку — экраны добавляются поверх предыдущих.
 
 ```tsx
 import { NavigationContainer } from '@react-navigation/native';
@@ -61,6 +67,8 @@ function DetailsScreen({ route, navigation }) {
 
 ## Передача параметров
 
+Для типобезопасности используйте TypeScript с параметризованным типом навигатора.
+
 ```tsx
 // TypeScript types
 type RootStackParamList = {
@@ -73,6 +81,8 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 // navigation.navigate с typed params
 navigation.navigate('Details', { id: 123 });
 ```
+
+Это обеспечивает проверку типов при навигации — вы получите ошибку, если передадите неправильные параметры.
 
 ## Навигационные опции
 

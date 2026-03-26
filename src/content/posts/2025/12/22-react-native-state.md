@@ -11,12 +11,14 @@ pubDate: "2025-12-22"
 
 ## Local State
 
+Локальное состояние используется для данных, которые не выходят за пределы компонента.
+
 ```tsx
 import { useState } from 'react';
 
 function Counter() {
   const [count, setCount] = useState(0);
-  
+
   return (
     <View>
       <Text>{count}</Text>
@@ -26,7 +28,11 @@ function Counter() {
 }
 ```
 
+Для простых случаев локального состояния `useState` достаточно. Но для общих данных нужны другие решения.
+
 ## Context
+
+Context позволяет передавать данные через дерево компонентов без пропсов.
 
 ```tsx
 // ThemeContext.tsx
@@ -63,9 +69,13 @@ function ThemedButton() {
 
 ## Redux Toolkit
 
+Redux Toolkit — официальная библиотека для Redux с упрощённым API.
+
 ```bash
 npm install @reduxjs/toolkit react-redux
 ```
+
+Redux использует однонаправленный поток данных: компоненты диспатчат действия, редюсеры обновляют состояние.
 
 ```tsx
 // store.ts

@@ -11,13 +11,19 @@ JWT (JSON Web Token) — это компактный, URL-safe способ пе
 
 ## Структура JWT
 
+JWT состоит из трёх частей, разделённых точками. Каждая часть кодируется в Base64URL.
+
 ```
 header.payload.signature
 
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
 ```
 
+Токен можно декодировать на любой стороне — это не шифрование, а подпись. Для конфиденциальных данных используйте JWE (JWT Encryption).
+
 ### Header
+
+Заголовок содержит алгоритм подписи и тип токена.
 
 ```json
 {
@@ -26,7 +32,11 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4
 }
 ```
 
+Распространённые алгоритмы: `HS256` (симметричный), `RS256` (асимметричный).
+
 ### Payload
+
+Полезная нагрузка содержит claims — утверждения о субъекте и дополнительные данные.
 
 ```json
 {
@@ -36,9 +46,14 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4
   "role": "admin",
   "iat": 1516239022,
   "exp": 1516242622
+}
 ```
 
+Не храните чувствительные данные в payload — токено можно декодировать без ключа.
+
 ### Standard Claims
+
+Стандартные claims определены в RFC 7519:
 
 - **iss** — Issuer (кто издал)
 - **sub** — Subject (субъект)
@@ -50,7 +65,11 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4
 
 ## Генерация
 
+Генерация JWT включает создание header, payload и подписи. Библиотеки делают это автоматически.
+
 ### Node.js
+
+Популярная библиотека `jsonwebtoken` поддерживает все стандартные алгоритмы.
 
 ```javascript
 const jwt = require('jsonwebtoken');
@@ -77,6 +96,8 @@ const tokenRS256 = jwt.sign(payload, privateKey, {
     expiresIn: '1h'
 });
 ```
+
+Асимметричные алгоритмы (RS256) предпочтительнее для микросервисов — сервисы могут проверять токены без доступа к приватному ключу.
 
 ### Payload с несколькими claims
 

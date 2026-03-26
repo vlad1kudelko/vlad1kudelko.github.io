@@ -11,6 +11,8 @@ CI/CD для мобильных приложений требует специа
 
 ## GitHub Actions для iOS
 
+GitHub Actions позволяет автоматизировать сборку iOS приложений на macOS runner'ах.
+
 ```yaml
 name: iOS CI/CD
 
@@ -21,25 +23,25 @@ on:
 jobs:
   build:
     runs-on: macos-latest
-    
+
     steps:
       - uses: actions/checkout@v4
-      
+
       - name: Select Xcode
         run: sudo xcode-select -s /Applications/Xcode_15.0.app
-      
+
       - name: Cache Pods
         uses: actions/cache@v3
         with:
           path: Pods
           key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}
-      
+
       - name: Install dependencies
         run: pod install
-      
+
       - name: Build
         run: xcodebuild -workspace App.xcworkspace -scheme App -configuration Debug build
-      
+
       - name: Upload Build
         uses: actions/upload-artifact@v3
         with:
@@ -47,7 +49,11 @@ jobs:
           path: build/App.ipa
 ```
 
+Кэширование Pods ускоряет сборку на 2-3 минуты. Указывайте конкретную версию Xcode для воспроизводимости.
+
 ## Fastlane
+
+Fastlane — инструмент для автоматизации рутинных задач: сборка, скриншоты, публикация.
 
 ```ruby
 # Fastfile
@@ -60,7 +66,7 @@ platform :ios do
     gym(scheme: "App")
     pilot(distribute_external: false)
   end
-  
+
   desc "Build and upload to Firebase App Distribution"
   lane :firebase do
     match(type: "development")
@@ -73,6 +79,8 @@ platform :ios do
   end
 end
 ```
+
+`match` синхронизирует сертификаты через Git. `gym` собирает IPA, `pilot` загружает в TestFlight.
 
 ## Android CI/CD
 

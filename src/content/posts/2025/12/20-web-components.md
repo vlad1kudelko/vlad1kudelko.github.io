@@ -11,7 +11,11 @@ Web Components — стандарт для создания переисполь
 
 ## Custom Elements
 
+Custom Elements позволяют создавать собственные HTML-теги с инкапсулированной логикой и стилями.
+
 ### class MyElement extends HTMLElement
+
+Базовый класс для всех custom elements — `HTMLElement`. Расширяя его, вы создаёте новый тег.
 
 ```javascript
 class MyCard extends HTMLElement {
@@ -19,11 +23,11 @@ class MyCard extends HTMLElement {
     super();
     this.attachShadow({ mode: 'open' });
   }
-  
+
   connectedCallback() {
     this.render();
   }
-  
+
   render() {
     this.shadowRoot.innerHTML = `
       <style>
@@ -47,32 +51,42 @@ class MyCard extends HTMLElement {
 customElements.define('my-card', MyCard);
 ```
 
+Метод `attachShadow` создаёт Shadow DOM — изолированное дерево элементов. Стили внутри Shadow DOM не влияют на остальную страницу.
+
 ### Lifecycle callbacks
+
+Web Components имеют хуки жизненного цикла для управления поведением:
 
 ```javascript
 class MyElement extends HTMLElement {
   constructor() {
     super();
     // Создание shadow root
+    // Вызывается всегда при создании элемента
   }
-  
+
   connectedCallback() {
     // Добавлен в DOM
+    // Инициализация, загрузка данных
   }
-  
+
   disconnectedCallback() {
     // Удалён из DOM
+    // Очистка, отписка от событий
   }
-  
+
   attributeChangedCallback(name, oldVal, newVal) {
     // Изменение атрибута
+    // Только для атрибутов из observedAttributes
   }
-  
+
   static get observedAttributes() {
     return ['title', 'variant'];
   }
 }
 ```
+
+Эти хуки аналогичны `useEffect` в React или `onMounted` в Vue.
 
 ### Observed attributes
 
