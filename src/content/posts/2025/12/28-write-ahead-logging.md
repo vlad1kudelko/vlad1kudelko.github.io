@@ -26,21 +26,21 @@ WAL:
 ## Структура WAL
 
 ```
-┌─────────────────────────────────────┐
-│            WAL Segment              │
-├─────────────────────────────────────┤
-│ Header (checkpoint, segno)          │
-├─────────────────────────────────────┤
-│ XLOG Record 1:                      │
-│   - LSN (Log Sequence Number)       │
-│   - prev LSN                        │
-│   - Transaction ID                  │
-│   - redo/undo                       │
-│   - Page data                       │
-├─────────────────────────────────────┤
-│ XLOG Record 2:                      │
-│   ...                               │
-└─────────────────────────────────────┘
+┌────────────────────────────────┐
+│            WAL Segment         │
+├────────────────────────────────┤
+│ Header (checkpoint, segno)     │
+├────────────────────────────────┤
+│ XLOG Record 1:                 │
+│   - LSN (Log Sequence Number)  │
+│   - prev LSN                   │
+│   - Transaction ID             │
+│   - redo/undo                  │
+│   - Page data                  │
+├────────────────────────────────┤
+│ XLOG Record 2:                 │
+│   ...                          │
+└────────────────────────────────┘
 ```
 
 ## PostgreSQL WAL

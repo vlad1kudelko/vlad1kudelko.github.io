@@ -227,7 +227,7 @@ grid-template-columns: auto 1fr auto;
 ```css
 .container {
   display: flex;
-  gap: 20px;        /* и row-gap, и column-gap */
+  gap: 20px;
 }
 
 .grid {
