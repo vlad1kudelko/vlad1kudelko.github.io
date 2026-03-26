@@ -1,5 +1,5 @@
 ---
-title: "Tailwind CSS: utility-first подход"
+title: "Tailwind CSS: продвинутые техники"
 description: "Tailwind CSS — утилитарный CSS фреймворк для быстрой разработки современных интерфейсов"
 heroImage: "../../../../assets/imgs/2025/12/18-tailwind-css.webp"
 pubDate: "2025-12-18"

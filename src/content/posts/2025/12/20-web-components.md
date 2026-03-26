@@ -1,5 +1,5 @@
 ---
-title: "Web Components: Custom Elements и Shadow DOM"
+title: "Web Components: стандарты браузера"
 description: "Создание переиспользуемых компонентов с Web Components: Custom Elements, Shadow DOM, HTML Templates"
 heroImage: "../../../../assets/imgs/2025/12/20-web-components.webp"
 pubDate: "2025-12-20"

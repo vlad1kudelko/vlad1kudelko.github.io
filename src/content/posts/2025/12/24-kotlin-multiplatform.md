@@ -1,5 +1,5 @@
 ---
-title: "Kotlin Multiplatform: единый код для всех платформ"
+title: "Kotlin Multiplatform: кроссплатформа"
 description: "Kotlin Multiplatform: написание общего кода для Android, iOS, Backend и Web"
 heroImage: "../../../../assets/imgs/2025/12/24-kotlin-multiplatform.webp"
 pubDate: "2025-12-24"

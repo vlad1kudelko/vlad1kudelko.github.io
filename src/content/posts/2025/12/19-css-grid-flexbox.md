@@ -1,5 +1,5 @@
 ---
-title: "CSS Grid и Flexbox: современные макеты"
+title: "CSS Grid и Flexbox: полное руководство"
 description: "Полное руководство по CSS Grid и Flexbox для создания гибких макетов"
 heroImage: "../../../../assets/imgs/2025/12/19-css-grid-flexbox.webp"
 pubDate: "2025-12-19"

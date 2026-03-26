@@ -1,5 +1,5 @@
 ---
-title: "HTTPS и TLS: безопасная передача данных"
+title: "HTTPS и TLS: как работает шифрование"
 description: "Как работает TLS, настройка сертификатов и HTTPS в современных приложениях"
 heroImage: "../../../../assets/imgs/2025/12/08-https-tls.webp"
 pubDate: "2025-12-08"

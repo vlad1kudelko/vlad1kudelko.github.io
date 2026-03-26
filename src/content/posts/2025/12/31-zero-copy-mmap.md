@@ -1,5 +1,5 @@
 ---
-title: "Zero-copy и mmap: эффективная работа с данными"
+title: "Zero-copy и mmap в Linux"
 description: "Zero-copy I/O и mmap: техники для высокопроизводительной обработки данных без копирования"
 heroImage: "../../../../assets/imgs/2025/12/31-zero-copy-mmap.webp"
 pubDate: "2025-12-31"

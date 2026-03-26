@@ -1,5 +1,5 @@
 ---
-title: "PWA: Progressive Web Applications"
+title: "PWA: прогрессивные веб-приложения"
 description: "Progressive Web Apps — веб-приложения с нативными возможностями: Service Workers, Web App Manifest, Push Notifications"
 heroImage: "../../../../assets/imgs/2025/12/26-pwa.webp"
 pubDate: "2025-12-26"

@@ -1,5 +1,5 @@
 ---
-title: "Rate Limiting: ограничение частоты запросов"
+title: "Rate Limiting и защита от DDoS"
 description: "Стратегии и реализация rate limiting для защиты API от злоупотреблений"
 heroImage: "../../../../assets/imgs/2025/12/12-rate-limiting.webp"
 pubDate: "2025-12-12"

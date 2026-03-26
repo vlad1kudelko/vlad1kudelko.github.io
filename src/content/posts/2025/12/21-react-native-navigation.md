@@ -1,5 +1,5 @@
 ---
-title: "React Native: навигация"
+title: "React Native: навигация 2025"
 description: "Навигация в React Native с React Navigation: Stack, Tabs, Drawer и нативная анимация"
 heroImage: "../../../../assets/imgs/2025/12/21-react-native-navigation.webp"
 pubDate: "2025-12-21"

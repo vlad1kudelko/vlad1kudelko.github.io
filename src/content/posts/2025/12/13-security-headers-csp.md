@@ -1,5 +1,5 @@
 ---
-title: "Security Headers и CSP"
+title: "Security headers и CSP"
 description: "Настройка HTTP security заголовков и Content Security Policy для защиты веб-приложений"
 heroImage: "../../../../assets/imgs/2025/12/13-security-headers-csp.webp"
 pubDate: "2025-12-13"

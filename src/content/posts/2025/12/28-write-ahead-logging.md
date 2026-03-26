@@ -1,5 +1,5 @@
 ---
-title: "Write-Ahead Logging (WAL)"
+title: "Write-ahead logging и журналирование"
 description: "Write-Ahead Logging — техника обеспечения durability в базах данных с минимальными потерями производительности"
 heroImage: "../../../../assets/imgs/2025/12/28-write-ahead-logging.webp"
 pubDate: "2025-12-28"

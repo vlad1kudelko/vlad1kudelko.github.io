@@ -1,5 +1,5 @@
 ---
-title: "Svelte 5: новый движок реактивности"
+title: "Svelte 5: Runes и реактивность"
 description: "Svelte 5 с Runes — переосмысление реактивности: $state, $derived, $effect и новый компилятор"
 heroImage: "../../../../assets/imgs/2025/12/17-svelte-5.webp"
 pubDate: "2025-12-17"

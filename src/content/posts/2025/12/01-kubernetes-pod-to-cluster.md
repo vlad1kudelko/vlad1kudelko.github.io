@@ -1,5 +1,5 @@
 ---
-title: "Kubernetes: от Pod до кластера. Основные понятия"
+title: "Kubernetes: от pod до кластера"
 description: "Полное руководство по архитектуре Kubernetes — от базовых сущностей до организации кластера"
 heroImage: "../../../../assets/imgs/2025/12/01-kubernetes-pod-to-cluster.webp"
 pubDate: "2025-12-01"

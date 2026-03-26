@@ -1,5 +1,5 @@
 ---
-title: "Mobile CI/CD: автоматизация сборки и деплоя"
+title: "Mobile CI/CD: Fastlane и EAS"
 description: "Настройка CI/CD для мобильных приложений: GitHub Actions, Fastlane, Firebase App Distribution"
 heroImage: "../../../../assets/imgs/2025/12/27-mobile-cicd.webp"
 pubDate: "2025-12-27"

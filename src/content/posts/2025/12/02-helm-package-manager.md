@@ -1,5 +1,5 @@
 ---
-title: "Helm: пакетный менеджер для Kubernetes"
+title: "Helm: пакетный менеджер K8s"
 description: "Управление Kubernetes-приложениями с помощью Helm: чарты, шаблоны и репозитории"
 heroImage: "../../../../assets/imgs/2025/12/02-helm-package-manager.webp"
 pubDate: "2025-12-02"

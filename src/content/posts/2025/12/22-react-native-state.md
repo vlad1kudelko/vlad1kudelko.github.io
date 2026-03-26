@@ -1,5 +1,5 @@
 ---
-title: "React Native: управление состоянием"
+title: "React Native: состояние и данные"
 description: "Управление состоянием в React Native: Context, Redux, Zustand и React Query"
 heroImage: "../../../../assets/imgs/2025/12/22-react-native-state.webp"
 pubDate: "2025-12-22"

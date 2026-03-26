@@ -1,5 +1,5 @@
 ---
-title: "JWT: JSON Web Tokens"
+title: "JWT: глубокий разбор"
 description: "Структура JWT, безопасная генерация, верификация и best practices"
 heroImage: "../../../../assets/imgs/2025/12/10-jwt.webp"
 pubDate: "2025-12-10"

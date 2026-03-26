@@ -1,5 +1,5 @@
 ---
-title: "Распределённые транзакции"
+title: "Распределённые транзакции и 2PC"
 description: "Saga pattern, Two-Phase Commit и другие подходы к распределённым транзакциям в микросервисах"
 heroImage: "../../../../assets/imgs/2025/12/30-distributed-transactions.webp"
 pubDate: "2025-12-30"

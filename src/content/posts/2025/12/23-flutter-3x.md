@@ -1,5 +1,5 @@
 ---
-title: "Flutter 3.x: кроссплатформенная разработка"
+title: "Flutter 3.x: новые виджеты"
 description: "Flutter 3.x — создание нативных приложений для iOS, Android, Web и Desktop с одного codebase"
 heroImage: "../../../../assets/imgs/2025/12/23-flutter-3x.webp"
 pubDate: "2025-12-23"
