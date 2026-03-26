@@ -7,7 +7,7 @@ pubDate: "2025-12-13"
 
 # Security Headers и Content Security Policy
 
-Security headers — HTTP заголовки, которые сообщают браузеру о политиках безопасности. Правильная настройка критически важна.
+Security headers — HTTP заголовки, которые сообщают браузеру о политиках безопасности. Правильная настройка критически важна. Эти заголовки защищают от XSS, clickjacking, MIME-sniffing и других атак на уровне браузера.
 
 ## Essential Headers
 
