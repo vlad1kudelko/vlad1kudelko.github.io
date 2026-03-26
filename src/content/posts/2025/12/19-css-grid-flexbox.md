@@ -26,11 +26,11 @@ CSS Grid и Flexbox — два мощных инструмента для соз
 ### justify-content
 
 - `flex-start` | `flex-end` | `center`
-- `space-between` | `space-around` | `space-evenly`
+- `space-between`, `space-around`, `space-evenly`
 
 ### align-items
 
-- `stretch` | `flex-start` | `flex-end` | `center` | `baseline`
+Допустимые значения: `stretch`, `flex-start`, `flex-end`, `center`, `baseline`
 
 ### flex-direction
 

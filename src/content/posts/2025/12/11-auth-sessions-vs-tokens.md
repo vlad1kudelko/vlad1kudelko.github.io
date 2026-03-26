@@ -206,15 +206,23 @@ app.post('/logout', async (req, res) => {
 
 ## Сравнение
 
-| Аспект | Сессии | JWT |
-|--------|--------|-----|
-| Storage | Redis/БД | Нет (stateless) |
-| Масштабирование | Требует shared storage | Простое горизонтальное |
-| Logout | Мгновенный | Требует blacklist |
-| Размер запроса | Small cookie | Larger token |
-| Сложность | Проще | Сложнее (refresh, blacklist) |
-| Mobile API | Неудобно | Удобно |
-| SSR | Отлично | Требует cookie |
+**Сессии:**
+- Storage: Redis/БД
+- Масштабирование: Требует shared storage
+- Logout: Мгновенный
+- Размер запроса: Small cookie
+- Сложность: Проще
+- Mobile API: Неудобно
+- SSR: Отлично
+
+**JWT:**
+- Storage: Нет (stateless)
+- Масштабирование: Простое горизонтальное
+- Logout: Требует blacklist
+- Размер запроса: Larger token
+- Сложность: Сложнее (refresh, blacklist)
+- Mobile API: Удобно
+- SSR: Требует cookie
 
 ## Гибридный подход
 

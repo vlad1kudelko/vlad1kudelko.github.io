@@ -95,19 +95,17 @@ Content-Security-Policy:
     form-action 'self';
 ```
 
-### Директивы
+### Директивы CSP
 
-| Директива | Описание | Пример |
-|-----------|----------|--------|
-| default-src | Фоллбек для других | `default-src 'self'` |
-| script-src | JavaScript | `script-src 'self' 'unsafe-inline'` |
-| style-src | CSS | `style-src 'self' 'unsafe-inline'` |
-| img-src | Изображения | `img-src 'self' data: https:` |
-| font-src | Шрифты | `font-src 'self' https://fonts.gstatic.com` |
-| connect-src | Fetch/XHR/WebSocket | `connect-src 'self' https://api` |
-| frame-ancestors | Фреймы | `frame-ancestors 'none'` |
-| base-uri | \<base> tag | `base-uri 'self'` |
-| form-action | Формы | `form-action 'self'` |
+- **default-src** — Фоллбек для других. Пример: `default-src 'self'`
+- **script-src** — JavaScript. Пример: `script-src 'self' 'unsafe-inline'`
+- **style-src** — CSS. Пример: `style-src 'self' 'unsafe-inline'`
+- **img-src** — Изображения. Пример: `img-src 'self' data: https:`
+- **font-src** — Шрифты. Пример: `font-src 'self' https://fonts.gstatic.com`
+- **connect-src** — Fetch/XHR/WebSocket. Пример: `connect-src 'self' https://api`
+- **frame-ancestors** — Фреймы. Пример: `frame-ancestors 'none'`
+- **base-uri** — `<base>` tag. Пример: `base-uri 'self'`
+- **form-action** — Формы. Пример: `form-action 'self'`
 
 ### CSP с nonce
 
@@ -177,15 +175,15 @@ X-Content-Type-Options: nosniff
 
 ## Referrer-Policy
 
-| Значение | Поведение |
-|----------|-----------|
-| no-referrer | Не отправлять referrer |
-| no-referrer-when-downgrade | По умолчанию |
-| origin | Только origin |
-| strict-origin | Origin, только HTTPS |
-| strict-origin-when-cross-origin | Полный для same-origin, origin для cross |
-| same-origin | Для same-origin |
-| origin-when-cross-origin | Полный для cross-origin |
+Параметры политики referrer:
+
+- **no-referrer** — Не отправлять referrer
+- **no-referrer-when-downgrade** — По умолчанию
+- **origin** — Только origin
+- **strict-origin** — Origin, только HTTPS
+- **strict-origin-when-cross-origin** — Полный для same-origin, origin для cross
+- **same-origin** — Для same-origin
+- **origin-when-cross-origin** — Полный для cross-origin
 
 ```javascript
 app.use(helmet.referrerPolicy({ policy: 'strict-origin-when-cross-origin' }));
