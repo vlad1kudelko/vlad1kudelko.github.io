@@ -1,9 +1,11 @@
 ---
-title: "Mobile CI/CD: Fastlane и EAS"
-description: "Настройка CI/CD для мобильных приложений: GitHub Actions, Fastlane, Firebase App Distribution"
+title: "Mobile CI/CD: Fastlane и EAS — автоматизация билдов"
+description: "Автоматизируйте сборку и релиз мобильных приложений: GitHub Actions, Fastlane, EAS, Firebase App Distribution. Ускорьте доставку обновлений."
 heroImage: "../../../../assets/imgs/2025/12/27-mobile-cicd.webp"
 pubDate: "2025-12-27"
 ---
+
+# CI/CD для мобильных приложений
 
 CI/CD для мобильных приложений требует специальных инструментов и подходов.
 

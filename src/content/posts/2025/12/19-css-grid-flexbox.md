@@ -1,9 +1,11 @@
 ---
-title: "CSS Grid и Flexbox: полное руководство"
-description: "Полное руководство по CSS Grid и Flexbox для создания гибких макетов"
+title: "CSS Grid и Flexbox: полное руководство по макетам"
+description: "Освойте CSS Grid и Flexbox для создания адаптивных макетов. Примеры, best practices — верстайте сложные интерфейсы с лёгкостью."
 heroImage: "../../../../assets/imgs/2025/12/19-css-grid-flexbox.webp"
 pubDate: "2025-12-19"
 ---
+
+# CSS Grid и Flexbox: современные макеты
 
 CSS Grid и Flexbox — два мощных инструмента для создания макетов. Разберём когда и как их использовать.
 

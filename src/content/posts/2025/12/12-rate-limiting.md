@@ -1,9 +1,11 @@
 ---
-title: "Rate Limiting и защита от DDoS"
-description: "Стратегии и реализация rate limiting для защиты API от злоупотреблений"
+title: "Rate Limiting и защита от DDoS — алгоритмы и реализация"
+description: "Внедрите rate limiting для защиты API: алгоритмы, стратегии, best practices. Обеспечьте стабильность сервиса под нагрузкой."
 heroImage: "../../../../assets/imgs/2025/12/12-rate-limiting.webp"
 pubDate: "2025-12-12"
 ---
+
+# Rate Limiting: защита API от перегрузки
 
 Rate limiting — техника ограничения количества запросов для защиты от злоупотреблений и обеспечения fairness.
 

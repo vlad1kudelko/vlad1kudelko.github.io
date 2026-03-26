@@ -1,9 +1,11 @@
 ---
-title: "OAuth 2.0 и OpenID Connect"
-description: "Протоколы авторизации OAuth 2.0 и аутентификации OIDC: потоки, токены и интеграция"
+title: "OAuth 2.0 и OpenID Connect — протоколы авторизации"
+description: "Изучите OAuth 2.0 и OIDC: потоки авторизации, токены, интеграция. Реализуйте безопасную аутентификацию в вашем приложении."
 heroImage: "../../../../assets/imgs/2025/12/09-oauth-oidc.webp"
 pubDate: "2025-12-09"
 ---
+
+# OAuth 2.0 и OpenID Connect: авторизация и аутентификация
 
 OAuth 2.0 — стандарт авторизации, OpenID Connect (OIDC) — уровень аутентификации поверх него.
 

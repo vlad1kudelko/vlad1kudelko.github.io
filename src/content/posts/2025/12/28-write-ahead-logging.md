@@ -1,9 +1,11 @@
 ---
-title: "Write-ahead logging и журналирование"
-description: "Write-Ahead Logging — техника обеспечения durability в базах данных с минимальными потерями производительности"
+title: "Write-ahead logging и журналирование — WAL в PostgreSQL"
+description: "Изучите WAL: журналирование, redo/undo логи, recovery. Обеспечьте durability и надёжность базы данных при сбоях."
 heroImage: "../../../../assets/imgs/2025/12/28-write-ahead-logging.webp"
 pubDate: "2025-12-28"
 ---
+
+# Write-Ahead Logging: надёжность баз данных
 
 Write-Ahead Logging (WAL) — фундаментальная техника в базах данных для обеспечения надёжности.
 

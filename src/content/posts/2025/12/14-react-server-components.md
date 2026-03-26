@@ -1,9 +1,11 @@
 ---
-title: "React Server Components"
-description: "Архитектура React Server Components: серверный рендеринг, streaming и границы компонентов"
+title: "React Server Components — серверный рендеринг"
+description: "Изучите React Server Components: архитектура, streaming, границы компонентов. Уменьшите bundle size и ускорьте загрузку приложения."
 heroImage: "../../../../assets/imgs/2025/12/14-react-server-components.webp"
 pubDate: "2025-12-14"
 ---
+
+# React Server Components: архитектура и применение
 
 React Server Components (RSC) — парадигма, позволяющая рендерить компоненты на сервере, снижая bundle size и улучшая производительность.
 

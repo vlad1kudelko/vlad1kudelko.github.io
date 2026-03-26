@@ -1,9 +1,11 @@
 ---
-title: "React Native: навигация 2025"
-description: "Навигация в React Native с React Navigation: Stack, Tabs, Drawer и нативная анимация"
+title: "React Native: навигация 2025 — React Navigation 7"
+description: "Изучите навигацию в React Native: Stack, Tabs, Drawer, deep linking. Настройте навигацию в приложении с React Navigation 7."
 heroImage: "../../../../assets/imgs/2025/12/21-react-native-navigation.webp"
 pubDate: "2025-12-21"
 ---
+
+# Навигация в React Native: React Navigation 7
 
 React Navigation — стандартная библиотека для навигации в React Native приложениях.
 

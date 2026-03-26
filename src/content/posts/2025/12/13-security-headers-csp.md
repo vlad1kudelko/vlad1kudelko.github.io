@@ -1,9 +1,11 @@
 ---
-title: "Security headers и CSP"
-description: "Настройка HTTP security заголовков и Content Security Policy для защиты веб-приложений"
+title: "Security Headers и CSP — защита веб-приложений"
+description: "Настройте HTTP security headers и Content Security Policy. Защитите приложение от XSS, clickjacking и других атак через браузер."
 heroImage: "../../../../assets/imgs/2025/12/13-security-headers-csp.webp"
 pubDate: "2025-12-13"
 ---
+
+# Security Headers и Content Security Policy
 
 Security headers — HTTP заголовки, которые сообщают браузеру о политиках безопасности. Правильная настройка критически важна.
 

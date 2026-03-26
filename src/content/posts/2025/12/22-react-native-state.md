@@ -1,9 +1,11 @@
 ---
-title: "React Native: состояние и данные"
-description: "Управление состоянием в React Native: Context, Redux, Zustand и React Query"
+title: "React Native: состояние и данные — Zustand и React Query"
+description: "Управляйте состоянием в React Native: Context, Redux, Zustand, TanStack Query. Выберите оптимальное решение для вашего приложения."
 heroImage: "../../../../assets/imgs/2025/12/22-react-native-state.webp"
 pubDate: "2025-12-22"
 ---
+
+# Управление состоянием в React Native
 
 Управление состоянием — ключевой аспект React Native разработки. Рассмотрим различные подходы.
 

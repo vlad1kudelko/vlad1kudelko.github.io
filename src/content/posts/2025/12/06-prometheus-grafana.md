@@ -1,9 +1,11 @@
 ---
-title: "Мониторинг: Prometheus + Grafana"
-description: "Полное руководство по настройке мониторинга с Prometheus и визуализации в Grafana"
+title: "Мониторинг: Prometheus + Grafana — настройка с нуля"
+description: "Настройте мониторинг инфраструктуры с Prometheus и Grafana. Сбор метрик, алерты, дашборды — обеспечьте надёжность продакшена."
 heroImage: "../../../../assets/imgs/2025/12/06-prometheus-grafana.webp"
 pubDate: "2025-12-06"
 ---
+
+# Prometheus и Grafana: мониторинг инфраструктуры
 
 Мониторинг — критически важная часть production-инфраструктуры. Prometheus + Grafana — стандартная связка для сбора метрик и визуализации.
 

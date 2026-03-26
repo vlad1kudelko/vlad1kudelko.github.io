@@ -1,9 +1,11 @@
 ---
-title: "CI/CD: GitHub Actions продвинутый"
-description: "Продвинутые техники GitHub Actions: матрицы, кэширование, reusable workflows, secrets и deployment"
+title: "GitHub Actions: продвинутый CI/CD — матрицы и workflows"
+description: "Освойте продвинутые техники GitHub Actions: матрицы, кэширование, reusable workflows. Постройте эффективный пайплайн для вашего проекта."
 heroImage: "../../../../assets/imgs/2025/12/05-github-actions-advanced.webp"
 pubDate: "2025-12-05"
 ---
+
+# GitHub Actions: продвинутые техники CI/CD
 
 GitHub Actions — мощный инструмент CI/CD, встроенный в GitHub. Рассмотрим продвинутые техники для построения эффективных пайплайнов.
 

@@ -1,9 +1,11 @@
 ---
-title: "Kotlin Multiplatform: кроссплатформа"
-description: "Kotlin Multiplatform: написание общего кода для Android, iOS, Backend и Web"
+title: "Kotlin Multiplatform: кроссплатформа — общий код"
+description: "Пишите общий код для Android, iOS, Backend и Web с Kotlin Multiplatform. Настройка проекта, shared code, UI — начните с нуля."
 heroImage: "../../../../assets/imgs/2025/12/24-kotlin-multiplatform.webp"
 pubDate: "2025-12-24"
 ---
+
+# Kotlin Multiplatform: общий код для всех платформ
 
 Kotlin Multiplatform (KMP) позволяет делиться кодом между различными платформами.
 

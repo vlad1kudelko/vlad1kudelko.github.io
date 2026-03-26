@@ -1,9 +1,11 @@
 ---
-title: "Flutter 3.x: новые виджеты"
-description: "Flutter 3.x — создание нативных приложений для iOS, Android, Web и Desktop с одного codebase"
+title: "Flutter 3.x: новые виджеты — Material 3 и адаптивность"
+description: "Изучите нововведения Flutter 3.x: Material 3, адаптивные виджеты, улучшения. Создавайте кроссплатформенные приложения с нативным UI."
 heroImage: "../../../../assets/imgs/2025/12/23-flutter-3x.webp"
 pubDate: "2025-12-23"
 ---
+
+# Flutter 3.x: кроссплатформенная разработка
 
 Flutter — фреймворк от Google для кроссплатформенной разработки с нативной производительностью.
 

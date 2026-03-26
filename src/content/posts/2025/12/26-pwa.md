@@ -1,9 +1,11 @@
 ---
-title: "PWA: прогрессивные веб-приложения"
-description: "Progressive Web Apps — веб-приложения с нативными возможностями: Service Workers, Web App Manifest, Push Notifications"
+title: "PWA: прогрессивные веб-приложения — offline и установка"
+description: "Создавайте PWA с Service Workers, Web App Manifest, Push. Offline-режим, установка на устройство — сделайте веб-приложение нативным."
 heroImage: "../../../../assets/imgs/2025/12/26-pwa.webp"
 pubDate: "2025-12-26"
 ---
+
+# Progressive Web Apps: веб с нативными возможностями
 
 PWA — веб-приложения, которые работают как нативные: offline, push notifications, установка на устройство.
 

@@ -1,9 +1,11 @@
 ---
-title: "Zero-copy и mmap в Linux"
-description: "Zero-copy I/O и mmap: техники для высокопроизводительной обработки данных без копирования"
+title: "Zero-copy и mmap в Linux — sendfile и splice"
+description: "Освойте zero-copy техники: sendfile, splice, memory-mapped файлы. Максимизируйте производительность I/O операций в Linux."
 heroImage: "../../../../assets/imgs/2025/12/31-zero-copy-mmap.webp"
 pubDate: "2025-12-31"
 ---
+
+# Zero-copy и mmap: эффективный I/O в Linux
 
 Zero-copy и mmap — техники минимизации копирования данных для максимальной производительности.
 

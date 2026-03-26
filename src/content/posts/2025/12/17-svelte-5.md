@@ -1,9 +1,11 @@
 ---
-title: "Svelte 5: Runes и реактивность"
-description: "Svelte 5 с Runes — переосмысление реактивности: $state, $derived, $effect и новый компилятор"
+title: "Svelte 5: Runes и реактивность — новая эра фреймворка"
+description: "Изучите Svelte 5 с Runes: $state, $derived, $effect. Освойте новую систему реактивности и создавайте эффективные приложения."
 heroImage: "../../../../assets/imgs/2025/12/17-svelte-5.webp"
 pubDate: "2025-12-17"
 ---
+
+# Svelte 5: новая система реактивности Runes
 
 Svelte 5 представляет Runes — новую систему реактивности, которая меняет подход к управлению состоянием.
 

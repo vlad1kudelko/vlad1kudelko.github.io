@@ -1,9 +1,11 @@
 ---
-title: "Web Components: стандарты браузера"
-description: "Создание переиспользуемых компонентов с Web Components: Custom Elements, Shadow DOM, HTML Templates"
+title: "Web Components: стандарты браузера — Custom Elements"
+description: "Создавайте переиспользуемые компоненты с Web Components: Custom Elements, Shadow DOM, Templates. Изучите нативный стандарт компонентов."
 heroImage: "../../../../assets/imgs/2025/12/20-web-components.webp"
 pubDate: "2025-12-20"
 ---
+
+# Web Components: нативные компоненты браузера
 
 Web Components — стандарт для создания переиспользуемых компонентов с инкапсуляцией.
 
