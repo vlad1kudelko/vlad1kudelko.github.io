@@ -1,190 +1,189 @@
-+------------|-----------------------------------------|----------------------------------------+
-| date       | title                                   | description                            |
-+------------|-----------------------------------------|----------------------------------------+
-| 2026-01-01 | LLM-модели: обзор 2026                  | GPT, Claude, Gemini, Llama, Qwen       |
-| 2026-01-02 | RAG-системы: поиск + векторы            | Embeddings, векторные БД, retrieval    |
-| 2026-01-03 | Векторные базы данных                   | Pinecone, Weaviate, Qdrant, Milvus     |
-| 2026-01-04 | LangChain: оркестрация LLM              | Chains, Agents, Tools, Memory          |
-| 2026-01-05 | LangGraph: агенты с состоянием          | Graphs, nodes, edges, persistence      |
-| 2026-01-06 | MCP (Model Context Protocol)            | Протокол, серверы, клиенты             |
-| 2026-01-07 | AI-агенты: архитектура                  | Planning, tools, memory, multi-agent   |
-| 2026-01-08 | Fine-tuning LLM моделей                 | LoRA, QLoRA, данные, обучение          |
-| 2026-01-09 | Prompt Engineering: продвинутые техники | CoT, ReAct, few-shot, templates        |
-| 2026-01-10 | Ollama: локальные LLM                   | Установка, модели, API                 |
-| 2026-01-11 | vLLM: быстрый инференс                  | PagedAttention, batching               |
-| 2026-01-12 | LlamaIndex: работа с документами        | Indexes, query engines, routers        |
-| 2026-01-13 | AI-агенты в продакшене                  | Мониторинг, логирование, тесты         |
-| 2026-01-14 | Multimodal модели                       | Текст + изображение + аудио            |
-| 2026-01-15 | Speech-to-Text и TTS                    | Whisper, ElevenLabs, локальные         |
-| 2026-01-16 | Computer Vision 2026                    | YOLO, SAM, DETR, сегментация           |
-| 2026-01-17 | PyTorch 2.x: что нового                 | torch.compile, dynamo                  |
-| 2026-01-18 | TensorFlow 3.x: обзор                   | Keras 3, JAX integration               |
-| 2026-01-19 | Hugging Face: экосистема                | Transformers, Datasets, Spaces         |
-| 2026-01-20 | MLOps: пайплайны обучения               | DVC, MLflow, Kubeflow                  |
-| 2026-01-21 | Feature Stores                          | Feast, Tecton, хранение признаков      |
-| 2026-01-22 | Model Monitoring                        | Дрифт данных, деградация               |
-| 2026-01-23 | A/B тестирование моделей                | Метрики, фреймворки                    |
-| 2026-01-24 | ONNX: универсальный формат              | Конвертация, оптимизация               |
-| 2026-01-25 | TensorRT: ускорение инференса           | Оптимизация для NVIDIA                 |
-| 2026-01-26 | Квантование моделей                     | INT8, FP16, pruning                    |
-| 2026-01-27 | Distillation: сжатие моделей            | Teacher-student обучение               |
-| 2026-01-28 | Synthetic Data для ML                   | Генерация данных для обучения          |
-| 2026-01-29 | Federated Learning                      | Обучение без централизации данных      |
-| 2026-01-30 | AI Ethics и безопасность                | Bias, privacy, alignment               |
-| 2026-01-31 | Градиентный спуск и оптимизаторы        | Adam, SGD, learning rate schedules     |
-+------------|-----------------------------------------|----------------------------------------+
-| 2026-02-01 | FastAPI 2026: новые возможности         | Что изменилось, best practices         |
-| 2026-02-02 | Django 5.x: полный обзор                | ORM, templates, async                  |
-| 2026-02-03 | Flask 3.x: минимализм в 2026            | Blueprints, extensions                 |
-| 2026-02-04 | Celery: распределённые задачи           | Workers, beats, мониторинг             |
-| 2026-02-05 | RQ и Dramatiq: альтернативы Celery      | Проще и быстрее                        |
-| 2026-02-06 | Asyncio: глубокое погружение            | Event loop, tasks, queues              |
-| 2026-02-07 | HTTP/2 и HTTP/3                         | Multiplexing, QUIC, производительность |
-| 2026-02-08 | gRPC в Python                           | Protobuf, aio, streaming               |
-| 2026-02-09 | Message Brokers: сравнение              | RabbitMQ vs Kafka vs Redis             |
-| 2026-02-10 | RabbitMQ: паттерны                      | Exchanges, queues, routing             |
-| 2026-02-11 | NATS: лёгкий мессенджер                 | Pub/sub, jetstream                     |
-| 2026-02-12 | WebSockets в продакшене                 | Scaling, sticky sessions               |
-| 2026-02-13 | Server-Sent Events                      | Альтернатива WebSocket                 |
-| 2026-02-14 | Background jobs: сравнение              | Celery, Huey, APScheduler              |
-| 2026-02-15 | Caching стратегии                       | Cache-aside, write-through             |
-| 2026-02-16 | Database pooling                        | PgBouncer, connection limits           |
-| 2026-02-17 | Database sharding                       | Горизонтальное разделение              |
-| 2026-02-18 | Database replication                    | Master-slave, master-master            |
-| 2026-02-19 | Full-text search: сравнение             | PostgreSQL vs Elasticsearch            |
-| 2026-02-20 | Geo-данные в БД                         | PostGIS, индексы, запросы              |
-| 2026-02-21 | Timeseries базы данных                  | TimescaleDB, InfluxDB                  |
-| 2026-02-22 | Graph базы данных                       | Neo4j, Cypher queries                  |
-| 2026-02-23 | Column-oriented БД                      | ClickHouse, аналитика                  |
-| 2026-02-24 | ORM: SQLAlchemy 2.0+                    | Async, 2.0 style                       |
-| 2026-02-25 | Tortoise ORM: async ORM                 | Django-like для async                  |
-| 2026-02-26 | Pydantic 2.x: валидация                 | V2 changes, serializers                |
-| 2026-02-27 | Dependency injection                    | FastAPI Depends, injector              |
-| 2026-02-28 | Connection pooling и PgBouncer          | Режимы работы, настройка, мониторинг   |
-+------------|-----------------------------------------|----------------------------------------+
-| 2026-03-01 | Docker best practices 2026              | Оптимизация образов                    |
-| 2026-03-02 | Docker Compose: продвинутый             | Profiles, overrides                    |
-| 2026-03-03 | Kubernetes: networking                  | Ingress, NetworkPolicy                 |
-| 2026-03-04 | Kubernetes: storage                     | PV, PVC, StorageClass                  |
-| 2026-03-05 | Kubernetes: security                    | RBAC, PodSecurityPolicy                |
-| 2026-03-06 | Helm: создание чартов                   | Templates, hooks, tests                |
-| 2026-03-07 | Kustomize: альтернатива Helm            | Overlays, patches                      |
-| 2026-03-08 | ArgoCD: GitOps                          | Sync, health, rollback                 |
-| 2026-03-09 | Flux CD: GitOps                         | Sources, Kustomizations                |
-| 2026-03-10 | Terraform: state management             | Remote state, locking                  |
-| 2026-03-11 | Terraform: модули                       | Создание, версионирование              |
-| 2026-03-12 | Pulumi: инфраструктура на Python        | IaC без HCL                            |
-| 2026-03-13 | Ansible: роли и коллекции               | Galaxy, best practices                 |
-| 2026-03-14 | Vault: секреты                          | Secrets engines, auth                  |
-| 2026-03-15 | Consul: service discovery               | DNS, HTTP, service mesh                |
-| 2026-03-16 | Istio: service mesh                     | Sidecar, mTLS, observability           |
-| 2026-03-17 | Linkerd: лёгкий service mesh            | Сравнение с Istio                      |
-| 2026-03-18 | Prometheus: advanced                    | Recording rules, federation            |
-| 2026-03-19 | Grafana: дашборды и алерты              | Panels, notifications                  |
-| 2026-03-20 | Loki: логирование                       | LogQL, labels                          |
-| 2026-03-21 | Tempo: трассировка                      | Distributed tracing                    |
-| 2026-03-22 | OpenTelemetry                           | Instrumentation, exporters             |
-| 2026-03-23 | AWS для разработчика                    | EC2, S3, Lambda, RDS                   |
-| 2026-03-24 | GCP для разработчика                    | Compute, Storage, Functions            |
-| 2026-03-25 | Azure для разработчика                  | VMs, Blob, Functions                   |
-| 2026-03-26 | Cloud Functions vs Containers           | Когда что выбрать                      |
-| 2026-03-27 | Serverless фреймворки                   | Serverless, SST, Claudia               |
-| 2026-03-28 | Edge computing                          | Cloudflare Workers, Deno Deploy        |
-| 2026-03-29 | Multi-cloud стратегии                   | Избегаем vendor lock-in                |
-| 2026-03-30 | Cost optimization в облаке              | Spot instances, rightsizing            |
-| 2026-03-31 | eBPF и observability                    | BPF-программы, трассировка ядра        |
-+------------|-----------------------------------------|----------------------------------------+
-| 2026-04-01 | React 19: что нового                    | Новые хуки, оптимизация                |
-| 2026-04-02 | React: состояние в 2026                 | Zustand, Jotai, Valtio                 |
-| 2026-04-03 | React Query (TanStack)                  | Caching, mutations, infinite           |
-| 2026-04-04 | Next.js: Server Actions                 | Формы без API                          |
-| 2026-04-05 | Next.js: оптимизация                    | Images, fonts, scripts                 |
-| 2026-04-06 | Remix: веб-стандарты                    | Loaders, actions                       |
-| 2026-04-07 | Vue 4: ожидания                         | Что готовит команда                    |
-| 2026-04-08 | Nuxt 4: fullstack Vue                   | Server routes, islands                 |
-| 2026-04-09 | SvelteKit: продакшен                    | Adapters, deployment                   |
-| 2026-04-10 | SolidJS: реактивность                   | Signals, fine-grained                  |
-| 2026-04-11 | Qwik: resumability                      | Zero hydration                         |
-| 2026-04-12 | Astro: контент-сайты                    | Islands, MDX                           |
-| 2026-04-13 | Tailwind CSS 4.0                        | Новый движок                           |
-| 2026-04-14 | CSS-in-JS в 2026                        | Emotion, styled-components             |
-| 2026-04-15 | Vanilla Extract: type-safe CSS          | CSS-in-TypeScript                      |
-| 2026-04-16 | Storybook: компонентный дизайн          | Stories, addons                        |
-| 2026-04-17 | Testing Library                         | React, Vue, RTL                        |
-| 2026-04-18 | Playwright: E2E тесты                   | Cross-browser, mobile                  |
-| 2026-04-19 | Vitest: быстрый тестраннер              | Vite integration                       |
-| 2026-04-20 | Webpack 6 vs Vite                       | Сборка в 2026                          |
-| 2026-04-21 | Turbopack: будущее сборки               | Incremental computation                |
-| 2026-04-22 | Bun: runtime и bundler                  | Быстрее Node.js                        |
-| 2026-04-23 | Deno 2.0: npm совместимость             | Что изменилось                         |
-| 2026-04-24 | React Native: новый архитектор          | Fabric, TurboModules                   |
-| 2026-04-25 | React Native: производительность        | Optimization techniques                |
-| 2026-04-26 | Expo: кастомные нативные модули         | Dev Modules                            |
-| 2026-04-27 | Flutter: кастомные виджеты              | Painting, animations                   |
-| 2026-04-28 | Flutter: состояние                      | Riverpod, Bloc                         |
-| 2026-04-29 | Kotlin Multiplatform: UI                | Compose Multiplatform                  |
-| 2026-04-30 | WebAssembly и WASI                      | Компоненты, интерфейсы, SIMD           |
-+------------|-----------------------------------------|----------------------------------------+
-| 2026-05-01 | Penetration testing basics              | Recon, scanning, exploitation          |
-| 2026-05-02 | Burp Suite: руководство                 | Proxy, scanner, intruder               |
-| 2026-05-03 | SQL injection: защита                   | Prepared statements, ORM               |
-| 2026-05-04 | XSS: защита                             | CSP, escaping, sanitization            |
-| 2026-05-05 | CSRF: защита                            | Tokens, SameSite cookies               |
-| 2026-05-06 | SSRF: защита                            | Validation, allowlists                 |
-| 2026-05-07 | XXE: защита                             | Disable external entities              |
-| 2026-05-08 | Deserialization атаки                   | Safe unpickling                        |
-| 2026-05-09 | Dependency scanning                     | Snyk, Dependabot                       |
-| 2026-05-10 | SAST: статический анализ                | SonarQube, Semgrep                     |
-| 2026-05-11 | DAST: динамический анализ               | OWASP ZAP, Burp                        |
-| 2026-05-12 | Secrets management                      | GitGuardian, detect-secrets            |
-| 2026-05-13 | Secure coding Python                    | Best practices                         |
-| 2026-05-14 | Secure coding JavaScript                | Best practices                         |
-| 2026-05-15 | Unit тесты: pytest                      | Fixtures, parametrize                  |
-| 2026-05-16 | Mocking и patching                      | unittest.mock, responses               |
-| 2026-05-17 | Integration тесты                       | Testcontainers                         |
-| 2026-05-18 | E2E тесты: Cypress                      | Commands, fixtures                     |
-| 2026-05-19 | Visual regression тесты                 | Percy, Chromatic                       |
-| 2026-05-20 | Performance тесты                       | Locust, k6                             |
-| 2026-05-21 | Load тесты                              | JMeter, Gatling                        |
-| 2026-05-22 | Chaos engineering                       | Chaos Mesh, Litmus                     |
-| 2026-05-23 | Mutation тестирование                   | Mutmut, Stryker                        |
-| 2026-05-24 | Property-based тестирование             | Hypothesis, fast-check                 |
-| 2026-05-25 | TDD: разработка через тесты             | Red-green-refactor                     |
-| 2026-05-26 | BDD: поведение системы                  | Cucumber, Behave                       |
-| 2026-05-27 | Contract тестирование                   | Pact, consumer-driven                  |
-| 2026-05-28 | Snapshot тестирование                   | Jest snapshots                         |
-| 2026-05-29 | Accessibility тесты                     | axe, pa11y                             |
-| 2026-05-30 | Fuzzing и security auditing             | AFL, libFuzzer, cargo-audit            |
-| 2026-05-31 | Formal verification и TLA+              | Спецификация, model checking           |
-+------------|-----------------------------------------|----------------------------------------+
-| 2026-06-01 | Резюме разработчика                     | Структура, примеры                     |
-| 2026-06-02 | LinkedIn профиль                        | Оптимизация, networking                |
-| 2026-06-03 | GitHub портфолио                        | Projects, README                       |
-| 2026-06-04 | Собеседования: алгоритмы                | LeetCode patterns                      |
-| 2026-06-05 | Собеседования: system design            | Масштабирование, trade-offs            |
-| 2026-06-06 | Собеседования: поведенческие            | STAR метод                             |
-| 2026-06-07 | Salary negotiation                      | Как просить больше                     |
-| 2026-06-08 | Freelance vs Full-time                  | Плюсы и минусы                         |
-| 2026-06-09 | Remote работа                           | Tools, productivity                    |
-| 2026-06-10 | Time management                         | Pomodoro, time blocking                |
-| 2026-06-11 | Learning strategies                     | Как учить新技术                        |
-| 2026-06-12 | Technical writing                       | Документация, статьи                   |
-| 2026-06-13 | Public speaking                         | Доклады, митапы                        |
-| 2026-06-14 | Networking                              | Конференции, комьюнити                 |
-| 2026-06-15 | Mentorship                              | Как найти ментора                      |
-| 2026-06-16 | Code review best practices              | Как ревьюить код                       |
-| 2026-06-17 | Git workflow                            | GitFlow, trunk-based                   |
-| 2026-06-18 | Agile и Scrum                           | Ceremonies, artifacts                  |
-| 2026-06-19 | Kanban для разработчиков                | WIP limits, flow                       |
-| 2026-06-20 | Управление техдолгом                    | Когда рефакторить                      |
-| 2026-06-21 | Работа с легаси                         | Стратегии модернизации                 |
-| 2026-06-22 | Debugging мастерство                    | Tools, techniques                      |
-| 2026-06-23 | Profiling приложений                    | cProfile, py-spy                       |
-| 2026-06-24 | Logging best practices                  | Структурированные логи                 |
-| 2026-06-25 | Documentation as code                   | MkDocs, Docusaurus                     |
-| 2026-06-26 | API documentation                       | OpenAPI, Swagger                       |
-| 2026-06-27 | Team communication                      | Slack, async comms                     |
-| 2026-06-28 | Conflict resolution                     | В команде                              |
-| 2026-06-29 | Career paths разработчика               | IC vs Management                       |
-| 2026-06-30 | Advanced Linux networking               | netfilter, iptables, nftables          |
-+------------|-----------------------------------------|----------------------------------------+
++------------|-------------------------------|------------------------------------------------------------|-------------------------------------------|----------------------------------------------------------------------------------------------------------------------------+
+| date       | slug                          | title                                                      | h1                                        | description                                                                                                                |
++------------|-------------------------------|------------------------------------------------------------|-------------------------------------------|----------------------------------------------------------------------------------------------------------------------------+
+| 2026-01-01 | llm-models-2026               | LLM-модели 2026: полный обзор — GPT, Claude, Gemini        | LLM-модели: обзор 2026                    | Изучите LLM-модели 2026: GPT-5, Claude 4, Gemini, Llama, Qwen. Сравнение возможностей, цен и use cases для вашего проекта. |
+| 2026-01-02 | rag-systems                   | RAG-системы: поиск и векторы — полное руководство          | RAG-системы: поиск + векторы              | Освойте RAG-системы: embeddings, векторные БД, retrieval. Создавайте умный поиск по документации и данным.                 |
+| 2026-01-03 | vector-databases              | Векторные базы данных — Pinecone, Weaviate, Qdrant         | Векторные базы данных: полное руководство | Сравните векторные базы данных: Pinecone, Weaviate, Qdrant, Milvus. Выберите оптимальное решение для RAG.                  |
+| 2026-01-04 | langchain                     | LangChain: оркестрация LLM — Chains, Agents, Tools         | LangChain: оркестрация LLM                | Изучите LangChain: Chains, Agents, Tools, Memory. Создавайте сложные приложения с большими языковыми моделями.             |
+| 2026-01-05 | langgraph                     | LangGraph: агенты с состоянием — Graphs, nodes             | LangGraph: агенты с состоянием            | Освойте LangGraph: Graphs, nodes, edges, persistence. Стройте stateful AI-агентов для сложных задач.                       |
+| 2026-01-06 | mcp-protocol                  | MCP: Model Context Protocol — серверы и клиенты            | MCP (Model Context Protocol)              | Изучите MCP: протокол, серверы, клиенты. Интегрируйте LLM с внешними источниками данных и инструментами.                   |
+| 2026-01-07 | ai-agents-architecture        | AI-агенты: архитектура — Planning, tools, memory           | AI-агенты: архитектура                    | Разберитесь в архитектуре AI-агентов: Planning, tools, memory, multi-agent. Создавайте автономные системы.                 |
+| 2026-01-08 | fine-tuning-llm               | Fine-tuning LLM моделей — LoRA, QLoRA, данные              | Fine-tuning LLM моделей                   | Научитесь fine-tuning LLM: LoRA, QLoRA, подготовка данных, обучение. Адаптируйте модели под свои задачи.                   |
+| 2026-01-09 | prompt-engineering            | Prompt Engineering: продвинутые техники — CoT, ReAct       | Prompt Engineering: продвинутые техники   | Освойте Prompt Engineering: CoT, ReAct, few-shot, templates. Получайте лучшие результаты от LLM.                           |
+| 2026-01-10 | ollama                        | Ollama: локальные LLM — установка, модели, API             | Ollama: локальные LLM                     | Запустите локальные LLM с Ollama: установка, модели, API. Работайте с моделями без облачных зависимостей.                  |
+| 2026-01-11 | vllm                          | vLLM: быстрый инференс — PagedAttention, batching          | vLLM: быстрый инференс                    | Ускорьте инференс LLM с vLLM: PagedAttention, batching, continuous batching. Производительность для продакшена.            |
+| 2026-01-12 | llamanode-index               | LlamaIndex: работа с документами — Indexes, query          | LlamaIndex: работа с документами          | Обрабатывайте документы с LlamaIndex: Indexes, query engines, routers. Создавайте QA-системы по вашим данным.              |
+| 2026-01-13 | ai-agents-production          | AI-агенты в продакшене — мониторинг, логирование           | AI-агенты в продакшене                    | Внедрите AI-агентов в продакшен: мониторинг, логирование, тесты. Обеспечьте надёжность и отслеживаемость.                  |
+| 2026-01-14 | multimodal-models             | Multimodal модели — текст, изображение, аудио              | Multimodal модели                         | Изучите multimodal модели: текст + изображение + аудио. Создавайте приложения с пониманием контекста.                      |
+| 2026-01-15 | speech-to-text-tts            | Speech-to-Text и TTS — Whisper, ElevenLabs                 | Speech-to-Text и TTS                      | Освойте распознавание и синтез речи: Whisper, ElevenLabs, локальные решения. Добавьте голос в приложение.                  |
+| 2026-01-16 | computer-vision-2026          | Computer Vision 2026 — YOLO, SAM, DETR                     | Computer Vision 2026                      | Изучите Computer Vision 2026: YOLO, SAM, DETR, сегментация. Обрабатывайте изображения и видео.                             |
+| 2026-01-17 | pytorch-2                     | PyТorch 2.x: что нового — torch.compile, dynamo            | PyТorch 2.x: что нового                   | Освойте нововведения PyTorch 2.x: torch.compile, dynamo. Ускорьте обучение моделей в 2-3 раза.                             |
+| 2026-01-18 | tensorflow-3                  | TensorFlow 3.x: обзор — Keras 3, JAX integration           | TensorFlow 3.x: обзор                     | Изучите TensorFlow 3.x: Keras 3, JAX integration. Современные возможности фреймворка для ML.                               |
+| 2026-01-19 | hugging-face                  | Hugging Face: экосистема — Transformers, Datasets          | Hugging Face: экосистема                  | Разберитесь в экосистеме Hugging Face: Transformers, Datasets, Spaces. Используйте готовые модели и данные.                |
+| 2026-01-20 | mlops                         | MLOps: пайплайны обучения — DVC, MLflow, Kubeflow          | MLOps: пайплайны обучения                 | Настройте MLOps: пайплайны обучения, DVC, MLflow, Kubeflow. Автоматизируйте жизненный цикл ML-моделей.                     |
+| 2026-01-21 | feature-stores                | Feature Stores — Feast, Tecton, хранение признаков         | Feature Stores                            | Внедрите Feature Stores: Feast, Tecton, хранение признаков. Управляйте фичами для ML-моделей.                              |
+| 2026-01-22 | model-monitoring              | Model Monitoring — дрифт данных, деградация                | Model Monitoring                          | Настройте Model Monitoring: дрифт данных, деградация моделей. Отслеживайте качество ML в продакшене.                       |
+| 2026-01-23 | ab-testing-models             | A/B тестирование моделей — метрики, фреймворки             | A/B тестирование моделей                  | Проводите A/B тестирование моделей: метрики, фреймворки. Сравнивайте эффективность ML-решений.                             |
+| 2026-01-24 | onnx                          | ONNX: универсальный формат — конвертация, оптимизация      | ONNX: универсальный формат                | Используйте ONNX: конвертация, оптимизация моделей. Запускайте ML на любых платформах и устройствах.                       |
+| 2026-01-25 | tensorrt                      | TensorRT: ускорение инференса — оптимизация NVIDIA         | TensorRT: ускорение инференса             | Ускорьте инференс с TensorRT: оптимизация для NVIDIA GPU. Достигните максимальной производительности.                      |
+| 2026-01-26 | model-quantization            | Квантование моделей — INT8, FP16, pruning                  | Квантование моделей                       | Примените квантование моделей: INT8, FP16, pruning. Уменьшите размер и ускорьте инференс.                                  |
+| 2026-01-27 | model-distillation            | Distillation: сжатие моделей — Teacher-student             | Distillation: сжатие моделей              | Используйте Distillation: teacher-student обучение. Создавайте лёгкие модели с качеством больших.                          |
+| 2026-01-28 | synthetic-data-ml             | Synthetic Data для ML — генерация данных для обучения      | Synthetic Data для ML                     | Генерируйте Synthetic Data для ML: augmentation, синтетические выборки. Решите проблему нехватки данных.                   |
+| 2026-01-29 | federated-learning            | Federated Learning — обучение без централизации            | Federated Learning                        | Внедрите Federated Learning: обучение без централизации данных. Сохраняйте приватность пользователей.                      |
+| 2026-01-30 | ai-ethics-security            | AI Ethics и безопасность — Bias, privacy, alignment        | AI Ethics и безопасность                  | Изучите AI Ethics и безопасность: Bias, privacy, alignment. Создавайте ответственные AI-системы.                           |
+| 2026-01-31 | gradient-descent-optimizers   | Градиентный спуск и оптимизаторы — Adam, SGD               | Градиентный спуск и оптимизаторы          | Разберитесь в оптимизаторах: Adam, SGD, learning rate schedules. Выберите правильный подход для обучения.                  |
++------------|-------------------------------|------------------------------------------------------------|-------------------------------------------|----------------------------------------------------------------------------------------------------------------------------+
+| 2026-02-01 | fastapi-2026                  | FastAPI 2026: новые возможности — что изменилось           | FastAPI 2026: новые возможности           | Изучите FastAPI 2026: новые возможности, изменения, best practices. Создавайте быстрые API на Python.                      |
+| 2026-02-02 | django-5                      | Django 5.x: полный обзор — ORM, templates, async           | Django 5.x: полный обзор                  | Освойте Django 5.x: ORM, templates, async возможности. Разрабатывайте веб-приложения на Python.                            |
+| 2026-02-03 | flask-3                       | Flask 3.x: минимализм в 2026 — Blueprints, extensions      | Flask 3.x: минимализм в 2026              | Изучите Flask 3.x: Blueprints, extensions. Создавайте лёгкие веб-приложения и микросервисы.                                |
+| 2026-02-04 | celery                        | Celery: распределённые задачи — Workers, beats             | Celery: распределённые задачи             | Настройте Celery: Workers, beats, мониторинг. Обрабатывайте фоновые задачи в Python-приложениях.                           |
+| 2026-02-05 | rq-dramatiq                   | RQ и Dramatiq: альтернативы Celery — проще и быстрее       | RQ и Dramatiq: альтернативы Celery        | Сравните RQ и Dramatiq: альтернативы Celery. Выберите лёгкую очередь задач для вашего проекта.                             |
+| 2026-02-06 | asyncio                       | Asyncio: глубокое погружение — Event loop, tasks           | Asyncio: глубокое погружение              | Разберитесь в asyncio: Event loop, tasks, queues. Пишите асинхронный код на Python эффективно.                             |
+| 2026-02-07 | http2-http3                   | HTTP/2 и HTTP/3 — Multiplexing, QUIC, производительность   | HTTP/2 и HTTP/3                           | Изучите HTTP/2 и HTTP/3: Multiplexing, QUIC, производительность. Ускорите передачу данных в вебе.                          |
+| 2026-02-08 | grpc-python                   | gRPC в Python — Protobuf, aio, streaming                   | gRPC в Python                             | Внедрите gRPC в Python: Protobuf, aio, streaming. Создавайте высокопроизводительные микросервисы.                          |
+| 2026-02-09 | message-brokers               | Message Brokers: сравнение — RabbitMQ vs Kafka vs Redis    | Message Brokers: сравнение                | Сравните Message Brokers: RabbitMQ vs Kafka vs Redis. Выберите очередь сообщений для проекта.                              |
+| 2026-02-10 | rabbitmq-patterns             | RabbitMQ: паттерны — Exchanges, queues, routing            | RabbitMQ: паттерны                        | Освойте RabbitMQ: паттерны, Exchanges, queues, routing. Настройте надёжную очередь сообщений.                              |
+| 2026-02-11 | nats                          | NATS: лёгкий мессенджер — Pub/sub, jetstream               | NATS: лёгкий мессенджер                   | Используйте NATS: лёгкий мессенджер, Pub/sub, jetstream. Быстрая очередь для микросервисов.                                |
+| 2026-02-12 | websockets-production         | WebSockets в продакшене — Scaling, sticky sessions         | WebSockets в продакшене                   | Внедрите WebSockets в продакшен: Scaling, sticky sessions. Real-time связь в приложении.                                   |
+| 2026-02-13 | server-sent-events            | Server-Sent Events — Альтернатива WebSocket                | Server-Sent Events                        | Используйте Server-Sent Events: Альтернатива WebSocket. Простой push для браузера.                                         |
+| 2026-02-14 | background-jobs               | Background jobs: сравнение — Celery, Huey, APScheduler     | Background jobs: сравнение                | Сравните Background jobs: Celery, Huey, APScheduler. Выберите планировщик задач для Python.                                |
+| 2026-02-15 | caching-strategies            | Caching стратегии — Cache-aside, write-through             | Caching стратегии                         | Внедрите Caching стратегии: Cache-aside, write-through. Ускорьте приложение с кэшем.                                       |
+| 2026-02-16 | database-pooling              | Database pooling — PgBouncer, connection limits            | Database pooling                          | Настройте Database pooling: PgBouncer, connection limits. Оптимизируйте подключение к БД.                                  |
+| 2026-02-17 | database-sharding             | Database sharding — Горизонтальное разделение              | Database sharding                         | Внедрите Database sharding: Горизонтальное разделение. Масштабируйте базу данных горизонтально.                            |
+| 2026-02-18 | database-replication          | Database replication — Master-slave, master-master         | Database replication                      | Настройте Database replication: Master-slave, master-master. Обеспечьте отказоустойчивость БД.                             |
+| 2026-02-19 | fulltext-search               | Full-text search: сравнение — PostgreSQL vs Elasticsearch  | Full-text search: сравнение               | Сравните Full-text search: PostgreSQL vs Elasticsearch. Выберите поиск для вашего проекта.                                 |
+| 2026-02-20 | geo-databases                 | Geo-данные в БД — PostGIS, индексы, запросы                | Geo-данные в БД                           | Работайте с Geo-данными в БД: PostGIS, индексы, запросы. Добавьте геолокацию в приложение.                                 |
+| 2026-02-21 | timeseries-databases          | Timeseries базы данных — TimescaleDB, InfluxDB             | Timeseries базы данных                    | Используйте Timeseries базы данных: TimescaleDB, InfluxDB. Храните и анализируйте временные ряды.                          |
+| 2026-02-22 | graph-databases               | Graph базы данных — Neo4j, Cypher queries                  | Graph базы данных                         | Изучите Graph базы данных: Neo4j, Cypher queries. Моделируйте сложные связи между данными.                                 |
+| 2026-02-23 | column-oriented-databases     | Column-oriented БД — ClickHouse, аналитика                 | Column-oriented БД                        | Используйте Column-oriented БД: ClickHouse, аналитика. Быстрые запросы к большим данным.                                   |
+| 2026-02-24 | sqlalchemy-2                  | ORM: SQLAlchemy 2.0+ — Async, 2.0 style                    | ORM: SQLAlchemy 2.0+                      | Освойте ORM: SQLAlchemy 2.0+, Async, 2.0 style. Работайте с БД на Python эффективно.                                       |
+| 2026-02-25 | tortoise-orm                  | Tortoise ORM: async ORM — Django-like для async            | Tortoise ORM: async ORM                   | Используйте Tortoise ORM: async ORM, Django-like для async. Асинхронная работа с БД.                                       |
+| 2026-02-26 | pydantic-2                    | Pydantic 2.x: валидация — V2 changes, serializers          | Pydantic 2.x: валидация                   | Освойте Pydantic 2.x: валидация, V2 changes, serializers. Валидируйте данные в Python.                                     |
+| 2026-02-27 | dependency-injection          | Dependency injection — FastAPI Depends, injector           | Dependency injection                      | Внедрите Dependency injection: FastAPI Depends, injector. Управляйте зависимостями в приложении.                           |
+| 2026-02-28 | connection-pooling-pgbouncer  | Connection pooling и PgBouncer — режимы, настройка         | Connection pooling и PgBouncer            | Настройте Connection pooling и PgBouncer: Режимы работы, настройка, мониторинг. Оптимизируйте БД.                          |
++------------|-------------------------------|------------------------------------------------------------|-------------------------------------------|----------------------------------------------------------------------------------------------------------------------------+
+| 2026-03-01 | docker-best-practices         | Docker best practices 2026 — Оптимизация образов           | Docker best practices 2026                | Освойте Docker best practices 2026: Оптимизация образов, multi-stage. Создавайте лёгкие контейнеры.                        |
+| 2026-03-02 | docker-compose-advanced       | Docker Compose: продвинутый — Profiles, overrides          | Docker Compose: продвинутый               | Используйте Docker Compose: продвинутый, Profiles, overrides. Управляйте мультиконтейнерными приложениями.                 |
+| 2026-03-03 | kubernetes-networking         | Kubernetes: networking — Ingress, NetworkPolicy            | Kubernetes: networking                    | Настройте Kubernetes: networking, Ingress, NetworkPolicy. Управляйте сетью в кластере.                                     |
+| 2026-03-04 | kubernetes-storage            | Kubernetes: storage — PV, PVC, StorageClass                | Kubernetes: storage                       | Организуйте Kubernetes: storage, PV, PVC, StorageClass. Храните данные в кластере.                                         |
+| 2026-03-05 | kubernetes-security           | Kubernetes: security — RBAC, PodSecurityPolicy             | Kubernetes: security                      | Обеспечьте Kubernetes: security, RBAC, PodSecurityPolicy. Защитите кластер от угроз.                                       |
+| 2026-03-06 | helm-charts                   | Helm: создание чартов — Templates, hooks, tests            | Helm: создание чартов                     | Создавайте Helm: создание чартов, Templates, hooks, tests. Пакуйте приложения для Kubernetes.                              |
+| 2026-03-07 | kustomize                     | Kustomize: альтернатива Helm — Overlays, patches           | Kustomize: альтернатива Helm              | Используйте Kustomize: альтернатива Helm, Overlays, patches. Кастомизируйте манифесты K8s.                                 |
+| 2026-03-08 | argocd                        | ArgoCD: GitOps — Sync, health, rollback                    | ArgoCD: GitOps                            | Внедрите ArgoCD: GitOps, Sync, health, rollback. Автоматизируйте деплой в Kubernetes.                                      |
+| 2026-03-09 | flux-cd                       | Flux CD: GitOps — Sources, Kustomizations                  | Flux CD: GitOps                           | Настройте Flux CD: GitOps, Sources, Kustomizations. Непрерывная доставка в K8s.                                            |
+| 2026-03-10 | terraform-state               | Terraform: state management — Remote state, locking        | Terraform: state management               | Управляйте Terraform: state management, Remote state, locking. Безопасное хранение состояния.                              |
+| 2026-03-11 | terraform-modules             | Terraform: модули — Создание, версионирование              | Terraform: модули                         | Создавайте Terraform: модули, Создание, версионирование. Переиспользуйте инфраструктурный код.                             |
+| 2026-03-12 | pulumi                        | Pulumi: инфраструктура на Python — IaC без HCL             | Pulumi: инфраструктура на Python          | Используйте Pulumi: инфраструктура на Python, IaC без HCL. Описывайте облако на любимом языке.                             |
+| 2026-03-13 | ansible-roles                 | Ansible: роли и коллекции — Galaxy, best practices         | Ansible: роли и коллекции                 | Создавайте Ansible: роли и коллекции, Galaxy, best practices. Структурируйте плейбуки.                                     |
+| 2026-03-14 | vault                         | Vault: секреты — Secrets engines, auth                     | Vault: секреты                            | Внедрите Vault: секреты, Secrets engines, auth. Управляйте секретами безопасно.                                            |
+| 2026-03-15 | consul                        | Consul: service discovery — DNS, HTTP, service mesh        | Consul: service discovery                 | Настройте Consul: service discovery, DNS, HTTP, service mesh. Обнаружение сервисов в кластере.                             |
+| 2026-03-16 | istio                         | Istio: service mesh — Sidecar, mTLS, observability         | Istio: service mesh                       | Внедрите Istio: service mesh, Sidecar, mTLS, observability. Управляйте трафиком микросервисов.                             |
+| 2026-03-17 | linkerd                       | Linkerd: лёгкий service mesh — Сравнение с Istio           | Linkerd: лёгкий service mesh              | Используйте Linkerd: лёгкий service mesh, Сравнение с Istio. Простой service mesh для K8s.                                 |
+| 2026-03-18 | prometheus-advanced           | Prometheus: advanced — Recording rules, federation         | Prometheus: advanced                      | Настройте Prometheus: advanced, Recording rules, federation. Масштабируемый сбор метрик.                                   |
+| 2026-03-19 | grafana                       | Grafana: дашборды и алерты — Panels, notifications         | Grafana: дашборды и алерты                | Создавайте Grafana: дашборды и алерты, Panels, notifications. Визуализируйте метрики инфраструктуры.                       |
+| 2026-03-20 | loki                          | Loki: логирование — LogQL, labels                          | Loki: логирование                         | Внедрите Loki: логирование, LogQL, labels. Агрегируйте логи в Kubernetes.                                                  |
+| 2026-03-21 | tempo                         | Tempo: трассировка — Distributed tracing                   | Tempo: трассировка                        | Настройте Tempo: трассировка, Distributed tracing. Отслеживайте запросы в микросервисах.                                   |
+| 2026-03-22 | opentelemetry                 | OpenTelemetry — Instrumentation, exporters                 | OpenTelemetry                             | Используйте OpenTelemetry: Instrumentation, exporters. Унифицированная телеметрия для приложений.                          |
+| 2026-03-23 | aws-developer                 | AWS для разработчика — EC2, S3, Lambda, RDS                | AWS для разработчика                      | Изучите AWS для разработчика: EC2, S3, Lambda, RDS. Развёртывайте приложения в облаке Amazon.                              |
+| 2026-03-24 | gcp-developer                 | GCP для разработчика — Compute, Storage, Functions         | GCP для разработчика                      | Освойте GCP для разработчика: Compute, Storage, Functions. Разрабатывайте в Google Cloud.                                  |
+| 2026-03-25 | azure-developer               | Azure для разработчика — VMs, Blob, Functions              | Azure для разработчика                    | Изучите Azure для разработчика: VMs, Blob, Functions. Развёртывайте приложения в Microsoft Azure.                          |
+| 2026-03-26 | cloud-functions-vs-containers | Cloud Functions vs Containers — Когда что выбрать          | Cloud Functions vs Containers             | Сравните Cloud Functions vs Containers: Когда что выбрать. Serverless или контейнеры для проекта.                          |
+| 2026-03-27 | serverless-frameworks         | Serverless фреймворки — Serverless, SST, Claudia           | Serverless фреймворки                     | Используйте Serverless фреймворки: Serverless, SST, Claudia. Развёртывайте функции без серверов.                           |
+| 2026-03-28 | edge-computing                | Edge computing — Cloudflare Workers, Deno Deploy           | Edge computing                            | Внедрите Edge computing: Cloudflare Workers, Deno Deploy. Запускайте код ближе к пользователям.                            |
+| 2026-03-29 | multi-cloud-strategies        | Multi-cloud стратегии — Избегаем vendor lock-in            | Multi-cloud стратегии                     | Разработайте Multi-cloud стратегии: Избегаем vendor lock-in. Распределяйте риски между облаками.                           |
+| 2026-03-30 | cloud-cost-optimization       | Cost optimization в облаке — Spot instances, rightsizing   | Cost optimization в облаке                | Оптимизируйте Cost optimization в облаке: Spot instances, rightsizing. Сократите расходы на облако.                        |
+| 2026-03-31 | ebpf-observability            | eBPF и observability — BPF-программы, трассировка ядра     | eBPF и observability                      | Изучите eBPF и observability: BPF-программы, трассировка ядра. Мониторинг на уровне ядра Linux.                            |
++------------|-------------------------------|------------------------------------------------------------|-------------------------------------------|----------------------------------------------------------------------------------------------------------------------------+
+| 2026-04-01 | react-19                      | React 19: что нового — Новые хуки, оптимизация             | React 19: что нового                      | Изучите React 19: что нового, Новые хуки, оптимизация. Обновите знания о популярной библиотеке.                            |
+| 2026-04-02 | react-state-2026              | React: состояние в 2026 — Zustand, Jotai, Valtio           | React: состояние в 2026                   | Сравните React: состояние в 2026, Zustand, Jotai, Valtio. Выберите менеджер состояния для проекта.                         |
+| 2026-04-03 | react-query                   | React Query (TanStack) — Caching, mutations, infinite      | React Query (TanStack)                    | Освойте React Query (TanStack): Caching, mutations, infinite. Управляйте серверным состоянием.                             |
+| 2026-04-04 | nextjs-server-actions         | Next.js: Server Actions — Формы без API                    | Next.js: Server Actions                   | Используйте Next.js: Server Actions, Формы без API. Обрабатывайте формы на сервере.                                        |
+| 2026-04-05 | nextjs-optimization           | Next.js: оптимизация — Images, fonts, scripts              | Next.js: оптимизация                      | Оптимизируйте Next.js: оптимизация, Images, fonts, scripts. Ускорьте загрузку приложения.                                  |
+| 2026-04-06 | remix                         | Remix: веб-стандарты — Loaders, actions                    | Remix: веб-стандарты                      | Изучите Remix: веб-стандарты, Loaders, actions. Фреймворк для современных веб-приложений.                                  |
+| 2026-04-07 | vue-4                         | Vue 4: ожидания — Что готовит команда                      | Vue 4: ожидания                           | Узнайте про Vue 4: ожидания, Что готовит команда. Будущее популярного фреймворка.                                          |
+| 2026-04-08 | nuxt-4                        | Nuxt 4: fullstack Vue — Server routes, islands             | Nuxt 4: fullstack Vue                     | Освойте Nuxt 4: fullstack Vue, Server routes, islands. SSR и статика в одном фреймворке.                                   |
+| 2026-04-09 | sveltekit                     | SvelteKit: продакшен — Adapters, deployment                | SvelteKit: продакшен                      | Внедрите SvelteKit: продакшен, Adapters, deployment. Развёртывайте Svelte приложения.                                      |
+| 2026-04-10 | solidjs                       | SolidJS: реактивность — Signals, fine-grained              | SolidJS: реактивность                     | Изучите SolidJS: реактивность, Signals, fine-grained. Быстрый фреймворк без virtual DOM.                                   |
+| 2026-04-11 | qwik                          | Qwik: resumability — Zero hydration                        | Qwik: resumability                        | Используйте Qwik: resumability, Zero hydration. Мгновенная загрузка приложений.                                            |
+| 2026-04-12 | astro                         | Astro: контент-сайты — Islands, MDX                        | Astro: контент-сайты                      | Создавайте Astro: контент-сайты, Islands, MDX. Быстрые сайты с минимальным JS.                                             |
+| 2026-04-13 | tailwind-css-4                | Tailwind CSS 4.0 — Новый движок                            | Tailwind CSS 4.0                          | Освойте Tailwind CSS 4.0: Новый движок. Ускоренная сборка и новые возможности.                                             |
+| 2026-04-14 | css-in-js-2026                | CSS-in-JS в 2026 — Emotion, styled-components              | CSS-in-JS в 2026                          | Сравните CSS-in-JS в 2026: Emotion, styled-components. Стилизуйте React компоненты.                                        |
+| 2026-04-15 | vanilla-extract               | Vanilla Extract: type-safe CSS — CSS-in-TypeScript         | Vanilla Extract: type-safe CSS            | Используйте Vanilla Extract: type-safe CSS, CSS-in-TypeScript. Типобезопасные стили.                                       |
+| 2026-04-16 | storybook                     | Storybook: компонентный дизайн — Stories, addons           | Storybook: компонентный дизайн            | Создавайте Storybook: компонентный дизайн, Stories, addons. Разрабатывайте UI компоненты.                                  |
+| 2026-04-17 | testing-library               | Testing Library — React, Vue, RTL                          | Testing Library                           | Пишите тесты с Testing Library: React, Vue, RTL. Тестируйте компоненты как пользователь.                                   |
+| 2026-04-18 | playwright                    | Playwright: E2E тесты — Cross-browser, mobile              | Playwright: E2E тесты                     | Автоматизируйте Playwright: E2E тесты, Cross-browser, mobile. Надёжное тестирование веба.                                  |
+| 2026-04-19 | vitest                        | Vitest: быстрый тестраннер — Vite integration              | Vitest: быстрый тестраннер                | Используйте Vitest: быстрый тестраннер, Vite integration. Тестируйте с молниеносной скоростью.                             |
+| 2026-04-20 | webpack-vs-vite               | Webpack 6 vs Vite — Сборка в 2026                          | Webpack 6 vs Vite                         | Сравните Webpack 6 vs Vite: Сборка в 2026. Выберите бандлер для проекта.                                                   |
+| 2026-04-21 | turbopack                     | Turbopack: будущее сборки — Incremental computation        | Turbopack: будущее сборки                 | Изучите Turbopack: будущее сборки, Incremental computation. Быстрая сборка от создателей Webpack.                          |
+| 2026-04-22 | bun                           | Bun: runtime и bundler — Быстрее Node.js                   | Bun: runtime и bundler                    | Используйте Bun: runtime и bundler, Быстрее Node.js. Современная альтернатива Node.js.                                     |
+| 2026-04-23 | deno-2                        | Deno 2.0: npm совместимость — Что изменилось               | Deno 2.0: npm совместимость               | Освойте Deno 2.0: npm совместимость, Что изменилось. Безопасный runtime для JavaScript.                                    |
+| 2026-04-24 | react-native-architecture     | React Native: новый архитектор — Fabric, TurboModules      | React Native: новый архитектор            | Изучите React Native: новый архитектор, Fabric, TurboModules. Новая производительность.                                    |
+| 2026-04-25 | react-native-performance      | React Native: производительность — Optimization techniques | React Native: производительность          | Оптимизируйте React Native: производительность, Optimization techniques. Ускорьте мобильное приложение.                    |
+| 2026-04-26 | expo-custom-modules           | Expo: кастомные нативные модули — Dev Modules              | Expo: кастомные нативные модули           | Создавайте Expo: кастомные нативные модули, Dev Modules. Расширяйте возможности Expo.                                      |
+| 2026-04-27 | flutter-custom-widgets        | Flutter: кастомные виджеты — Painting, animations          | Flutter: кастомные виджеты                | Создавайте Flutter: кастомные виджеты, Painting, animations. Уникальный UI для приложения.                                 |
+| 2026-04-28 | flutter-state                 | Flutter: состояние — Riverpod, Bloc                        | Flutter: состояние                        | Управляйте Flutter: состояние, Riverpod, Bloc. State management для Flutter приложений.                                    |
+| 2026-04-29 | kmp-ui                        | Kotlin Multiplatform: UI — Compose Multiplatform           | Kotlin Multiplatform: UI                  | Создавайте Kotlin Multiplatform: UI, Compose Multiplatform. Единый UI для всех платформ.                                   |
+| 2026-04-30 | webassembly-wasi              | WebAssembly и WASI — Компоненты, интерфейсы, SIMD          | WebAssembly и WASI                        | Изучите WebAssembly и WASI: Компоненты, интерфейсы, SIMD. Запускайте код в браузере и на сервере.                          |
++------------|-------------------------------|------------------------------------------------------------|-------------------------------------------|----------------------------------------------------------------------------------------------------------------------------+
+| 2026-05-01 | penetration-testing           | Penetration testing basics — Recon, scanning               | Penetration testing basics                | Освойте Penetration testing basics: Recon, scanning, exploitation. Тестируйте безопасность приложений.                     |
+| 2026-05-02 | burp-suite                    | Burp Suite: руководство — Proxy, scanner, intruder         | Burp Suite: руководство                   | Изучите Burp Suite: руководство, Proxy, scanner, intruder. Тестируйте веб-приложения на уязвимости.                        |
+| 2026-05-03 | sql-injection-protection      | SQL injection: защита — Prepared statements, ORM           | SQL injection: защита                     | Защититесь от SQL injection: защита, Prepared statements, ORM. Безопасные запросы к базе данных.                           |
+| 2026-05-04 | xss-protection                | XSS: защита — CSP, escaping, sanitization                  | XSS: защита                               | Защититесь от XSS: защита, CSP, escaping, sanitization. Безопасный вывод данных в браузере.                                |
+| 2026-05-05 | csrf-protection               | CSRF: защита — Tokens, SameSite cookies                    | CSRF: защита                              | Защититесь от CSRF: защита, Tokens, SameSite cookies. Безопасные формы и запросы.                                          |
+| 2026-05-06 | ssrf-protection               | SSRF: защита — Validation, allowlists                      | SSRF: защита                              | Защититесь от SSRF: защита, Validation, allowlists. Безопасные запросы к внешним сервисам.                                 |
+| 2026-05-07 | xxe-protection                | XXE: защита — Disable external entities                    | XXE: защита                               | Защититесь от XXE: защита, Disable external entities. Безопасный парсинг XML.                                              |
+| 2026-05-08 | deserialization-attacks       | Deserialization атаки — Safe unpickling                    | Deserialization атаки                     | Защититесь от Deserialization атаки: Safe unpickling. Безопасная десериализация данных.                                    |
+| 2026-05-09 | dependency-scanning           | Dependency scanning — Snyk, Dependabot                     | Dependency scanning                       | Внедрите Dependency scanning: Snyk, Dependabot. Находите уязвимости в зависимостях.                                        |
+| 2026-05-10 | sast                          | SAST: статический анализ — SonarQube, Semgrep              | SAST: статический анализ                  | Используйте SAST: статический анализ, SonarQube, Semgrep. Находите баги до запуска кода.                                   |
+| 2026-05-11 | dast                          | DAST: динамический анализ — OWASP ZAP, Burp                | DAST: динамический анализ                 | Внедрите DAST: динамический анализ, OWASP ZAP, Burp. Тестируйте работающее приложение.                                     |
+| 2026-05-12 | secrets-management            | Secrets management — GitGuardian, detect-secrets           | Secrets management                        | Внедрите Secrets management: GitGuardian, detect-secrets. Защищайте секреты в коде.                                        |
+| 2026-05-13 | secure-coding-python          | Secure coding Python — Best practices                      | Secure coding Python                      | Изучите Secure coding Python: Best practices. Пишите безопасный код на Python.                                             |
+| 2026-05-14 | secure-coding-javascript      | Secure coding JavaScript — Best practices                  | Secure coding JavaScript                  | Освойте Secure coding JavaScript: Best practices. Безопасный код на JavaScript.                                            |
+| 2026-05-15 | unit-tests-pytest             | Unit тесты: pytest — Fixtures, parametrize                 | Unit тесты: pytest                        | Пишите Unit тесты: pytest, Fixtures, parametrize. Тестируйте функции и модули.                                             |
+| 2026-05-16 | mocking-patching              | Mocking и patching — unittest.mock, responses              | Mocking и patching                        | Используйте Mocking и patching: unittest.mock, responses. Изолируйте зависимости в тестах.                                 |
+| 2026-05-17 | integration-tests             | Integration тесты — Testcontainers                         | Integration тесты                         | Пишите Integration тесты: Testcontainers. Тестируйте взаимодействие компонентов.                                           |
+| 2026-05-18 | e2e-tests-cypress             | E2E тесты: Cypress — Commands, fixtures                    | E2E тесты: Cypress                        | Автоматизируйте E2E тесты: Cypress, Commands, fixtures. Тестируйте приложение целиком.                                     |
+| 2026-05-19 | visual-regression             | Visual regression тесты — Percy, Chromatic                 | Visual regression тесты                   | Внедрите Visual regression тесты: Percy, Chromatic. Находите визуальные баги.                                              |
+| 2026-05-20 | performance-tests             | Performance тесты — Locust, k6                             | Performance тесты                         | Проводите Performance тесты: Locust, k6. Находите узкие места производительности.                                          |
+| 2026-05-21 | load-testing                  | Load тесты — JMeter, Gatling                               | Load тесты                                | Проводите Load тесты: JMeter, Gatling. Тестируйте под нагрузкой.                                                           |
+| 2026-05-22 | chaos-engineering             | Chaos engineering — Chaos Mesh, Litmus                     | Chaos engineering                         | Внедрите Chaos engineering: Chaos Mesh, Litmus. Тестируйте отказоустойчивость.                                             |
+| 2026-05-23 | mutation-testing              | Mutation тестирование — Mutmut, Stryker                    | Mutation тестирование                     | Используйте Mutation тестирование: Mutmut, Stryker. Оценивайте качество тестов.                                            |
+| 2026-05-24 | property-based-testing        | Property-based тестирование — Hypothesis, fast-check       | Property-based тестирование               | Пишите Property-based тестирование: Hypothesis, fast-check. Генерируйте тестовые данные.                                   |
+| 2026-05-25 | tdd                           | TDD: разработка через тесты — Red-green-refactor           | TDD: разработка через тесты               | Освойте TDD: разработка через тесты, Red-green-refactor. Пишите тесты до кода.                                             |
+| 2026-05-26 | bdd                           | BDD: поведение системы — Cucumber, Behave                  | BDD: поведение системы                    | Внедрите BDD: поведение системы, Cucumber, Behave. Описывайте требования на естественном языке.                            |
+| 2026-05-27 | contract-testing              | Contract тестирование — Pact, consumer-driven              | Contract тестирование                     | Используйте Contract тестирование: Pact, consumer-driven. Тестируйте контракты между сервисами.                            |
+| 2026-05-28 | snapshot-testing              | Snapshot тестирование — Jest snapshots                     | Snapshot тестирование                     | Применяйте Snapshot тестирование: Jest snapshots. Сравнивайте изменения в UI.                                              |
+| 2026-05-29 | accessibility-tests           | Accessibility тесты — axe, pa11y                           | Accessibility тесты                       | Проводите Accessibility тесты: axe, pa11y. Делайте приложения доступными.                                                  |
+| 2026-05-30 | fuzzing-auditing              | Fuzzing и security auditing — AFL, libFuzzer               | Fuzzing и security auditing               | Используйте Fuzzing и security auditing: AFL, libFuzzer, cargo-audit. Находите уязвимости.                                 |
+| 2026-05-31 | formal-verification           | Formal verification и TLA+ — Спецификация, model checking  | Formal verification и TLA+                | Применяйте Formal verification и TLA+: Спецификация, model checking. Доказывайте корректность.                             |
++------------|-------------------------------|------------------------------------------------------------|-------------------------------------------|----------------------------------------------------------------------------------------------------------------------------+
+| 2026-06-01 | developer-resume              | Резюме разработчика — Структура, примеры                   | Резюме разработчика                       | Составьте Резюме разработчика: Структура, примеры. Выделяйтесь среди других кандидатов.                                    |
+| 2026-06-02 | linkedin-profile              | LinkedIn профиль — Оптимизация, networking                 | LinkedIn профиль                          | Оптимизируйте LinkedIn профиль: Оптимизация, networking. Находите возможности через сеть.                                  |
+| 2026-06-03 | github-portfolio              | GitHub портфолио — Projects, README                        | GitHub портфолио                          | Создайте GitHub портфолио: Projects, README. Показывайте навыки через код.                                                 |
+| 2026-06-04 | algorithms-interview          | Собеседования: алгоритмы — LeetCode patterns               | Собеседования: алгоритмы                  | Подготовьтесь к собеседования: алгоритмы, LeetCode patterns. Решайте задачи эффективно.                                    |
+| 2026-06-05 | system-design-interview       | Собеседования: system design — Масштабирование             | Собеседования: system design              | Освойте Собеседования: system design, Масштабирование, trade-offs. Проектируйте системы.                                   |
+| 2026-06-06 | behavioral-interview          | Собеседования: поведенческие — STAR метод                  | Собеседования: поведенческие              | Пройдите Собеседования: поведенческие, STAR метод. Отвечайте на вопросы о опыте.                                           |
+| 2026-06-07 | salary-negotiation            | Salary negotiation — Как просить больше                    | Salary negotiation                        | Освойте Salary negotiation: Как просить больше. Получайте справедливую зарплату.                                           |
+| 2026-06-08 | freelance-vs-fulltime         | Freelance vs Full-time — Плюсы и минусы                    | Freelance vs Full-time                    | Сравните Freelance vs Full-time: Плюсы и минусы. Выберите формат работы.                                                   |
+| 2026-06-09 | remote-work                   | Remote работа — Tools, productivity                        | Remote работа                             | Организуйте Remote работа: Tools, productivity. Работайте эффективно из дома.                                              |
+| 2026-06-10 | time-management               | Time management — Pomodoro, time blocking                  | Time management                           | Внедрите Time management: Pomodoro, time blocking. Управляйте временем эффективно.                                         |
+| 2026-06-11 | learning-strategies           | Learning strategies — Как учить新技术                      | Learning strategies                       | Разработайте Learning strategies: Как учить新技术. Осваивайте новые технологии быстро.                                     |
+| 2026-06-12 | technical-writing             | Technical writing — Документация, статьи                   | Technical writing                         | Освойте Technical writing: Документация, статьи. Пишите понятные технические тексты.                                       |
+| 2026-06-13 | public-speaking               | Public speaking — Доклады, митапы                          | Public speaking                           | Развивайте Public speaking: Доклады, митапы. Выступайте на конференциях.                                                   |
+| 2026-06-14 | networking                    | Networking — Конференции, комьюнити                        | Networking                                | Развивайте Networking: Конференции, комьюнити. Знакомьтесь с профессионалами.                                              |
+| 2026-06-15 | mentorship                    | Mentorship — Как найти ментора                             | Mentorship                                | Найдите Mentorship: Как найти ментора. Развивайтесь с опытным наставником.                                                 |
+| 2026-06-16 | code-review                   | Code review best practices — Как ревьюить код              | Code review best practices                | Освойте Code review best practices: Как ревьюить код. Улучшайте качество кода в команде.                                   |
+| 2026-06-17 | git-workflow                  | Git workflow — GitFlow, trunk-based                        | Git workflow                              | Внедрите Git workflow: GitFlow, trunk-based. Организуйте совместную разработку.                                            |
+| 2026-06-18 | agile-scrum                   | Agile и Scrum — Ceremonies, artifacts                      | Agile и Scrum                             | Изучите Agile и Scrum: Ceremonies, artifacts. Работайте по гибкой методологии.                                             |
+| 2026-06-19 | kanban                        | Kanban для разработчиков — WIP limits, flow                | Kanban для разработчиков                  | Используйте Kanban для разработчиков: WIP limits, flow. Визуализируйте работу.                                             |
+| 2026-06-20 | tech-debt-management          | Управление техдолгом — Когда рефакторить                   | Управление техдолгом                      | Наладьте Управление техдолгом: Когда рефакторить. Балансируйте между фичами и качеством.                                   |
+| 2026-06-21 | legacy-code                   | Работа с легаси — Стратегии модернизации                   | Работа с легаси                           | Освойте Работа с легаси: Стратегии модернизации. Улучшайте старый код безопасно.                                           |
+| 2026-06-22 | debugging-mastery             | Debugging мастерство — Tools, techniques                   | Debugging мастерство                      | Развивайте Debugging мастерство: Tools, techniques. Находите и исправляйте баги быстро.                                    |
+| 2026-06-23 | application-profiling         | Profiling приложений — cProfile, py-spy                    | Profiling приложений                      | Проводите Profiling приложений: cProfile, py-spy. Находите узкие места производительности.                                 |
+| 2026-06-24 | logging-best-practices        | Logging best practices — Структурированные логи            | Logging best practices                    | Внедрите Logging best practices: Структурированные логи. Логируйте для отладки и мониторинга.                              |
+| 2026-06-25 | documentation-as-code         | Documentation as code — MkDocs, Docusaurus                 | Documentation as code                     | Создавайте Documentation as code: MkDocs, Docusaurus. Документация рядом с кодом.                                          |
+| 2026-06-26 | api-documentation             | API documentation — OpenAPI, Swagger                       | API documentation                         | Создавайте API documentation: OpenAPI, Swagger. Документируйте API для разработчиков.                                      |
+| 2026-06-27 | team-communication            | Team communication — Slack, async comms                    | Team communication                        | Наладьте Team communication: Slack, async comms. Эффективно общайтесь в команде.                                           |
+| 2026-06-28 | conflict-resolution           | Conflict resolution — В команде                            | Conflict resolution                       | Разрешайте Conflict resolution: В команде. Преодолевайте разногласия конструктивно.                                        |
+| 2026-06-29 | career-paths                  | Career paths разработчика — IC vs Management               | Career paths разработчика                 | Выберите Career paths разработчика: IC vs Management. Планируйте карьерный рост.                                           |
+| 2026-06-30 | linux-networking              | Advanced Linux networking — netfilter, iptables            | Advanced Linux networking                 | Изучите Advanced Linux networking: netfilter, iptables, nftables. Настройте сеть в Linux.                                  |
