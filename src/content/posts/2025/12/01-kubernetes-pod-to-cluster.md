@@ -34,7 +34,7 @@ spec:
 
 ### ReplicaSet
 
-Обеспечивает желаемое количество реплик Pod:
+ReplicaSet гарантирует, что указанное количество реплик Pod работает в кластере. Если Pod падает, ReplicaSet создаёт новый.
 
 ```yaml
 apiVersion: apps/v1
@@ -58,7 +58,7 @@ spec:
 
 ### Deployment
 
-Добавляет управление версиями и rollback:
+Deployment добавляет управление версиями и rollback поверх ReplicaSet. Это основной ресурс для развёртывания приложений.
 
 ```yaml
 apiVersion: apps/v1

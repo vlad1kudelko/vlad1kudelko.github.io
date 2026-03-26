@@ -11,6 +11,8 @@ Kotlin Multiplatform (KMP) позволяет делиться кодом меж
 
 ## Настройка проекта
 
+KMP проект настраивается через Gradle с плагином kotlin-multiplatform. Указываются целевые платформы и общие зависимости.
+
 ```kotlin
 // build.gradle.kts
 plugins {
@@ -22,7 +24,7 @@ kotlin {
     ios()
     jvm()
     js()
-    
+
     sourceSets {
         commonMain {
             dependencies {

@@ -101,18 +101,20 @@ const tokenRS256 = jwt.sign(payload, privateKey, {
 
 ### Payload с несколькими claims
 
+При создании токена можно включать как стандартные claims, так и кастомные данные:
+
 ```javascript
 const token = jwt.sign({
     // Стандартные
     sub: user.id,
     iat: Math.floor(Date.now() / 1000),
     exp: Math.floor(Date.now() / 1000) + 3600,
-    
+
     // Кастомные
     email: user.email,
     role: user.role,
     permissions: ['read', 'write', 'delete'],
-    
+
     // Для refresh
     type: 'access' // или 'refresh'
 }, secret, { expiresIn: '1h' });

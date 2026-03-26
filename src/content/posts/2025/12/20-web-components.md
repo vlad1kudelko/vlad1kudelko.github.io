@@ -90,6 +90,8 @@ class MyElement extends HTMLElement {
 
 ### Observed attributes
 
+observedAttributes позволяет компоненту реагировать на изменения HTML-атрибутов:
+
 ```javascript
 class MyButton extends HTMLElement {
   static get observedAttributes() {

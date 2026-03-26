@@ -11,6 +11,8 @@ Security headers — HTTP заголовки, которые сообщают б
 
 ## Essential Headers
 
+Набор необходимых заголовков безопасности можно добавить через библиотеку Helmet для Express или аналогичные для других фреймворков.
+
 ### Helmet в Express
 
 ```javascript

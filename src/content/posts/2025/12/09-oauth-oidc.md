@@ -11,7 +11,11 @@ OAuth 2.0 — стандарт авторизации, OpenID Connect (OIDC) —
 
 ## OAuth 2.0 Flows
 
+OAuth 2.0 определяет несколько потоков авторизации (flows) для разных сценариев использования. Выбор правильного flow зависит от типа приложения и требований безопасности.
+
 ### Authorization Code Flow
+
+Authorization Code Flow — самый распространённый и безопасный поток. Используется для веб-приложений с серверной частью.
 
 ```
 +--------+                               +---------------+
@@ -49,6 +53,11 @@ Scopes: read:profile, read:email
 const clientId = 'my-client-id';
 const clientSecret = 'my-client-secret';
 const redirectUri = 'https://myapp.com/callback';
+### Реализация
+
+Пример реализации Authorization Code Flow на Node.js с Express:
+
+```javascript
 const authUrl = 'https://auth.example.com/authorize';
 const tokenUrl = 'https://auth.example.com/token';
 
@@ -67,12 +76,12 @@ app.get('/login', (req, res) => {
 // 2. Callback с кодом
 app.get('/callback', async (req, res) => {
     const { code, state } = req.query;
-    
+
     // Проверка state
     if (state !== req.session.state) {
         return res.status(400).send('Invalid state');
     }
-    
+
     // Обмен кода на токен
     const response = await fetch(tokenUrl, {
         method: 'POST',
@@ -86,7 +95,7 @@ app.get('/callback', async (req, res) => {
             redirect_uri: redirectUri
         })
     });
-    
+
     const tokens = await response.json();
     // { access_token, refresh_token, id_token, expires_in }
     

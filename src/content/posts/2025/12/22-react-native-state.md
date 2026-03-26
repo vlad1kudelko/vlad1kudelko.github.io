@@ -77,6 +77,8 @@ npm install @reduxjs/toolkit react-redux
 
 Redux использует однонаправленный поток данных: компоненты диспатчат действия, редюсеры обновляют состояние.
 
+Redux Toolkit упрощает настройку Redux, автоматически создавая экшены и редюсеры:
+
 ```tsx
 // store.ts
 import { configureStore, createSlice } from '@reduxjs/toolkit';

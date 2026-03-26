@@ -11,6 +11,8 @@ Flutter — фреймворк от Google для кроссплатформен
 
 ## Установка
 
+Flutter SDK устанавливается через пакетный менеджер или скачивается с официального сайта. После установки проверьте окружение командой doctor.
+
 ```bash
 # macOS
 brew install flutter
@@ -19,7 +21,11 @@ brew install flutter
 flutter doctor
 ```
 
+Команда doctor проверит наличие всех зависимостей: Android SDK, Xcode, Chrome.
+
 ## Основы
+
+В Flutter всё есть виджет — от кнопок до приложения целиком. Виджеты бывают stateless (без состояния) и stateful (с состоянием).
 
 ### Widgets
 
@@ -83,6 +89,8 @@ class _StatefulWidgetState extends State<StatefulWidget> {
 ```
 
 ## Layout
+
+Flutter предоставляет несколько виджетов для компоновки элементов на экране:
 
 ```dart
 // Column - вертикально

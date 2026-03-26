@@ -49,6 +49,8 @@ DMA (Direct Memory Access) позволяет устройству читать 
 
 ### sendfile() в Linux
 
+sendfile() передаёт данные между файловыми дескрипторами в kernel space без копирования в user space:
+
 ```c
 #include <sys/sendfile.h>
 

@@ -112,6 +112,11 @@ resource "aws_instance" "example" {
   # ...
 }
 ```
+
+Также можно использовать несколько провайдеров одновременно для мульти-облачных развертываний:
+
+```hcl
+provider "azurerm" {
   features {}
   subscription_id = var.azure_subscription_id
 }
@@ -123,6 +128,8 @@ provider "kubernetes" {
 ```
 
 ## Типы данных
+
+Terraform поддерживает различные типы данных для переменных: примитивы, коллекции и сложные структуры.
 
 ### Переменные
 

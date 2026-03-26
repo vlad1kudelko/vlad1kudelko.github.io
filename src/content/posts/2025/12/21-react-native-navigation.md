@@ -86,6 +86,8 @@ navigation.navigate('Details', { id: 123 });
 
 ## Навигационные опции
 
+Каждый экран можно настроить через options: заголовок, стили, кнопки:
+
 ```tsx
 <Stack.Screen 
   name="Details"

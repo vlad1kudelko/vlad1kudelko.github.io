@@ -11,6 +11,8 @@ GitHub Actions — мощный инструмент CI/CD, встроенный
 
 ## Базовый пример
 
+Типичный workflow для CI/CD включает триггеры (push, PR), джобы и шаги. Каждый шаг выполняется последовательно.
+
 ```yaml
 name: CI
 
@@ -25,7 +27,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:

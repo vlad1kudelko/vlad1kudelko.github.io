@@ -61,6 +61,8 @@ ALTER SYSTEM SET max_wal_size = '1GB';
 
 ### Восстановление
 
+WAL позволяет восстанавливать базу данных до точки во времени (point-in-time recovery):
+
 ```bash
 # Восстановление до точки во времени
 pg_restore -h localhost -d mydb backup.dump
