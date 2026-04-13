@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ListPosts from '../components/ListPosts.astro';
 
-import { SITE_TITLE, SITE_DESCRIPTION, HOME_H1 } from '../consts';
+import { INDEX_TITLE, INDEX_DESCR, INDEX_OG_IMAGE, INDEX_H1 } from '../consts';
 
 import { getCollection } from 'astro:content';
 
@@ -19,6 +19,6 @@ const posts = (await getCollection('posts')).sort(
 );
 ---
 
-<BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION} og_image="/res/all/thumb.webp" ld_json={JSON.stringify(json_ld)}>
-    <ListPosts posts={posts} level={2} h1={HOME_H1} />
+<BaseLayout title={INDEX_TITLE} description={INDEX_DESCR} og_image={INDEX_OG_IMAGE} ld_json={JSON.stringify(json_ld)}>
+    <ListPosts posts={posts} level={2} h1={INDEX_H1} />
 </BaseLayout>

@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
-import { SITE_TITLE, SITE_DESCRIPTION, DOCS_H1 } from '../../consts';
+import { DOCS_TITLE, DOCS_DESCR, DOCS_OG_IMAGE, DOCS_H1 } from '../../consts';
 
 import { getCollection } from 'astro:content';
 const docs = await getCollection('docs');
@@ -21,7 +21,7 @@ for (const doc of docs) {
 }
 ---
 
-<BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION} og_image="/res/all/thumb.webp" ld_json="{}">
+<BaseLayout title={DOCS_TITLE} description={DOCS_DESCR} og_image={DOCS_OG_IMAGE} ld_json="{}">
     <div class='mx-auto container'>
         <h1 class='p-5 text-center text-2xl text-gray-400'>{DOCS_H1}</h1>
         <div class='flex flex-wrap justify-center'>
