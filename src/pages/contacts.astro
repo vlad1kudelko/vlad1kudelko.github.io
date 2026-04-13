@@ -1,7 +1,5 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Footer   from '../components/Footer.astro';
-import Header   from '../components/Header.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 
 import { TELEGRAM_CHANNEL } from '../consts';
 
@@ -18,36 +16,24 @@ const json_ld = [{
 }];
 ---
 
-<!doctype html>
-<html lang="ru">
-	<head>
-		<BaseHead title={title} description={description} />
-        <script type="application/ld+json" set:html={JSON.stringify(json_ld)} />
-        <meta property="og:image" content="/res/all/thumb2.webp" />
-    </head>
-	<body class="bg-gray-800 text-gray-100">
-		<Header />
-        <main>
-            <div class='mx-auto max-w-3xl bg-gray-300'>
-                <!-- contacts -->
-                <div class='p-5'>
-                    <img class='mx-auto rounded-full' src='/res/all/logo.webp' alt='logo' />
-                </div>
-                <div class='p-5 prose max-w-none text-center'>
-                    <h1>Контакты</h1>
-                    <p>Для вопросов и предложений:</p>
-                    <div class='bg-gray-200 p-1'>
-                        <a href='mailto:vlad1kudelko@gmail.com'>Email</a>
-                    </div>
-                    <p>Не забывайте подписаться на нас в других социальных сетях:</p>
-                    <div class='bg-gray-200 p-1'> <a href='https://www.youtube.com/@crafthomelab'> YouTube  </a> </div>
-                    <div class='bg-gray-200 p-1'> <a href={TELEGRAM_CHANNEL}>                      Telegram </a> </div>
-                    <div class='bg-gray-200 p-1'> <a href='https://dzen.ru/crafthomelab'>          Dzen     </a> </div>
-                    <div class='bg-gray-200 p-1'> <a href='https://rutube.ru/channel/68763186/'>   RuTube   </a> </div>
-                </div>
-                <!-- contacts -->
+<BaseLayout title={title} description={description} og_image="/res/all/thumb2.webp" ld_json={JSON.stringify(json_ld)}>
+    <div class='mx-auto max-w-3xl bg-gray-300'>
+        <!-- contacts -->
+        <div class='p-5'>
+            <img class='mx-auto rounded-full' src='/res/all/logo.webp' alt='logo' />
+        </div>
+        <div class='p-5 prose max-w-none text-center'>
+            <h1>Контакты</h1>
+            <p>Для вопросов и предложений:</p>
+            <div class='bg-gray-200 p-1'>
+                <a href='mailto:vlad1kudelko@gmail.com'>Email</a>
             </div>
-        </main>
-		<Footer />
-	</body>
-</html>
+            <p>Не забывайте подписаться на нас в других социальных сетях:</p>
+            <div class='bg-gray-200 p-1'> <a href='https://www.youtube.com/@crafthomelab'> YouTube  </a> </div>
+            <div class='bg-gray-200 p-1'> <a href={TELEGRAM_CHANNEL}>                      Telegram </a> </div>
+            <div class='bg-gray-200 p-1'> <a href='https://dzen.ru/crafthomelab'>          Dzen     </a> </div>
+            <div class='bg-gray-200 p-1'> <a href='https://rutube.ru/channel/68763186/'>   RuTube   </a> </div>
+        </div>
+        <!-- contacts -->
+    </div>
+</BaseLayout>

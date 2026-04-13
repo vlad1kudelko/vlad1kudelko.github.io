@@ -1,0 +1,33 @@
+---
+import BaseHead    from "../components/BaseHead.astro";
+import Footer      from "../components/Footer.astro";
+import Header      from "../components/Header.astro";
+import MetrikaBody from "../components/MetrikaBody.astro";
+import MetrikaHead from "../components/MetrikaHead.astro";
+
+interface Props {
+	title: string;
+	description: string;
+    og_image: string;
+    ld_json: string;
+}
+
+const { title, description, og_image, ld_json } = Astro.props;
+---
+
+<!doctype html>
+<html lang="ru">
+	<head>
+        <BaseHead title={title} description={description} og_image={og_image} />
+        <script type="application/ld+json" set:html={ld_json} />
+        <MetrikaHead />
+	</head>
+	<body class="bg-gray-800 text-gray-100">
+        <Header />
+        <main>
+            <slot />
+        </main>
+        <Footer />
+        <MetrikaBody />
+	</body>
+</html>

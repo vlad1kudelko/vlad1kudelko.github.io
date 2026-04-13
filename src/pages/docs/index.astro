@@ -1,7 +1,6 @@
 ---
-import BaseHead from '../../components/BaseHead.astro';
-import Footer   from '../../components/Footer.astro';
-import Header   from '../../components/Header.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
 import { SITE_TITLE, SITE_DESCRIPTION, DOCS_H1 } from '../../consts';
 
 import { getCollection } from 'astro:content';
@@ -22,27 +21,19 @@ for (const doc of docs) {
 }
 ---
 
-<!doctype html>
-<html lang="ru">
-	<head>
-        <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-    </head>
-	<body class="bg-gray-800 text-gray-100">
-		<Header />
-            <div class='mx-auto container'>
-                <h1 class='p-5 text-center text-2xl text-gray-400'>{DOCS_H1}</h1>
-                <div class='flex flex-wrap justify-center'>
-                    { Object.entries(docs_hub).map(([key, item]) => (
-                        <a class='m-5 block max-w-sm border bg-gray-800 border-gray-700 hover:opacity-75' href={item.url}>
-                            <img class='bg-gray-100' loading='lazy' width={800} height={400} src={item.thumb} alt={item.title} />
-                            <div class='p-5'>
-                                <h2 class='mb-2 text-2xl font-bold tracking-tight text-white'>{item.title}</h2>
-                                <p class='font-normal text-gray-400'>{item.description}</p>
-                            </div>
-                        </a>
-                    )) }
-                </div>
-            </div>
-		<Footer />
-	</body>
-</html>
+<BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION} og_image="/res/all/thumb.webp" ld_json="{}">
+    <div class='mx-auto container'>
+        <h1 class='p-5 text-center text-2xl text-gray-400'>{DOCS_H1}</h1>
+        <div class='flex flex-wrap justify-center'>
+            { Object.entries(docs_hub).map(([key, item]) => (
+                <a class='m-5 block max-w-sm border bg-gray-800 border-gray-700 hover:opacity-75' href={item.url}>
+                    <img class='bg-gray-100' loading='lazy' width={800} height={400} src={item.thumb} alt={item.title} />
+                    <div class='p-5'>
+                        <h2 class='mb-2 text-2xl font-bold tracking-tight text-white'>{item.title}</h2>
+                        <p class='font-normal text-gray-400'>{item.description}</p>
+                    </div>
+                </a>
+            )) }
+        </div>
+    </div>
+</BaseLayout>

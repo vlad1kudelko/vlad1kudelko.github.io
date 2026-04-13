@@ -1,7 +1,6 @@
 ---
-import BaseHead from '../../components/BaseHead.astro';
-import Footer   from '../../components/Footer.astro';
-import Header   from '../../components/Header.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
 import { TELEGRAM_CHANNEL } from '../../consts';
 
 import { getCollection, render } from 'astro:content';
@@ -105,41 +104,33 @@ const btn_left  = btns_left_right().left;
 const btn_right = btns_left_right().right;
 ---
 
-<!doctype html>
-<html lang="ru">
-	<head>
-		<BaseHead title={doc.data.title} description={doc.data.description} />
-    </head>
-	<body class="bg-gray-800 text-gray-100">
-		<Header />
-        <div class='mx-auto max-w-7xl lg:grid grid-cols-3 gap-5'>
-            <div>
-                <div id='up-page'></div>
-                <nav class='bg-gray-300 p-5 lg:pl-0'>
-                    <div class="prose max-w-none marker:text-gray-900">
-                        <div set:html={ treeToHtml(buildTree_many()) }></div>
-                    </div>
-                </nav>
-                <nav class='hidden lg:block bg-gray-300 p-5 pl-0 mt-5'>
-                    <div class="prose max-w-none marker:text-gray-900">
-                        <div set:html={ treeToHtml(buildTree_one())  }></div>
-                    </div>
-                </nav>
-                <div class="hidden lg:grid gap-5 sticky top-5 mt-5">
-                    <a class="bg-gray-300 p-5 text-gray-900 text-center font-bold" href="#up-page"> Home </a>
-                    <a href={TELEGRAM_CHANNEL}><img loading="lazy" src="/res/all/telegram.webp" alt="telegram" /></a>
+<BaseLayout title={doc.data.title} description={doc.data.description} og_image="/res/all/thumb.webp" ld_json="{}">
+    <div class='mx-auto max-w-7xl lg:grid grid-cols-3 gap-5'>
+        <div>
+            <div id='up-page'></div>
+            <nav class='bg-gray-300 p-5 lg:pl-0'>
+                <div class="prose max-w-none marker:text-gray-900">
+                    <div set:html={ treeToHtml(buildTree_many()) }></div>
+                </div>
+            </nav>
+            <nav class='hidden lg:block bg-gray-300 p-5 pl-0 mt-5'>
+                <div class="prose max-w-none marker:text-gray-900">
+                    <div set:html={ treeToHtml(buildTree_one())  }></div>
+                </div>
+            </nav>
+            <div class="hidden lg:grid gap-5 sticky top-5 mt-5">
+                <a class="bg-gray-300 p-5 text-gray-900 text-center font-bold" href="#up-page"> Home </a>
+                <a href={TELEGRAM_CHANNEL}><img loading="lazy" src="/res/all/telegram.webp" alt="telegram" /></a>
+            </div>
+        </div>
+        <main class='bg-gray-300 p-5 col-span-2'>
+            <div class="prose max-w-none marker:text-gray-900">
+                <Content />
+                <div class="flex justify-between">
+                    {( btn_left  ) ? ( <a href={btn_left } class="no-underline font-bold bg-gray-800 text-gray-100 p-5">⬅️ Назад</a>  ) : ( <div></div> )}
+                    {( btn_right ) ? ( <a href={btn_right} class="no-underline font-bold bg-gray-800 text-gray-100 p-5">Вперед ➡️</a> ) : ( <div></div> )}
                 </div>
             </div>
-            <main class='bg-gray-300 p-5 col-span-2'>
-                <div class="prose max-w-none marker:text-gray-900">
-                    <Content />
-                    <div class="flex justify-between">
-                        {( btn_left  ) ? ( <a href={btn_left } class="no-underline font-bold bg-gray-800 text-gray-100 p-5">⬅️ Назад</a>  ) : ( <div></div> )}
-                        {( btn_right ) ? ( <a href={btn_right} class="no-underline font-bold bg-gray-800 text-gray-100 p-5">Вперед ➡️</a> ) : ( <div></div> )}
-                    </div>
-                </div>
-            </main>
-        </div>
-		<Footer />
-	</body>
-</html>
+        </main>
+    </div>
+</BaseLayout>
