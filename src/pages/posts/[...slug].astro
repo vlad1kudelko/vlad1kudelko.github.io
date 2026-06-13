@@ -1,12 +1,13 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import BannerMini from "../../components/BannerMini.astro";
-
+import BannerMini from '../../components/BannerMini.astro';
+import PostTags from '../../components/PostTags.astro';
+import { formatDate } from '../../utils/format';
 import { AUTHOR_NAME } from '../../consts';
 
 import { Image } from 'astro:assets';
-
 import { getCollection, render } from 'astro:content';
+
 const post = Astro.props;
 const { Content } = await render(post);
 
@@ -23,11 +24,7 @@ const json_ld = [{
     "headline": post.data.title,
     "image": [ post.data.heroImage.src ],
     "datePublished": post.data.pubDate.toISOString(),
-    "author": [{
-        "@type": "Person",
-        "name": AUTHOR_NAME,
-        "url": Astro.site
-    }]
+    "author": [{ "@type": "Person", "name": AUTHOR_NAME, "url": Astro.site }]
 }];
 
 export async function getStaticPaths() {
@@ -35,75 +32,68 @@ export async function getStaticPaths() {
     if (posts.length > 5) {
         for (let key_current in posts) {
             key_current = Number(key_current);
-            const other_keys = [];
-            other_keys.push(key_current - 2 >= 0           ? key_current - 2 : posts.length + key_current - 2);
-            other_keys.push(key_current - 1 >= 0           ? key_current - 1 : posts.length + key_current - 1);
-            other_keys.push(key_current + 1 < posts.length ? key_current + 1 : key_current - posts.length + 1);
-            other_keys.push(key_current + 2 < posts.length ? key_current + 2 : key_current - posts.length + 2);
-            posts[key_current].other_pages = [];
-            for (const other_key of other_keys) {
-                posts[key_current].other_pages.push({
-                    title: posts[other_key].data.title,
-                    url:   '/posts/' + posts[other_key].id + '/',
-                    img:   posts[other_key].data.heroImage.src,
-                });
-            }
+            const other_keys = [
+                key_current - 2 >= 0           ? key_current - 2 : posts.length + key_current - 2,
+                key_current - 1 >= 0           ? key_current - 1 : posts.length + key_current - 1,
+                key_current + 1 < posts.length ? key_current + 1 : key_current - posts.length + 1,
+                key_current + 2 < posts.length ? key_current + 2 : key_current - posts.length + 2,
+            ];
+            posts[key_current].other_pages = other_keys.map(k => ({
+                title: posts[k].data.title,
+                url:   '/posts/' + posts[k].id + '/',
+                img:   posts[k].data.heroImage,
+            }));
         }
     }
-    return posts.map((post) => ({
-        params: { slug: post.id },
-        props: post,
-    }));
+    return posts.map(post => ({ params: { slug: post.id }, props: post }));
 }
 ---
 
 <BaseLayout title={post.data.title} description={post.data.description} og_image={post.data.heroImage.src} ld_json={JSON.stringify(json_ld)}>
-    <div class='mx-auto max-w-3xl bg-gray-300'>
-        <!-- post -->
-        <Image class='bg-gray-100' loading='lazy' width={800} height={400} src={post.data.heroImage} alt={post.data.title} />
+    <div class='mx-auto max-w-3xl'>
+
+        <Image class='w-full' loading='lazy' width={800} height={400} src={post.data.heroImage} alt={post.data.title} />
 
         <BannerMini />
 
-        <div class="p-5">
-            <div class="flex">
-                { post.data.tags && post.data.tags.split(' ').map((tag) => (
-                    <div class='bg-blue-500 font-bold px-2 mr-2 mb-2 rounded-lg'>{tag}</div>
-                )) }
+        <div class='p-5 bg-brand-card'>
+            <div class='flex flex-wrap gap-1 mb-3'>
+                <PostTags tags={post.data.tags} />
             </div>
-            <div class='text-xs text-gray-500 font-bold'>{post.data.pubDate.toDateString()}</div>
-            <div class="prose max-w-none marker:text-gray-900">
-                 <Content />
+            <div class='text-xs text-gray-500 font-semibold mb-4'>{formatDate(post.data.pubDate)}</div>
+            <div class='prose prose-invert max-w-none marker:text-gray-400'>
+                <Content />
             </div>
         </div>
 
-        {post.data.github && (
-            <div class='p-5'>
-                <a class='block p-5 bg-gray-800 text-gray-100 flex items-center' rel='nofollow' href={post.data.github}>
-                    <img class='size-10' src='/res/all/github.webp' alt='github' />
-                    <div class='ml-5 font-bold text-lg'>{post.data.github}</div>
+        { post.data.github && (
+            <div class='p-5 bg-brand-card border-t border-white/5'>
+                <a class='flex items-center gap-4 p-4 bg-brand-surface rounded-lg hover:opacity-80 transition-opacity' rel='nofollow' href={post.data.github}>
+                    <img class='size-8' src='/res/all/github.webp' alt='github' />
+                    <div class='font-semibold text-sm text-gray-300 break-all'>{post.data.github}</div>
                 </a>
             </div>
         )}
 
-        <div class='p-5 text-gray-900'>
-            <h2 class='text-2xl text-center font-bold mb-8'>Читайте также</h2>
-            <div class='grid grid-cols-2 gap-4 text-center'>
-                { post.other_pages.map((other_page) => (
-                    <div>
-                        <a href={other_page.url}>
-                            <img class='bg-gray-100' loading='lazy' width='800' height='400' src={other_page.img} alt={other_page.title} />
-                            <div>{other_page.title}</div>
+        { post.other_pages && (
+            <div class='p-5 bg-brand-card border-t border-white/5'>
+                <h2 class='text-2xl text-center font-extrabold mb-6 text-white'>Читайте также</h2>
+                <div class='grid grid-cols-2 gap-4'>
+                    { post.other_pages.map(p => (
+                        <a href={p.url} class='block hover:opacity-80 transition-opacity'>
+                            <Image class='w-full' loading='lazy' width={800} height={400} src={p.img} alt={p.title} />
+                            <div class='text-sm text-gray-300 mt-2 leading-snug'>{p.title}</div>
                         </a>
-                    </div>
-                )) }
+                    )) }
+                </div>
             </div>
-        </div>
+        )}
 
-        <div class='p-5 pt-0'>
+        <div class='p-5 bg-brand-card border-t border-white/5'>
             <a target='_blank' rel='nofollow' href='/go/timeweb-cloud'>
                 <img loading='lazy' src='/res/all/timeweb.webp' alt='timeweb-cloud' />
             </a>
         </div>
-        <!-- post -->
+
     </div>
 </BaseLayout>

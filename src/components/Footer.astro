@@ -4,13 +4,13 @@ import { SITE_NAME, LINK_DOCS, LINK_CONTACTS, TELEGRAM_CHANNEL } from '../consts
 const today = new Date();
 ---
 
-<div class="bg-gray-900" style="font-weight:800;">
+<div class="bg-brand-surface">
     <footer class="max-w-screen-xl mx-auto p-10 flex gap-4 lg:gap-0 items-center flex-col lg:flex-row justify-between text-center">
-        <a class="hover:text-gray-300" href="/">{SITE_NAME}</a>
-        <div class="flex gap-8 items-center text-sm">
-            <a class="hover:text-gray-300" href={LINK_DOCS}>Docs</a>
-            <a class="hover:text-gray-300" href={LINK_CONTACTS}>Контакты</a>
-            <a class="hover:text-gray-300" href={TELEGRAM_CHANNEL}>Telegram</a>
+        <a class="hover:text-gray-300 font-bold transition-colors" href="/">{SITE_NAME}</a>
+        <div class="flex gap-8 items-center text-sm font-semibold">
+            <a class="hover:text-gray-300 transition-colors" href={LINK_DOCS}>Docs</a>
+            <a class="hover:text-gray-300 transition-colors" href={LINK_CONTACTS}>Контакты</a>
+            <a class="text-brand-accent hover:opacity-80 transition-opacity" href={TELEGRAM_CHANNEL}>Telegram</a>
         </div>
     </footer>
 </div>

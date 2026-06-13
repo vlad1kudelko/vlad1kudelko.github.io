@@ -1,73 +1,105 @@
 ---
-import { Image } from 'astro:assets';
+import CardGrid from './CardGrid.astro';
+import CardList from './CardList.astro';
 
-const { posts, level, h1 } = Astro.props;
+const { posts, h1 } = Astro.props;
 
-let tags_all = [];
+const tags_all: string[] = [];
 for (const post of posts) {
     if (!post.data.tags) { continue; }
-    const tags = post.data.tags.split(' ');
-    for (const tag of tags) {
-        if (!tags_all.includes(tag)) {
-            tags_all.push(tag);
-        }
+    for (const tag of post.data.tags.split(' ')) {
+        if (!tags_all.includes(tag)) tags_all.push(tag);
     }
+}
+
+const chunks: { posts: typeof posts; type: 'grid' | 'left' | 'right' }[] = [];
+for (let i = 0; i < posts.length; i += 3) {
+    const ci = Math.floor(i / 3);
+    const type = ci % 2 === 0 ? 'grid' : (Math.floor(ci / 2) % 2 === 0 ? 'left' : 'right');
+    chunks.push({ posts: posts.slice(i, i + 3), type });
 }
 ---
 
 <script>
-    function hideBlogs() {
-        this.classList.toggle('bg-gray-500');
-        this.classList.toggle('bg-blue-500');
-        const activeElem = document.querySelectorAll('#filter > .bg-blue-500');
-        const activeTags = Array.from(activeElem).map(el => el.textContent.trim());
-        const posts = document.querySelectorAll('#posts > *');
-        if (activeTags.length === 0) {
-            posts.forEach(post => { post.style.display = ''; });
-            document.querySelector('#empty').style.display = '';
+    function hideBlogs(this: HTMLElement) {
+        this.classList.toggle('bg-gray-600');
+        this.classList.toggle('bg-brand-accent');
+        const activeTags = Array.from(document.querySelectorAll('#filter > .bg-brand-accent'))
+            .map(el => el.textContent!.trim());
+        const allPosts = document.querySelectorAll<HTMLElement>('#posts [data-tags]');
+        const isFiltered = activeTags.length > 0;
+        document.querySelector('#posts')!.classList.toggle('is-filtered', isFiltered);
+        if (!isFiltered) {
+            allPosts.forEach(p => { p.style.display = ''; });
+            document.querySelector<HTMLElement>('#empty')!.style.display = '';
             return;
         }
         let isEmpty = true;
-        posts.forEach(post => {
-            const postTags = post.getAttribute('data-tags')?.split(' ') || [];
-            const isVisible = activeTags.every(tag => postTags.includes(tag));
-            post.style.display = isVisible ? '' : 'none';
-            isEmpty = isVisible ? false : isEmpty;
+        allPosts.forEach(p => {
+            const postTags = p.getAttribute('data-tags')?.split(' ') ?? [];
+            const visible = activeTags.every(t => postTags.includes(t));
+            p.style.display = visible ? '' : 'none';
+            if (visible) isEmpty = false;
         });
-        document.querySelector('#empty').style.display = isEmpty ? 'block' : '';
+        document.querySelector<HTMLElement>('#empty')!.style.display = isEmpty ? 'block' : '';
     }
-
-    document.querySelectorAll("#filter > *").forEach((e) => {
-        e.addEventListener("click", hideBlogs);
-    });
+    document.querySelectorAll('#filter > *').forEach(e => e.addEventListener('click', hideBlogs));
 </script>
 
-<h1 class='mx-auto container p-5 text-center text-2xl text-gray-400'>{h1}</h1>
+<style>
+    #posts.is-filtered .chunk {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.25rem;
+    }
+    #posts.is-filtered .card-h { flex-direction: column; }
+    #posts.is-filtered .card-h .card-img { width: 100%; height: 10rem; }
+</style>
 
-<div class='mx-auto container'>
-    <div class='flex flex-wrap justify-center gap-5' id='filter'>
-        { tags_all.map((tag) => (
-            <div class='bg-gray-500 font-bold px-2 rounded-lg cursor-pointer'>{tag}</div>
+<h1 class='mx-auto max-w-4xl px-5 pt-10 pb-6 text-center text-3xl font-extrabold text-white'>{h1}</h1>
+
+<div class='mx-auto max-w-4xl px-5'>
+    <div class='flex flex-wrap justify-center gap-3 mb-2' id='filter'>
+        { tags_all.map(tag => (
+            <div class='bg-gray-600 font-bold px-3 py-1 rounded-md cursor-pointer text-sm transition-colors duration-150 select-none'>{tag}</div>
         )) }
     </div>
-    <div class='p-5 text-center text-gray-400 hidden' id='empty'> Таких постов нет </div>
-    <div class='flex flex-wrap justify-center' id='posts'>
-        { posts.map((post) => (
-            <a class='m-5 block max-w-sm border bg-gray-800 border-gray-700 hover:opacity-75'
-               href=`/posts/${post.id}/` data-tags={post.data.tags}>
-                <div class='absolute flex'>
-                    { post.data.tags && post.data.tags.split(' ').map((tag) => (
-                        <div class='bg-blue-500 font-bold px-2 ml-2 rounded-b-lg'>{tag}</div>
-                    )) }
-                </div>
-                <Image class='bg-gray-100' loading='lazy' width={800} height={400} src={post.data.heroImage} alt={post.data.title} />
-                <div class='p-5'>
-                    <div class='text-xs text-gray-400'>{post.data.pubDate.toDateString()}</div>
-                    <h2 class='mb-2 text-2xl font-bold tracking-tight text-white'>{post.data.title}</h2>
-                    <p class='font-normal text-gray-400'>{post.data.description}</p>
-                </div>
-            </a>
-        )) }
+    <div class='py-3 text-center text-gray-400 hidden' id='empty'>Таких постов нет</div>
+
+    <div class='py-5 flex flex-col gap-5' id='posts'>
+        {chunks.map((chunk) => {
+            if (chunk.type === 'grid') {
+                return (
+                    <div class='chunk grid grid-cols-1 sm:grid-cols-3 gap-5'>
+                        {chunk.posts.map(post => (
+                            <CardGrid
+                                href={`/posts/${post.id}/`}
+                                image={post.data.heroImage}
+                                title={post.data.title}
+                                description={post.data.description}
+                                date={post.data.pubDate}
+                                tags={post.data.tags}
+                            />
+                        ))}
+                    </div>
+                );
+            } else {
+                return (
+                    <div class='chunk flex flex-col gap-3'>
+                        {chunk.posts.map(post => (
+                            <CardList
+                                href={`/posts/${post.id}/`}
+                                image={post.data.heroImage}
+                                title={post.data.title}
+                                description={post.data.description}
+                                date={post.data.pubDate}
+                                tags={post.data.tags}
+                                reverse={chunk.type === 'right'}
+                            />
+                        ))}
+                    </div>
+                );
+            }
+        })}
     </div>
 </div>
-

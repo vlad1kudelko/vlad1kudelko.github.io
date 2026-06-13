@@ -1,0 +1,8 @@
+---
+interface Props { tags?: string; }
+const { tags } = Astro.props;
+const list = tags ? tags.split(' ').filter(Boolean) : [];
+---
+{ list.map(tag => (
+    <span class='bg-brand-accent text-white text-xs font-bold px-2 py-0.5 rounded-md'>{tag}</span>
+)) }
