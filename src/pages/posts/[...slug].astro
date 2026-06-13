@@ -77,15 +77,12 @@ export async function getStaticPaths() {
 
         { post.other_pages && (
             <div class='p-5 bg-brand-card border-t border-white/5'>
-                <h2 class='text-2xl text-center font-extrabold mb-6 text-white'>Читайте также</h2>
-                <div class='grid grid-cols-2 gap-4'>
+                <h2 class='text-2xl text-center font-extrabold mb-4 text-white'>Читайте также</h2>
+                <div class='flex flex-col gap-2'>
                     { post.other_pages.map(p => (
-                        <a href={p.url} class='block hover:opacity-80 transition-opacity'>
-                            { p.img
-                                ? <Image class='w-full' loading='lazy' width={800} height={400} src={p.img} alt={p.title} />
-                                : <div class='w-full aspect-[2/1] bg-brand-surface' />
-                            }
-                            <div class='text-sm text-gray-300 mt-2 leading-snug'>{p.title}</div>
+                        <a href={p.url} class='flex items-center gap-3 px-3 py-2.5 bg-brand-surface rounded hover:opacity-75 transition-opacity'>
+                            <div class='w-1 self-stretch rounded-full bg-brand-accent shrink-0' />
+                            <span class='text-sm text-gray-200 leading-snug'>{p.title}</span>
                         </a>
                     )) }
                 </div>
