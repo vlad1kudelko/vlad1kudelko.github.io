@@ -19,9 +19,9 @@ export async function getStaticPaths() {
 function buildTree_many() {
     const root = {};
     for (const local_doc of docs) {
-        // фильтруем только те страницы, которые относятся к текущему "курсу"
         if (local_doc.id.split('/')[0] !== doc.id.split('/')[0]) { continue; }
-        const parts = local_doc.id.split('/');;
+        const parts = local_doc.id.split('/').slice(1); // пропускаем группу верхнего уровня
+        if (parts.length === 0) { continue; }
         let current = root;
         parts.forEach((part, i) => {
             if (!current[part]) {
@@ -54,83 +54,86 @@ function buildTree_one() {
             order: count,
             children: {},
         };
-        stack.push({
-            depth: item.depth,
-            node: parent[item.slug].children,
-        });
+        stack.push({ depth: item.depth, node: parent[item.slug].children });
         count += 1;
     }
     return root;
 }
 
-function treeToHtml(tree) {
-    let html = "<ul>";
-    const entries = Object.entries(tree);
-    entries.sort((a, b) => {
-        const orderA = a[1].order ?? Infinity;
-        const orderB = b[1].order ?? Infinity;
-        return orderA - orderB;
-    });
-    for (const [key, value] of entries) {
-        const cls = value.select ? 'bg-brand-accent text-white rounded px-1' : '';
-        html += `<li><a class="${cls}" href="${value.url}">${value.title}`;
-        const children = value.children;
-        if (Object.keys(children).length > 0) {
-            html += treeToHtml(children);
+function treeToHtml(tree, depth = 0): string {
+    const entries = Object.entries(tree) as [string, any][];
+    entries.sort((a, b) => (a[1].order ?? Infinity) - (b[1].order ?? Infinity));
+
+    let html = `<ul class="${depth > 0 ? 'ml-3 border-l border-white/10 pl-3 mt-1' : ''}">`;
+    for (const [, value] of entries) {
+        if (!value.title) {
+            // промежуточный узел без заголовка — рендерим только детей
+            if (Object.keys(value.children).length > 0) {
+                html += treeToHtml(value.children, depth);
+            }
+            continue;
         }
-        html += "</a></li>";
+        const cls = value.select
+            ? 'text-brand-accent font-bold bg-white/5'
+            : 'text-gray-400 hover:text-white hover:bg-white/5';
+        html += `<li>
+            <a class="block px-3 py-1.5 rounded text-sm transition-colors duration-150 ${cls}" href="${value.url}">${value.title}</a>`;
+        if (Object.keys(value.children).length > 0) {
+            html += treeToHtml(value.children, depth + 1);
+        }
+        html += `</li>`;
     }
-    html += "</ul>";
+    html += '</ul>';
     return html;
 }
 
 function btns_left_right() {
-    const arr = [];
-    for (const item of docs) {
-        if (item.id.split('/')[0] === doc.id.split('/')[0]) {
-            arr.push(item);
-        }
-    }
-    const arr_sort = arr.sort((a, b) => a.data.order - b.data.order);
-    const index = arr_sort.findIndex((index) => index.id === doc.id);
-    const left_id  = index > 0                   ? arr_sort[index - 1].id : null;
-    const right_id = index < arr_sort.length - 1 ? arr_sort[index + 1].id : null;
-    const left  = left_id  ? `/docs/${left_id}/`  : null;
-    const right = right_id ? `/docs/${right_id}/` : null;
-    return { left, right };
+    const arr = docs
+        .filter(item => item.id.split('/')[0] === doc.id.split('/')[0])
+        .sort((a, b) => a.data.order - b.data.order);
+    const index = arr.findIndex(item => item.id === doc.id);
+    return {
+        left:  index > 0             ? `/docs/${arr[index - 1].id}/` : null,
+        right: index < arr.length - 1 ? `/docs/${arr[index + 1].id}/` : null,
+    };
 }
 
-const btn_left  = btns_left_right().left;
-const btn_right = btns_left_right().right;
+const { left: btn_left, right: btn_right } = btns_left_right();
 ---
 
 <BaseLayout title={doc.data.title} description={doc.data.description} og_image="/res/all/thumb.webp" ld_json="{}">
     <div class='mx-auto max-w-7xl lg:grid grid-cols-3 gap-5'>
-        <div>
+
+        <aside class='flex flex-col gap-5 p-5 pt-0 lg:p-0'>
             <div id='up-page'></div>
-            <nav class='bg-brand-surface p-5 lg:pl-0'>
-                <div class="prose prose-invert max-w-none marker:text-gray-400">
-                    <div set:html={ treeToHtml(buildTree_many()) }></div>
-                </div>
+
+            <nav class='bg-brand-surface p-4 rounded'>
+                <div class='text-xs font-bold uppercase tracking-widest text-gray-500 mb-3 px-3'>Разделы</div>
+                <div set:html={ treeToHtml(buildTree_many()) }></div>
             </nav>
-            <nav class='hidden lg:block bg-brand-surface p-5 pl-0 mt-5'>
-                <div class="prose prose-invert max-w-none marker:text-gray-400">
-                    <div set:html={ treeToHtml(buildTree_one())  }></div>
-                </div>
+
+            <nav class='hidden lg:block bg-brand-surface p-4 rounded'>
+                <div class='text-xs font-bold uppercase tracking-widest text-gray-500 mb-3 px-3'>На этой странице</div>
+                <div set:html={ treeToHtml(buildTree_one()) }></div>
             </nav>
-            <div class="hidden lg:grid gap-5 sticky top-5 mt-5">
-                <a class="bg-brand-surface p-5 text-gray-300 text-center font-bold hover:text-white transition-colors" href="#up-page">↑ Наверх</a>
-                <a href={TELEGRAM_CHANNEL}><img loading="lazy" src="/res/all/telegram.webp" alt="telegram" /></a>
+
+            <div class='hidden lg:flex flex-col gap-3 sticky top-5'>
+                <a class='bg-brand-surface px-4 py-2 text-sm text-gray-400 text-center font-semibold rounded hover:text-white hover:bg-white/5 transition-colors duration-150' href='#up-page'>↑ Наверх</a>
+                <a href={TELEGRAM_CHANNEL}>
+                    <img loading='lazy' src='/res/all/telegram.webp' alt='telegram' />
+                </a>
             </div>
-        </div>
-        <main class='bg-brand-card p-5 col-span-2'>
-            <div class="prose prose-invert max-w-none marker:text-gray-400">
+        </aside>
+
+        <main class='bg-brand-card p-6 col-span-2'>
+            <div class='prose prose-invert max-w-none marker:text-gray-400'>
                 <Content />
-                <div class="flex justify-between mt-8">
-                    {( btn_left  ) ? ( <a href={btn_left } class="no-underline font-bold bg-brand-surface text-gray-100 px-5 py-3 hover:opacity-80 transition-opacity">← Назад</a>  ) : ( <div></div> )}
-                    {( btn_right ) ? ( <a href={btn_right} class="no-underline font-bold bg-brand-surface text-gray-100 px-5 py-3 hover:opacity-80 transition-opacity">Вперёд →</a> ) : ( <div></div> )}
+                <div class='flex justify-between mt-8 not-prose'>
+                    { btn_left  && <a href={btn_left}  class='font-bold bg-brand-surface text-gray-100 px-5 py-3 hover:opacity-80 transition-opacity'>← Назад</a> }
+                    { btn_right && <a href={btn_right} class='font-bold bg-brand-surface text-gray-100 px-5 py-3 ml-auto hover:opacity-80 transition-opacity'>Вперёд →</a> }
                 </div>
             </div>
         </main>
+
     </div>
 </BaseLayout>
