@@ -6,7 +6,20 @@ pubDate: "2026-02-24"
 
 # ORM: SQLAlchemy 2.0+, Async, 2.0 style
 
-SQLAlchemy 2.0, это не просто обновление, а переосмысление API. Старый "legacy" стиль с `Session.query()` ушёл в прошлое. Новый 2.0 style более явный, лучше типизированный и поддерживает async из коробки. Если вы переходите с 1.x или начинаете новый проект, разберём, что изменилось и как писать современный код.
+SQLAlchemy 2.0 -- это не косметическое обновление, а переосмысление API. Старый `Session.query()` ушёл в прошлое, новый стиль с `select()` лучше типизирован, поддерживает async нативно и явнее выражает намерения. Если вы переходите с 1.x или начинаете новый проект, эта разница критична.
+
+Переход с SQLAlchemy 1.x на 2.0 сломает часть кода -- `@validator` и `orm_mode` из прошлого, теперь другие имена и другая семантика. Но новый API стоит изучить: `Mapped[T]` даёт полноценную типизацию, async работает без дополнительных обёрток, а `select()` читается как SQL.
+
+> **Key Takeaways**
+> - `Mapped[T]` с `mapped_column` -- типизированные колонки: `Mapped[str | None]` автоматически задаёт `nullable=True`
+> - Для async нужен async-совместимый драйвер: `asyncpg` для PostgreSQL, `aiosqlite` для SQLite
+> - `selectinload` делает отдельный SELECT для связей, `joinedload` -- JOIN в основном запросе; ленивая загрузка в async не работает
+> - `expire_on_commit=False` в `async_sessionmaker` -- без этого доступ к атрибутам после `commit()` вызовет ошибку
+> - Alembic `--autogenerate` не видит partial-индексы и кастомные типы: всегда просматривайте сгенерированную миграцию
+
+---
+
+Игорь мигрировал Django-проект на FastAPI. В Django ORM привык к `User.objects.filter(is_active=True)`. В SQLAlchemy 1.x писал `session.query(User).filter(User.is_active == True).all()` -- похоже, но незнакомо. Когда появилась SQLAlchemy 2.0, `select(User).where(User.is_active == True)` стало читаться как SQL напрямую. Плюс `Mapped[str]` дало типизацию, которой Django ORM не хватало. После освоения нового стиля написал слой репозиториев за неделю -- код чистый, все запросы типизированы, async работает без дополнительной обёртки.
 
 ## Что изменилось в 2.0
 
@@ -25,7 +38,7 @@ result = session.execute(stmt)
 users = result.scalars().all()
 ```
 
-Изменение не косметическое: новый API лучше работает с type checkers, поддерживает async без переписывания и выражает намерения явнее.
+Изменение не косметическое: новый API лучше работает с type checkers, поддерживает async без переписывания и выражает намерения явнее. `select(User, Post)` сразу понятно что делает; `session.query(User, Post)` уже менее очевидно.
 
 ## Декларативные модели
 
@@ -35,31 +48,31 @@ from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
 from datetime import datetime
 
 class Base(DeclarativeBase):
- pass
+    pass
 
 class User(Base):
- __tablename__ = 'users'
+    __tablename__ = 'users'
 
- id: Mapped[int] = mapped_column(primary_key=True)
- name: Mapped[str] = mapped_column(String(100))
- email: Mapped[str] = mapped_column(String(255), unique=True)
- created_at: Mapped[datetime] = mapped_column(default=func.now())
- is_active: Mapped[bool] = mapped_column(default=True)
+    id: Mapped[int] = mapped_column(primary_key=True)
+    name: Mapped[str] = mapped_column(String(100))
+    email: Mapped[str] = mapped_column(String(255), unique=True)
+    created_at: Mapped[datetime] = mapped_column(default=func.now())
+    is_active: Mapped[bool] = mapped_column(default=True)
 
- posts: Mapped[list['Post']] = relationship(back_populates='author')
+    posts: Mapped[list['Post']] = relationship(back_populates='author')
 
 class Post(Base):
- __tablename__ = 'posts'
+    __tablename__ = 'posts'
 
- id: Mapped[int] = mapped_column(primary_key=True)
- title: Mapped[str] = mapped_column(String(200))
- content: Mapped[str | None] = mapped_column()
- author_id: Mapped[int] = mapped_column(ForeignKey('users.id'))
+    id: Mapped[int] = mapped_column(primary_key=True)
+    title: Mapped[str] = mapped_column(String(200))
+    content: Mapped[str | None] = mapped_column()
+    author_id: Mapped[int] = mapped_column(ForeignKey('users.id'))
 
- author: Mapped['User'] = relationship(back_populates='posts')
+    author: Mapped['User'] = relationship(back_populates='posts')
 ```
 
-`Mapped[T]`, это аннотация типа, которая одновременно является валидацией. SQLAlchemy понимает `Mapped[str | None]` как nullable колонку без явного `nullable=True`.
+`Mapped[T]` -- это аннотация типа, которая одновременно является валидацией. SQLAlchemy понимает `Mapped[str | None]` как nullable колонку без явного `nullable=True`. mypy и pyright видят типы без дополнительных плагинов.
 
 ## Синхронные запросы
 
@@ -71,41 +84,41 @@ engine = create_engine('postgresql+psycopg2://user:pass@localhost/db')
 
 # Базовые операции
 with Session(engine) as session:
- # Создание
- user = User(name='Alice', email='alice@example.com')
- session.add(user)
- session.commit()
+    # Создание
+    user = User(name='Alice', email='alice@example.com')
+    session.add(user)
+    session.commit()
 
- # Чтение
- stmt = select(User).where(User.is_active == True)
- users = session.execute(stmt).scalars().all()
+    # Чтение
+    stmt = select(User).where(User.is_active == True)
+    users = session.execute(stmt).scalars().all()
 
- # Фильтрация
- stmt = (
- select(User)
- .where(
- and_(
- User.is_active == True,
- or_(User.name.like('A%'), User.name.like('B%'))
- )
- )
- .order_by(User.created_at.desc())
- .limit(10)
- )
- recent_users = session.execute(stmt).scalars().all()
+    # Фильтрация
+    stmt = (
+        select(User)
+        .where(
+            and_(
+                User.is_active == True,
+                or_(User.name.like('A%'), User.name.like('B%'))
+            )
+        )
+        .order_by(User.created_at.desc())
+        .limit(10)
+    )
+    recent_users = session.execute(stmt).scalars().all()
 
- # Агрегации
- stmt = select(func.count(User.id), func.max(User.created_at))
- count, last_created = session.execute(stmt).one()
+    # Агрегации
+    stmt = select(func.count(User.id), func.max(User.created_at))
+    count, last_created = session.execute(stmt).one()
 
- # JOIN
- stmt = (
- select(User, Post)
- .join(Post, User.id == Post.author_id)
- .where(Post.title.icontains('python'))
- )
- for user, post in session.execute(stmt):
- print(f"{user.name}: {post.title}")
+    # JOIN
+    stmt = (
+        select(User, Post)
+        .join(Post, User.id == Post.author_id)
+        .where(Post.title.icontains('python'))
+    )
+    for user, post in session.execute(stmt):
+        print(f"{user.name}: {post.title}")
 ```
 
 ## Async SQLAlchemy
@@ -116,32 +129,34 @@ with Session(engine) as session:
 from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession, async_sessionmaker
 
 async_engine = create_async_engine(
- 'postgresql+asyncpg://user:pass@localhost/db',
- pool_size=10,
- max_overflow=20,
- echo=False,
+    'postgresql+asyncpg://user:pass@localhost/db',
+    pool_size=10,
+    max_overflow=20,
+    echo=False,
 )
 
 AsyncSessionLocal = async_sessionmaker(
- async_engine,
- expire_on_commit=False,
+    async_engine,
+    expire_on_commit=False,
 )
 
 # Async запросы
 async def get_user(user_id: int) -> User | None:
- async with AsyncSessionLocal() as session:
- stmt = select(User).where(User.id == user_id)
- result = await session.execute(stmt)
- return result.scalar_one_or_none()
+    async with AsyncSessionLocal() as session:
+        stmt = select(User).where(User.id == user_id)
+        result = await session.execute(stmt)
+        return result.scalar_one_or_none()
 
 async def create_post(author_id: int, title: str, content: str) -> Post:
- async with AsyncSessionLocal() as session:
- post = Post(author_id=author_id, title=title, content=content)
- session.add(post)
- await session.commit()
- await session.refresh(post)
- return post
+    async with AsyncSessionLocal() as session:
+        post = Post(author_id=author_id, title=title, content=content)
+        session.add(post)
+        await session.commit()
+        await session.refresh(post)
+        return post
 ```
+
+`expire_on_commit=False` критично для async: по умолчанию после `commit()` все атрибуты объекта помечаются как expired и при следующем обращении SQLAlchemy попытается сделать lazy-load -- в async-контексте это вызовет ошибку.
 
 ## Интеграция с FastAPI
 
@@ -154,30 +169,30 @@ from sqlalchemy.ext.asyncio import AsyncSession
 app = FastAPI()
 
 async def get_db() -> AsyncSession:
- async with AsyncSessionLocal() as session:
- yield session
+    async with AsyncSessionLocal() as session:
+        yield session
 
 @app.get('/users/{user_id}')
 async def read_user(user_id: int, db: AsyncSession = Depends(get_db)):
- stmt = select(User).where(User.id == user_id)
- result = await db.execute(stmt)
- user = result.scalar_one_or_none()
- if not user:
- raise HTTPException(status_code=404, detail='User not found')
- return user
+    stmt = select(User).where(User.id == user_id)
+    result = await db.execute(stmt)
+    user = result.scalar_one_or_none()
+    if not user:
+        raise HTTPException(status_code=404, detail='User not found')
+    return user
 
 @app.post('/posts')
 async def create_post_endpoint(
- title: str,
- content: str,
- author_id: int,
- db: AsyncSession = Depends(get_db)
+    title: str,
+    content: str,
+    author_id: int,
+    db: AsyncSession = Depends(get_db)
 ):
- post = Post(title=title, content=content, author_id=author_id)
- db.add(post)
- await db.commit()
- await db.refresh(post)
- return post
+    post = Post(title=title, content=content, author_id=author_id)
+    db.add(post)
+    await db.commit()
+    await db.refresh(post)
+    return post
 ```
 
 ## Загрузка связанных объектов
@@ -187,23 +202,29 @@ async def create_post_endpoint(
 ```python
 from sqlalchemy.orm import selectinload, joinedload
 
-# selectinload: отдельный SELECT для каждой связи
+# selectinload: отдельный SELECT для каждой связи (N+1 заменяется на 2 запроса)
 stmt = (
- select(User)
- .options(selectinload(User.posts))
- .where(User.is_active == True)
+    select(User)
+    .options(selectinload(User.posts))
+    .where(User.is_active == True)
 )
 users = (await db.execute(stmt)).scalars().all()
 # Теперь user.posts доступны без дополнительных запросов
 
-# joinedload: JOIN в основном запросе
+# joinedload: JOIN в основном запросе (один запрос, но больше данных)
 stmt = (
- select(Post)
- .options(joinedload(Post.author))
- .where(Post.title.icontains('python'))
+    select(Post)
+    .options(joinedload(Post.author))
+    .where(Post.title.icontains('python'))
 )
 posts = (await db.execute(stmt)).unique().scalars().all()
 ```
+
+Правило выбора: `selectinload` лучше для списков с множеством связанных объектов -- один дополнительный SELECT эффективнее огромного JOIN с дублированием. `joinedload` лучше когда связь `one-to-one` или нужен один объект.
+
+---
+
+Марина оптимизировала API для блог-платформы. Запрос `GET /posts?limit=20` с авторами и тегами выполнялся за 400 мс. Открыла логи SQLAlchemy с `echo=True` и увидела: для 20 постов делалось 20 запросов за авторами и ещё 20 за тегами -- классический N+1. Заменила lazy load на `selectinload(Post.author)` и `selectinload(Post.tags)` -- теперь 3 запроса вместо 41. Время ответа упало до 35 мс. Правило простое: включаешь `echo=True` в dev-режиме, смотришь на количество запросов.
 
 ## Миграции с Alembic
 
@@ -231,4 +252,10 @@ alembic upgrade head
 alembic downgrade -1
 ```
 
-Alembic умеет обнаруживать расхождения между моделями и схемой БД, но автогенерация не всегда точная, особенно для кастомных типов и partial-индексов. Всегда просматривайте сгенерированный файл миграции перед применением.
+Alembic умеет обнаруживать расхождения между моделями и схемой БД. Автогенерация не всегда точная -- кастомные типы, partial-индексы, CHECK-ограничения часто пропускаются. Всегда просматривайте сгенерированный файл миграции перед применением.
+
+## Итог
+
+SQLAlchemy 2.0 с `Mapped[T]` и async-движком -- зрелый выбор для любого FastAPI-проекта. Да, порог вхождения выше, чем у Tortoise ORM или Django ORM. Но полный контроль над SQL, хорошая типизация и зрелая экосистема это оправдывают для долгосрочных проектов.
+
+Следующая тема -- [Tortoise ORM как более простая async-альтернатива](/posts/2026/02/25-tortoise-orm).
