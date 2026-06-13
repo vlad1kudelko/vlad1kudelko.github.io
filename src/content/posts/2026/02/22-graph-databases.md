@@ -1,16 +1,16 @@
 ---
-title: "Graph базы данных — Neo4j, Cypher queries"
+title: "Graph базы данных, Neo4j, Cypher queries"
 description: "Изучите Graph базы данных: Neo4j для хранения графов, Cypher queries. Моделируйте сложные связи между данными эффективно."
 pubDate: "2026-02-22"
 ---
 
 # Graph БД: Neo4j, Cypher queries
 
-Социальные сети, системы рекомендаций, граф зависимостей, маршрутизация — у всего этого общая черта: ключевая информация хранится в связях между сущностями, а не в самих сущностях. Реляционные базы данных умеют делать JOIN, но рекурсивные обходы графа глубиной 5–6 уровней превращаются в кошмар производительности.
+Социальные сети, системы рекомендаций, граф зависимостей, маршрутизация, у всего этого общая черта: ключевая информация хранится в связях между сущностями, а не в самих сущностях. Реляционные базы данных умеют делать JOIN, но рекурсивные обходы графа глубиной 5–6 уровней превращаются в кошмар производительности.
 
 ## Когда реляционная модель ломается
 
-Классический пример — запрос "найди всех друзей друзей пользователя до 3 уровней":
+Классический пример, запрос "найди всех друзей друзей пользователя до 3 уровней":
 
 ```sql
 -- SQL: боль уже на 3 уровне
@@ -29,12 +29,12 @@ WHERE u1.id = 42;
 ## Neo4j: основные концепции
 
 Граф состоит из:
-- **Узлов (Nodes)** — сущности: `(:User)`, `(:Product)`, `(:City)`
-- **Рёбер (Relationships)** — связи: `-[:FOLLOWS]->`, `-[:PURCHASED]->`
-- **Свойств (Properties)** — атрибуты узлов и рёбер: `{name: "Alice", age: 30}`
-- **Меток (Labels)** — типы узлов: `User`, `Admin`, `Product`
+- **Узлов (Nodes)**, сущности: `(:User)`, `(:Product)`, `(:City)`
+- **Рёбер (Relationships)**, связи: `-[:FOLLOWS]->`, `-[:PURCHASED]->`
+- **Свойств (Properties)**, атрибуты узлов и рёбер: `{name: "Alice", age: 30}`
+- **Меток (Labels)**, типы узлов: `User`, `Admin`, `Product`
 
-## Cypher — язык запросов
+## Cypher, язык запросов
 
 Cypher визуально отражает структуру графа. ASCII-паттерны в запросах описывают то, что нужно найти.
 
@@ -65,17 +65,17 @@ CREATE (u)-[:PURCHASED {date: date('2024-02-01'), quantity: 1}]->(p)
 MATCH (alice:User {name: 'Alice'})<-[:FOLLOWS]-(follower:User)
 RETURN follower.name, follower.age
 
-// Друзья друзей до 3 уровней — вот оно!
+// Друзья друзей до 3 уровней, вот оно!
 MATCH (alice:User {name: 'Alice'})-[:FOLLOWS*1..3]->(connection:User)
 WHERE connection <> alice
 RETURN DISTINCT connection.name, connection.age
 
 // Shortest path между пользователями
 MATCH path = shortestPath(
-    (alice:User {name: 'Alice'})-[:FOLLOWS*]-(carol:User {name: 'Carol'})
+ (alice:User {name: 'Alice'})-[:FOLLOWS*]-(carol:User {name: 'Carol'})
 )
 RETURN [node IN nodes(path) | node.name] AS path_names,
-       length(path) AS hops
+ length(path) AS hops
 ```
 
 ### Рекомендательная система
@@ -84,12 +84,12 @@ RETURN [node IN nodes(path) | node.name] AS path_names,
 
 ```cypher
 MATCH (me:User {id: 1})-[:PURCHASED]->(product:Product)
-      <-[:PURCHASED]-(similar:User)-[:PURCHASED]->(recommendation:Product)
+ <-[:PURCHASED]-(similar:User)-[:PURCHASED]->(recommendation:Product)
 WHERE NOT (me)-[:PURCHASED]->(recommendation)
-  AND me <> similar
+ AND me <> similar
 RETURN recommendation.name,
-       COUNT(DISTINCT similar) AS common_buyers,
-       AVG(recommendation.price) AS avg_price
+ COUNT(DISTINCT similar) AS common_buyers,
+ AVG(recommendation.price) AS avg_price
 ORDER BY common_buyers DESC
 LIMIT 10
 ```
@@ -123,40 +123,40 @@ RETURN [n IN nodes(path) | n.name] AS route, weight AS total_km
 from neo4j import GraphDatabase
 
 driver = GraphDatabase.driver(
-    "bolt://localhost:7687",
-    auth=("neo4j", "password")
+ "bolt://localhost:7687",
+ auth=("neo4j", "password")
 )
 
 def get_recommendations(user_id: int, limit: int = 10):
-    query = """
-    MATCH (me:User {id: $user_id})-[:PURCHASED]->(product:Product)
-          <-[:PURCHASED]-(similar:User)-[:PURCHASED]->(rec:Product)
-    WHERE NOT (me)-[:PURCHASED]->(rec) AND me <> similar
-    RETURN rec.name AS name,
-           rec.price AS price,
-           COUNT(DISTINCT similar) AS score
-    ORDER BY score DESC
-    LIMIT $limit
-    """
-    with driver.session() as session:
-        result = session.run(query, user_id=user_id, limit=limit)
-        return [dict(record) for record in result]
+ query = """
+ MATCH (me:User {id: $user_id})-[:PURCHASED]->(product:Product)
+ <-[:PURCHASED]-(similar:User)-[:PURCHASED]->(rec:Product)
+ WHERE NOT (me)-[:PURCHASED]->(rec) AND me <> similar
+ RETURN rec.name AS name,
+ rec.price AS price,
+ COUNT(DISTINCT similar) AS score
+ ORDER BY score DESC
+ LIMIT $limit
+ """
+ with driver.session() as session:
+ result = session.run(query, user_id=user_id, limit=limit)
+ return [dict(record) for record in result]
 
 recommendations = get_recommendations(user_id=1)
 for rec in recommendations:
-    print(f"{rec['name']} — {rec['price']} руб. (score: {rec['score']})")
+ print(f"{rec['name']}, {rec['price']} руб. (score: {rec['score']})")
 ```
 
 ## Где графовая БД проигрывает
 
-Граф — не универсальное решение. Если основная нагрузка — это запись тысяч транзакций в секунду без сложных связей, Neo4j только добавит накладные расходы. Аналитика на плоских данных (агрегации по миллиардам строк) — территория ClickHouse, не Neo4j. Полнотекстовый поиск — Elasticsearch.
+Граф, не универсальное решение. Если основная нагрузка, это запись тысяч транзакций в секунду без сложных связей, Neo4j только добавит накладные расходы. Аналитика на плоских данных (агрегации по миллиардам строк), территория ClickHouse, не Neo4j. Полнотекстовый поиск, Elasticsearch.
 
-Графовая БД выигрывает конкретно тогда, когда запросы traversal-характера: "найди всё, что связано с X через N шагов". Рекомендации, обнаружение мошенничества через цепочки транзакций, анализ зависимостей в монорепозитории, knowledge graph — здесь реляционная модель физически не может конкурировать.
+Графовая БД выигрывает конкретно тогда, когда запросы traversal-характера: "найди всё, что связано с X через N шагов". Рекомендации, обнаружение мошенничества через цепочки транзакций, анализ зависимостей в монорепозитории, knowledge graph, здесь реляционная модель физически не может конкурировать.
 
 ## Альтернативы Neo4j
 
-**Apache AGE** — расширение PostgreSQL с поддержкой Cypher. Если уже есть Postgres и нужна базовая графовая функциональность без отдельного сервера, AGE позволяет писать Cypher-запросы прямо через psql.
+**Apache AGE**, расширение PostgreSQL с поддержкой Cypher. Если уже есть Postgres и нужна базовая графовая функциональность без отдельного сервера, AGE позволяет писать Cypher-запросы прямо через psql.
 
-**Amazon Neptune** — managed graph database в AWS, поддерживает Gremlin и SPARQL. Разумный выбор, если инфраструктура уже в AWS и нет желания заниматься операционкой Neo4j.
+**Amazon Neptune**, managed graph database в AWS, поддерживает Gremlin и SPARQL. Разумный выбор, если инфраструктура уже в AWS и нет желания заниматься операционкой Neo4j.
 
-**ArangoDB** — мультимодельная БД (документы + граф + ключ-значение). Полезна когда нужны оба режима в одном сервисе, хотя граф-часть уступает Neo4j по зрелости.
+**ArangoDB**, мультимодельная БД (документы + граф + ключ-значение). Полезна когда нужны оба режима в одном сервисе, хотя граф-часть уступает Neo4j по зрелости.

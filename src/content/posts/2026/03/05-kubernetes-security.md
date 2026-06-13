@@ -1,18 +1,33 @@
 ---
-title: "Kubernetes: security — RBAC, PodSecurityPolicy"
+title: "Kubernetes: security, RBAC, PodSecurityPolicy"
 description: "Обеспечьте Kubernetes: security с RBAC, PodSecurityPolicy. Защитите кластер от угроз и несанкционированного доступа."
 pubDate: "2026-03-05"
 ---
 
 # Kubernetes security: RBAC, PodSecurity
 
-По умолчанию Kubernetes достаточно открытый: поды могут читать секреты всего namespace, приложения работают от root, сервис-аккаунт имеет широкие права. В продакшене это превращается в проблему безопасности.
+Безопасный Kubernetes-кластер строится на четырёх слоях: RBAC ограничивает доступ к API, Pod Security Standards запрещают привилегированные контейнеры, шифрование защищает Secrets в etcd, а runtime-мониторинг через Falco обнаруживает атаки после прорыва первых трёх линий.
+
+По умолчанию Kubernetes достаточно открытый: поды читают секреты всего namespace, приложения работают от root, сервис-аккаунты имеют широкие права. В продакшене это создаёт существенные риски безопасности.
+
+> **Key Takeaways**
+> - RBAC: минимальные права -- Role в namespace, не ClusterRole; `kubectl auth can-i` для проверки
+> - `automountServiceAccountToken: false` для подов, которые не обращаются к Kubernetes API
+> - PodSecurityPolicy удалена в 1.25; замена -- Pod Security Admission с уровнями `baseline`/`restricted`
+> - Kubernetes Secrets в base64 в etcd -- не шифрование; нужен Encryption at Rest или External Secrets Operator
+> - Falco обнаруживает runtime-атаки: pod запускает `curl`, читает `/etc/shadow`, запускает shell
+
+---
+
+Инцидент в одной финтех-компании начался с уязвимости в стороннем контейнере. Злоумышленник получил shell внутри пода и немедленно обнаружил автоматически смонтированный ServiceAccount токен с правами `cluster-admin`. За несколько минут он получил доступ ко всем Secrets кластера, включая ключи от облачных ресурсов. Ущерб оказался значительным. После инцидента команда внедрила три изменения: `automountServiceAccountToken: false` для всех подов, минимальные RBAC-права через отдельные ServiceAccount, и Falco с алертами на подозрительные syscall. Следующая попытка penetration test не смогла выйти за пределы скомпрометированного пода.
 
 ## RBAC: Role-Based Access Control
 
-RBAC контролирует, кто что может делать с ресурсами кластера.
+RBAC контролирует, кто и что может делать с ресурсами кластера. Три ключевых объекта:
 
-**Три объекта**: Role (права в namespace), ClusterRole (права на уровне кластера), RoleBinding/ClusterRoleBinding (привязка роли к субъекту).
+- **Role** -- набор прав в рамках namespace
+- **ClusterRole** -- набор прав на уровне кластера (все namespace или cluster-scoped ресурсы)
+- **RoleBinding / ClusterRoleBinding** -- привязка роли к субъекту (пользователь, группа, ServiceAccount)
 
 ```yaml
 # Роль для CI/CD: только деплой в namespace staging
@@ -47,43 +62,87 @@ roleRef:
   apiGroup: rbac.authorization.k8s.io
 ```
 
-Проверить права можно через:
+Проверить права:
+
 ```bash
-kubectl auth can-i update deployments --namespace staging --as system:serviceaccount:staging:ci-service-account
+kubectl auth can-i update deployments \
+  --namespace staging \
+  --as system:serviceaccount:staging:ci-service-account
+# yes
+
+kubectl auth can-i delete pods \
+  --namespace staging \
+  --as system:serviceaccount:staging:ci-service-account
+# no
+```
+
+Никогда не давайте CI/CD `cluster-admin`. Это нарушает принцип минимальных привилегий и означает, что скомпрометированный CI имеет полный доступ к кластеру.
+
+### Роли для разных команд
+
+```yaml
+# Read-only для разработчиков: смотреть, не менять
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: developer-readonly
+  namespace: production
+rules:
+  - apiGroups: ["", "apps", "batch"]
+    resources: ["pods", "deployments", "jobs", "services", "configmaps"]
+    verbs: ["get", "list", "watch"]
+  - apiGroups: [""]
+    resources: ["pods/log"]
+    verbs: ["get"]
+  # НЕ включаем: secrets, exec
 ```
 
 ## ServiceAccount и IRSA
 
-Каждый под использует ServiceAccount. По умолчанию — `default`, у которого в новых кластерах минимальные права. Явно отключайте автомонтирование токена там, где API не нужен:
+Каждый под использует ServiceAccount. По умолчанию токен автоматически монтируется в `/var/run/secrets/kubernetes.io/serviceaccount/token`. Для подов, которые не обращаются к Kubernetes API, это лишний вектор атаки:
 
 ```yaml
 spec:
   serviceAccountName: my-app
-  automountServiceAccountToken: false  # если pod не обращается к k8s API
+  automountServiceAccountToken: false   # отключить для большинства приложений
 ```
 
-В облаках (AWS EKS, GCP GKE) привязывайте ServiceAccount к IAM-роли (IRSA/Workload Identity) вместо хранения облачных ключей в Secrets:
+В облаках (AWS EKS, GCP GKE) вместо хранения облачных ключей в Secrets используйте IRSA (IAM Roles for Service Accounts) или Workload Identity:
 
 ```yaml
-# AWS IRSA
+# AWS IRSA: ServiceAccount привязан к IAM-роли
 apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: s3-reader
+  namespace: production
   annotations:
-    eks.amazonaws.com/role-arn: arn:aws:iam::123456789:role/s3-read-role
+    eks.amazonaws.com/role-arn: arn:aws:iam::123456789012:role/s3-read-role
 ```
+
+```yaml
+# GCP Workload Identity
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: storage-reader
+  namespace: production
+  annotations:
+    iam.gke.io/gcp-service-account: storage-reader@project.iam.gserviceaccount.com
+```
+
+Под с таким ServiceAccount получает временные облачные credentials через OIDC-токен -- без хранения ключей в кластере.
 
 ## Pod Security Standards
 
-PodSecurityPolicy устарела и удалена в Kubernetes 1.25. Замена — Pod Security Admission с тремя уровнями:
+PodSecurityPolicy устарела и удалена в Kubernetes 1.25. Замена -- Pod Security Admission с тремя уровнями, применяемыми на уровне namespace:
 
-- `privileged` — без ограничений
-- `baseline` — базовые защиты: нет privileged контейнеров, нет host network
-- `restricted` — строгий: non-root, read-only filesystem, seccomp
+- **privileged** -- без ограничений (для system namespace)
+- **baseline** -- базовые защиты: нет privileged контейнеров, нет host network/PID
+- **restricted** -- строгий: non-root, read-only filesystem, seccomp profile
 
 ```yaml
-# Применяем restricted ко всем подам в namespace
+# Применяем restricted ко всем подам в production namespace
 apiVersion: v1
 kind: Namespace
 metadata:
@@ -91,15 +150,17 @@ metadata:
   labels:
     pod-security.kubernetes.io/enforce: restricted
     pod-security.kubernetes.io/warn: restricted
+    pod-security.kubernetes.io/audit: restricted
 ```
 
-При `restricted` поды должны явно указывать контекст безопасности:
+При уровне `restricted` поды должны явно указывать securityContext:
 
 ```yaml
 spec:
   securityContext:
     runAsNonRoot: true
     runAsUser: 1000
+    runAsGroup: 1000
     fsGroup: 2000
     seccompProfile:
       type: RuntimeDefault
@@ -112,31 +173,57 @@ spec:
           drop: ["ALL"]
 ```
 
-## Secrets и шифрование
-
-По умолчанию Secrets хранятся в etcd в base64 — фактически открытым текстом. Включайте Encryption at Rest:
+Если сервис пишет временные файлы -- монтируйте tmpfs вместо разрешения записи в filesystem:
 
 ```yaml
-# kube-apiserver --encryption-provider-config
+      volumeMounts:
+        - name: tmp
+          mountPath: /tmp
+        - name: cache
+          mountPath: /app/cache
+  volumes:
+    - name: tmp
+      emptyDir: {}
+    - name: cache
+      emptyDir:
+        medium: Memory
+        sizeLimit: 100Mi
+```
+
+## Secrets и шифрование
+
+По умолчанию Kubernetes Secrets хранятся в etcd в base64 -- это кодирование, не шифрование. Кто имеет доступ к etcd, читает все секреты.
+
+**Encryption at Rest** шифрует Secrets в etcd через kube-apiserver:
+
+```yaml
+# kube-apiserver --encryption-provider-config=/etc/kubernetes/encryption.yaml
 apiVersion: apiserver.config.k8s.io/v1
 kind: EncryptionConfiguration
 resources:
-  - resources: [secrets]
+  - resources: [secrets, configmaps]
     providers:
       - aescbc:
           keys:
             - name: key1
               secret: <base64-encoded-32-byte-key>
-      - identity: {}
+      - identity: {}   # fallback для незашифрованных данных
 ```
 
-Для внешних секретов — External Secrets Operator с Vault, AWS Secrets Manager, GCP Secret Manager:
+После включения шифрования нужно пересоздать все существующие Secrets:
+
+```bash
+kubectl get secrets --all-namespaces -o json | kubectl replace -f -
+```
+
+**External Secrets Operator** -- лучшая альтернатива: хранить секреты в Vault, AWS Secrets Manager или GCP Secret Manager, а в кластере иметь только ссылки:
 
 ```yaml
 apiVersion: external-secrets.io/v1beta1
 kind: ExternalSecret
 metadata:
   name: db-credentials
+  namespace: production
 spec:
   refreshInterval: 1h
   secretStoreRef:
@@ -144,25 +231,90 @@ spec:
     kind: ClusterSecretStore
   target:
     name: db-credentials
+    creationPolicy: Owner
   data:
     - secretKey: DB_PASSWORD
       remoteRef:
         key: production/db
         property: password
+    - secretKey: DB_USERNAME
+      remoteRef:
+        key: production/db
+        property: username
 ```
 
-## Сканирование и аудит
+---
+
+Команда Алексея проводила ротацию базы данных. Старый подход: найти все deployment и вручную обновить base64-значение в каждом Secret. Новый подход с External Secrets: обновить секрет в Vault, дождаться `refreshInterval`, все Secrets в кластере обновятся автоматически. Ротация базы прошла без единого ручного изменения в Kubernetes -- только одно обновление в Vault.
+
+## Сканирование и runtime monitoring
 
 ```bash
-# kube-bench — проверка CIS Kubernetes Benchmark
+# kube-bench: проверка на соответствие CIS Kubernetes Benchmark
 kubectl apply -f https://raw.githubusercontent.com/aquasecurity/kube-bench/main/job.yaml
-kubectl logs -l app=kube-bench
+kubectl logs -l app=kube-bench | grep FAIL
 
-# Trivy operator — непрерывное сканирование образов
-kubectl apply -f https://raw.githubusercontent.com/aquasecurity/trivy-operator/main/deploy/static/trivy-operator.yaml
+# Trivy Operator: непрерывное сканирование образов на CVE
+helm install trivy-operator aquasecurity/trivy-operator \
+  --namespace trivy-system \
+  --create-namespace
 
-# Falco — runtime detection (аномальное поведение подов)
-helm install falco falcosecurity/falco --set falco.grpc.enabled=true
+# Посмотреть результаты сканирования
+kubectl get vulnerabilityreports -n production
 ```
 
-Falco перехватывает системные вызовы и алертит при аномальном поведении: pod запускает `curl`, читает `/etc/shadow`, открывает shell.
+**Falco** обнаруживает runtime-атаки через системные вызовы:
+
+```bash
+helm install falco falcosecurity/falco \
+  --namespace falco \
+  --create-namespace \
+  --set falco.grpc.enabled=true
+```
+
+Falco генерирует алерты при:
+- Запуске shell в контейнере (`kubectl exec ... bash`)
+- Чтении sensitive файлов (`/etc/shadow`, `/root/.ssh/id_rsa`)
+- Сетевых соединениях из неожиданных контейнеров
+- Повышении привилегий через `sudo`
+
+Пример custom правила Falco:
+
+```yaml
+- rule: Unexpected outbound connection from api container
+  desc: API container making unexpected outbound connection
+  condition: >
+    outbound and container.name = "api"
+    and not fd.sip in (db_allowed_ips)
+  output: "Unexpected outbound connection (container=%container.name dest=%fd.rip:%fd.rport)"
+  priority: WARNING
+```
+
+## Аудит Kubernetes API
+
+Включите audit log для отслеживания всех обращений к API:
+
+```yaml
+# kube-apiserver --audit-policy-file
+apiVersion: audit.k8s.io/v1
+kind: Policy
+rules:
+  - level: Metadata          # логировать метаданные (кто, что, когда)
+    resources:
+      - group: ""
+        resources: ["secrets"]
+  - level: Request
+    verbs: ["create", "update", "patch", "delete"]
+  - level: None              # не логировать healthcheck
+    users: ["system:serviceaccount:kube-system:*"]
+    verbs: ["get"]
+    resources:
+      - group: ""
+        resources: ["endpoints", "services"]
+```
+
+## Итог
+
+Безопасность Kubernetes -- это слои. RBAC с минимальными правами, `automountServiceAccountToken: false`, Pod Security Standards `restricted`, шифрование Secrets, регулярное сканирование образов и runtime-мониторинг через Falco. Ни один уровень не защищает от всего, но вместе они делают атаку значительно сложнее.
+
+Следующий шаг -- [управление конфигурацией Kubernetes через Helm Charts](/posts/2026/03/06-helm-charts).

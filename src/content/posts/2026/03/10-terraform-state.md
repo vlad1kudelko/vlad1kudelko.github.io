@@ -1,32 +1,45 @@
 ---
-title: "Terraform: state management — Remote state, locking"
+title: "Terraform: state management, Remote state, locking"
 description: "Управляйте Terraform: state management с Remote state, locking. Безопасное хранение состояния инфраструктуры."
 pubDate: "2026-03-10"
 ---
 
 # Terraform state: Remote state, locking
 
-State-файл Terraform — это карта между конфигурацией и реальными ресурсами в облаке. Потеря state означает, что Terraform не знает, что уже создано, и попытается создать всё заново. Хранить `terraform.tfstate` в Git — распространённая ошибка: файл содержит секреты в открытом виде, а при работе в команде конфликты неизбежны.
+Terraform state-файл -- единственное место, где хранится связь между конфигурацией и реальными облачными ресурсами. Потеря state означает, что Terraform не знает, что уже создано, и попытается создать всё заново. Хранение `terraform.tfstate` в Git -- главная ошибка новых команд: файл содержит пароли и ключи, а конфликты при командной работе неизбежны.
+
+Правильный подход -- remote backend с locking: S3 + DynamoDB для AWS, GCS для GCP, Terraform Cloud для облачного решения. Locking предотвращает одновременное применение изменений несколькими разработчиками.
+
+> **Key Takeaways**
+> - `terraform.tfstate` в Git -- опасная ошибка: файл содержит пароли в plaintext и вызывает конфликты при командной работе
+> - S3 + DynamoDB обеспечивают remote backend с locking; GCS поддерживает locking нативно
+> - `terraform state mv` переименовывает ресурсы в state без destroy/create -- обязателен при рефакторинге
+> - `terraform_remote_state` data source позволяет читать outputs одного проекта в другом
+> - Включайте `encrypt = true` в S3 backend и ограничивайте доступ через IAM -- state содержит секреты
+
+---
+
+Команда Кирилла использовала локальный `terraform.tfstate`, закоммиченный в Git. В пятницу двое разработчиков одновременно запустили `terraform apply` из разных веток. Оба не знали о параллельной операции. Один создал security group, другой его удалил в рамках рефакторинга. State разошёлся, кластер потерял сетевые правила, сервисы стали недоступны. Восстановление заняло три часа. После инцидента команда перешла на S3 backend с DynamoDB locking -- параллельное применение стало физически невозможным.
 
 ## Remote Backend
 
-Стандартное решение — хранить state удалённо с блокировкой:
+S3 + DynamoDB -- стандарт для AWS:
 
 ```hcl
-# S3 + DynamoDB (AWS)
+# backend.tf
 terraform {
   backend "s3" {
     bucket         = "my-terraform-state"
     key            = "production/app/terraform.tfstate"
     region         = "eu-central-1"
     encrypt        = true
-    dynamodb_table = "terraform-locks"  # для locking
+    dynamodb_table = "terraform-locks"   # для locking
   }
 }
 ```
 
 ```bash
-# Создать DynamoDB таблицу для locking
+# Создать DynamoDB таблицу для locking (один раз)
 aws dynamodb create-table \
   --table-name terraform-locks \
   --attribute-definitions AttributeName=LockID,AttributeType=S \
@@ -34,8 +47,9 @@ aws dynamodb create-table \
   --billing-mode PAY_PER_REQUEST
 ```
 
+Для GCP:
+
 ```hcl
-# GCS (GCP)
 terraform {
   backend "gcs" {
     bucket = "my-terraform-state"
@@ -44,14 +58,27 @@ terraform {
 }
 ```
 
-GCS поддерживает locking нативно через object versioning.
+GCS поддерживает locking нативно через object versioning -- DynamoDB не нужна.
+
+Для мультикомандной работы через Terraform Cloud:
+
+```hcl
+terraform {
+  cloud {
+    organization = "my-org"
+    workspaces {
+      name = "production-app"
+    }
+  }
+}
+```
 
 ## Workspace
 
-Workspaces позволяют хранить несколько state-файлов в одном backend — удобно для staging/production:
+Workspaces позволяют хранить несколько state-файлов в одном backend:
 
 ```bash
-# Создать workspace
+# Создать workspace для каждого окружения
 terraform workspace new staging
 terraform workspace new production
 
@@ -60,6 +87,9 @@ terraform workspace select staging
 
 # Список
 terraform workspace list
+# * default
+#   staging
+#   production
 ```
 
 В конфигурации:
@@ -72,47 +102,79 @@ locals {
     staging    = "t3.small"
     production = "m5.large"
   }
+
+  replicas = {
+    staging    = 1
+    production = 3
+  }
 }
 
 resource "aws_instance" "app" {
+  count         = local.replicas[local.env]
   instance_type = local.instance_type[local.env]
+
+  tags = {
+    Environment = local.env
+  }
 }
 ```
 
-Но workspaces имеют ограничение: все окружения используют один набор провайдеров и модулей. Для кардинально разных конфигураций лучше отдельные директории.
+Ограничение workspaces: все окружения используют один набор провайдеров и модулей. Для кардинально разных конфигураций лучше отдельные директории с разными backends.
 
 ## State operations
 
 ```bash
-# Импорт существующего ресурса в state
-terraform import aws_s3_bucket.main my-existing-bucket
-
-# Просмотр state
+# Список ресурсов в state
 terraform state list
+
+# Детали конкретного ресурса
 terraform state show aws_s3_bucket.main
 
-# Переименовать ресурс в state без пересоздания
-terraform state mv aws_s3_bucket.old_name aws_s3_bucket.new_name
+# Импорт существующего ресурса в state (без создания)
+terraform import aws_s3_bucket.main my-existing-bucket-name
 
-# Удалить из state без удаления ресурса
-terraform state rm aws_s3_bucket.main
+# Переименовать ресурс в state без пересоздания (рефакторинг)
+terraform state mv \
+  aws_s3_bucket.old_name \
+  aws_s3_bucket.new_name
 
-# Обновить state согласно реальному состоянию (без изменений)
-terraform refresh
+# Переместить в модуль
+terraform state mv \
+  aws_s3_bucket.main \
+  module.storage.aws_s3_bucket.main
+
+# Удалить из state без удаления ресурса в облаке
+terraform state rm aws_s3_bucket.legacy
 ```
 
-`terraform state mv` незаменим при рефакторинге конфигурации — позволяет переименовывать ресурсы или перемещать их в модули без destroy/create.
+`terraform state mv` незаменим при рефакторинге: переименовать ресурс или перенести в модуль без `destroy/create`. Без него Terraform удалит и пересоздаст ресурс.
+
+```bash
+# Обновить state согласно реальному состоянию облака
+terraform refresh
+
+# Планирование без изменений (dry-run)
+terraform plan -out=plan.tfplan
+
+# Применить конкретный plan файл
+terraform apply plan.tfplan
+```
+
+---
+
+Алексей рефакторил Terraform-код: выносил ресурсы в модули. Без `terraform state mv` каждое перемещение означало бы удаление и пересоздание ресурсов в облаке -- downtime баз данных и сетевых компонентов. Он последовательно переместил 40 ресурсов через `state mv`, запустил `terraform plan` и увидел `No changes`. Рефакторинг прошёл без единого удаления ресурса и без секунды downtime.
 
 ## Remote State как Data Source
 
-Один Terraform-проект может читать outputs другого через `terraform_remote_state`:
+Один Terraform-проект может читать outputs другого:
 
 ```hcl
 # networking/outputs.tf
 output "vpc_id" {
   value = aws_vpc.main.id
 }
-output "subnet_ids" {
+
+output "private_subnet_ids" {
   value = aws_subnet.private[*].id
 }
 ```
@@ -129,32 +191,77 @@ data "terraform_remote_state" "networking" {
 }
 
 resource "aws_instance" "app" {
-  subnet_id = data.terraform_remote_state.networking.outputs.subnet_ids[0]
-  vpc_security_group_ids = [aws_security_group.app.id]
+  subnet_id = data.terraform_remote_state.networking.outputs.private_subnet_ids[0]
+}
+
+resource "aws_security_group" "app" {
+  vpc_id = data.terraform_remote_state.networking.outputs.vpc_id
 }
 ```
 
+Это позволяет разбить инфраструктуру на независимые проекты: networking, databases, applications -- каждый с отдельным state. Команды работают параллельно без конфликтов.
+
 ## Шифрование state
 
-State содержит пароли, ключи API и другие секреты в plain text (base64 для некоторых провайдеров). Обязательно включайте шифрование в backend и ограничивайте доступ через IAM:
+State содержит пароли, ключи API и другие секреты в plaintext. Шифрование обязательно:
 
 ```hcl
-# S3 с принудительным шифрованием
+# S3 с KMS-шифрованием
 resource "aws_s3_bucket_server_side_encryption_configuration" "state" {
   bucket = aws_s3_bucket.state.id
   rule {
     apply_server_side_encryption_by_default {
-      sse_algorithm = "aws:kms"
+      sse_algorithm     = "aws:kms"
+      kms_master_key_id = aws_kms_key.state.arn
     }
   }
 }
 
 # Запретить публичный доступ
 resource "aws_s3_bucket_public_access_block" "state" {
-  bucket                  = aws_s3_bucket.state.id
+  bucket = aws_s3_bucket.state.id
   block_public_acls       = true
   block_public_policy     = true
   ignore_public_acls      = true
   restrict_public_buckets = true
 }
+
+# Versioning для истории изменений state
+resource "aws_s3_bucket_versioning" "state" {
+  bucket = aws_s3_bucket.state.id
+  versioning_configuration {
+    status = "Enabled"
+  }
+}
 ```
+
+Минимальный IAM-policy для CI/CD:
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": ["s3:GetObject", "s3:PutObject", "s3:DeleteObject"],
+      "Resource": "arn:aws:s3:::my-terraform-state/production/*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": ["s3:ListBucket"],
+      "Resource": "arn:aws:s3:::my-terraform-state"
+    },
+    {
+      "Effect": "Allow",
+      "Action": ["dynamodb:GetItem", "dynamodb:PutItem", "dynamodb:DeleteItem"],
+      "Resource": "arn:aws:dynamodb:*:*:table/terraform-locks"
+    }
+  ]
+}
+```
+
+## Итог
+
+Remote state с locking -- необходимость для командной работы с Terraform. S3 + DynamoDB для AWS, GCS для GCP. `terraform state mv` делает рефакторинг безопасным. `terraform_remote_state` позволяет разбить монолитный проект на независимые части без потери связности.
+
+Следующий шаг -- [Terraform модули: создание, версионирование, Terraform Registry](/posts/2026/03/11-terraform-modules).

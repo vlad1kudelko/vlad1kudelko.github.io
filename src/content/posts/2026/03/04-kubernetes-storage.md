@@ -1,20 +1,33 @@
 ---
-title: "Kubernetes: storage — PV, PVC, StorageClass"
+title: "Kubernetes: storage, PV, PVC, StorageClass"
 description: "Организуйте Kubernetes: storage с Persistent Volumes, PVC, StorageClass. Храните данные в кластере надёжно."
 pubDate: "2026-03-04"
 ---
 
 # Kubernetes storage: PV, PVC, StorageClass
 
-Контейнеры ephemeral — данные внутри исчезают при перезапуске пода. Для stateful приложений (базы данных, файловые хранилища, очереди) нужны тома, которые живут независимо от пода.
+Kubernetes управляет хранилищем через три абстракции: StorageClass описывает тип диска, PVC запрашивает нужный объём, PV -- реальный диск, который создаётся автоматически. Stateful приложения (базы данных, очереди, файловые хранилища) работают в Kubernetes именно через эту модель.
 
-## Три абстракции
+Контейнеры ephemeral: данные внутри исчезают при перезапуске пода. Для баз данных и других stateful приложений нужны тома, которые живут независимо от пода. Kubernetes предоставляет несколько уровней абстракции для этого.
 
-**PersistentVolume (PV)** — физическое хранилище: диск на ноде, NFS, облачный диск. Создаётся администратором или динамически.
+> **Key Takeaways**
+> - `StorageClass` с `WaitForFirstConsumer` создаёт диск там, где запланирован под -- критично для зональных дисков в облаке
+> - `volumeClaimTemplates` в StatefulSet автоматически создаёт отдельный PVC для каждого пода -- данные изолированы
+> - `reclaimPolicy: Retain` сохраняет диск при удалении PVC; `Delete` удаляет -- выбирайте осознанно
+> - `ReadWriteMany` для shared storage требует NFS, CephFS или EFS; обычные блочные диски поддерживают только `ReadWriteOnce`
+> - Velero делает бэкапы PV через VolumeSnapshot API -- тестируйте восстановление, а не только создание
 
-**PersistentVolumeClaim (PVC)** — запрос на хранилище от пода. Указывает размер и режим доступа.
+---
 
-**StorageClass** — шаблон для динамического создания PV. Абстрагирует тип хранилища от приложения.
+Михаил запустил PostgreSQL в Kubernetes на StatefulSet. Через три месяца пришло время обновить версию Postgres. Он удалил StatefulSet и создал новый -- и потерял все данные. PVC был создан с `reclaimPolicy: Delete` (по умолчанию), поэтому при удалении StatefulSet Kubernetes удалил и диск. 400 ГБ данных за три месяца ушли за секунды. Простое добавление `reclaimPolicy: Retain` в StorageClass -- и при следующем обновлении данные остались бы на диске, готовые к подключению нового StatefulSet.
+
+## Три абстракции хранилища
+
+**PersistentVolume (PV)** -- физическое хранилище: диск на ноде, NFS-шара, облачный диск. Создаётся администратором вручную или динамически через StorageClass.
+
+**PersistentVolumeClaim (PVC)** -- запрос на хранилище от пода. Указывает размер, тип доступа и StorageClass. Kubernetes находит подходящий PV или создаёт новый.
+
+**StorageClass** -- шаблон для динамического создания PV. Абстрагирует тип хранилища (SSD, HDD, network) от приложения.
 
 ## StorageClass и динамическое выделение
 
@@ -23,15 +36,35 @@ apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
   name: fast-ssd
-provisioner: pd.csi.storage.gke.io   # Google Persistent Disk CSI
+  annotations:
+    storageclass.kubernetes.io/is-default-class: "true"
+provisioner: pd.csi.storage.gke.io    # Google Persistent Disk CSI
 parameters:
   type: pd-ssd
-reclaimPolicy: Retain    # не удалять диск при удалении PVC
+  replication-type: regional-pd       # репликация между зонами
+reclaimPolicy: Retain                 # не удалять диск при удалении PVC
 volumeBindingMode: WaitForFirstConsumer  # создать диск там, где под
-allowVolumeExpansion: true
+allowVolumeExpansion: true            # разрешить расширение без пересоздания
 ```
 
-`WaitForFirstConsumer` откладывает создание диска до момента, когда планировщик выберет ноду для пода — важно для зональных дисков.
+`WaitForFirstConsumer` откладывает создание диска до момента, когда планировщик выберет ноду для пода. Это критично для зональных дисков: AWS EBS и GCP PD привязаны к зоне. Если PVC создаётся сразу (Immediate), диск может оказаться в другой зоне, чем под -- и под не запустится.
+
+Для AWS:
+
+```yaml
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: gp3-ssd
+provisioner: ebs.csi.aws.com
+parameters:
+  type: gp3
+  iops: "3000"
+  throughput: "125"
+reclaimPolicy: Retain
+volumeBindingMode: WaitForFirstConsumer
+allowVolumeExpansion: true
+```
 
 ## PVC и использование в поде
 
@@ -43,11 +76,13 @@ metadata:
 spec:
   storageClassName: fast-ssd
   accessModes:
-    - ReadWriteOnce    # один под на запись
+    - ReadWriteOnce   # один под на чтение/запись
   resources:
     requests:
       storage: 50Gi
----
+```
+
+```yaml
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
@@ -57,11 +92,18 @@ spec:
   selector:
     matchLabels:
       app: postgres
+  serviceName: postgres
   template:
+    metadata:
+      labels:
+        app: postgres
     spec:
       containers:
         - name: postgres
           image: postgres:16-alpine
+          env:
+            - name: PGDATA
+              value: /var/lib/postgresql/data/pgdata
           volumeMounts:
             - name: data
               mountPath: /var/lib/postgresql/data
@@ -73,13 +115,16 @@ spec:
 
 ## Режимы доступа
 
-- `ReadWriteOnce (RWO)` — монтируется для чтения/записи одним подом. Блочные диски (AWS EBS, GCP PD).
-- `ReadOnlyMany (ROX)` — много подов читают. NFS, CephFS.
-- `ReadWriteMany (RWX)` — много подов читают и пишут. NFS, CephFS, EFS. Нужен для shared storage.
+- `ReadWriteOnce (RWO)` -- монтируется для чтения/записи одним подом. Блочные диски: AWS EBS, GCP Persistent Disk.
+- `ReadOnlyMany (ROX)` -- много подов читают, никто не пишет. NFS, CephFS.
+- `ReadWriteMany (RWX)` -- много подов читают и пишут одновременно. NFS, CephFS, AWS EFS. Нужен для shared uploads, конфигурационных файлов, shared caches.
+- `ReadWriteOncePod (RWOP)` -- монтируется строго одним подом (не одной нодой). Kubernetes 1.22+.
+
+Блочные диски (AWS EBS, GCP PD) поддерживают только `ReadWriteOnce`. Если нужен `ReadWriteMany` -- используйте NFS или облачный файловый сервис.
 
 ## StatefulSet и volumeClaimTemplates
 
-StatefulSet автоматически создаёт PVC для каждого пода через `volumeClaimTemplates`:
+StatefulSet автоматически создаёт отдельный PVC для каждого пода через `volumeClaimTemplates`:
 
 ```yaml
 apiVersion: apps/v1
@@ -93,10 +138,16 @@ spec:
     matchLabels:
       app: redis
   template:
+    metadata:
+      labels:
+        app: redis
     spec:
       containers:
         - name: redis
           image: redis:7-alpine
+          command: ["redis-server", "--appendonly", "yes", "--save", "60", "1"]
+          ports:
+            - containerPort: 6379
           volumeMounts:
             - name: data
               mountPath: /data
@@ -111,21 +162,71 @@ spec:
             storage: 10Gi
 ```
 
-Каждый под (`redis-cluster-0`, `redis-cluster-1`, `redis-cluster-2`) получит свой PVC `data-redis-cluster-0` и т.д. При удалении StatefulSet PVC не удаляются — данные сохраняются.
+Каждый под (`redis-cluster-0`, `redis-cluster-1`, `redis-cluster-2`) получит свой PVC (`data-redis-cluster-0`, `data-redis-cluster-1`, `data-redis-cluster-2`). При удалении StatefulSet PVC не удаляются -- данные сохраняются. Это поведение не изменить без явного удаления PVC.
 
 ## CSI драйверы
 
-Container Storage Interface (CSI) — стандарт для подключения внешних хранилищ. Популярные CSI-драйверы:
+Container Storage Interface -- стандарт для подключения внешних хранилищ. CSI-драйверы устанавливаются как обычные Kubernetes workloads и не требуют изменений кубера:
 
-- `aws-ebs-csi-driver` — AWS EBS
-- `pd.csi.storage.gke.io` — Google Persistent Disk
-- `disk.csi.azure.com` — Azure Managed Disk
-- `rook-ceph` — Ceph в самом кластере
-- `longhorn` — распределённое хранилище на локальных дисках нод
+```bash
+# AWS EBS CSI
+helm repo add aws-ebs-csi-driver https://kubernetes-sigs.github.io/aws-ebs-csi-driver
+helm install aws-ebs-csi-driver aws-ebs-csi-driver/aws-ebs-csi-driver \
+  --namespace kube-system
 
-## Бэкапы томов
+# Longhorn (локальное распределённое хранилище)
+helm repo add longhorn https://charts.longhorn.io
+helm install longhorn longhorn/longhorn \
+  --namespace longhorn-system \
+  --create-namespace
+```
 
-Kubernetes Velero — стандартное решение для бэкапа PV:
+Популярные CSI-драйверы:
+- `ebs.csi.aws.com` -- AWS EBS
+- `pd.csi.storage.gke.io` -- Google Persistent Disk
+- `disk.csi.azure.com` -- Azure Managed Disk
+- `rook-ceph.rbd.csi.ceph.com` -- Ceph RBD в самом кластере
+- `driver.longhorn.io` -- распределённое хранилище на локальных дисках нод
+
+---
+
+Команда Натальи выбирала хранилище для staging-кластера на bare metal серверах. Облачных дисков нет, NFS-сервер нестабильный. Они установили Longhorn: он создаёт реплицированные блочные тома из локальных дисков нод. PostgreSQL получил отдельный PVC на Longhorn с двумя репликами. Когда одна нода упала для планового обслуживания, база автоматически переключилась на реплику на другой ноде. Downtime составил 30 секунд -- только время на перезапуск StatefulSet пода на новой ноде.
+
+## Volume Snapshots
+
+Kubernetes поддерживает создание снапшотов через VolumeSnapshot API:
+
+```yaml
+# Создать снапшот
+apiVersion: snapshot.storage.k8s.io/v1
+kind: VolumeSnapshot
+metadata:
+  name: postgres-snapshot-2026-03-04
+spec:
+  volumeSnapshotClassName: csi-aws-vsc
+  source:
+    persistentVolumeClaimName: postgres-data
+---
+# Восстановить PVC из снапшота
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: postgres-data-restored
+spec:
+  dataSource:
+    name: postgres-snapshot-2026-03-04
+    kind: VolumeSnapshot
+    apiGroup: snapshot.storage.k8s.io
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 50Gi
+```
+
+## Бэкапы через Velero
+
+Velero -- стандартное решение для бэкапа PV и Kubernetes-ресурсов:
 
 ```bash
 # Установка
@@ -140,8 +241,38 @@ velero backup create prod-backup \
   --include-namespaces production \
   --snapshot-volumes
 
-# Расписание
+# Расписание: каждый день в 2:00
 velero schedule create daily-backup \
   --schedule="0 2 * * *" \
-  --include-namespaces production
+  --include-namespaces production \
+  --ttl 720h    # хранить 30 дней
+
+# Проверить бэкапы
+velero backup get
+
+# Восстановление
+velero restore create --from-backup prod-backup
 ```
+
+Velero сохраняет и восстанавливает не только данные на дисках, но и все Kubernetes-объекты: Deployment, ConfigMap, Service, PVC. Тестируйте восстановление в staging регулярно -- бэкап, который никто не проверял, это ненадёжный бэкап.
+
+## Расширение томов
+
+Если в StorageClass включён `allowVolumeExpansion: true`, PVC можно расширить без пересоздания:
+
+```bash
+# Увеличить размер с 50Gi до 100Gi
+kubectl patch pvc postgres-data -p '{"spec": {"resources": {"requests": {"storage": "100Gi"}}}}'
+
+# Проверить статус расширения
+kubectl describe pvc postgres-data
+# Conditions: ...FileSystemResizePending -> ResizeFinished
+```
+
+Уменьшение тома не поддерживается -- только увеличение.
+
+## Итог
+
+Kubernetes Storage Model даёт надёжное хранилище для stateful workloads через три уровня: StorageClass определяет тип диска, PVC запрашивает ресурс, StatefulSet управляет жизненным циклом подов и томов. Ключевые моменты: `reclaimPolicy: Retain` для защиты данных, `WaitForFirstConsumer` для зональных дисков, VolumeSnapshot для быстрых бэкапов.
+
+Следующий шаг -- [безопасность Kubernetes: RBAC, Pod Security](/posts/2026/03/05-kubernetes-security).
