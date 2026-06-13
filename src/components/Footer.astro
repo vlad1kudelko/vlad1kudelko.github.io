@@ -1,16 +1,69 @@
 ---
 import { SITE_NAME, LINK_DOCS, LINK_CONTACTS, TELEGRAM_CHANNEL } from '../consts';
 
-const today = new Date();
+const year = new Date().getFullYear();
+
+const nav = [
+    { label: 'Главная',   href: '/' },
+    { label: 'Docs',      href: LINK_DOCS },
+    { label: 'Контакты',  href: LINK_CONTACTS },
+];
+
+const social = [
+    { label: 'Telegram',  href: TELEGRAM_CHANNEL },
+    { label: 'YouTube',   href: 'https://www.youtube.com/@crafthomelab' },
+    { label: 'Dzen',      href: 'https://dzen.ru/crafthomelab' },
+    { label: 'RuTube',    href: 'https://rutube.ru/channel/68763186/' },
+];
 ---
 
-<div class="bg-brand-surface">
-    <footer class="max-w-screen-xl mx-auto p-10 flex gap-4 lg:gap-0 items-center flex-col lg:flex-row justify-between text-center">
-        <a class="hover:text-gray-300 font-bold transition-colors" href="/">{SITE_NAME}</a>
-        <div class="flex gap-8 items-center text-sm font-semibold">
-            <a class="hover:text-gray-300 transition-colors" href={LINK_DOCS}>Docs</a>
-            <a class="hover:text-gray-300 transition-colors" href={LINK_CONTACTS}>Контакты</a>
-            <a class="text-brand-accent hover:opacity-80 transition-opacity" href={TELEGRAM_CHANNEL}>Telegram</a>
+<footer class="bg-brand-surface mt-16">
+    <div class="max-w-4xl mx-auto px-5 py-12 grid grid-cols-1 sm:grid-cols-3 gap-10">
+
+        <!-- Brand -->
+        <div class="sm:col-span-1">
+            <a class="flex items-center gap-3 mb-3 hover:opacity-75 transition-opacity duration-150" href="/">
+                <img class="h-8" src="/res/all/logo.webp" alt="Logo" />
+                <span class="text-lg font-extrabold text-white">{SITE_NAME}</span>
+            </a>
+            <p class="text-sm text-gray-400 leading-relaxed">
+                Практические гайды по бэкенду, DevOps и современным технологиям.
+            </p>
         </div>
-    </footer>
-</div>
+
+        <!-- Nav -->
+        <div>
+            <div class="text-xs font-bold uppercase tracking-widest text-gray-500 mb-4">Навигация</div>
+            <ul class="flex flex-col gap-2">
+                { nav.map(item => (
+                    <li>
+                        <a class="text-sm text-gray-300 hover:text-white transition-colors duration-150" href={item.href}>
+                            {item.label}
+                        </a>
+                    </li>
+                )) }
+            </ul>
+        </div>
+
+        <!-- Social -->
+        <div>
+            <div class="text-xs font-bold uppercase tracking-widest text-gray-500 mb-4">Соцсети</div>
+            <ul class="flex flex-col gap-2">
+                { social.map(item => (
+                    <li>
+                        <a class="text-sm text-gray-300 hover:text-white transition-colors duration-150" href={item.href}>
+                            {item.label}
+                        </a>
+                    </li>
+                )) }
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="border-t border-white/5">
+        <div class="max-w-4xl mx-auto px-5 py-4 text-xs text-gray-600">
+            © {year} {SITE_NAME}
+        </div>
+    </div>
+</footer>
