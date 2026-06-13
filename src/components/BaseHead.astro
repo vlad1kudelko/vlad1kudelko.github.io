@@ -5,7 +5,7 @@ import "../styles/global.css";
 interface Props {
 	title: string;
 	description: string;
-    og_image: string;
+    og_image?: string;
 }
 
 const { title, description, og_image } = Astro.props;
@@ -24,7 +24,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 <!-- Open Graph -->
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={og_image} />
+{ og_image && <meta property="og:image" content={og_image} /> }
 <meta property="og:url" content={canonicalURL} />
 <meta property="og:type" content="website" />
 

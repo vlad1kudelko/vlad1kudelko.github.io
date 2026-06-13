@@ -26,7 +26,7 @@ for (const doc of docs) {
         <div class='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 py-6'>
             { Object.values(docs_hub).map(item => (
                 <a class='flex flex-col bg-brand-card overflow-hidden hover:opacity-75 transition-opacity duration-200' href={item.url}>
-                    <img class='w-full' loading='lazy' width={800} height={400} src={item.thumb} alt={item.title} />
+                    <img class='w-full bg-brand-surface' loading='lazy' width={800} height={400} src={item.thumb} alt={item.title} />
                     <div class='p-4 flex flex-col flex-1'>
                         <h2 class='text-base font-bold text-white leading-snug mb-1'>{item.title}</h2>
                         <p class='text-xs text-gray-400 mt-auto line-clamp-2'>{item.description}</p>

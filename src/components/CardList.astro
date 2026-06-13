@@ -6,26 +6,27 @@ import type { ImageMetadata } from 'astro';
 
 interface Props {
     href: string;
-    image: ImageMetadata;
+    image?: ImageMetadata;
+    showImage?: boolean;
     title: string;
     description?: string;
     date: Date;
     tags?: string;
     reverse?: boolean;
 }
-const { href, image, title, description, date, tags, reverse = false } = Astro.props;
+const { href, image, showImage = true, title, description, date, tags, reverse = false } = Astro.props;
 ---
 
 <a class:list={['card-h flex flex-col bg-brand-card overflow-hidden hover:opacity-75 transition-opacity duration-200', reverse ? 'sm:flex-row-reverse' : 'sm:flex-row']}
    href={href} data-tags={tags}>
-    <div class='card-img relative w-full sm:w-52 shrink-0 overflow-hidden'>
-        { tags && (
-            <div class='absolute top-2 left-2 flex flex-wrap gap-1 z-10'>
-                <PostTags tags={tags} />
-            </div>
-        )}
-        <Image class='w-full h-full object-cover bg-brand-surface' loading='lazy' width={800} height={400} src={image} alt={title} />
-    </div>
+    { showImage && (
+        <div class='card-img relative w-full sm:w-52 shrink-0 overflow-hidden'>
+            { image
+                ? <Image class='w-full h-full object-cover bg-brand-surface' loading='lazy' width={800} height={400} src={image} alt={title} />
+                : <div class='w-full h-full min-h-28 bg-brand-surface' />
+            }
+        </div>
+    )}
     <div class='p-4 flex flex-col justify-center flex-1'>
         <div class='text-xs text-gray-500 mb-1 font-semibold'>{formatDate(date)}</div>
         <h2 class='text-lg font-bold text-white leading-snug mb-1'>{title}</h2>

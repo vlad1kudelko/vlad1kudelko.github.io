@@ -22,7 +22,7 @@ const json_ld = [{
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": post.data.title,
-    "image": [ post.data.heroImage.src ],
+    ...(post.data.heroImage ? { "image": [ post.data.heroImage.src ] } : {}),
     "datePublished": post.data.pubDate.toISOString(),
     "author": [{ "@type": "Person", "name": AUTHOR_NAME, "url": Astro.site }]
 }];
@@ -49,10 +49,10 @@ export async function getStaticPaths() {
 }
 ---
 
-<BaseLayout title={post.data.title} description={post.data.description} og_image={post.data.heroImage.src} ld_json={JSON.stringify(json_ld)}>
+<BaseLayout title={post.data.title} description={post.data.description} og_image={post.data.heroImage?.src} ld_json={JSON.stringify(json_ld)}>
     <div class='mx-auto max-w-3xl'>
 
-        <Image class='w-full bg-brand-surface' loading='lazy' width={800} height={400} src={post.data.heroImage} alt={post.data.title} />
+        { post.data.heroImage && <Image class='w-full bg-brand-surface' loading='lazy' width={800} height={400} src={post.data.heroImage} alt={post.data.title} /> }
 
         <BannerMini />
 
@@ -81,7 +81,10 @@ export async function getStaticPaths() {
                 <div class='grid grid-cols-2 gap-4'>
                     { post.other_pages.map(p => (
                         <a href={p.url} class='block hover:opacity-80 transition-opacity'>
-                            <Image class='w-full' loading='lazy' width={800} height={400} src={p.img} alt={p.title} />
+                            { p.img
+                                ? <Image class='w-full' loading='lazy' width={800} height={400} src={p.img} alt={p.title} />
+                                : <div class='w-full aspect-[2/1] bg-brand-surface' />
+                            }
                             <div class='text-sm text-gray-300 mt-2 leading-snug'>{p.title}</div>
                         </a>
                     )) }

@@ -68,6 +68,7 @@ for (let i = 0; i < posts.length; i += 3) {
 
     <div class='py-5 flex flex-col gap-5' id='posts'>
         {chunks.map((chunk) => {
+            const hasAnyImage = chunk.posts.some(p => !!p.data.heroImage);
             if (chunk.type === 'grid') {
                 return (
                     <div class='chunk grid grid-cols-1 sm:grid-cols-3 gap-5'>
@@ -75,6 +76,7 @@ for (let i = 0; i < posts.length; i += 3) {
                             <CardGrid
                                 href={`/posts/${post.id}/`}
                                 image={post.data.heroImage}
+                                showImage={hasAnyImage}
                                 title={post.data.title}
                                 description={post.data.description}
                                 date={post.data.pubDate}
@@ -85,11 +87,12 @@ for (let i = 0; i < posts.length; i += 3) {
                 );
             } else {
                 return (
-                    <div class='chunk flex flex-col gap-3'>
+                    <div class='chunk flex flex-col gap-5'>
                         {chunk.posts.map(post => (
                             <CardList
                                 href={`/posts/${post.id}/`}
                                 image={post.data.heroImage}
+                                showImage={hasAnyImage}
                                 title={post.data.title}
                                 description={post.data.description}
                                 date={post.data.pubDate}
