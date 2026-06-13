@@ -1,0 +1,44 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ListPosts from '../../components/ListPosts.astro';
+import Pagination from '../../components/Pagination.astro';
+
+import { INDEX_TITLE, INDEX_DESCR, INDEX_OG_IMAGE, INDEX_H1, POSTS_PER_PAGE } from '../../consts';
+
+import { getCollection } from 'astro:content';
+
+const PAGE_SIZE = 27;
+
+export async function getStaticPaths() {
+    const { POSTS_PER_PAGE } = await import('../../consts');
+    const allPosts = (await getCollection('posts')).sort(
+        (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+    );
+    const totalPages = Math.ceil(allPosts.length / POSTS_PER_PAGE);
+
+    return Array.from({ length: totalPages - 1 }, (_, i) => {
+        const page = i + 2;
+        return {
+            params: { page: String(page) },
+            props: {
+                posts: allPosts.slice((page - 1) * POSTS_PER_PAGE, page * POSTS_PER_PAGE),
+                currentPage: page,
+                totalPages,
+            },
+        };
+    });
+}
+
+const { posts, currentPage, totalPages } = Astro.props;
+---
+
+<BaseLayout
+    title={`${INDEX_TITLE} — страница ${currentPage}`}
+    description={INDEX_DESCR}
+    og_image={INDEX_OG_IMAGE}
+    ld_json="{}"
+>
+    <Pagination currentPage={currentPage} totalPages={totalPages} />
+    <ListPosts posts={posts} h1={INDEX_H1} showH1={false} />
+    <Pagination currentPage={currentPage} totalPages={totalPages} />
+</BaseLayout>

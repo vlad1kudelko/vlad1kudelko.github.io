@@ -2,15 +2,7 @@
 import CardGrid from './CardGrid.astro';
 import CardList from './CardList.astro';
 
-const { posts, h1 } = Astro.props;
-
-const tags_all: string[] = [];
-for (const post of posts) {
-    if (!post.data.tags) { continue; }
-    for (const tag of post.data.tags.split(' ')) {
-        if (!tags_all.includes(tag)) tags_all.push(tag);
-    }
-}
+const { posts, h1, showH1 = true } = Astro.props;
 
 const chunks: { posts: typeof posts; type: 'grid' | 'left' | 'right' }[] = [];
 for (let i = 0; i < posts.length; i += 3) {
@@ -20,53 +12,10 @@ for (let i = 0; i < posts.length; i += 3) {
 }
 ---
 
-<script>
-    function hideBlogs(this: HTMLElement) {
-        this.classList.toggle('bg-gray-600');
-        this.classList.toggle('bg-brand-accent');
-        const activeTags = Array.from(document.querySelectorAll('#filter > .bg-brand-accent'))
-            .map(el => el.textContent!.trim());
-        const allPosts = document.querySelectorAll<HTMLElement>('#posts [data-tags]');
-        const isFiltered = activeTags.length > 0;
-        document.querySelector('#posts')!.classList.toggle('is-filtered', isFiltered);
-        if (!isFiltered) {
-            allPosts.forEach(p => { p.style.display = ''; });
-            document.querySelector<HTMLElement>('#empty')!.style.display = '';
-            return;
-        }
-        let isEmpty = true;
-        allPosts.forEach(p => {
-            const postTags = p.getAttribute('data-tags')?.split(' ') ?? [];
-            const visible = activeTags.every(t => postTags.includes(t));
-            p.style.display = visible ? '' : 'none';
-            if (visible) isEmpty = false;
-        });
-        document.querySelector<HTMLElement>('#empty')!.style.display = isEmpty ? 'block' : '';
-    }
-    document.querySelectorAll('#filter > *').forEach(e => e.addEventListener('click', hideBlogs));
-</script>
-
-<style>
-    #posts.is-filtered .chunk {
-        display: grid !important;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 1.25rem;
-    }
-    #posts.is-filtered .card-h { flex-direction: column; }
-    #posts.is-filtered .card-h .card-img { width: 100%; height: 10rem; }
-</style>
-
-<h1 class='mx-auto max-w-4xl px-5 pt-10 pb-6 text-center text-3xl font-extrabold text-white'>{h1}</h1>
+{ showH1 && <h1 class='mx-auto max-w-4xl px-5 pt-10 pb-6 text-center text-3xl font-extrabold text-white'>{h1}</h1> }
 
 <div class='mx-auto max-w-4xl px-5'>
-    <div class='flex flex-wrap justify-center gap-3 mb-2' id='filter'>
-        { tags_all.map(tag => (
-            <div class='bg-gray-600 font-bold px-3 py-1 rounded-md cursor-pointer text-sm transition-colors duration-150 select-none'>{tag}</div>
-        )) }
-    </div>
-    <div class='py-3 text-center text-gray-400 hidden' id='empty'>Таких постов нет</div>
-
-    <div class='py-5 flex flex-col gap-5' id='posts'>
+    <div class='py-5 flex flex-col gap-5'>
         {chunks.map((chunk) => {
             const hasAnyImage = chunk.posts.some(p => !!p.data.heroImage);
             if (chunk.type === 'grid') {

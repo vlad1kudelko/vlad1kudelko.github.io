@@ -15,3 +15,5 @@ export const LINK_CONTACTS = "/contacts/";
 export const TELEGRAM_CHANNEL = "/go/telegram";
 
 export const AUTHOR_NAME = "Vlad Kudelko";
+
+export const POSTS_PER_PAGE = 27;
