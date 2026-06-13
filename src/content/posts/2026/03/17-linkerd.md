@@ -17,10 +17,6 @@ Istio -- мощный инструмент с огромным числом на
 > - Traffic splitting через SMI (Service Mesh Interface) для canary деплоя
 > - Linkerd не подходит для complex routing (header matching, JWT validation) -- там нужен Istio
 
----
-
-Никита сравнивал Istio и Linkerd для стартапа с 20 микросервисами. Istio требовал 3-4 часа настройки, документация занимала несколько дней изучения. Linkerd: установка за 10 минут, mTLS заработало сразу. Через месяц добавили canary деплой через SMI. Через три месяца команда ни разу не открыла документацию Linkerd -- всё работало как ожидалось. С Istio не проходило и недели без troubleshooting.
-
 ## Установка
 
 ```bash
@@ -150,10 +146,6 @@ linkerd viz top deploy/api -n production
 ```
 
 Grafana dashboards из Viz extension показывают golden signals (latency, traffic, errors, saturation) для всех мешированных сервисов без дополнительной конфигурации.
-
----
-
-Ксения добавила Linkerd Viz в staging кластер. Во время нагрузочного теста `linkerd viz top` показал, что один эндпоинт `/v1/reports/export` имеет p99 latency 8 секунд -- в 20 раз больше остальных. Без Linkerd это не было бы заметно -- запросы не падали, просто медленно выполнялись. Оказалось, один из разработчиков добавил синхронный SQL-запрос без индекса. Исправление заняло 10 минут. Без visibility service mesh проблему бы не нашли до жалоб пользователей.
 
 ## Multicluster
 

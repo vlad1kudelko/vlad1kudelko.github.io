@@ -17,10 +17,6 @@ Tortoise ORM -- лучший выбор для команд, которые хо
 > - Tortoise не поддерживает Python 3.12+ аннотации `Mapped[T]` -- если нужна строгая типизация, выбирайте SQLAlchemy 2.0
 > - `generate_schemas=True` только для разработки; в production используйте Aerich-миграции
 
----
-
-Стартап строил MVP API за 2 недели. Разработчик Саша раньше работал с Django, теперь делал FastAPI-проект. Попробовал SQLAlchemy 2.0 -- потратил день на настройку engine, sessionmaker, Base, async_sessionmaker, dependency injection. Переключился на Tortoise ORM: `RegisterTortoise` в startup FastAPI, модели как в Django, `await Post.create(...)` работает сразу. Первый эндпоинт с записью в БД заработал через 2 часа после начала проекта. Aerich добавил без проблем на второй день, когда понадобились реальные миграции.
-
 Если нужна поддержка строгой типизации через `Mapped[T]` или сложные подзапросы -- [посмотрите на SQLAlchemy 2.0](/posts/2026/02/24-sqlalchemy-2). Для стандартных CRUD-задач Tortoise быстрее в разработке.
 
 ## Установка и настройка
@@ -223,10 +219,6 @@ async def create_post(title: str, content: str, author_id: int):
     post = await Post.create(title=title, content=content, author_id=author_id)
     return post
 ```
-
----
-
-Команда запускала новый API для управления задачами. Написали первые 10 эндпоинтов с Tortoise ORM за 3 дня -- модели простые, запросы читаются как Django. Когда понадобился сложный аналитический запрос "пользователи с наибольшим количеством просроченных задач за последние 30 дней с группировкой по проектам" -- пришлось опуститься до raw SQL через `Tortoise.execute_query_dict()`. Не идеально, но для 1 из 50 запросов это приемлемо. Остальные 49 написаны чисто и быстро.
 
 ## Миграции с Aerich
 
