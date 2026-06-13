@@ -17,3 +17,8 @@ body {
   margin-left: auto;
   margin-right: auto;
 }
+
+img {
+  color: oklch(0.45 0.01 240);
+  font-size: 0.75rem;
+}

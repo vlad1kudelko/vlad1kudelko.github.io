@@ -52,7 +52,7 @@ export async function getStaticPaths() {
 <BaseLayout title={post.data.title} description={post.data.description} og_image={post.data.heroImage.src} ld_json={JSON.stringify(json_ld)}>
     <div class='mx-auto max-w-3xl'>
 
-        <Image class='w-full' loading='lazy' width={800} height={400} src={post.data.heroImage} alt={post.data.title} />
+        <Image class='w-full bg-brand-surface' loading='lazy' width={800} height={400} src={post.data.heroImage} alt={post.data.title} />
 
         <BannerMini />
 
