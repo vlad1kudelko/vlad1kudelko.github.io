@@ -1,7 +1,7 @@
 ---
 title: "DMARC Management в Cloudflare: как довести почтовую аутентификацию до enforcement"
 description: "Практический разбор внедрения DMARC, SPF и DKIM с централизованной видимостью, аудитом записей и безопасным переходом от мониторинга к строгой политике."
-heroImage: "../../../../assets/imgs/2026/05/2026-05-20-cloudflare-dmarc-management.png"
+heroImage: "../../../../assets/imgs/2026/05/20-cloudflare-dmarc-management.png"
 pubDate: "2026-05-20"
 ---
 

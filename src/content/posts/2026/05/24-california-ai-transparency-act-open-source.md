@@ -1,7 +1,7 @@
 ---
 title: "California AI Transparency Act и open source: где ломается прозрачность"
 description: "Почему требования к раскрытию данных об AI-системах могут конфликтовать с open source-лицензиями, SBOM-подходом и реальной цепочкой поставки моделей."
-heroImage: "../../../../assets/imgs/2026/05/2026-05-24-california-ai-transparency-act-open-source.png"
+heroImage: "../../../../assets/imgs/2026/05/24-california-ai-transparency-act-open-source.png"
 pubDate: "2026-05-24"
 ---
 

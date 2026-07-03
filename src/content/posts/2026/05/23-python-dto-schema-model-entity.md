@@ -1,7 +1,7 @@
 ---
 title: "DTO, schema, model и entity в Python: как не превратить всё в User"
 description: "Практический разбор границ между DTO, API-схемами, ORM-моделями и доменными entity в Python-приложениях."
-heroImage: "../../../../assets/imgs/2026/05/2026-05-23-python-dto-schema-model-entity.png"
+heroImage: "../../../../assets/imgs/2026/05/23-python-dto-schema-model-entity.png"
 pubDate: "2026-05-23"
 ---
 

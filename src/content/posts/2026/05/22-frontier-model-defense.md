@@ -1,7 +1,7 @@
 ---
 title: "Защита инфраструктуры от frontier-моделей: почему одной скорости патчей уже мало"
 description: "Разбираем архитектурный подход к защите сервисов от продвинутых AI-моделей: изоляция, минимизация blast radius, наблюдаемость и проверка уязвимых контуров."
-heroImage: "../../../../assets/imgs/2026/05/2026-05-22-frontier-model-defense.png"
+heroImage: "../../../../assets/imgs/2026/05/22-frontier-model-defense.png"
 pubDate: "2026-05-22"
 ---
 
