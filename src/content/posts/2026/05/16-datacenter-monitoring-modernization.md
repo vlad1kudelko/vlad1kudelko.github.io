@@ -1,7 +1,7 @@
 ---
 title: "Модернизация мониторинга ЦОД без полной замены инфраструктуры"
 description: "Как обновлять систему диспетчеризации и мониторинга инженерной инфраструктуры, сохраняя датчики, линии связи и привычные процессы эксплуатации."
-heroImage: "../../assets/imgs/2026/05/16-datacenter-monitoring-modernization.jpg"
+heroImage: "../../../../assets/imgs/2026/05/16-datacenter-monitoring-modernization.jpg"
 pubDate: "2026-05-16"
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "Как управлять AI-трафиком на сайте без полного запрета ботов"
 description: "Практический разбор правил для поисковых, агентных и обучающих AI-ботов: что стоит разрешать, что ограничивать и как не сломать обычную индексацию."
-heroImage: "../../assets/imgs/2026/05/18-cloudflare-ai-traffic-rules.png"
+heroImage: "../../../../assets/imgs/2026/05/18-cloudflare-ai-traffic-rules.png"
 pubDate: "2026-05-18"
 ---
 

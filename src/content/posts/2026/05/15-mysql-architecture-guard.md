@@ -1,7 +1,7 @@
 ---
 title: "mysql_guard: автоматическая проверка архитектуры MySQL"
 description: "Как легковесная Python-утилита может находить скрытые ошибки проектирования в живой MySQL-базе и помогать при аудите чужих проектов."
-heroImage: "../../assets/imgs/2026/05/15-mysql-architecture-guard.png"
+heroImage: "../../../../assets/imgs/2026/05/15-mysql-architecture-guard.png"
 pubDate: "2026-05-15"
 ---
 
