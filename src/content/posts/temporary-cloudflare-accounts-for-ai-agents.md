@@ -1,8 +1,8 @@
 ---
 title: "Временные аккаунты Cloudflare для AI-агентов"
 description: "Как временные аккаунты Cloudflare Workers упрощают безопасный деплой кода агентами и что это меняет для homelab, CI и быстрых прототипов."
-heroImage: "../../assets/imgs/2026/07/temporary-cloudflare-accounts-for-ai-agents.png"
-pubDate: "2026-07-03"
+heroImage: "../../assets/imgs/2026/05/19-temporary-cloudflare-accounts-for-ai-agents.png"
+pubDate: "2026-05-19"
 ---
 
 # Временные аккаунты Cloudflare для AI-агентов
