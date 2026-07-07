@@ -5,7 +5,7 @@ heroImage: "../../../../assets/imgs/2026/04/07-mlops-platform-vertical-slice.png
 pubDate: "2026-04-07"
 ---
 
-# Практический разбор: MLOps-платформа: вертикальный срез вместо бесконечного разворачивания компонентов
+# Вертикальный срез вместо бесконечного разворачивания компонентов: MLOps-платформа
 
 Построение MLOps-платформы легко превращается в бесконечный список компонентов: feature store, model registry, experiment tracking, orchestration, serving, monitoring, data quality, CI/CD, access control, templates. Всё кажется важным, всё хочется развернуть правильно, но команда может месяцами строить поверхность платформы и так и не довести ни один ML-сценарий до production.
 

@@ -6,7 +6,7 @@ pubDate: "2025-10-06"
 github: "https://github.com/meshtastic/firmware"
 ---
 
-# Практический разбор: Meshtastic Firmware: открытая прошивка для LoRa mesh сетей
+# Открытая прошивка для LoRa mesh сетей: Meshtastic Firmware
 
 Недавно наткнулся на **Meshtastic Firmware** — официальную прошивку для устройств, реализующих mesh-сети на базе LoRa.
 

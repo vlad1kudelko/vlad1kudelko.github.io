@@ -6,7 +6,7 @@ pubDate: "2025-10-01"
 github: "https://github.com/anthropics/claude-agent-sdk-python"
 ---
 
-# Практический разбор: Claude Agent SDK для Python: эффективное взаимодействие с Claude Code
+# Эффективное взаимодействие с Claude Code: Claude Agent SDK для Python
 
 ## Введение
 

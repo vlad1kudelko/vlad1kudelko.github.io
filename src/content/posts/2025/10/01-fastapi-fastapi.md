@@ -6,7 +6,7 @@ pubDate: "2025-10-01"
 github: "https://github.com/fastapi/fastapi"
 ---
 
-# Практический разбор: FastAPI: современный и быстрый фреймворк для создания API на Python
+# Современный и быстрый фреймворк для создания API на Python: FastAPI
 
 ## Основные особенности
 

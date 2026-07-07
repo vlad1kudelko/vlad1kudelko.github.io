@@ -5,7 +5,7 @@ heroImage: "../../../../assets/imgs/2026/03/22-asoc-devsecops-opensource-llm.jpg
 pubDate: "2026-03-22"
 ---
 
-# Практический разбор: ASOC своими руками: как автоматизировать DevSecOps-контроли через Open Source и LLM
+# Как автоматизировать DevSecOps-контроли через Open Source и LLM: ASOC своими руками
 
 Application Security Orchestration and Correlation, или ASOC, решает знакомую проблему: security-инструментов много, сигналов ещё больше, а разработчикам нужен понятный ответ — что чинить первым, где риск реальный, кто владелец и как это связано с конкретным сервисом.
 

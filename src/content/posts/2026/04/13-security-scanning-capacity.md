@@ -5,7 +5,7 @@ heroImage: "../../../../assets/imgs/2026/04/13-security-scanning-capacity.jpg"
 pubDate: "2026-04-13"
 ---
 
-# Практический разбор: Как масштабировать security scanning: Kafka, Postgres и API без лишнего железа
+# Kafka, Postgres и API без лишнего железа: Как масштабировать security scanning
 
 Security scanning часто выглядит как простая задача: взять цель, проверить, сохранить результат, показать пользователю. Но когда таких проверок становится тысячи в минуту, система превращается в распределённый pipeline. Узкими местами становятся Kafka consumers, Postgres queries, API limits, очередь задач и хранение результатов.
 

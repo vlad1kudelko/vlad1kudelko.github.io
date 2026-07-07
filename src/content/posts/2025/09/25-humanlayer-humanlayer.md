@@ -6,7 +6,7 @@ pubDate: "2025-09-25"
 github: "https://github.com/humanlayer/humanlayer"
 ---
 
-# Практический разбор: CodeLayer: Открытое IDE для Оркестрации AI Агентов Программирования
+# Открытое IDE для Оркестрации AI Агентов Программирования: CodeLayer
 
 ## Введение
 

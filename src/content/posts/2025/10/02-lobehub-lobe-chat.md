@@ -6,7 +6,7 @@ pubDate: "2025-10-02"
 github: "https://github.com/lobehub/lobe-chat"
 ---
 
-# Практический разбор: Lobe Chat: современный интерфейс для ChatGPT и LLM с открытым исходным кодом
+# Современный интерфейс для ChatGPT и LLM с открытым исходным кодом: Lobe Chat
 
 ## Введение
 
