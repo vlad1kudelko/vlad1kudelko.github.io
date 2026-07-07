@@ -5,7 +5,7 @@ heroImage: "../../../../assets/imgs/2026/04/01-apex-security-android-apk-analysi
 pubDate: "2026-04-01"
 ---
 
-# APEX Security и анализ APK: зачем нужен мобильный security toolbox
+# Практический разбор: APEX Security и анализ APK: зачем нужен мобильный security toolbox
 
 Android-приложение — это не просто иконка на телефоне. Внутри APK могут быть permissions, native-библиотеки, hardcoded endpoints, trackers, подозрительные строки, зашифрованные payload, сертификаты и следы поведения, которые важны для анализа безопасности. Разбирать всё вручную можно, но это долго и легко пропустить детали.
 

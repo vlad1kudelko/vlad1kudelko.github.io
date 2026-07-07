@@ -5,7 +5,7 @@ heroImage: "../../../../assets/imgs/2025/08/react-native-firebase-backend-servic
 pubDate: "2025-08-22"
 ---
 
-# React Native + Firebase: Backend as a Service
+# Практический разбор: React Native + Firebase: Backend as a Service
 
 Firebase предоставляет готовый backend-стек для мобильных приложений, позволяя сосредоточиться на разработке клиентской части. Этот BaaS (Backend as a Service) решает множество задач:
 

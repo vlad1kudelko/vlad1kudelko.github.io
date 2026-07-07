@@ -5,7 +5,7 @@ heroImage: "../../../../assets/imgs/2026/04/10-junior-devops-roadmap.png"
 pubDate: "2026-04-10"
 ---
 
-# Junior DevOps: что действительно нужно знать на старте
+# Практический разбор: Junior DevOps: что действительно нужно знать на старте
 
 DevOps часто описывают как набор инструментов: Docker, Kubernetes, Terraform, Ansible, Prometheus, GitLab CI. Из-за этого новичок пытается выучить всё сразу и быстро тонет. На практике DevOps-инженер начинается не с Kubernetes, а с понимания Linux, сетей, процессов разработки и того, как приложение живёт после `git push`.
 

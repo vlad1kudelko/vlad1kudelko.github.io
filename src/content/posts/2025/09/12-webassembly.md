@@ -5,7 +5,7 @@ heroImage: "../../../../assets/imgs/2025/09/12-webassembly.webp"
 pubDate: "2025-09-12"
 ---
 
-# WebAssembly (Wasm): Производительность на стороне клиента
+# Практический разбор: WebAssembly (Wasm): Производительность на стороне клиента
 
 ## Введение в WebAssembly
 

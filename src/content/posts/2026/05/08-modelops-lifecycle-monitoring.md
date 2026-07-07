@@ -5,7 +5,7 @@ heroImage: "../../../../assets/imgs/2026/05/08-modelops-lifecycle-monitoring.jpe
 pubDate: "2026-05-08"
 ---
 
-# ModelOps: жизненный цикл ML-модели после первого успешного deploy
+# Практический разбор: ModelOps: жизненный цикл ML-модели после первого успешного deploy
 
 ML-модель не заканчивается на deploy. После релиза начинаются monitoring, drift, обновления, rollback, отчётность и контроль качества. ModelOps описывает практики, которые превращают модель из research-артефакта в управляемый production-компонент.
 

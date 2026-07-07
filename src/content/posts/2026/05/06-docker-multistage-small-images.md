@@ -5,7 +5,7 @@ heroImage: "../../../../assets/imgs/2026/05/06-docker-multistage-small-images.pn
 pubDate: "2026-05-06"
 ---
 
-# Multi-stage Docker build: как уменьшить образ и ускорить CI/CD
+# Практический разбор: Multi-stage Docker build: как уменьшить образ и ускорить CI/CD
 
 Большой Docker image — это не только лишние мегабайты. Он медленнее собирается, дольше передаётся в registry, тормозит deploy и приносит больше CVE из ненужных системных пакетов. Multi-stage build позволяет оставить в production-образе только runtime и артефакты сборки.
 

@@ -5,7 +5,7 @@ heroImage: "../../../../assets/imgs/2025/11/25-hexagonal-architecture.webp"
 pubDate: "2025-11-25"
 ---
 
-# Hexagonal Architecture: полное руководство по Ports & Adapters
+# Практический разбор: Hexagonal Architecture: полное руководство по Ports & Adapters
 
 **Hexagonal Architecture (Гексагональная архитектура)**, также известная как **Ports & Adapters**, — это архитектурный паттерн, предложенный Алистером Кокберном в 2005 году. Основная идея — изолировать бизнес-логику (домен) от внешних зависимостей: баз данных, UI, внешних сервисов.
 

@@ -5,7 +5,7 @@ heroImage: "../../../../assets/imgs/2025/08/react-native-navigation-navigaciya.w
 pubDate: "2025-08-20"
 ---
 
-# React Native Navigation: навигация
+# Практический разбор: React Native Navigation: навигация
 
 Надёжная навигация — основа удобного мобильного приложения. В экосистеме React Native де‑факто стандарт — React Navigation. В этой статье разберём архитектуру навигации (стек, табы, drawer), типизацию маршрутов, передачу параметров, модальные экраны, deep linking, а также практические советы по производительности и UX.
 

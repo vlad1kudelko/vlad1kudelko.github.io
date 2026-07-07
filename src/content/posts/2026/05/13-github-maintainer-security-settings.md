@@ -5,7 +5,7 @@ heroImage: "../../../../assets/imgs/2026/05/13-github-maintainer-security-settin
 pubDate: "2026-05-13"
 ---
 
-# GitHub security settings для maintainer: что включить в open-source репозитории
+# Практический разбор: GitHub security settings для maintainer: что включить в open-source репозитории
 
 Open-source репозиторий — это не только код. Это supply chain: issues, pull requests, Actions, releases, tokens, dependencies и maintainers. Даже небольшой проект может стать точкой атаки, если у него есть пользователи, GitHub Actions или опубликованные packages.
 

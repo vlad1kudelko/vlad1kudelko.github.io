@@ -5,7 +5,7 @@ heroImage: "../../../../assets/imgs/2025/08/github-actions-ci-cd.webp"
 pubDate: "2025-08-26"
 ---
 
-# GitHub Actions: CI/CD
+# Практический разбор: GitHub Actions: CI/CD
 
 ## Что такое GitHub Actions
 

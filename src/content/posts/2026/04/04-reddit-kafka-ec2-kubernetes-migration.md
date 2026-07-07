@@ -5,7 +5,7 @@ heroImage: "../../../../assets/imgs/2026/04/04-reddit-kafka-ec2-kubernetes-migra
 pubDate: "2026-04-04"
 ---
 
-# Миграция Kafka с EC2 на Kubernetes: как переносить petabyte-scale без простоя
+# Практический разбор: Миграция Kafka с EC2 на Kubernetes: как переносить petabyte-scale без простоя
 
 Kafka редко бывает маленькой надолго. Если через неё проходят события продукта, аналитика, логи, ML-пайплайны и интеграции, кластер быстро становится критичной частью инфраструктуры. Перенос такой системы с виртуальных машин на Kubernetes — не обычный redeploy. Ошибка может затронуть producers, consumers, data pipelines и downstream-сервисы.
 
