@@ -41,30 +41,30 @@ class TestWithMocks(unittest.TestCase):
         """Базовый пример мока"""
         mock_obj = Mock()
         mock_obj.some_method.return_value = "mocked result"
-        
+
         result = mock_obj.some_method()
         self.assertEqual(result, "mocked result")
         mock_obj.some_method.assert_called_once()
-    
+
     def test_mock_with_arguments(self):
         """Мок с аргументами"""
         mock_func = Mock()
         mock_func.return_value = 42
-        
+
         result = mock_func("arg1", "arg2", kwarg="value")
-        
+
         self.assertEqual(result, 42)
         mock_func.assert_called_once_with("arg1", "arg2", kwarg="value")
-    
+
     def test_mock_side_effect(self):
         """Мок с побочными эффектами"""
         mock_func = Mock()
         mock_func.side_effect = [1, 2, 3]  # возвращает разные значения
-        
+
         self.assertEqual(mock_func(), 1)
         self.assertEqual(mock_func(), 2)
         self.assertEqual(mock_func(), 3)
-        
+
         # После третьего вызова возвращает StopIteration
         with self.assertRaises(StopIteration):
             mock_func()
@@ -77,13 +77,13 @@ class TestWithMocks(unittest.TestCase):
     def test_file_operations(self, mock_open):
         """Тест с патчингом встроенной функции"""
         mock_open.return_value.__enter__.return_value.read.return_value = "file content"
-        
+
         with open('test.txt') as f:
             content = f.read()
-        
+
         self.assertEqual(content, "file content")
         mock_open.assert_called_once_with('test.txt')
-    
+
     @patch('requests.get')
     def test_api_call(self, mock_get):
         """Тест API вызова с моком"""
@@ -92,14 +92,14 @@ class TestWithMocks(unittest.TestCase):
         mock_response.status_code = 200
         mock_response.json.return_value = {"status": "success", "data": [1, 2, 3]}
         mock_get.return_value = mock_response
-        
+
         # Вызываем функцию, которая делает API запрос
         result = fetch_data_from_api("https://api.example.com/data")
-        
+
         # Проверяем результат
         self.assertEqual(result["status"], "success")
         self.assertEqual(len(result["data"]), 3)
-        
+
         # Проверяем, что API был вызван с правильными параметрами
         mock_get.assert_called_once_with("https://api.example.com/data")
 ```
@@ -114,19 +114,19 @@ class TestWithMocks(unittest.TestCase):
         mock_user.name = "Test User"
         mock_user.email = "test@example.com"
         mock_user.get_info.return_value = "Test User (test@example.com)"
-        
+
         # Тестируем код, который работает с пользователем
         result = process_user_info(mock_user)
         self.assertEqual(result, "Test User (test@example.com)")
         mock_user.get_info.assert_called_once()
-    
+
     def test_mock_with_spec_error(self):
         """Тест ошибки при обращении к несуществующему атрибуту"""
         mock_user = Mock(spec=['name', 'email'])
-        
+
         # Это работает
         mock_user.name = "Test"
-        
+
         # Это вызовет AttributeError
         with self.assertRaises(AttributeError):
             mock_user.age = 25
@@ -138,30 +138,30 @@ class TestWithMocks(unittest.TestCase):
     def test_mock_advanced_features(self):
         """Продвинутые возможности моков"""
         mock = Mock()
-        
+
         # Настройка возвращаемых значений
         mock.method.return_value = "result"
-        
+
         # Настройка побочных эффектов
         mock.side_effect_func.side_effect = Exception("Database error")
-        
+
         # Настройка атрибутов
         mock.attribute = "value"
-        
+
         # Проверка вызовов
         mock.method()
         mock.method.assert_called()
         mock.method.assert_called_once()
         mock.method.assert_called_with()
-        
+
         # Проверка количества вызовов
         mock.method()
         self.assertEqual(mock.method.call_count, 2)
-        
+
         # Проверка аргументов вызова
         mock.method_with_args("arg1", kwarg="value")
         mock.method_with_args.assert_called_with("arg1", kwarg="value")
-        
+
         # Проверка, что метод не был вызван
         mock.uncalled_method.assert_not_called()
 ```
@@ -184,12 +184,12 @@ def test_with_pytest_mock(mocker):
     # Мок для requests.get
     mock_get = mocker.patch('requests.get')
     mock_get.return_value.json.return_value = {"status": "success"}
-    
+
     # Ваш код, который использует requests.get
     import requests
     response = requests.get('https://api.example.com/data')
     data = response.json()
-    
+
     assert data["status"] == "success"
     mock_get.assert_called_once_with('https://api.example.com/data')
 
@@ -198,10 +198,10 @@ def test_api_error_handling(mocker):
     # Мокаем requests.get для имитации ошибки сети
     mock_get = mocker.patch('requests.get')
     mock_get.side_effect = requests.RequestException("Network error")
-    
+
     # Тестируем функцию, которая должна обрабатывать ошибки
     result = safe_api_call("https://api.example.com/data")
-    
+
     assert result is None  # функция должна вернуть None при ошибке
 ```
 
@@ -221,7 +221,7 @@ def test_user_lookup(mock_database):
     """Тест с использованием фикстуры-мока"""
     # Ваш код, который работает с базой данных
     user = mock_database.query().filter().first()
-    
+
     assert user['name'] == 'Test User'
 
 @pytest.fixture
@@ -229,9 +229,9 @@ def mock_file_system(mocker):
     """Фикстура для мока файловой системы"""
     mock_os = mocker.patch('os.path.exists')
     mock_os.return_value = True
-    
+
     mock_open = mocker.patch('builtins.open', mocker.mock_open(read_data="file content"))
-    
+
     return {
         'exists': mock_os,
         'open': mock_open
@@ -240,7 +240,7 @@ def mock_file_system(mocker):
 def test_file_processing(mock_file_system):
     """Тест обработки файла с моком файловой системы"""
     result = process_file("test.txt")
-    
+
     assert result == "file content"
     mock_file_system['exists'].assert_called_once_with("test.txt")
     mock_file_system['open'].assert_called_once_with("test.txt", "r")
@@ -253,10 +253,10 @@ def test_context_manager_mocking(mocker):
     """Тест с использованием контекстных менеджеров"""
     with mocker.patch('requests.get') as mock_get:
         mock_get.return_value.json.return_value = {"data": "test"}
-        
+
         response = requests.get('https://api.example.com/data')
         data = response.json()
-        
+
         assert data["data"] == "test"
         mock_get.assert_called_once()
 
@@ -264,11 +264,11 @@ def test_multiple_patches(mocker):
     """Тест с несколькими патчами"""
     with mocker.patch('requests.get') as mock_get, \
          mocker.patch('time.sleep') as mock_sleep:
-        
+
         mock_get.return_value.json.return_value = {"status": "ok"}
-        
+
         result = fetch_data_with_retry("https://api.example.com/data")
-        
+
         assert result["status"] == "ok"
         mock_get.assert_called_once()
         mock_sleep.assert_called_once()
@@ -289,32 +289,32 @@ class TestDatabaseOperations:
         mock_connection = mocker.patch('database.get_connection')
         mock_cursor = Mock()
         mock_connection.return_value.cursor.return_value = mock_cursor
-        
+
         # Настраиваем мок для вставки
         mock_cursor.execute.return_value = None
         mock_cursor.fetchone.return_value = (1,)  # ID созданного пользователя
-        
+
         # Вызываем функцию создания пользователя
         user_id = create_user("John", "john@example.com")
-        
+
         # Проверяем результат
         assert user_id == 1
-        
+
         # Проверяем, что SQL был вызван с правильными параметрами
         mock_cursor.execute.assert_called_once()
         call_args = mock_cursor.execute.call_args
         assert "INSERT INTO users" in call_args[0][0]
         assert call_args[0][1] == ("John", "john@example.com")
-    
+
     def test_database_error_handling(self, mocker):
         """Тест обработки ошибок базы данных"""
         mock_connection = mocker.patch('database.get_connection')
         mock_cursor = Mock()
         mock_connection.return_value.cursor.return_value = mock_cursor
-        
+
         # Симулируем ошибку базы данных
         mock_cursor.execute.side_effect = Exception("Database connection failed")
-        
+
         # Проверяем, что функция правильно обрабатывает ошибку
         with pytest.raises(DatabaseError):
             create_user("John", "john@example.com")
@@ -335,23 +335,23 @@ class TestExternalAPI:
             "email": "test@example.com"
         }
         mock_requests.return_value = mock_response
-        
+
         result = fetch_user_from_api(123)
-        
+
         assert result["name"] == "Test User"
         assert result["email"] == "test@example.com"
         mock_requests.assert_called_once_with("https://api.example.com/users/123")
-    
+
     def test_api_timeout(self, mocker):
         """Тест таймаута API"""
         mock_requests = mocker.patch('requests.get')
         mock_requests.side_effect = requests.Timeout("Request timeout")
-        
+
         result = fetch_user_from_api(123)
-        
+
         assert result is None
         mock_requests.assert_called_once()
-    
+
     def test_api_rate_limiting(self, mocker):
         """Тест ограничения скорости API"""
         mock_requests = mocker.patch('requests.get')
@@ -359,7 +359,7 @@ class TestExternalAPI:
         mock_response.status_code = 429  # Too Many Requests
         mock_response.json.return_value = {"error": "Rate limit exceeded"}
         mock_requests.return_value = mock_response
-        
+
         with pytest.raises(RateLimitError):
             fetch_user_from_api(123)
 ```
@@ -373,27 +373,27 @@ class TestFileOperations:
         mock_open = mocker.patch('builtins.open', mocker.mock_open(read_data="file content"))
         mock_os = mocker.patch('os.path.exists')
         mock_os.return_value = True
-        
+
         content = read_file("test.txt")
-        
+
         assert content == "file content"
         mock_open.assert_called_once_with("test.txt", "r")
-    
+
     def test_file_not_found(self, mocker):
         """Тест обработки отсутствующего файла"""
         mock_os = mocker.patch('os.path.exists')
         mock_os.return_value = False
-        
+
         with pytest.raises(FileNotFoundError):
             read_file("nonexistent.txt")
-    
+
     def test_file_writing(self, mocker):
         """Тест записи в файл"""
         mock_open = mocker.mock_open()
         mocker.patch('builtins.open', mock_open)
-        
+
         write_file("test.txt", "new content")
-        
+
         mock_open.assert_called_once_with("test.txt", "w")
         mock_open().write.assert_called_once_with("new content")
 ```
@@ -410,26 +410,26 @@ class TestTimeOperations:
         # Мокаем datetime.now
         mock_datetime = mocker.patch('datetime.datetime')
         mock_datetime.now.return_value = datetime(2023, 1, 1, 12, 0, 0)
-        
+
         current_time = get_current_time()
-        
+
         assert current_time == "2023-01-01 12:00:00"
-    
+
     def test_sleep_operation(self, mocker):
         """Тест операции ожидания"""
         mock_sleep = mocker.patch('time.sleep')
-        
+
         wait_for_seconds(5)
-        
+
         mock_sleep.assert_called_once_with(5)
-    
+
     def test_timed_operation(self, mocker):
         """Тест измерения времени выполнения"""
         mock_time = mocker.patch('time.time')
         mock_time.side_effect = [100.0, 105.0]  # начало и конец
-        
+
         duration = measure_execution_time(some_function)
-        
+
         assert duration == 5.0
 ```
 
@@ -460,9 +460,9 @@ mock_user = Mock()
 def test_api_call(mocker):
     mock_get = mocker.patch('requests.get')
     mock_get.return_value.json.return_value = {"status": "ok"}
-    
+
     result = fetch_data("https://api.example.com/data")
-    
+
     # Проверяем не только результат, но и вызов
     assert result["status"] == "ok"
     mock_get.assert_called_once_with("https://api.example.com/data")
@@ -501,7 +501,7 @@ def test_specific_api_call(mock_external_api, mocker):
     """Тест с дополнительными моками"""
     # Переопределяем общий мок для конкретного теста
     mock_external_api.get_data.return_value = {"status": "error"}
-    
+
     result = handle_api_response()
     assert result is None
 ```
@@ -513,12 +513,12 @@ def test_debug_mocks(mocker):
     """Тест с отладочной информацией"""
     mock_func = mocker.patch('some_module.function')
     mock_func.return_value = "mocked"
-    
+
     # Включаем отладку
     mock_func.side_effect = lambda *args, **kwargs: print(f"Called with {args}, {kwargs}")
-    
+
     result = some_module.function("test", kwarg="value")
-    
+
     # Проверяем историю вызовов
     print(f"Call history: {mock_func.call_args_list}")
     print(f"Call count: {mock_func.call_count}")
@@ -534,7 +534,7 @@ def test_debug_mocks(mocker):
 def test_bad_mocking(mocker):
     mock_calc = mocker.patch('calculator.add')  # мокаем то, что тестируем
     mock_calc.return_value = 5
-    
+
     result = calculator.add(2, 3)  # бессмысленный тест
     assert result == 5
 ```
@@ -545,7 +545,7 @@ def test_bad_mocking(mocker):
 def test_no_assertion(mocker):
     mock_api = mocker.patch('api.call')
     mock_api.return_value = {"status": "ok"}
-    
+
     result = process_data()
     assert result["status"] == "ok"
     # НЕ проверяем, что API был вызван
@@ -572,7 +572,7 @@ def test_overcomplicated_mock(mocker):
 def test_good_mocking(mocker):
     mock_db = mocker.patch('database.connection')
     mock_db.return_value.query.return_value.filter.return_value.first.return_value = {"id": 1}
-    
+
     result = get_user_by_id(1)
     assert result["id"] == 1
     mock_db.assert_called_once()
@@ -619,10 +619,10 @@ def test_with_complex_mock(mock_database_complex):
 - Когда интеграционные тесты более подходят
 
 **Следующие шаги:**
-В следующей статье мы рассмотрим [покрытие кода и метрики качества](/posts/2025/07/python-testing-coverage-metrics) — как измерять эффективность тестов.
+В следующей статье мы рассмотрим [покрытие кода и метрики качества](/posts/2025/07/python-testing-coverage-metrics/) — как измерять эффективность тестов.
 
 **Дополнительные ресурсы:**
 - [Документация unittest.mock](https://docs.python.org/3/library/unittest.mock.html)
 - [Документация pytest-mock](https://pytest-mock.readthedocs.io/)
-- [Python Testing: Основы тестирования и unittest](/posts/2025/07/python-testing-basics-unittest)
-- [Python Testing: pytest - современный подход](/posts/2025/07/python-testing-pytest-modern-approach) 
+- [Python Testing: Основы тестирования и unittest](/posts/2025/07/python-testing-basics-unittest/)
+- [Python Testing: pytest - современный подход](/posts/2025/07/python-testing-pytest-modern-approach/)

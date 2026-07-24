@@ -68,12 +68,12 @@ class TestMathOperations(unittest.TestCase):
         """Тест сложения положительных чисел"""
         result = add(2, 3)
         self.assertEqual(result, 5)
-    
+
     def test_add_negative_numbers(self):
         """Тест сложения отрицательных чисел"""
         result = add(-1, -2)
         self.assertEqual(result, -3)
-    
+
     def test_add_zero(self):
         """Тест сложения с нулём"""
         result = add(5, 0)
@@ -114,26 +114,26 @@ class TestAssertions(unittest.TestCase):
     def test_assertions(self):
         # Проверка равенства
         self.assertEqual(2 + 2, 4)
-        
+
         # Проверка истинности
         self.assertTrue(True)
         self.assertFalse(False)
-        
+
         # Проверка на None
         self.assertIsNone(None)
         self.assertIsNotNone("не None")
-        
+
         # Проверка вхождения
         self.assertIn(1, [1, 2, 3])
         self.assertNotIn(4, [1, 2, 3])
-        
+
         # Проверка исключений
         with self.assertRaises(ValueError):
             int("не число")
-        
+
         # Проверка типов
         self.assertIsInstance("строка", str)
-        
+
         # Проверка с дельтой (для чисел с плавающей точкой)
         self.assertAlmostEqual(3.14159, 3.14, delta=0.01)
 ```
@@ -170,15 +170,15 @@ class TestWithSetup(unittest.TestCase):
         """Выполняется перед каждым тестом"""
         self.data = [1, 2, 3, 4, 5]
         print("Setup выполнен")
-    
+
     def tearDown(self):
         """Выполняется после каждого теста"""
         self.data = None
         print("Teardown выполнен")
-    
+
     def test_data_length(self):
         self.assertEqual(len(self.data), 5)
-    
+
     def test_data_sum(self):
         self.assertEqual(sum(self.data), 15)
 
@@ -187,7 +187,7 @@ class TestWithClassSetup(unittest.TestCase):
     def setUpClass(cls):
         """Выполняется один раз перед всеми тестами класса"""
         cls.shared_resource = "общий ресурс"
-    
+
     @classmethod
     def tearDownClass(cls):
         """Выполняется один раз после всех тестов класса"""
@@ -216,12 +216,12 @@ class TestDatabaseOperations(unittest.TestCase):
         """Создаём тестовую базу данных перед каждым тестом"""
         self.db = create_test_database()
         self.db.connect()
-    
+
     def tearDown(self):
         """Закрываем соединение и удаляем тестовую БД"""
         self.db.close()
         self.db.delete()
-    
+
     def test_insert_user(self):
         user = User(name="Test", email="test@example.com")
         self.db.insert(user)
@@ -293,15 +293,15 @@ myproject/
 # test_calculator.py
 class TestCalculator(unittest.TestCase):
     """Тесты для класса Calculator"""
-    
+
     def test_add_positive_numbers(self):
         """Тест сложения положительных чисел"""
         pass
-    
+
     def test_add_negative_numbers(self):
         """Тест сложения отрицательных чисел"""
         pass
-    
+
     def test_divide_by_zero_raises_error(self):
         """Тест деления на ноль должно вызывать исключение"""
         pass
@@ -309,7 +309,7 @@ class TestCalculator(unittest.TestCase):
 # test_integration.py
 class TestIntegration(unittest.TestCase):
     """Интеграционные тесты"""
-    
+
     def test_full_workflow(self):
         """Тест полного рабочего процесса"""
         pass
@@ -329,11 +329,11 @@ class TestIntegration(unittest.TestCase):
 def test_user_creation(self):
     # Arrange - подготовка данных
     user_data = {"name": "John", "email": "john@example.com"}
-    
+
     # Act - выполнение действия
     user = User(**user_data)
     result = self.db.save_user(user)
-    
+
     # Assert - проверка результатов
     self.assertIsNotNone(result.id)
     self.assertEqual(result.name, "John")
@@ -347,20 +347,20 @@ class TestExceptions(unittest.TestCase):
         """Тест обработки деления на ноль"""
         with self.assertRaises(ZeroDivisionError):
             1 / 0
-    
+
     def test_invalid_input(self):
         """Тест обработки неверного ввода"""
         with self.assertRaises(ValueError) as context:
             int("не число")
-        
+
         # Проверяем сообщение об ошибке
         self.assertIn("не число", str(context.exception))
-    
+
     def test_custom_exception(self):
         """Тест пользовательского исключения"""
         with self.assertRaises(CustomError) as context:
             raise CustomError("Пользовательская ошибка")
-        
+
         self.assertEqual(str(context.exception), "Пользовательская ошибка")
 ```
 
@@ -374,10 +374,10 @@ class TestExceptions(unittest.TestCase):
 class TestParametrized(unittest.TestCase):
     def test_add_1_2(self):
         self.assertEqual(add(1, 2), 3)
-    
+
     def test_add_0_0(self):
         self.assertEqual(add(0, 0), 0)
-    
+
     def test_add_negative(self):
         self.assertEqual(add(-1, -2), -3)
 
@@ -424,5 +424,5 @@ Unittest — это надёжный и проверенный временем 
 
 **Дополнительные ресурсы:**
 - [Документация unittest](https://docs.python.org/3/library/unittest.html)
-- [Python Testing: pytest - современный подход](/posts/2025/07/python-testing-pytest-modern-approach)
-- [Python Testing: Моки и изоляция тестов](/posts/2025/07/python-testing-mocks-isolation) 
+- [Python Testing: pytest - современный подход](/posts/2025/07/python-testing-pytest-modern-approach/)
+- [Python Testing: Моки и изоляция тестов](/posts/2025/07/python-testing-mocks-isolation/)
