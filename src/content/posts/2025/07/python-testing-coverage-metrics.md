@@ -97,7 +97,7 @@ TOTAL                      50      7    86%
 # .coveragerc
 [run]
 source = myapp
-omit = 
+omit =
     */tests/*
     */venv/*
     */migrations/*
@@ -215,24 +215,24 @@ on: [push, pull_request]
 jobs:
   test:
     runs-on: ubuntu-latest
-    
+
     steps:
     - uses: actions/checkout@v2
-    
+
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
         python-version: 3.9
-    
+
     - name: Install dependencies
       run: |
         pip install -r requirements.txt
         pip install pytest pytest-cov
-    
+
     - name: Run tests with coverage
       run: |
         pytest --cov=myapp --cov-report=xml --cov-fail-under=80
-    
+
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v1
       with:
@@ -258,10 +258,10 @@ jobs:
 def process_user_data(user_data):
     if user_data is None:
         return None  # Эта строка может быть непокрыта
-    
+
     if user_data.get('age') < 18:
         raise ValueError("User too young")  # Эта ветка может быть непокрыта
-    
+
     return user_data['name'].upper()  # Эта строка может быть непокрыта
 ```
 
@@ -305,11 +305,11 @@ def test_validate_age_boundaries():
     # Тест отрицательного возраста
     with pytest.raises(ValueError, match="Age cannot be negative"):
         validate_age(-1)
-    
+
     # Тест слишком высокого возраста
     with pytest.raises(ValueError, match="Age too high"):
         validate_age(151)
-    
+
     # Тест валидных значений
     assert validate_age(0) is True
     assert validate_age(150) is True
@@ -326,7 +326,7 @@ def test_api_error_handling():
     """Тест обработки ошибок API"""
     with patch('requests.get') as mock_get:
         mock_get.side_effect = requests.RequestException("Network error")
-        
+
         result = fetch_data_from_api("https://api.example.com/data")
         assert result is None
 ```
@@ -359,13 +359,13 @@ def test_process_data_all_branches():
     """Тест всех веток функции process_data"""
     # Ветка: data is None
     assert process_data(None) is None
-    
+
     # Ветка: len(data) == 0
     assert process_data([]) == []
-    
+
     # Ветка: len(data) > threshold
     assert process_data([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]) == [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-    
+
     # Ветка: else
     assert process_data([1, 2, 3]) == [1, 2, 3]
 ```
@@ -377,7 +377,7 @@ def test_process_data_all_branches():
 def some_function():
     if debug_mode:  # pragma: no cover
         print("Debug info")
-    
+
     # Исключение блока кода
     if __name__ == "__main__":  # pragma: no cover
         main()
@@ -441,9 +441,9 @@ def test_user_creation_with_valid_data():
         "email": "john@example.com",
         "age": 25
     }
-    
+
     user = create_user(user_data)
-    
+
     assert user.name == "John Doe"
     assert user.email == "john@example.com"
     assert user.age == 25
@@ -461,9 +461,9 @@ def test_user_creation_isolated(mocker):
     """Изолированный тест создания пользователя"""
     mock_db = mocker.patch('database.connection')
     mock_db.return_value.insert.return_value = 1
-    
+
     user_id = create_user({"name": "John"})
-    
+
     assert user_id == 1
     mock_db.assert_called_once()
 
@@ -519,13 +519,13 @@ def test_memory_usage():
     """Тест использования памяти"""
     process = psutil.Process(os.getpid())
     initial_memory = process.memory_info().rss
-    
+
     # Выполнение операции
     result = memory_intensive_operation()
-    
+
     final_memory = process.memory_info().rss
     memory_increase = final_memory - initial_memory
-    
+
     # Проверяем, что увеличение памяти не превышает лимит
     assert memory_increase < 10 * 1024 * 1024  # 10 MB
 ```
@@ -697,6 +697,6 @@ pytest --cov=myapp --cov-report=html --cov-report=term-missing tests/
 - [Документация coverage.py](https://coverage.readthedocs.io/)
 - [Документация pytest-cov](https://pytest-cov.readthedocs.io/)
 - [SonarQube](https://www.sonarqube.org/)
-- [Python Testing: Основы тестирования и unittest](/posts/2025/07/python-testing-basics-unittest)
-- [Python Testing: pytest - современный подход](/posts/2025/07/python-testing-pytest-modern-approach)
-- [Python Testing: Моки и изоляция тестов](/posts/2025/07/python-testing-mocks-isolation) 
+- [Python Testing: Основы тестирования и unittest](/posts/2025/07/python-testing-basics-unittest/)
+- [Python Testing: pytest - современный подход](/posts/2025/07/python-testing-pytest-modern-approach/)
+- [Python Testing: Моки и изоляция тестов](/posts/2025/07/python-testing-mocks-isolation/)
