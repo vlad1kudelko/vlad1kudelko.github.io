@@ -309,4 +309,4 @@ rules:
 
 Безопасность Kubernetes -- это слои. RBAC с минимальными правами, `automountServiceAccountToken: false`, Pod Security Standards `restricted`, шифрование Secrets, регулярное сканирование образов и runtime-мониторинг через Falco. Ни один уровень не защищает от всего, но вместе они делают атаку значительно сложнее.
 
-Следующий шаг -- [управление конфигурацией Kubernetes через Helm Charts](/posts/2026/03/06-helm-charts).
+Следующий шаг -- [управление конфигурацией Kubernetes через Helm Charts](/posts/2026/03/06-helm-charts/).

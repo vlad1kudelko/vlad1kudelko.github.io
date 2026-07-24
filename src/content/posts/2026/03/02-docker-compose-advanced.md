@@ -334,4 +334,4 @@ docker compose down -v
 
 Profiles, override-файлы и healthchecks превращают Compose из инструмента для запуска контейнеров в полноценный инструмент управления окружениями. Одна команда `docker compose up -d` должна работать одинаково для нового разработчика и в CI.
 
-Когда приложение вырастает за пределы одного хоста, следующий шаг -- [Kubernetes для production-оркестрации](/posts/2026/03/03-kubernetes-networking).
+Когда приложение вырастает за пределы одного хоста, следующий шаг -- [Kubernetes для production-оркестрации](/posts/2026/03/03-kubernetes-networking/).

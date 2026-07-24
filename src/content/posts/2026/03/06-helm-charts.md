@@ -274,4 +274,4 @@ helm install my-release oci://registry.example.com/charts/my-app \
 
 Helm упрощает управление сложными Kubernetes-приложениями: одна команда для установки и обновления, встроенный откат, хуки для миграций и тесты для проверки. `--atomic` в CI/CD -- не опция, а необходимость для safe deployment.
 
-Следующий шаг -- [Kustomize как альтернатива Helm для управления манифестами](/posts/2026/03/07-kustomize).
+Следующий шаг -- [Kustomize как альтернатива Helm для управления манифестами](/posts/2026/03/07-kustomize/).

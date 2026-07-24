@@ -267,4 +267,4 @@ kubectl describe pvc postgres-data
 
 Kubernetes Storage Model даёт надёжное хранилище для stateful workloads через три уровня: StorageClass определяет тип диска, PVC запрашивает ресурс, StatefulSet управляет жизненным циклом подов и томов. Ключевые моменты: `reclaimPolicy: Retain` для защиты данных, `WaitForFirstConsumer` для зональных дисков, VolumeSnapshot для быстрых бэкапов.
 
-Следующий шаг -- [безопасность Kubernetes: RBAC, Pod Security](/posts/2026/03/05-kubernetes-security).
+Следующий шаг -- [безопасность Kubernetes: RBAC, Pod Security](/posts/2026/03/05-kubernetes-security/).

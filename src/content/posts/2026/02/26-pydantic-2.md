@@ -273,4 +273,4 @@ Pydantic v2 написан на Rust через библиотеку `pydantic-c
 
 Pydantic v2 требует конкретных правок при миграции с v1, но даёт в разы лучшую производительность и более строгий API. Основные изменения несложные: переименования декораторов, `ConfigDict`, раздельная установка `pydantic-settings`. Обновление стоит усилий -- особенно если проект под нагрузкой.
 
-Следующая тема -- [Dependency injection в FastAPI: Depends, цепочки зависимостей, тестирование](/posts/2026/02/27-dependency-injection).
+Следующая тема -- [Dependency injection в FastAPI: Depends, цепочки зависимостей, тестирование](/posts/2026/02/27-dependency-injection/).

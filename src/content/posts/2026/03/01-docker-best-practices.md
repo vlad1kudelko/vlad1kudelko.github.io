@@ -146,7 +146,7 @@ ENV DB_PASSWORD=secret123
 RUN curl -H "Authorization: Bearer $API_KEY" ...
 
 # Хорошо: секрет передаётся в runtime
-# docker run -e DB_PASSWORD=... 
+# docker run -e DB_PASSWORD=...
 # или через Docker Swarm/Kubernetes Secrets
 ```
 
@@ -277,4 +277,4 @@ image: my-image@sha256:abc123...
 
 Хороший Docker-образ для продакшена строится на трёх принципах: минимальный базовый образ, правильный порядок слоёв для кэширования, и ноль секретов внутри. Multi-stage builds -- самый эффективный инструмент для уменьшения размера. BuildKit secrets решают проблему секретов при сборке без компромиссов по безопасности.
 
-Готовы запустить это в оркестрации? Следующий шаг -- [Docker Compose для локальной разработки и staging-окружений](/posts/2026/03/02-docker-compose-advanced).
+Готовы запустить это в оркестрации? Следующий шаг -- [Docker Compose для локальной разработки и staging-окружений](/posts/2026/03/02-docker-compose-advanced/).

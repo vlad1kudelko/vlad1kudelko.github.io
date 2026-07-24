@@ -208,7 +208,7 @@ git add .
 git commit -m "deploy: update my-app to $CI_SHA"
 git push
 
-# ArgoCD обнаружит изменение за ~3 минуты (polling) 
+# ArgoCD обнаружит изменение за ~3 минуты (polling)
 # или мгновенно через webhook:
 # Settings -> Repositories -> Add webhook
 ```
@@ -241,4 +241,4 @@ data:
 
 ArgoCD превращает Git в единственный источник правды для Kubernetes. `selfHeal` устраняет drift, Sync Waves решают проблему порядка применения ресурсов, история синхронизаций делает откат тривиальным. Цена -- строгий workflow: все изменения только через Git.
 
-Следующий шаг -- [Flux CD как альтернатива ArgoCD для GitOps](/posts/2026/03/09-flux-cd).
+Следующий шаг -- [Flux CD как альтернатива ArgoCD для GitOps](/posts/2026/03/09-flux-cd/).

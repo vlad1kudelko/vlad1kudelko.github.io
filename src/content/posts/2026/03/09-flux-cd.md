@@ -285,4 +285,4 @@ Flux лучше для команд, предпочитающих CLI и не н
 
 Flux разбивает GitOps на независимые компоненты: Source Controller отслеживает Git и реестры, Kustomize Controller применяет манифесты, Helm Controller управляет релизами. Image Automation автоматизирует обновление образов без участия человека. Это мощная модель для команд, которые хотят полностью автоматизировать CD-пайплайн.
 
-Следующий шаг -- [Terraform для управления инфраструктурой: state и remote backend](/posts/2026/03/10-terraform-state).
+Следующий шаг -- [Terraform для управления инфраструктурой: state и remote backend](/posts/2026/03/10-terraform-state/).

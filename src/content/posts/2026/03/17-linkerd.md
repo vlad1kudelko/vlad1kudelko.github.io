@@ -185,4 +185,4 @@ kubectl label svc api -n production mirror.linkerd.io/exported=true --context=ea
 
 Linkerd -- прагматичный выбор для команд, которым нужен service mesh без операционной сложности Istio. Rust proxy даёт минимальный overhead, mTLS из коробки, golden metrics в CLI и UI. SMI совместимость гарантирует возможность миграции, если потребности вырастут.
 
-Следующий шаг -- [Prometheus advanced: recording rules и federation](/posts/2026/03/18-prometheus-advanced).
+Следующий шаг -- [Prometheus advanced: recording rules и federation](/posts/2026/03/18-prometheus-advanced/).

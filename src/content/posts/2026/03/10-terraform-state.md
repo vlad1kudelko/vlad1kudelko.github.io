@@ -256,4 +256,4 @@ resource "aws_s3_bucket_versioning" "state" {
 
 Remote state с locking -- необходимость для командной работы с Terraform. S3 + DynamoDB для AWS, GCS для GCP. `terraform state mv` делает рефакторинг безопасным. `terraform_remote_state` позволяет разбить монолитный проект на независимые части без потери связности.
 
-Следующий шаг -- [Terraform модули: создание, версионирование, Terraform Registry](/posts/2026/03/11-terraform-modules).
+Следующий шаг -- [Terraform модули: создание, версионирование, Terraform Registry](/posts/2026/03/11-terraform-modules/).

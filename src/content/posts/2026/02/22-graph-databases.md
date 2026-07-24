@@ -174,4 +174,4 @@ for rec in recommendations:
 
 Neo4j -- специализированный инструмент для конкретного класса задач: traversal-запросы, рекомендации, цепочки связей. Если ядро продукта -- это связи между сущностями, граф-БД незаменима. Для остальных задач -- PostgreSQL и ClickHouse по-прежнему лучший выбор.
 
-Следующая тема -- [Column-oriented БД ClickHouse для аналитики](/posts/2026/02/23-column-oriented-databases).
+Следующая тема -- [Column-oriented БД ClickHouse для аналитики](/posts/2026/02/23-column-oriented-databases/).

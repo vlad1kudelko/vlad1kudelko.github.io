@@ -271,4 +271,4 @@ user_service = injector.get(UserService)
 
 FastAPI `Depends` -- элегантное и прагматичное решение для DI в API. Цепочки зависимостей читаются как декларации, тестирование через `dependency_overrides` не требует мокирования. Для сложных приложений с многоуровневыми зависимостями `dishka` добавляет structured lifecycle management.
 
-Следующая тема -- [PgBouncer и connection pooling для PostgreSQL](/posts/2026/02/28-connection-pooling-pgbouncer).
+Следующая тема -- [PgBouncer и connection pooling для PostgreSQL](/posts/2026/02/28-connection-pooling-pgbouncer/).

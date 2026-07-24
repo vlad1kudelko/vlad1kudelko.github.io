@@ -226,4 +226,4 @@ dig @127.0.0.1 -p 8600 api.service.eu-west.consul
 
 Consul решает service discovery для динамических инфраструктур: DNS-интерфейс работает без изменения кода приложений, HTTP API даёт программный доступ, KV хранилище заменяет простые feature flag системы. Consul Connect добавляет service mesh возможности для тех, кому нужен mTLS, но не хочется сложности Istio.
 
-Следующий шаг -- [Istio service mesh: mTLS, traffic management, observability](/posts/2026/03/16-istio).
+Следующий шаг -- [Istio service mesh: mTLS, traffic management, observability](/posts/2026/03/16-istio/).

@@ -327,4 +327,4 @@ kubectl get svc backend -n production -o yaml   # selector в Service
 
 Сетевая модель Kubernetes хорошо спроектирована: pod-to-pod без NAT, Service для стабильной адресации, Ingress для HTTP-маршрутизации, NetworkPolicy для изоляции. Проблемы возникают там, где эти уровни пересекаются -- знание инструментов диагностики (netshoot, `kubectl get endpoints`) решает большинство случаев за минуты.
 
-Следующий шаг после сети -- [хранение данных в Kubernetes: PersistentVolume, StorageClass](/posts/2026/03/04-kubernetes-storage).
+Следующий шаг после сети -- [хранение данных в Kubernetes: PersistentVolume, StorageClass](/posts/2026/03/04-kubernetes-storage/).
