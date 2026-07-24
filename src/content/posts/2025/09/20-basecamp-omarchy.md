@@ -6,7 +6,7 @@ pubDate: "2025-09-20"
 github: "https://github.com/basecamp/omarchy"
 ---
 
-# Omarchy: Превратите Arch в современную систему веб-разработки
+# Превратите Arch в современную систему веб-разработки: Omarchy
 
 ## Введение
 

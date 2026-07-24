@@ -5,7 +5,7 @@ heroImage: "../../../../assets/imgs/2025/08/postgresql-relational-db.webp"
 pubDate: "2025-08-29"
 ---
 
-# PostgreSQL: реляционная БД
+# Реляционная БД: PostgreSQL
 
 ## Что такое PostgreSQL
 

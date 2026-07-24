@@ -5,7 +5,7 @@ heroImage: "../../../../assets/imgs/2025/08/react-hooks-usestate-useeffect-useco
 pubDate: "2025-08-03"
 ---
 
-# React Hooks: useState, useEffect, useContext
+# UseState, useEffect, useContext: React Hooks
 
 **React Hooks** — это функции, которые позволяют использовать состояние и другие возможности React в функциональных компонентах. Hooks были представлены в React 16.8 и стали революционным изменением в подходе к разработке React приложений. Они позволяют писать более чистый, читаемый код и избегать сложностей, связанных с классовыми компонентами. В этой статье рассмотрим три основных хука: `useState`, `useEffect` и `useContext`.
 

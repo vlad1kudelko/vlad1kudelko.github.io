@@ -5,7 +5,7 @@ heroImage: "../../../../assets/imgs/2025/08/react-native-typescript-guide.webp"
 pubDate: "2025-08-23"
 ---
 
-# React Native + TypeScript: Полное руководство по типизации
+# Полное руководство по типизации: React Native + TypeScript
 
 **TypeScript** в связке с **React Native** позволяет создавать надёжные мобильные приложения с строгой типизацией. В этом руководстве рассмотрим:
 

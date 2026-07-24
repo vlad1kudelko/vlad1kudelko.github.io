@@ -5,7 +5,7 @@ heroImage: "../../../../assets/imgs/2025/08/react-styled-components-styling.webp
 pubDate: "2025-08-07"
 ---
 
-# React + Styled Components: стилизация
+# Стилизация: React + Styled Components
 
 **Styled Components** — это библиотека для CSS-in-JS, которая позволяет писать CSS код прямо в JavaScript файлах. Она предоставляет мощный и элегантный способ стилизации React компонентов, объединяя преимущества CSS и JavaScript. Styled Components позволяет создавать переиспользуемые, тематизируемые компоненты с динамическими стилями, что делает разработку более эффективной и поддерживаемой.
 

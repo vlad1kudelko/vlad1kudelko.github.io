@@ -6,7 +6,7 @@ pubDate: "2025-09-29"
 github: "https://github.com/Done-0/fuck-u-code"
 ---
 
-# Fuck-U-Code: Инструмент для Анализа Качества Кода
+# Инструмент для Анализа Качества Кода: Fuck-U-Code
 
 ## Введение
 

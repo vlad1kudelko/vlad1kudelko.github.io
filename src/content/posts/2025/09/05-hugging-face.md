@@ -5,7 +5,7 @@ heroImage: "../../../../assets/imgs/2025/09/05-hugging-face.webp"
 pubDate: "2025-09-05"
 ---
 
-# Основы обработки естественного языка (NLP) с Hugging Face Transformers
+# NLP с Hugging Face Transformers: базовые сценарии
 
 ## Введение
 

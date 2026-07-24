@@ -5,7 +5,7 @@ heroImage: "../../../../assets/imgs/2026/05/14-opensource-dependency-compliance.
 pubDate: "2026-05-14"
 ---
 
-# Open-source dependency compliance: как управлять лицензиями и рисками в больших проектах
+# Как управлять лицензиями и рисками в больших проектах: Open-source dependency compliance
 
 Современное приложение почти всегда состоит из open-source зависимостей. Прямые библиотеки видны в `package.json`, `requirements.txt` или `go.mod`, но реальный граф намного шире: transitive dependencies, build tools, Docker images, GitHub Actions, system packages. Compliance нужен, чтобы понимать, что именно используется, на каких условиях и с какими рисками.
 

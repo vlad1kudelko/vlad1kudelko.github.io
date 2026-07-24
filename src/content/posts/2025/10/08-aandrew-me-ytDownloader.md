@@ -6,7 +6,7 @@ pubDate: "2025-10-08"
 github: "https://github.com/aandrew-me/ytDownloader"
 ---
 
-# ytDownloader: видеозагрузчик с поддержкой сотен сайтов и удобным GUI
+# Видеозагрузчик с поддержкой сотен сайтов и удобным GUI: ytDownloader
 
 Основные особенности и возможности:
 

@@ -6,7 +6,7 @@ pubDate: "2025-10-03"
 github: "https://github.com/hsliuping/TradingAgents-CN"
 ---
 
-# TradingAgents-CN: продвинутая платформа для финансового анализа на основе ИИ
+# Продвинутая платформа для финансового анализа на основе ИИ: TradingAgents-CN
 
 ## Введение
 

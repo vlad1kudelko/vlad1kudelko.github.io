@@ -5,7 +5,7 @@ heroImage: "../../../../assets/imgs/2025/07/expressjs-socketio-realtime-applicat
 pubDate: "2025-07-26"
 ---
 
-# Express.js + Socket.io: real-time приложения
+# Real-time приложения: Express.js + Socket.io
 
 **Socket.io** — это библиотека для Node.js, которая обеспечивает real-time двустороннюю связь между клиентом и сервером. В связке с **Express.js** она позволяет создавать интерактивные приложения с мгновенными обновлениями: чаты, уведомления, live-дашборды и многое другое. В этой статье рассмотрим, как настроить Socket.io с Express.js, создать простой чат и реализовать различные real-time функции.
 

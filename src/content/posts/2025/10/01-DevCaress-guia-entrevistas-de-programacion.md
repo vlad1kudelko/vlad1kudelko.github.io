@@ -6,7 +6,7 @@ pubDate: "2025-10-01"
 github: "https://github.com/DevCaress/guia-entrevistas-de-programacion"
 ---
 
-# Guía для прохождения технических интервью для инженеров-программистов
+# Guía для подготовки к техническим интервью
 
 ## Введение
 

@@ -6,7 +6,7 @@ pubDate: "2025-09-29"
 github: "https://github.com/kamranahmedse/developer-roadmap"
 ---
 
-# Developer Roadmap: Путеводитель для Разработчиков
+# Путеводитель для Разработчиков: Developer Roadmap
 
 ## Введение
 

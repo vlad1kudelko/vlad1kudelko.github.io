@@ -6,7 +6,7 @@ pubDate: "2025-09-30"
 github: "https://github.com/snarktank/ai-dev-tasks"
 ---
 
-# AI Dev Tasks: Упрощение Разработки с Помощью ИИ
+# Упрощение Разработки с Помощью ИИ: AI Dev Tasks
 
 ## Введение
 
