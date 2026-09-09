@@ -12,10 +12,17 @@ for (let i = 0; i < posts.length; i += 3) {
 }
 ---
 
-{ showH1 && <h1 class='mx-auto max-w-4xl px-5 pt-10 pb-6 text-center text-3xl font-extrabold text-white'>{h1}</h1> }
+<div class='mx-auto max-w-4xl lg:max-w-7xl px-5 lg:grid lg:grid-cols-7 gap-x-5'>
 
-<div class='mx-auto max-w-4xl px-5'>
-    <div class='py-5 flex flex-col gap-5'>
+    { showH1 && <h1 class='lg:col-span-7 pt-10 pb-6 text-center text-3xl font-extrabold text-white'>{h1}</h1> }
+
+    <aside class='hidden lg:block py-5'>
+        <a class='block sticky top-5' target='_blank' rel='nofollow' href='/go/firstvds'>
+            <img class='w-full' loading='lazy' width='160' height='600' src='/promo/firstvds.jpg' alt='FirstVDS — серверы со скидкой 25% на первый месяц' />
+        </a>
+    </aside>
+
+    <div class='py-5 lg:col-span-5 flex flex-col gap-5'>
         {chunks.map((chunk) => {
             const hasAnyImage = chunk.posts.some(p => !!p.data.heroImage);
             if (chunk.type === 'grid') {
@@ -54,4 +61,7 @@ for (let i = 0; i < posts.length; i += 3) {
             }
         })}
     </div>
+
+    <aside class='hidden lg:block py-5'></aside>
+
 </div>
