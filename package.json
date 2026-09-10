@@ -17,5 +17,9 @@
     "astro": "^5.14.4",
     "sharp": "^0.34.3",
     "tailwindcss": "^4.1.14"
+  },
+  "devDependencies": {
+    "@types/js-yaml": "^4.0.9",
+    "js-yaml": "^5.4.1"
   }
 }

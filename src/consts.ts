@@ -10,7 +10,13 @@ export const DOCS_DESCR = "Тут вы найдете переведенную �
 export const DOCS_OG_IMAGE = "/res/all/thumb.webp";
 export const DOCS_H1 = "Документация к популярным библиотекам";
 
+export const AI_TITLE = "Нейросети по API: рейтинг сервисов доступа";
+export const AI_DESCR = "Сравнение сервисов доступа к нейросетям по API: способы регистрации, оплата криптой и российскими картами, генерация текста, картинок, видео и музыки.";
+export const AI_OG_IMAGE = "/res/all/thumb.webp";
+export const AI_H1 = "Нейросети по API: где взять доступ";
+
 export const LINK_DOCS = "/docs/";
+export const LINK_AI = "/ai/";
 export const LINK_CONTACTS = "/contacts/";
 export const TELEGRAM_CHANNEL = "/go/telegram";
 

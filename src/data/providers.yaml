@@ -1,0 +1,27 @@
+- id: syntx
+  name: Syntx
+  ref: https://syntx.ai/welcome/Zxi3bjdK
+  summary: Доступ к нейросетям через единый интерфейс.
+  registration: [email, google, telegram]
+  crypto: yes
+  ruCards: yes
+  genText: subscription
+  genImage: subscription
+  genVideo: subscription
+  genMusic: subscription
+  order: 1
+  lastChecked: 2026-09-10
+
+- id: openrouter
+  name: OpenRouter
+  ref: https://openrouter.ai/
+  summary: Единый API к моделям десятков провайдеров, оплата криптой и картой.
+  registration: [email, github, google, metamask]
+  crypto: yes
+  ruCards: no
+  genText: tokens
+  genImage: tokens
+  genVideo: no
+  genMusic: no
+  order: 2
+  lastChecked: 2026-09-10

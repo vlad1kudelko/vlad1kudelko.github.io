@@ -1,0 +1,129 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { AI_TITLE, AI_DESCR, AI_OG_IMAGE, AI_H1 } from '../../consts';
+import { logos } from '../../utils/logos';
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
+
+const providers = (await getCollection('providers'))
+    .sort((a, b) => a.data.order - b.data.order);
+
+const PAY: Record<string, { label: string; cls: string }> = {
+    yes: { label: 'да', cls: 'text-brand-accent bg-brand-accent/10 ring-brand-accent/25' },
+    no: { label: 'нет', cls: 'text-gray-400 ring-white/10' },
+    unknown: { label: 'не ясно', cls: 'text-amber-300 bg-amber-300/10 ring-amber-300/20' },
+};
+const GEN: Record<string, string> = {
+    subscription: 'подписка',
+    tokens: 'токены',
+    both: 'и то, и то',
+    no: '—',
+    unknown: '?',
+};
+const REG: Record<string, string> = { email: 'Email', google: 'Google', github: 'GitHub', phone: 'Телефон' };
+
+const caps = (d: (typeof providers)[number]['data']) => [
+    { label: 'Текст', v: d.genText },
+    { label: 'Картинки', v: d.genImage },
+    { label: 'Видео', v: d.genVideo },
+    { label: 'Музыка', v: d.genMusic },
+];
+
+const json_ld = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    itemListElement: providers.map((p, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        name: p.data.name,
+    })),
+});
+---
+
+<BaseLayout title={AI_TITLE} description={AI_DESCR} og_image={AI_OG_IMAGE} ld_json={json_ld}>
+    <div class='mx-auto max-w-5xl px-5 py-12'>
+        <header class='text-center'>
+            <h1 class='text-3xl sm:text-4xl font-extrabold text-white text-balance'>{AI_H1}</h1>
+            <p class='mx-auto mt-4 max-w-2xl text-gray-400 leading-relaxed text-pretty'>
+                Сервисы, через которые можно пользоваться нейросетями по API из России —
+                с оплатой криптой или картами РФ, без зарубежного номера.
+            </p>
+        </header>
+
+        { providers.length === 0 ? (
+            <p class='mt-16 rounded-xl bg-brand-card px-6 py-12 text-center text-gray-400 ring-1 ring-white/5'>
+                Список пока готовится.
+            </p>
+        ) : (
+            <div class='mt-10 grid gap-5 lg:grid-cols-2'>
+                { providers.map((p, i) => (
+                    <a
+                        href={`/go/${p.id}`}
+                        target='_blank'
+                        rel='nofollow'
+                        class='relative flex overflow-hidden rounded-xl bg-brand-card ring-1 ring-white/5 transition duration-200 hover:-translate-y-0.5 hover:ring-brand-accent/40'
+                    >
+                        <span class='ribbon'>{i + 1}</span>
+
+                        <div class='flex w-32 shrink-0 items-center justify-center bg-white'>
+                            { logos[p.id] ? (
+                                <Image src={logos[p.id]} width={288} format='webp' alt='' class='block w-full' />
+                            ) : (
+                                <span class='text-4xl font-black text-brand-bg'>{p.data.name.charAt(0)}</span>
+                            ) }
+                        </div>
+
+                        <div class='flex min-w-0 flex-1 flex-col gap-3 p-4'>
+                            <div>
+                                <h2 class='truncate pr-10 text-lg font-extrabold text-white'>{p.data.name}</h2>
+                                <p class='mt-1 line-clamp-2 text-sm leading-relaxed text-gray-400'>{p.data.summary}</p>
+                            </div>
+
+                            <div class='mt-auto flex flex-wrap gap-2'>
+                                <span class={`rounded-full px-2.5 py-1 text-xs font-semibold ring-1 ${PAY[p.data.crypto].cls}`}>
+                                    Крипта · {PAY[p.data.crypto].label}
+                                </span>
+                                <span class={`rounded-full px-2.5 py-1 text-xs font-semibold ring-1 ${PAY[p.data.ruCards].cls}`}>
+                                    Карты РФ · {PAY[p.data.ruCards].label}
+                                </span>
+                            </div>
+
+                            <p class='flex flex-wrap items-baseline gap-x-2 gap-y-1 text-sm'>
+                                <span class='text-xs font-medium text-gray-400'>Регистрация</span>
+                                <span class='text-gray-300'>{p.data.registration.map(r => REG[r]).join(' · ')}</span>
+                            </p>
+
+                            <div class='grid grid-cols-2 sm:grid-cols-4 gap-px overflow-hidden rounded-lg bg-white/5 text-center'>
+                                { caps(p.data).map(c => (
+                                    <div class='bg-brand-card px-1 py-2.5'>
+                                        <div class='text-[10px] uppercase tracking-wide text-gray-400'>{c.label}</div>
+                                        <div class={`mt-1 text-xs font-semibold ${c.v === 'no' ? 'text-gray-500' : 'text-gray-100'}`}>{GEN[c.v]}</div>
+                                    </div>
+                                )) }
+                            </div>
+                        </div>
+                    </a>
+                )) }
+            </div>
+        )}
+    </div>
+</BaseLayout>
+
+<style>
+    /* Шильдик-закладка с номером места */
+    .ribbon {
+        position: absolute;
+        top: 0;
+        right: 14px;
+        z-index: 10;
+        min-width: 1.6rem;
+        padding: 5px 6px 12px;
+        background: var(--color-brand-accent);
+        color: #fff;
+        font-size: 12px;
+        font-weight: 800;
+        line-height: 1;
+        text-align: center;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 76%, 0 100%);
+    }
+</style>
