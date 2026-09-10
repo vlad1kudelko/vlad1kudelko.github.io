@@ -20,7 +20,6 @@ const GEN: Record<string, string> = {
     no: '—',
     unknown: '?',
 };
-const REG: Record<string, string> = { email: 'Email', google: 'Google', github: 'GitHub', phone: 'Телефон' };
 
 const caps = (d: (typeof providers)[number]['data']) => [
     { label: 'Текст', v: d.genText },
@@ -90,7 +89,7 @@ const json_ld = JSON.stringify({
 
                             <p class='flex flex-wrap items-baseline gap-x-2 gap-y-1 text-sm'>
                                 <span class='text-xs font-medium text-gray-400'>Регистрация</span>
-                                <span class='text-gray-300'>{p.data.registration.map(r => REG[r]).join(' · ')}</span>
+                                <span class='text-gray-300'>{p.data.registration.join(' · ')}</span>
                             </p>
 
                             <div class='grid grid-cols-2 sm:grid-cols-4 gap-px overflow-hidden rounded-lg bg-white/5 text-center'>
