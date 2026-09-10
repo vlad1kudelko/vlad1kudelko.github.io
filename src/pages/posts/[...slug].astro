@@ -3,7 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import BannerMini from '../../components/BannerMini.astro';
 import PostTags from '../../components/PostTags.astro';
 import { formatDate } from '../../utils/format';
-import { AUTHOR_NAME } from '../../consts';
+import { AUTHOR_NAME, LINK_AI } from '../../consts';
 
 import { Image } from 'astro:assets';
 import { getCollection, render } from 'astro:content';
@@ -106,7 +106,7 @@ export async function getStaticPaths() {
         </main>
 
         <aside class='hidden lg:block py-5'>
-            <a class='block sticky top-5' target='_blank' rel='nofollow' href='#'>
+            <a class='block sticky top-5' href={LINK_AI}>
                 <img class='w-full' loading='lazy' width='160' height='428' src='/promo/ai-20260910.png' alt='AI' />
             </a>
         </aside>
