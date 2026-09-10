@@ -50,6 +50,7 @@ const providers = defineCollection({
         ])),
         crypto: z.enum(['yes', 'no', 'unknown']),
         ruCards: z.enum(['yes', 'no', 'unknown']),
+        vpn: z.boolean().default(false),
 
         genText: genStatus,
         genImage: genStatus,

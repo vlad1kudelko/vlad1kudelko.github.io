@@ -5,6 +5,7 @@
   registration: [email, google, telegram]
   crypto: yes
   ruCards: yes
+  vpn: false
   genText: subscription
   genImage: subscription
   genVideo: subscription
@@ -19,6 +20,7 @@
   registration: [email, github, google, metamask]
   crypto: yes
   ruCards: no
+  vpn: true
   genText: tokens
   genImage: tokens
   genVideo: no
