@@ -10,7 +10,7 @@
   genImage: tokens
   genVideo: no
   genMusic: no
-  order: 400
+  order: 500
   lastChecked: 2026-09-10
 
 - id: polza
@@ -31,7 +31,7 @@
 - id: rugpt
   name: ruGPT.io
   ref: https://rugpt.io?agentId=466367b5-2ad9-4d20-a20e-a9aacb5fd214
-  summary: Текст, изображения, видео, музыка и готовые проекты — всё в одном месте.
+  summary: "Текст, изображения, видео, музыка и готовые проекты — всё в одном месте."
   registration: [email, telegram, vk, yandex]
   crypto: false
   ruCards: true
@@ -40,6 +40,21 @@
   genImage: both
   genVideo: both
   genMusic: both
+  order: 400
+  lastChecked: 2026-09-11
+
+- id: study
+  name: Study.ai
+  ref: https://study24.ai?ref=ZMWQQ9K
+  summary: "Получите доступ к лучшим ИИ-сервисам без VPN. Генерация текстов, картинок, сценариев и многого другого."
+  registration: [email, vk, yandex]
+  crypto: false
+  ruCards: true
+  vpn: false
+  genText: subscription
+  genImage: subscription
+  genVideo: subscription
+  genMusic: no
   order: 300
   lastChecked: 2026-09-11
 
