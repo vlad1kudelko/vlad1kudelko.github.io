@@ -1,7 +1,22 @@
+- id: chadgpt
+  name: ChadGPT
+  ref: https://ask.chadgpt.ru/ref/d410c3e25d5a4365
+  summary: "ChatGPT на русском и другие нейросети в одном сервисе"
+  registration: [email, google, vk, yandex]
+  crypto: false
+  ruCards: true
+  vpn: false
+  genText: subscription
+  genImage: subscription
+  genVideo: subscription
+  genMusic: subscription
+  order: 250
+  lastChecked: 2026-09-11
+
 - id: openrouter
   name: OpenRouter
   ref: https://openrouter.ai/
-  summary: Единый API к моделям десятков провайдеров, оплата криптой и картой.
+  summary: "Единый API к моделям десятков провайдеров, оплата криптой и картой"
   registration: [email, github, google, metamask]
   crypto: true
   ruCards: false
@@ -16,7 +31,7 @@
 - id: polza
   name: Polza.ai
   ref: https://polza.ai/?referral=gT0JFpUDSa
-  summary: Генерируйте текст, код, изображения, видео и аудио через один API — экономьте время и деньги с оплатой по токенам.
+  summary: "Генерируйте текст, код, изображения, видео и аудио через один API — экономьте время и деньги с оплатой по токенам"
   registration: [email]
   crypto: false
   ruCards: true
@@ -31,7 +46,7 @@
 - id: rugpt
   name: ruGPT.io
   ref: https://rugpt.io?agentId=466367b5-2ad9-4d20-a20e-a9aacb5fd214
-  summary: "Текст, изображения, видео, музыка и готовые проекты — всё в одном месте."
+  summary: "Текст, изображения, видео, музыка и готовые проекты — всё в одном месте"
   registration: [email, telegram, vk, yandex]
   crypto: false
   ruCards: true
@@ -46,7 +61,7 @@
 - id: study
   name: Study.ai
   ref: https://study24.ai?ref=ZMWQQ9K
-  summary: "Получите доступ к лучшим ИИ-сервисам без VPN. Генерация текстов, картинок, сценариев и многого другого."
+  summary: "Получите доступ к лучшим ИИ-сервисам без VPN. Генерация текстов, картинок, сценариев и многого другого"
   registration: [email, vk, yandex]
   crypto: false
   ruCards: true
@@ -61,7 +76,7 @@
 - id: syntx
   name: Syntx.ai
   ref: https://syntx.ai/welcome/Zxi3bjdK
-  summary: Доступ к нейросетям через единый интерфейс.
+  summary: "Доступ к нейросетям через единый интерфейс"
   registration: [email, google, telegram]
   crypto: true
   ruCards: true
