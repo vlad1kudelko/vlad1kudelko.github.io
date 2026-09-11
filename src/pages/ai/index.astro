@@ -8,17 +8,15 @@ import { getCollection } from 'astro:content';
 const providers = (await getCollection('providers'))
     .sort((a, b) => a.data.order - b.data.order);
 
-const PAY: Record<string, { label: string; cls: string }> = {
-    yes: { label: 'да', cls: 'text-brand-accent bg-brand-accent/10 ring-brand-accent/25' },
-    no: { label: 'нет', cls: 'text-gray-400 ring-white/10' },
-    unknown: { label: 'не ясно', cls: 'text-amber-300 bg-amber-300/10 ring-amber-300/20' },
-};
+const pay = (v: boolean | null) =>
+    v === true ? { label: 'да', cls: 'text-brand-accent bg-brand-accent/10 ring-brand-accent/25' }
+    : v === false ? { label: 'нет', cls: 'text-gray-400 ring-white/10' }
+    : { label: 'не ясно', cls: 'text-amber-300 bg-amber-300/10 ring-amber-300/20' };
 const GEN: Record<string, string> = {
     subscription: 'подписка',
     tokens: 'токены',
     both: 'и то, и то',
     no: '—',
-    unknown: '?',
 };
 
 const caps = (d: (typeof providers)[number]['data']) => [
@@ -80,11 +78,11 @@ const json_ld = JSON.stringify({
                             </div>
 
                             <div class='mt-auto flex flex-wrap gap-2'>
-                                <span class={`rounded-full px-2.5 py-1 text-xs font-semibold ring-1 ${PAY[p.data.crypto].cls}`}>
-                                    Крипта · {PAY[p.data.crypto].label}
+                                <span class={`rounded-full px-2.5 py-1 text-xs font-semibold ring-1 ${pay(p.data.crypto).cls}`}>
+                                    Крипта · {pay(p.data.crypto).label}
                                 </span>
-                                <span class={`rounded-full px-2.5 py-1 text-xs font-semibold ring-1 ${PAY[p.data.ruCards].cls}`}>
-                                    Карты РФ · {PAY[p.data.ruCards].label}
+                                <span class={`rounded-full px-2.5 py-1 text-xs font-semibold ring-1 ${pay(p.data.ruCards).cls}`}>
+                                    Карты РФ · {pay(p.data.ruCards).label}
                                 </span>
                             </div>
 
@@ -97,7 +95,7 @@ const json_ld = JSON.stringify({
                                 { caps(p.data).map(c => (
                                     <div class='bg-brand-card px-1 py-2.5'>
                                         <div class='text-[10px] uppercase tracking-wide text-gray-400'>{c.label}</div>
-                                        <div class={`mt-1 text-xs font-semibold ${c.v === 'no' ? 'text-gray-500' : 'text-gray-100'}`}>{GEN[c.v]}</div>
+                                        <div class={`mt-1 text-xs font-semibold ${c.v === 'no' ? 'text-gray-500' : 'text-gray-100'}`}>{GEN[c.v ?? 'unknown'] ?? '?'}</div>
                                     </div>
                                 )) }
                             </div>

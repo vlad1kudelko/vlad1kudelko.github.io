@@ -29,8 +29,8 @@ const docs = defineCollection({
 // file()-лоадер ключует записи массива по их полю id — оно и есть slug в URL.
 const parseYaml = (text: string) => yamlLoad(text) as unknown[];
 
-// статус генерации: по подписке / по токенам / и так, и так / нельзя / не проверено
-const genStatus = z.enum(['subscription', 'tokens', 'both', 'no', 'unknown']);
+// статус генерации: по подписке / по токенам / и так, и так / нельзя / null — не проверено
+const genStatus = z.enum(['subscription', 'tokens', 'both', 'no']).nullable();
 
 const providers = defineCollection({
     loader: file('src/data/providers.yaml', { parser: parseYaml }),
@@ -47,9 +47,12 @@ const providers = defineCollection({
             'metamask',
             'phone',
             'telegram',
+            'vk',
+            'yandex',
         ])),
-        crypto: z.enum(['yes', 'no', 'unknown']),
-        ruCards: z.enum(['yes', 'no', 'unknown']),
+        // null — не проверено / не ясно
+        crypto: z.boolean().nullable(),
+        ruCards: z.boolean().nullable(),
         vpn: z.boolean().default(false),
 
         genText: genStatus,

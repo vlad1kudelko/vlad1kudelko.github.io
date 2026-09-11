@@ -3,14 +3,14 @@
   ref: https://openrouter.ai/
   summary: Единый API к моделям десятков провайдеров, оплата криптой и картой.
   registration: [email, github, google, metamask]
-  crypto: yes
-  ruCards: no
+  crypto: true
+  ruCards: false
   vpn: true
   genText: tokens
   genImage: tokens
   genVideo: no
   genMusic: no
-  order: 300
+  order: 400
   lastChecked: 2026-09-10
 
 - id: polza
@@ -18,8 +18,8 @@
   ref: https://polza.ai/?referral=gT0JFpUDSa
   summary: Генерируйте текст, код, изображения, видео и аудио через один API — экономьте время и деньги с оплатой по токенам.
   registration: [email]
-  crypto: no
-  ruCards: yes
+  crypto: false
+  ruCards: true
   vpn: false
   genText: tokens
   genImage: tokens
@@ -28,13 +28,28 @@
   order: 200
   lastChecked: 2026-09-11
 
+- id: rugpt
+  name: ruGPT.io
+  ref: https://rugpt.io?agentId=466367b5-2ad9-4d20-a20e-a9aacb5fd214
+  summary: Текст, изображения, видео, музыка и готовые проекты — всё в одном месте.
+  registration: [email, telegram, vk, yandex]
+  crypto: false
+  ruCards: true
+  vpn: false
+  genText: both
+  genImage: both
+  genVideo: both
+  genMusic: both
+  order: 300
+  lastChecked: 2026-09-11
+
 - id: syntx
   name: Syntx.ai
   ref: https://syntx.ai/welcome/Zxi3bjdK
   summary: Доступ к нейросетям через единый интерфейс.
   registration: [email, google, telegram]
-  crypto: yes
-  ruCards: yes
+  crypto: true
+  ruCards: true
   vpn: false
   genText: subscription
   genImage: subscription
