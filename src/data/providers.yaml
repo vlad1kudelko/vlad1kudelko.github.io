@@ -1,18 +1,3 @@
-- id: syntx
-  name: Syntx
-  ref: https://syntx.ai/welcome/Zxi3bjdK
-  summary: Доступ к нейросетям через единый интерфейс.
-  registration: [email, google, telegram]
-  crypto: yes
-  ruCards: yes
-  vpn: false
-  genText: subscription
-  genImage: subscription
-  genVideo: subscription
-  genMusic: subscription
-  order: 1
-  lastChecked: 2026-09-10
-
 - id: openrouter
   name: OpenRouter
   ref: https://openrouter.ai/
@@ -25,5 +10,35 @@
   genImage: tokens
   genVideo: no
   genMusic: no
-  order: 2
+  order: 300
+  lastChecked: 2026-09-10
+
+- id: polza
+  name: Polza.ai
+  ref: https://polza.ai/?referral=gT0JFpUDSa
+  summary: Генерируйте текст, код, изображения, видео и аудио через один API — экономьте время и деньги с оплатой по токенам.
+  registration: [email]
+  crypto: no
+  ruCards: yes
+  vpn: false
+  genText: tokens
+  genImage: tokens
+  genVideo: tokens
+  genMusic: tokens
+  order: 200
+  lastChecked: 2026-09-11
+
+- id: syntx
+  name: Syntx.ai
+  ref: https://syntx.ai/welcome/Zxi3bjdK
+  summary: Доступ к нейросетям через единый интерфейс.
+  registration: [email, google, telegram]
+  crypto: yes
+  ruCards: yes
+  vpn: false
+  genText: subscription
+  genImage: subscription
+  genVideo: subscription
+  genMusic: subscription
+  order: 100
   lastChecked: 2026-09-10
