@@ -11,12 +11,12 @@ const redirectHtml = (url: string) => `\
 `;
 
 export async function getStaticPaths() {
-    const [providers, hostings, links] = await Promise.all([
-        getCollection('providers'),
-        getCollection('hostings'),
+    const [aiProviders, hostingProviders, links] = await Promise.all([
+        getCollection('aiProviders'),
+        getCollection('hostingProviders'),
         getCollection('links'),
     ]);
-    return [...providers, ...hostings, ...links].map((e) => ({
+    return [...aiProviders, ...hostingProviders, ...links].map((e) => ({
         params: { id: e.id },
         props: { ref: e.data.ref },
     }));

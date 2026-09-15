@@ -44,7 +44,7 @@ const registrationMethod = z.enum([
 // статус генерации: по подписке / по токенам / и так, и так / нельзя / null — не проверено
 const genStatus = z.enum(['subscription', 'tokens', 'both', 'no']).nullable();
 
-const providers = defineCollection({
+const aiProviders = defineCollection({
     loader: file('src/data/providers.yaml', { parser: parseYaml }),
     schema: z.object({
         name: z.string(),
@@ -68,7 +68,7 @@ const providers = defineCollection({
     }),
 });
 
-const hostings = defineCollection({
+const hostingProviders = defineCollection({
     loader: file('src/data/hostings.yaml', { parser: parseYaml }),
     schema: z.object({
         name: z.string(),
@@ -103,4 +103,4 @@ const links = defineCollection({
     }),
 });
 
-export const collections = { posts, docs, providers, hostings, links };
+export const collections = { posts, docs, aiProviders, hostingProviders, links };

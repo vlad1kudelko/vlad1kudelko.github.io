@@ -5,7 +5,7 @@ import { hostingLogos } from '../../utils/logos';
 import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 
-const hostings = (await getCollection('hostings'))
+const hostings = (await getCollection('hostingProviders'))
     .sort((a, b) => a.data.order - b.data.order);
 
 const pay = (v: boolean | null) =>

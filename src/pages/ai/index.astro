@@ -5,7 +5,7 @@ import { aiLogos } from '../../utils/logos';
 import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 
-const providers = (await getCollection('providers'))
+const providers = (await getCollection('aiProviders'))
     .sort((a, b) => a.data.order - b.data.order);
 
 const pay = (v: boolean | null) =>
