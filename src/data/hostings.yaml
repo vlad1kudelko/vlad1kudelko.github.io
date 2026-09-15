@@ -1,0 +1,48 @@
+# Заполните точные данные (цены, оплата криптой) — перенесено из links.yaml как заготовка.
+- id: firstvds
+  name: FirstVDS
+  ref: https://firstvds.ru/?from=1249677
+  summary: "VPS/VDS-хостинг с быстрым разворачиванием серверов"
+  registration: [email]
+  crypto: null
+  ruCards: true
+  vpn: false
+  vps: true
+  dedicated: false
+  shared: false
+  cloud: false
+  priceFrom: null
+  order: 100
+  lastChecked: 2026-09-15
+
+- id: timeweb
+  name: Timeweb
+  ref: https://timeweb.com/ru/?i=73933
+  summary: "Хостинг и VPS для сайтов и проектов любого размера"
+  registration: [email]
+  crypto: null
+  ruCards: true
+  vpn: false
+  vps: true
+  dedicated: true
+  shared: true
+  cloud: false
+  priceFrom: null
+  order: 200
+  lastChecked: 2026-09-15
+
+- id: timeweb-cloud
+  name: Timeweb Cloud
+  ref: https://timeweb.cloud/?i=73933
+  summary: "Облачная платформа: VPS, managed-сервисы, S3-хранилище"
+  registration: [email]
+  crypto: null
+  ruCards: true
+  vpn: false
+  vps: true
+  dedicated: false
+  shared: false
+  cloud: true
+  priceFrom: null
+  order: 300
+  lastChecked: 2026-09-15

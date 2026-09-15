@@ -15,8 +15,14 @@ export const AI_DESCR = "Сравнение агрегаторов нейрос�
 export const AI_OG_IMAGE = "/res/all/thumb.webp";
 export const AI_H1 = "Нейросети по API: сравнение сервисов";
 
+export const HOSTING_TITLE = "Хостинг и VPS: рейтинг провайдеров";
+export const HOSTING_DESCR = "Сравнение хостинг-провайдеров и VPS для самостоятельного хостинга: типы серверов, оплата криптой и российскими картами.";
+export const HOSTING_OG_IMAGE = "/res/all/thumb.webp";
+export const HOSTING_H1 = "Хостинг и VPS: сравнение провайдеров";
+
 export const LINK_DOCS = "/docs/";
 export const LINK_AI = "/ai/";
+export const LINK_HOSTING = "/hosting/";
 export const LINK_CONTACTS = "/contacts/";
 export const TELEGRAM_CHANNEL = "/go/telegram";
 

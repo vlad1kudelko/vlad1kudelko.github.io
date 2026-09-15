@@ -29,6 +29,18 @@ const docs = defineCollection({
 // file()-лоадер ключует записи массива по их полю id — оно и есть slug в URL.
 const parseYaml = (text: string) => yamlLoad(text) as unknown[];
 
+// способ регистрации в сервисе, общий для провайдеров нейросетей и хостингов
+const registrationMethod = z.enum([
+    'email',
+    'github',
+    'google',
+    'metamask',
+    'phone',
+    'telegram',
+    'vk',
+    'yandex',
+]);
+
 // статус генерации: по подписке / по токенам / и так, и так / нельзя / null — не проверено
 const genStatus = z.enum(['subscription', 'tokens', 'both', 'no']).nullable();
 
@@ -40,16 +52,7 @@ const providers = defineCollection({
         summary: z.string(),
         // логотип не в схеме: файл src/assets/ai/<id>.{png,jpg,webp} подхватывается по id
 
-        registration: z.array(z.enum([
-            'email',
-            'github',
-            'google',
-            'metamask',
-            'phone',
-            'telegram',
-            'vk',
-            'yandex',
-        ])),
+        registration: z.array(registrationMethod),
         // null — не проверено / не ясно
         crypto: z.boolean().nullable(),
         ruCards: z.boolean().nullable(),
@@ -65,6 +68,33 @@ const providers = defineCollection({
     }),
 });
 
+const hostings = defineCollection({
+    loader: file('src/data/hostings.yaml', { parser: parseYaml }),
+    schema: z.object({
+        name: z.string(),
+        ref: z.string().url(),
+        summary: z.string(),
+        // логотип не в схеме: файл src/assets/hosting/<id>.{png,jpg,webp} подхватывается по id
+
+        registration: z.array(registrationMethod),
+        // null — не проверено / не ясно
+        crypto: z.boolean().nullable(),
+        ruCards: z.boolean().nullable(),
+        vpn: z.boolean().default(false),
+
+        vps: z.boolean().default(false),
+        dedicated: z.boolean().default(false),
+        shared: z.boolean().default(false),
+        cloud: z.boolean().default(false),
+
+        // цена за месяц в рублях, null — не указана
+        priceFrom: z.number().nullable(),
+
+        order: z.number(),
+        lastChecked: z.coerce.date(),
+    }),
+});
+
 // Простые редиректы /go/<id>, вынесены из public/go/*.html
 const links = defineCollection({
     loader: file('src/data/links.yaml', { parser: parseYaml }),
@@ -73,4 +103,4 @@ const links = defineCollection({
     }),
 });
 
-export const collections = { posts, docs, providers, links };
+export const collections = { posts, docs, providers, hostings, links };

@@ -1,101 +1,98 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { AI_TITLE, AI_DESCR, AI_OG_IMAGE, AI_H1 } from '../../consts';
-import { aiLogos } from '../../utils/logos';
+import { HOSTING_TITLE, HOSTING_DESCR, HOSTING_OG_IMAGE, HOSTING_H1 } from '../../consts';
+import { hostingLogos } from '../../utils/logos';
 import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 
-const providers = (await getCollection('providers'))
+const hostings = (await getCollection('hostings'))
     .sort((a, b) => a.data.order - b.data.order);
 
 const pay = (v: boolean | null) =>
     v === true ? { label: 'да', cls: 'text-brand-accent bg-brand-accent/10 ring-brand-accent/25' }
     : v === false ? { label: 'нет', cls: 'text-gray-400 ring-white/10' }
     : { label: 'не ясно', cls: 'text-amber-300 bg-amber-300/10 ring-amber-300/20' };
-const GEN: Record<string, string> = {
-    subscription: 'подписка',
-    tokens: 'токены',
-    both: 'sub/tok',
-    no: '—',
-};
 
-const caps = (d: (typeof providers)[number]['data']) => [
-    { label: 'Текст', v: d.genText },
-    { label: 'Картинки', v: d.genImage },
-    { label: 'Видео', v: d.genVideo },
-    { label: 'Музыка', v: d.genMusic },
+const caps = (d: (typeof hostings)[number]['data']) => [
+    { label: 'VPS', v: d.vps },
+    { label: 'Выделенный', v: d.dedicated },
+    { label: 'Шаред', v: d.shared },
+    { label: 'Облако', v: d.cloud },
 ];
+
+const price = (v: number | null) =>
+    v === null ? 'цена не указана' : `от ${v.toLocaleString('ru-RU')} ₽/мес`;
 
 const json_ld = JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    itemListElement: providers.map((p, i) => ({
+    itemListElement: hostings.map((h, i) => ({
         '@type': 'ListItem',
         position: i + 1,
-        name: p.data.name,
+        name: h.data.name,
     })),
 });
 ---
 
-<BaseLayout title={AI_TITLE} description={AI_DESCR} og_image={AI_OG_IMAGE} ld_json={json_ld}>
+<BaseLayout title={HOSTING_TITLE} description={HOSTING_DESCR} og_image={HOSTING_OG_IMAGE} ld_json={json_ld}>
     <div class='mx-auto max-w-5xl px-5 py-12'>
         <header class='text-center'>
-            <h1 class='text-3xl sm:text-4xl font-extrabold text-white text-balance'>{AI_H1}</h1>
+            <h1 class='text-3xl sm:text-4xl font-extrabold text-white text-balance'>{HOSTING_H1}</h1>
             <p class='mx-auto mt-4 max-w-2xl text-gray-400 leading-relaxed text-pretty'>
-                Сервисы, через которые можно пользоваться нейросетями по API из России —
-                с оплатой криптой или картами РФ, без зарубежного номера.
+                Хостинги и VPS для самостоятельного размещения проектов —
+                с оплатой криптой или картами РФ, разные типы серверов.
             </p>
         </header>
 
-        { providers.length === 0 ? (
+        { hostings.length === 0 ? (
             <p class='mt-16 rounded-xl bg-brand-card px-6 py-12 text-center text-gray-400 ring-1 ring-white/5'>
                 Список пока готовится.
             </p>
         ) : (
             <div class='mt-10 grid gap-5 lg:grid-cols-2'>
-                { providers.map((p, i) => (
+                { hostings.map((h, i) => (
                     <a
-                        href={`/go/${p.id}`}
+                        href={`/go/${h.id}`}
                         target='_blank'
                         rel='nofollow'
                         class='relative flex overflow-hidden rounded-xl bg-brand-card ring-1 ring-white/5 transition duration-200 hover:-translate-y-0.5 hover:ring-brand-accent/40'
                     >
-                        { p.data.vpn && <span class='ribbon-vpn'>недоступен</span> }
+                        { h.data.vpn && <span class='ribbon-vpn'>недоступен</span> }
                         <span class='ribbon'>{i + 1}</span>
 
                         <div class='flex w-32 shrink-0 items-center justify-center bg-white'>
-                            { aiLogos[p.id] ? (
-                                <Image src={aiLogos[p.id]} width={288} format='webp' alt='' class='block w-full' />
+                            { hostingLogos[h.id] ? (
+                                <Image src={hostingLogos[h.id]} width={288} format='webp' alt='' class='block w-full' />
                             ) : (
-                                <span class='text-4xl font-black text-brand-bg'>{p.data.name.charAt(0)}</span>
+                                <span class='text-4xl font-black text-brand-bg'>{h.data.name.charAt(0)}</span>
                             ) }
                         </div>
 
                         <div class='flex min-w-0 flex-1 flex-col gap-3 p-4'>
                             <div>
-                                <h2 class='truncate pr-10 text-lg font-extrabold text-white'>{p.data.name}</h2>
-                                <p class='mt-1 line-clamp-2 text-sm leading-relaxed text-gray-400'>{p.data.summary}</p>
+                                <h2 class='truncate pr-10 text-lg font-extrabold text-white'>{h.data.name}</h2>
+                                <p class='mt-1 line-clamp-2 text-sm leading-relaxed text-gray-400'>{h.data.summary}</p>
                             </div>
 
                             <div class='mt-auto flex flex-wrap gap-2'>
-                                <span class={`rounded-full px-2.5 py-1 text-xs font-semibold ring-1 ${pay(p.data.crypto).cls}`}>
-                                    Крипта · {pay(p.data.crypto).label}
+                                <span class={`rounded-full px-2.5 py-1 text-xs font-semibold ring-1 ${pay(h.data.crypto).cls}`}>
+                                    Крипта · {pay(h.data.crypto).label}
                                 </span>
-                                <span class={`rounded-full px-2.5 py-1 text-xs font-semibold ring-1 ${pay(p.data.ruCards).cls}`}>
-                                    Карты РФ · {pay(p.data.ruCards).label}
+                                <span class={`rounded-full px-2.5 py-1 text-xs font-semibold ring-1 ${pay(h.data.ruCards).cls}`}>
+                                    Карты РФ · {pay(h.data.ruCards).label}
                                 </span>
                             </div>
 
                             <p class='flex flex-wrap items-baseline gap-x-2 gap-y-1 text-sm'>
-                                <span class='text-xs font-medium text-gray-400'>Регистрация</span>
-                                <span class='text-gray-300'>{p.data.registration.join(' · ')}</span>
+                                <span class='text-xs font-medium text-gray-400'>Цена</span>
+                                <span class='text-gray-300'>{price(h.data.priceFrom)}</span>
                             </p>
 
                             <div class='grid grid-cols-2 sm:grid-cols-4 gap-px overflow-hidden rounded-lg bg-white/5 text-center'>
-                                { caps(p.data).map(c => (
+                                { caps(h.data).map(c => (
                                     <div class='bg-brand-card px-1 py-2.5'>
                                         <div class='text-[10px] uppercase tracking-wide text-gray-400'>{c.label}</div>
-                                        <div class={`mt-1 text-xs font-semibold ${c.v === 'no' ? 'text-gray-500' : 'text-gray-100'}`}>{GEN[c.v ?? 'unknown'] ?? '?'}</div>
+                                        <div class={`mt-1 text-xs font-semibold ${c.v ? 'text-gray-100' : 'text-gray-500'}`}>{c.v ? 'есть' : 'нет'}</div>
                                     </div>
                                 )) }
                             </div>
