@@ -76,19 +76,8 @@ const hostingProviders = defineCollection({
         summary: z.string(),
         // логотип не в схеме: файл src/assets/hosting/<id>.{png,jpg,webp} подхватывается по id
 
-        registration: z.array(registrationMethod),
-        // null — не проверено / не ясно
-        crypto: z.boolean().nullable(),
-        ruCards: z.boolean().nullable(),
-        vpn: z.boolean().default(false),
-
-        vps: z.boolean().default(false),
-        dedicated: z.boolean().default(false),
-        shared: z.boolean().default(false),
-        cloud: z.boolean().default(false),
-
-        // цена за месяц в рублях, null — не указана
-        priceFrom: z.number().nullable(),
+        pros: z.array(z.string()),
+        cons: z.array(z.string()),
 
         order: z.number(),
         lastChecked: z.coerce.date(),

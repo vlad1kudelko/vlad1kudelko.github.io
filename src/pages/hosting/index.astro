@@ -8,21 +8,6 @@ import { getCollection } from 'astro:content';
 const hostings = (await getCollection('hostingProviders'))
     .sort((a, b) => a.data.order - b.data.order);
 
-const pay = (v: boolean | null) =>
-    v === true ? { label: 'да', cls: 'text-brand-accent bg-brand-accent/10 ring-brand-accent/25' }
-    : v === false ? { label: 'нет', cls: 'text-gray-400 ring-white/10' }
-    : { label: 'не ясно', cls: 'text-amber-300 bg-amber-300/10 ring-amber-300/20' };
-
-const caps = (d: (typeof hostings)[number]['data']) => [
-    { label: 'VPS', v: d.vps },
-    { label: 'Выделенный', v: d.dedicated },
-    { label: 'Шаред', v: d.shared },
-    { label: 'Облако', v: d.cloud },
-];
-
-const price = (v: number | null) =>
-    v === null ? 'цена не указана' : `от ${v.toLocaleString('ru-RU')} ₽/мес`;
-
 const json_ld = JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'ItemList',
@@ -39,8 +24,7 @@ const json_ld = JSON.stringify({
         <header class='text-center'>
             <h1 class='text-3xl sm:text-4xl font-extrabold text-white text-balance'>{HOSTING_H1}</h1>
             <p class='mx-auto mt-4 max-w-2xl text-gray-400 leading-relaxed text-pretty'>
-                Хостинги и VPS для самостоятельного размещения проектов —
-                с оплатой криптой или картами РФ, разные типы серверов.
+                Хостинги и VPS для самостоятельного размещения проектов.
             </p>
         </header>
 
@@ -57,7 +41,6 @@ const json_ld = JSON.stringify({
                         rel='nofollow'
                         class='relative flex overflow-hidden rounded-xl bg-brand-card ring-1 ring-white/5 transition duration-200 hover:-translate-y-0.5 hover:ring-brand-accent/40'
                     >
-                        { h.data.vpn && <span class='ribbon-vpn'>недоступен</span> }
                         <span class='ribbon'>{i + 1}</span>
 
                         <div class='flex w-32 shrink-0 items-center justify-center bg-white'>
@@ -74,28 +57,20 @@ const json_ld = JSON.stringify({
                                 <p class='mt-1 line-clamp-2 text-sm leading-relaxed text-gray-400'>{h.data.summary}</p>
                             </div>
 
-                            <div class='mt-auto flex flex-wrap gap-2'>
-                                <span class={`rounded-full px-2.5 py-1 text-xs font-semibold ring-1 ${pay(h.data.crypto).cls}`}>
-                                    Крипта · {pay(h.data.crypto).label}
-                                </span>
-                                <span class={`rounded-full px-2.5 py-1 text-xs font-semibold ring-1 ${pay(h.data.ruCards).cls}`}>
-                                    Карты РФ · {pay(h.data.ruCards).label}
-                                </span>
-                            </div>
-
-                            <p class='flex flex-wrap items-baseline gap-x-2 gap-y-1 text-sm'>
-                                <span class='text-xs font-medium text-gray-400'>Цена</span>
-                                <span class='text-gray-300'>{price(h.data.priceFrom)}</span>
-                            </p>
-
-                            <div class='grid grid-cols-2 sm:grid-cols-4 gap-px overflow-hidden rounded-lg bg-white/5 text-center'>
-                                { caps(h.data).map(c => (
-                                    <div class='bg-brand-card px-1 py-2.5'>
-                                        <div class='text-[10px] uppercase tracking-wide text-gray-400'>{c.label}</div>
-                                        <div class={`mt-1 text-xs font-semibold ${c.v ? 'text-gray-100' : 'text-gray-500'}`}>{c.v ? 'есть' : 'нет'}</div>
-                                    </div>
+                            <ul class='mt-auto flex flex-col gap-1.5 text-sm'>
+                                { h.data.pros.map(item => (
+                                    <li class='flex items-center gap-2 rounded-lg bg-green-500/5 px-2.5 py-1.5'>
+                                        <span class='w-4 shrink-0 text-center text-lg font-extrabold leading-none text-green-400'>+</span>
+                                        <span class='text-gray-300'>{item}</span>
+                                    </li>
                                 )) }
-                            </div>
+                                { h.data.cons.map(item => (
+                                    <li class='flex items-center gap-2 rounded-lg bg-red-500/5 px-2.5 py-1.5'>
+                                        <span class='w-4 shrink-0 text-center text-lg font-extrabold leading-none text-red-400'>−</span>
+                                        <span class='text-gray-300'>{item}</span>
+                                    </li>
+                                )) }
+                            </ul>
                         </div>
                     </a>
                 )) }
@@ -117,22 +92,6 @@ const json_ld = JSON.stringify({
         color: #fff;
         font-size: 12px;
         font-weight: 800;
-        line-height: 1;
-        text-align: center;
-        clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 76%, 0 100%);
-    }
-
-    /* Шильдик-закладка «недоступен» */
-    .ribbon-vpn {
-        position: absolute;
-        top: 0;
-        left: 14px;
-        z-index: 10;
-        padding: 5px 8px 12px;
-        background: #7f1d1d;
-        color: #fff;
-        font-size: 11px;
-        font-weight: 700;
         line-height: 1;
         text-align: center;
         clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 76%, 0 100%);

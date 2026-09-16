@@ -1,48 +1,47 @@
-# Заполните точные данные (цены, оплата криптой) — перенесено из links.yaml как заготовка.
 - id: firstvds
   name: FirstVDS
   ref: https://firstvds.ru/?from=1249677
-  summary: "VPS/VDS-хостинг с быстрым разворачиванием серверов"
-  registration: [email]
-  crypto: null
-  ruCards: true
-  vpn: false
-  vps: true
-  dedicated: false
-  shared: false
-  cloud: false
-  priceFrom: null
+  summary: "Если вам нужен недорогой отечественный сервер"
+  pros:
+    - "Дешевле конкурентов за аналогичную мощность"
+  cons:
+    - "Всего 3 локации (есть зарубежные)"
   order: 100
   lastChecked: 2026-09-15
 
 - id: timeweb
   name: Timeweb
   ref: https://timeweb.com/ru/?i=73933
-  summary: "Хостинг и VPS для сайтов и проектов любого размера"
-  registration: [email]
-  crypto: null
-  ruCards: true
-  vpn: false
-  vps: true
-  dedicated: true
-  shared: true
-  cloud: false
-  priceFrom: null
+  summary: "Если вам нужен простой сервер для сайта"
+  pros:
+    - "Есть облачный хостинг под конкретные CMS"
+    - "Удобная и современная панель управления"
+  cons: []
   order: 200
   lastChecked: 2026-09-15
 
 - id: timeweb-cloud
   name: Timeweb Cloud
   ref: https://timeweb.cloud/?i=73933
-  summary: "Облачная платформа: VPS, managed-сервисы, S3-хранилище"
-  registration: [email]
-  crypto: null
-  ruCards: true
-  vpn: false
-  vps: true
-  dedicated: false
-  shared: false
-  cloud: true
-  priceFrom: null
+  summary: "Если вам нужна многофункциональная облачная платформа"
+  pros:
+    - "Большой выбор сервисов под все задачи"
+    - "Удобная и современная панель управления"
+    - "Есть приложение для смартфона"
+  cons: []
   order: 300
   lastChecked: 2026-09-15
+
+- id: inferno
+  name: Inferno Solutions
+  ref: https://cp.inferno.name/aff.php?aff=5769
+  summary: "Если вам нужен зарубежный сервер по приемлемым ценам"
+  pros:
+    - "Большой выбор локаций"
+    - "Зарубежные сервера с чистыми ip адресами"
+    - "Возможность оплаты криптой"
+    - "Отличная служба поддержки"
+  cons:
+    - "Интерфейс панели управления старомодный"
+  order: 400
+  lastChecked: 2026-09-16
