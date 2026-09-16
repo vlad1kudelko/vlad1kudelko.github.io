@@ -3,7 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import BannerMini from '../../components/BannerMini.astro';
 import PostTags from '../../components/PostTags.astro';
 import { formatDate } from '../../utils/format';
-import { AUTHOR_NAME, LINK_AI } from '../../consts';
+import { AUTHOR_NAME, LINK_AI, LINK_HOSTING } from '../../consts';
 
 import { Image } from 'astro:assets';
 import { getCollection, render } from 'astro:content';
@@ -53,8 +53,8 @@ export async function getStaticPaths() {
     <div class='mx-auto max-w-3xl lg:max-w-7xl lg:px-5 lg:grid lg:grid-cols-7 gap-x-5'>
 
         <aside class='hidden lg:block py-5'>
-            <a class='block sticky top-5' target='_blank' rel='nofollow' href='/go/firstvds'>
-                <img class='w-full' loading='lazy' width='160' height='600' src='/promo/firstvds.jpg' alt='FirstVDS — серверы со скидкой 25% на первый месяц' />
+            <a class='block sticky top-5' href={LINK_HOSTING}>
+                <img class='w-full' loading='lazy' width='160' height='427' src='/promo/hosting-20260916.png' alt='Хостинг' />
             </a>
         </aside>
 
