@@ -39,7 +39,7 @@ const json_ld = JSON.stringify({
                         href={`/go/${h.id}`}
                         target='_blank'
                         rel='nofollow'
-                        class='relative flex overflow-hidden rounded-xl bg-brand-card ring-1 ring-white/5 transition duration-200 hover:-translate-y-0.5 hover:ring-brand-accent/40'
+                        class='group relative flex overflow-hidden rounded-xl bg-brand-card ring-1 ring-white/5 transition duration-200 hover:-translate-y-0.5 hover:ring-brand-accent/40'
                     >
                         <span class='ribbon'>{i + 1}</span>
 
@@ -71,6 +71,9 @@ const json_ld = JSON.stringify({
                                     </li>
                                 )) }
                             </ul>
+                            <span class='mt-auto inline-flex items-center justify-center gap-1.5 self-start rounded-lg bg-brand-accent px-4 py-2 text-sm font-bold text-white transition-opacity group-hover:opacity-90'>
+                                Перейти <span aria-hidden='true' class='transition-transform group-hover:translate-x-0.5'>→</span>
+                            </span>
                         </div>
                     </a>
                 )) }
