@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE_NAME } from '../consts';
+import { Content } from '../data/privacy.md';
+
+const title = `Политика обработки персональных данных — ${SITE_NAME}`;
+const description = `Политика в отношении обработки персональных данных сайта ${SITE_NAME}`;
+const json_ld = JSON.stringify({ '@context': 'https://schema.org', '@type': 'WebPage', name: title });
+---
+
+<BaseLayout title={title} description={description} ld_json={json_ld} noindex>
+    <div class='mx-auto max-w-4xl px-5 py-12 sm:px-10'>
+        <div class='prose prose-invert max-w-none marker:text-gray-400 prose-p:hyphens-auto prose-li:hyphens-auto sm:prose-p:text-justify sm:prose-li:text-justify'>
+            <Content />
+        </div>
+    </div>
+</BaseLayout>
