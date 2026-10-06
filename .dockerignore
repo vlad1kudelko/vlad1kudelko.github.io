@@ -1,0 +1,5 @@
+# зависимости ставятся внутри образа (npm install), локальные не нужны
+node_modules
+dist
+.astro
+.git

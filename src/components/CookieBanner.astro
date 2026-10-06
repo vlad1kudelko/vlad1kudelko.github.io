@@ -1,0 +1,53 @@
+<div
+    id='cookie-banner'
+    role='dialog'
+    aria-label='Уведомление об использовании куков'
+    class='fixed inset-x-0 bottom-0 z-50 translate-y-full transition-transform duration-500 ease-out'
+>
+    <div class='border-t border-white/5 bg-brand-card shadow-2xl'>
+        <div class='mx-auto flex max-w-screen-xl flex-col items-center gap-4 px-5 py-4 sm:flex-row sm:px-10'>
+            <p class='flex-1 text-center text-sm leading-relaxed text-gray-300 sm:text-left'>
+                Мы используем файлы cookie для аналитики и улучшения сайта.
+                Продолжая использовать сайт, вы соглашаетесь с нашей{' '}
+                <a href='/privacy/' class='text-brand-accent underline underline-offset-2 transition-colors hover:text-white'>политикой обработки персональных данных</a>
+            </p>
+            <div class='flex shrink-0 gap-2'>
+                <button id='cookie-decline' class='cursor-pointer rounded-lg px-4 py-2.5 text-sm font-bold text-gray-400 ring-1 ring-white/10 transition-colors hover:bg-white/5 hover:text-white'>Отклонить</button>
+                <button id='cookie-accept' class='cursor-pointer rounded-lg bg-brand-accent px-4 py-2.5 text-sm font-bold text-white transition-opacity hover:opacity-90'>Принять</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const CONSENT_KEY = 'cookie_consent';
+    const banner = document.getElementById('cookie-banner')!;
+
+    function hideBanner() {
+        banner.classList.add('translate-y-full');
+        banner.classList.remove('translate-y-0');
+    }
+
+    function showBanner() {
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+                banner.classList.remove('translate-y-full');
+                banner.classList.add('translate-y-0');
+            });
+        });
+    }
+
+    if (!localStorage.getItem(CONSENT_KEY)) {
+        showBanner();
+    }
+
+    document.getElementById('cookie-accept')!.addEventListener('click', () => {
+        localStorage.setItem(CONSENT_KEY, 'accepted');
+        hideBanner();
+    });
+
+    document.getElementById('cookie-decline')!.addEventListener('click', () => {
+        localStorage.setItem(CONSENT_KEY, 'declined');
+        hideBanner();
+    });
+</script>

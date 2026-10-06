@@ -20,9 +20,22 @@ export const HOSTING_DESCR = "Сравнение хостинг-провайде
 export const HOSTING_OG_IMAGE = "/res/all/thumb.webp";
 export const HOSTING_H1 = "Хостинг и VPS: сравнение провайдеров";
 
+export const STACK_TITLE = "Востребованные технологии в IT-вакансиях по направлениям";
+export const STACK_DESCR = "Какие технологии чаще всего требуют в вакансиях фронтенда, бэкенда, DevOps и Data Science и как меняется спрос: проценты по направлениям и графики по месяцам.";
+export const STACK_OG_IMAGE = "/res/all/thumb.webp";
+export const STACK_H1 = "Технологии в IT-вакансиях по направлениям";
+
+export const STUDY_TITLE = "Курс по вайб-разработке с ИИ в российских реалиях";
+export const STUDY_DESCR = "Авторский курс: как разрабатывать с ИИ на топовых моделях из России — без блокировок аккаунтов, с оплатой картами РФ или криптой. Окружение, харнес, скилы, git.";
+export const STUDY_OG_IMAGE = "/res/all/thumb.webp";
+export const STUDY_H1 = "Обучение";
+export const COURSE_H1 = "Вайб-разработка с ИИ";
+
 export const LINK_DOCS = "/docs/";
 export const LINK_AI = "/ai/";
 export const LINK_HOSTING = "/hosting/";
+export const LINK_STUDY = "/study/";
+export const LINK_STACK = "/study/stack/";
 export const LINK_CONTACTS = "/contacts/";
 export const TELEGRAM_CHANNEL = "/go/telegram";
 

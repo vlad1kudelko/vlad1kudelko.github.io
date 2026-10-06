@@ -1,0 +1,100 @@
+[
+  {
+    "id": "10001",
+    "label": "Фронтенд",
+    "techs": ["typescript", "javascript", "react", "vue", "angular", "nextjs", "nuxtjs", "svelte"]
+  },
+  {
+    "id": "10002",
+    "label": "Java-бэкенд",
+    "techs": ["java", "kotlin", "spring", "spring_boot", "hibernate", "kafka", "rabbitmq", "postgresql", "oracle", "redis"]
+  },
+  {
+    "id": "10003",
+    "label": "Python-бэкенд",
+    "techs": [
+      "python",
+      "fastapi",
+      "django",
+      "flask",
+      "litestar",
+      "aiohttp",
+      "pydantic",
+      "sqlalchemy",
+      "celery",
+      "taskiq",
+      "faststream",
+      "asyncio",
+      "aiogram",
+      "pytest",
+      "mypy",
+      "pyright",
+      "ruff",
+      "uv",
+      "poetry",
+      "postgresql",
+      "redis",
+      "rabbitmq",
+      "kafka"
+    ]
+  },
+  {
+    "id": "10004",
+    "label": "Фуллстек",
+    "techs": ["typescript", "javascript", "node", "nestjs", "bun", "react", "nextjs", "vue", "nuxtjs", "angular", "svelte", "postgresql", "mongodb", "redis", "kafka", "rabbitmq", "graphql"]
+  },
+  {
+    "id": "10005",
+    "label": "DevOps",
+    "techs": [
+      "docker",
+      "podman",
+      "kubernetes",
+      "openshift",
+      "helm",
+      "istio",
+      "envoy",
+      "terraform",
+      "ansible",
+      "gitlab_ci",
+      "github_actions",
+      "jenkins",
+      "argocd",
+      "nginx",
+      "traefik",
+      "caddy",
+      "vault",
+      "keycloak",
+      "harbor",
+      "trivy",
+      "prometheus",
+      "grafana",
+      "zabbix",
+      "opentelemetry",
+      "jaeger",
+      "datadog",
+      "sentry",
+      "loki",
+      "elk",
+      "elasticsearch",
+      "kibana",
+      "graylog",
+      "splunk"
+    ]
+  },
+  {
+    "id": "10006",
+    "label": "Data Science",
+    "techs": ["python", "pandas", "numpy", "scikit-learn", "xgboost", "catboost", "pytorch", "tensorflow", "transformers", "hugging_face", "pyspark", "spark", "airflow"]
+  },
+  {
+    "id": "10007",
+    "label": "Мобильная разработка",
+    "techs": ["kotlin", "swift", "dart", "flutter", "react_native"]
+  },
+  {
+    "id": "10008",
+    "label": "Go-бэкенд",
+    "techs": ["go", "gin", "chi", "grpc", "kafka", "nats", "rabbitmq", "postgresql", "clickhouse", "redis", "kubernetes"]
+  }
+]

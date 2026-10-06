@@ -1,0 +1,293 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TrendChart from '../../../components/TrendChart.astro';
+import TechRow from '../../../components/TechRow.astro';
+import { STACK_TITLE, STACK_DESCR, STACK_OG_IMAGE, STACK_H1, STUDY_H1, LINK_STUDY, LINK_STACK, SITE_NAME } from '../../../consts';
+import { loadStack, plural } from '../../../utils/stack';
+import { buildFaq, categorySummary, directionSummary } from '../../../utils/stackText';
+
+const { months, lastMonth, directions, categories } = loadStack();
+
+const CARD_TOP = 8;
+const techCount = categories.reduce((s, c) => s + c.techs.length, 0);
+const faq = buildFaq(directions, categories);
+const url = (path: string) => new URL(path, Astro.site).href;
+
+const json_ld = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@graph': [
+        {
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+                { '@type': 'ListItem', position: 1, name: SITE_NAME, item: url('/') },
+                { '@type': 'ListItem', position: 2, name: STUDY_H1, item: url(LINK_STUDY) },
+                { '@type': 'ListItem', position: 3, name: STACK_H1, item: url(LINK_STACK) },
+            ],
+        },
+        {
+            '@type': 'Dataset',
+            name: STACK_H1,
+            description: STACK_DESCR,
+            url: url(LINK_STACK),
+            isAccessibleForFree: true,
+            inLanguage: 'ru',
+            temporalCoverage: `${months[0]}/${lastMonth}`,
+            dateModified: `${lastMonth}-01`,
+            variableMeasured: 'Число вакансий, в которых упоминается технология',
+            keywords: categories.map(c => c.name),
+            creator: { '@type': 'Organization', name: SITE_NAME, url: url('/') },
+        },
+        {
+            '@type': 'FAQPage',
+            mainEntity: faq.map(f => ({
+                '@type': 'Question',
+                name: f.question,
+                acceptedAnswer: { '@type': 'Answer', text: f.answer },
+            })),
+        },
+    ],
+});
+---
+
+<BaseLayout title={STACK_TITLE} description={STACK_DESCR} og_image={STACK_OG_IMAGE} ld_json={json_ld}>
+    <div class='mx-auto max-w-screen-xl px-5 py-12 sm:px-10'>
+        <nav aria-label='Хлебные крошки' class='text-sm text-gray-500'>
+            <a href={LINK_STUDY} class='hover:text-white'>{STUDY_H1}</a>
+            <span aria-hidden='true' class='mx-1.5'>/</span>
+            <span class='text-gray-400'>{STACK_H1}</span>
+        </nav>
+
+        <header class='mt-6 text-center'>
+            <h1 class='text-3xl sm:text-4xl font-extrabold text-white text-balance'>{STACK_H1}</h1>
+            <p class='mx-auto mt-4 max-w-2xl text-gray-400 leading-relaxed text-pretty'>
+                Какие технологии чаще всего требуют в вакансиях фронтенд- и бэкенд-разработчиков, DevOps-инженеров,
+                специалистов по Data Science и мобильной разработке — и как меняется спрос на них.
+            </p>
+        </header>
+
+        <section class='mt-12'>
+            <h2 class='text-2xl font-extrabold text-white'>Востребованные технологии по направлениям</h2>
+            <div class='mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-3'>
+                { directions.map(d => (
+                    <article id={d.id} class='rounded-xl bg-brand-card p-5 ring-1 ring-white/5'>
+                        <h3 class='text-lg font-extrabold text-white'>{d.label}</h3>
+                        <p class='mt-1 text-sm leading-relaxed text-gray-400 text-pretty'>{directionSummary(d)}</p>
+                        <ul class='mt-4 flex flex-col gap-2.5 text-sm tabular-nums'>
+                            { d.techs.slice(0, CARD_TOP).map(t => <TechRow tech={t} />) }
+                        </ul>
+                        { d.techs.length > CARD_TOP && (
+                            <div class='mt-2.5'>
+                                <input type='checkbox' id={`more-${d.id}`} class='peer sr-only' />
+                                <ul class='mb-2.5 hidden flex-col gap-2.5 text-sm tabular-nums peer-checked:flex'>
+                                    { d.techs.slice(CARD_TOP).map(t => <TechRow tech={t} />) }
+                                </ul>
+                                <label for={`more-${d.id}`} class='cursor-pointer rounded text-sm font-bold text-gray-400 hover:text-white peer-checked:hidden peer-focus-visible:ring-2 peer-focus-visible:ring-brand-accent'>
+                                    Ещё {d.techs.length - CARD_TOP} ▾
+                                </label>
+                                <label for={`more-${d.id}`} class='hidden cursor-pointer rounded text-sm font-bold text-gray-400 hover:text-white peer-checked:inline peer-focus-visible:ring-2 peer-focus-visible:ring-brand-accent'>
+                                    Свернуть ▴
+                                </label>
+                            </div>
+                        ) }
+                    </article>
+                )) }
+            </div>
+        </section>
+
+        <section class='mt-16'>
+            <h2 class='text-2xl font-extrabold text-white'>Как меняется спрос на технологии</h2>
+            <div class='mt-6 grid gap-4 lg:grid-cols-2'>
+                { categories.map(c => <TrendChart category={c} months={months} summary={categorySummary(c)} />) }
+            </div>
+        </section>
+
+        <div class='mt-16 grid gap-10 lg:grid-cols-2'>
+            <section>
+                <h2 class='text-2xl font-extrabold text-white'>Как считаются данные</h2>
+                <div class='mt-4 flex flex-col gap-3 text-gray-400 leading-relaxed text-pretty'>
+                    <p>
+                        Данные собраны по открытым IT-вакансиям: для каждой технологии раз в месяц считается, в скольких вакансиях
+                        она упоминается. Сейчас {plural(techCount, ['отслеживается', 'отслеживаются', 'отслеживается'])} {techCount} {plural(techCount, ['технология', 'технологии', 'технологий'])},
+                        история — {months.length} {plural(months.length, ['месяц', 'месяца', 'месяцев'])}.
+                    </p>
+                    <p>
+                        Направления — тематические подборки: язык, его фреймворки и библиотеки и типичная инфраструктура.
+                    </p>
+                    <p>
+                        Процент в карточке направления — доля технологии среди упоминаний всех технологий направления за последний месяц.
+                    </p>
+                    <p>
+                        На графиках в режиме «Вакансии» показано число вакансий по месяцам, в режиме «%» — изменение от первого месяца,
+                        за который есть данные по технологии.
+                    </p>
+                </div>
+            </section>
+
+            <section>
+                <h2 class='text-2xl font-extrabold text-white'>Частые вопросы</h2>
+                <div class='mt-4 flex flex-col gap-5'>
+                    { faq.map(f => (
+                        <div>
+                            <h3 class='font-bold text-gray-100'>{f.question}</h3>
+                            <p class='mt-1 text-gray-400 leading-relaxed text-pretty'>{f.answer}</p>
+                        </div>
+                    )) }
+                </div>
+            </section>
+        </div>
+    </div>
+</BaseLayout>
+
+<script>
+    type Tech = { id: string; name: string; abs: (number | null)[]; pct: (number | null)[] };
+    type ChartData = { labels: string[]; techs: Tech[] };
+    type Mode = 'abs' | 'pct';
+
+    const PALETTE = ['#3987e5', '#d95926', '#199e70', '#c98500', '#d55181', '#008300', '#9085e9', '#e66767'];
+
+    const fmt = new Intl.NumberFormat('ru-RU');
+    const fmtPct = new Intl.NumberFormat('ru-RU', { maximumFractionDigits: 1, signDisplay: 'exceptZero' });
+    const value = (v: number, mode: Mode) => (mode === 'pct' ? `${fmtPct.format(v)}%` : fmt.format(v));
+
+    const loadChartJs = async () => {
+        const m = await import('chart.js');
+        m.Chart.register(m.LineController, m.LineElement, m.PointElement, m.LinearScale, m.CategoryScale, m.Tooltip, m.Legend);
+        m.Chart.defaults.font.family = 'Nunito, sans-serif';
+        return m.Chart;
+    };
+    let chartJs: ReturnType<typeof loadChartJs> | undefined;
+
+    function setup(box: HTMLElement) {
+        const data: ChartData = JSON.parse(box.querySelector('script[type="application/json"]')!.textContent!);
+        const inputs = [...box.querySelectorAll<HTMLInputElement>('[data-pick] input[type="checkbox"]')];
+        const colors = new Map<string, string>();
+        let mode: Mode = 'abs';
+        let chart: import('chart.js').Chart<'line'> | undefined;
+
+        const checked = new Set(inputs.filter(i => i.checked).map(i => i.value));
+        data.techs.filter(t => checked.has(t.id)).forEach((t, i) => colors.set(t.id, PALETTE[i]));
+
+        const datasets = () =>
+            data.techs.filter(t => colors.has(t.id)).map(t => ({
+                label: t.name,
+                data: t[mode],
+                borderColor: colors.get(t.id),
+                backgroundColor: colors.get(t.id),
+                borderWidth: 2,
+                pointRadius: 0,
+                pointHoverRadius: 4,
+                pointHoverBorderWidth: 2,
+                pointHoverBorderColor: '#141c21',
+                tension: 0.3,
+            }));
+
+        const paint = () => {
+            const full = colors.size >= PALETTE.length;
+            for (const input of inputs) {
+                input.disabled = full && !input.checked;
+                const swatch = input.nextElementSibling as HTMLElement;
+                swatch.style.setProperty('--c', colors.get(input.value) ?? '');
+            }
+            box.querySelector('[data-count]')!.textContent = String(colors.size);
+            box.querySelector('[data-note]')!.textContent = full
+                ? `Выбрано ${PALETTE.length} из ${PALETTE.length} — снимите отметку, чтобы добавить другую технологию.`
+                : `На графике — до ${PALETTE.length} технологий одновременно.`;
+        };
+
+        const redraw = () => {
+            if (!chart) return;
+            chart.data.datasets = datasets();
+            chart.update();
+        };
+
+        for (const input of inputs) {
+            input.addEventListener('change', () => {
+                if (input.checked) {
+                    const used = new Set(colors.values());
+                    const free = PALETTE.find(c => !used.has(c));
+                    if (!free) { input.checked = false; return; }
+                    colors.set(input.value, free);
+                } else {
+                    colors.delete(input.value);
+                }
+                paint();
+                redraw();
+            });
+        }
+
+        box.querySelectorAll<HTMLButtonElement>('[data-mode]').forEach(btn => {
+            btn.addEventListener('click', () => {
+                mode = btn.dataset.mode as Mode;
+                box.querySelectorAll('[data-mode]').forEach(b => b.setAttribute('aria-pressed', String(b === btn)));
+                redraw();
+            });
+        });
+
+        paint();
+
+        return async () => {
+            const Chart = await (chartJs ??= loadChartJs());
+            const muted = '#6a7282';
+            const grid = 'rgba(255,255,255,0.06)';
+            chart = new Chart(box.querySelector('canvas')!, {
+                type: 'line',
+                data: { labels: data.labels, datasets: datasets() },
+                options: {
+                    maintainAspectRatio: false,
+                    animation: matchMedia('(prefers-reduced-motion: reduce)').matches ? false : undefined,
+                    interaction: { mode: 'index', intersect: false },
+                    scales: {
+                        x: { grid: { display: false }, border: { color: grid }, ticks: { color: muted, maxRotation: 0, autoSkipPadding: 12 } },
+                        y: {
+                            beginAtZero: true,
+                            grid: { color: c => (mode === 'pct' && c.tick.value === 0 ? 'rgba(255,255,255,0.3)' : grid) },
+                            border: { display: false },
+                            ticks: { color: muted, callback: v => value(Number(v), mode) },
+                        },
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: { color: '#d1d5dc', usePointStyle: true, pointStyle: 'rectRounded', boxWidth: 10, boxHeight: 10, padding: 14 },
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(11,16,20,0.95)',
+                            borderColor: 'rgba(255,255,255,0.1)',
+                            borderWidth: 1,
+                            padding: 12,
+                            titleColor: '#fff',
+                            bodyColor: '#d1d5dc',
+                            boxPadding: 4,
+                            usePointStyle: true,
+                            filter: item => item.parsed.y !== null,
+                            itemSort: (a, b) => (b.parsed.y ?? 0) - (a.parsed.y ?? 0),
+                            callbacks: { label: c => ` ${c.dataset.label}: ${value(c.parsed.y ?? 0, mode)}` },
+                        },
+                    },
+                },
+            });
+        };
+    }
+
+    const builders = new Map<Element, () => Promise<void>>();
+    const observer = new IntersectionObserver(entries => {
+        for (const e of entries) {
+            if (!e.isIntersecting) continue;
+            observer.unobserve(e.target);
+            builders.get(e.target)?.();
+        }
+    }, { rootMargin: '200px' });
+    document.querySelectorAll<HTMLElement>('[data-trend]').forEach(el => {
+        builders.set(el, setup(el));
+        observer.observe(el);
+    });
+
+    const picks = [...document.querySelectorAll<HTMLDetailsElement>('[data-pick]')];
+    document.addEventListener('click', e => {
+        for (const p of picks) if (p.open && !p.contains(e.target as Node)) p.open = false;
+    });
+    document.addEventListener('keydown', e => {
+        if (e.key !== 'Escape') return;
+        for (const p of picks) if (p.open) { p.open = false; p.querySelector('summary')!.focus(); }
+    });
+</script>

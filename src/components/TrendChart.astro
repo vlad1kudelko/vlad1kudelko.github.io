@@ -1,0 +1,92 @@
+---
+import { formatInt, periodShort, type Category } from '../utils/stack';
+
+interface Props {
+    category: Category;
+    months: string[];
+    summary: string;
+}
+
+const { category, months, summary } = Astro.props;
+
+const MAX_LINES = 8;
+const initial = new Set(category.techs.slice(0, MAX_LINES).map(t => t.id));
+
+const fromStart = (counts: (number | null)[]) => {
+    const base = counts.find(c => c !== null);
+    return counts.map(c => (c === null || !base ? null : Math.round((c / base - 1) * 1000) / 10));
+};
+
+const chartData = JSON.stringify({
+    labels: months.map(periodShort),
+    techs: category.techs.map(t => ({ id: t.id, name: t.name, abs: t.counts, pct: fromStart(t.counts) })),
+});
+---
+
+<section id={category.id} class='scroll-mt-5 rounded-xl bg-brand-card p-5 ring-1 ring-white/5' data-trend>
+    <div class='flex flex-wrap items-center gap-3'>
+        <h3 class='order-first w-full text-lg font-extrabold text-white sm:order-none sm:w-auto sm:flex-1 sm:text-center'>{category.name}</h3>
+
+        <details class='trend-pick relative sm:order-first' data-pick>
+            <summary class='flex cursor-pointer list-none items-center gap-2 rounded-lg bg-brand-bg px-3 py-1.5 text-sm font-bold text-gray-300 ring-1 ring-white/10 hover:text-white [&::-webkit-details-marker]:hidden'>
+                Технологии <span class='rounded bg-white/10 px-1.5 text-xs tabular-nums' data-count>{initial.size}</span>
+                <span aria-hidden='true' class='text-gray-500'>▾</span>
+            </summary>
+            <div class='absolute left-0 top-full z-30 mt-2 max-h-80 w-72 overflow-y-auto rounded-xl bg-brand-bg p-2 shadow-xl ring-1 ring-white/10'>
+                <p class='px-2 pb-1 pt-1 text-xs text-gray-500' data-note>На графике — до {MAX_LINES} технологий одновременно.</p>
+                { category.types.map(type => (
+                    <fieldset class='mt-1'>
+                        { type.name && <legend class='px-2 pb-1 pt-2 text-xs font-bold uppercase tracking-wide text-gray-500'>{type.name}</legend> }
+                        { type.techs.map(t => (
+                            <label class='trend-option'>
+                                <input type='checkbox' value={t.id} checked={initial.has(t.id)} class='sr-only' />
+                                <span class='trend-box' data-swatch={t.id}></span>
+                                <span class='min-w-0 flex-1 break-words text-gray-200'>{t.name}</span>
+                                <span class='text-xs text-gray-500 tabular-nums'>{t.current === null ? '—' : formatInt(t.current)}</span>
+                            </label>
+                        )) }
+                    </fieldset>
+                )) }
+            </div>
+        </details>
+
+        <div class='ml-auto flex rounded-lg bg-brand-bg p-0.5 text-sm font-bold ring-1 ring-white/10 sm:ml-0' role='group' aria-label='Единицы графика'>
+            <button type='button' data-mode='abs' aria-pressed='true' class='trend-mode'>Вакансии</button>
+            <button type='button' data-mode='pct' aria-pressed='false' class='trend-mode'>%</button>
+        </div>
+    </div>
+
+    <div class='relative mt-4 h-72 sm:h-80'>
+        <canvas role='img' aria-label={`${category.name}: вакансии по месяцам`}></canvas>
+        <script type='application/json' set:html={chartData} />
+    </div>
+    <p class='mt-4 text-sm leading-relaxed text-gray-400 text-pretty'>{summary}</p>
+</section>
+
+<style is:global>
+    @reference "../styles/global.css";
+
+    .trend-mode {
+        @apply cursor-pointer rounded-md px-3 py-1 text-gray-400 transition-colors hover:text-white;
+    }
+    .trend-mode[aria-pressed='true'] {
+        @apply bg-brand-accent text-white;
+    }
+
+    .trend-option {
+        @apply flex cursor-pointer items-start gap-2.5 rounded-lg px-2 py-1.5 text-sm hover:bg-white/5;
+    }
+    .trend-option:has(input:disabled) {
+        @apply cursor-not-allowed opacity-60 hover:bg-transparent;
+    }
+    .trend-option:has(input:focus-visible) {
+        @apply ring-2 ring-brand-accent;
+    }
+    .trend-box {
+        @apply mt-[3px] size-3.5 shrink-0 rounded ring-1 ring-white/25;
+    }
+    .trend-option:has(input:checked) .trend-box {
+        background: var(--c, var(--color-brand-accent));
+        @apply ring-0;
+    }
+</style>

@@ -1,0 +1,176 @@
+---
+interface Props {
+    formId: string;
+    source: string;
+    privacyUrl: string;
+    successText?: string;
+    submitText?: string;
+}
+
+const { formId, source, privacyUrl, successText = 'Свяжемся с вами в ближайшее время.', submitText = 'Оставить заявку' } = Astro.props;
+---
+
+<div class='cf-wrap'>
+    <form data-contact-form id={`${formId}-form`} class='flex flex-col gap-4' novalidate>
+        <input type='hidden' name='form' value={source} />
+
+        <div class='grid gap-4 sm:grid-cols-2'>
+            <div class='flex flex-col gap-1.5'>
+                <label for={`${formId}-name`} class='text-sm font-bold text-gray-300'>Имя</label>
+                <input id={`${formId}-name`} name='name' type='text' placeholder='Как вас зовут?' autocomplete='name' class='cf-input' required />
+            </div>
+            <div class='flex flex-col gap-1.5'>
+                <label for={`${formId}-email`} class='text-sm font-bold text-gray-300'>Почта</label>
+                <input id={`${formId}-email`} name='email' type='email' inputmode='email' placeholder='you@example.com' autocomplete='email' class='cf-input' required />
+            </div>
+        </div>
+
+        <div class='flex flex-col gap-1.5'>
+            <label for={`${formId}-message`} class='text-sm font-bold text-gray-300'>
+                Сообщение <span class='font-normal text-gray-500'>— необязательно</span>
+            </label>
+            <textarea id={`${formId}-message`} name='message' rows='3' placeholder='Что хотите получить от курса?' class='cf-input resize-none'></textarea>
+        </div>
+
+        <p class='cf-error hidden px-1 text-sm text-red-400' role='alert'>Не получилось отправить заявку. Попробуйте ещё раз через минуту.</p>
+
+        <label class='cf-consent flex cursor-pointer items-start gap-3 rounded-xl px-3 py-2.5'>
+            <input type='checkbox' name='consent' required class='mt-0.5 size-4 shrink-0 cursor-pointer accent-[var(--color-brand-accent)]' />
+            <span class='text-xs leading-relaxed text-gray-400'>
+                Я согласен на обработку персональных данных в соответствии с
+                <a href={privacyUrl} target='_blank' rel='noopener' class='underline underline-offset-2 hover:text-white'>политикой конфиденциальности</a>
+            </span>
+        </label>
+
+        <button type='submit' class='cf-submit' data-label={submitText}>
+            <span class='cf-submit-label'>{submitText}</span>
+            <svg viewBox='0 0 24 24' class='size-4' aria-hidden='true'><path d='M5 12h14M13 6l6 6-6 6' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' /></svg>
+        </button>
+    </form>
+
+    <div class='cf-success hidden flex-col items-center gap-4 py-8 text-center' role='status'>
+        <span class='grid size-16 place-items-center rounded-full bg-brand-accent/15'>
+            <svg viewBox='0 0 24 24' class='size-7 text-brand-accent' aria-hidden='true'><path d='M5 12.5l4.5 4.5L19 7.5' fill='none' stroke='currentColor' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' /></svg>
+        </span>
+        <div>
+            <p class='mb-1 text-xl font-extrabold text-white'>Заявка отправлена</p>
+            <p class='text-sm text-gray-400'>{successText}</p>
+        </div>
+    </div>
+</div>
+
+<style>
+    .cf-input {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        border-radius: 0.75rem;
+        background: rgb(255 255 255 / 0.04);
+        box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.1);
+        color: #f3f4f6;
+        font: inherit;
+        outline: none;
+        transition: box-shadow 0.2s, background-color 0.2s;
+    }
+    .cf-input::placeholder {
+        color: #6b7280;
+    }
+    .cf-input:focus {
+        background: rgb(255 255 255 / 0.06);
+        box-shadow: inset 0 0 0 1px var(--color-brand-accent);
+    }
+    .cf-input.invalid {
+        box-shadow: inset 0 0 0 1px rgb(248 113 113 / 0.7);
+    }
+    .cf-consent {
+        box-shadow: inset 0 0 0 1px transparent;
+        transition: box-shadow 0.2s, background-color 0.2s;
+    }
+    .cf-consent.invalid {
+        background: rgb(248 113 113 / 0.06);
+        box-shadow: inset 0 0 0 1px rgb(248 113 113 / 0.6);
+    }
+    .cf-submit {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        width: 100%;
+        padding: 0.85rem 1.4rem;
+        border-radius: 0.75rem;
+        background: var(--color-brand-accent);
+        color: white;
+        font-weight: 800;
+        cursor: pointer;
+        transition: opacity 0.2s, transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .cf-submit:hover:not(:disabled) {
+        transform: translateY(-1px);
+    }
+    .cf-submit:disabled {
+        cursor: progress;
+        opacity: 0.6;
+    }
+</style>
+
+<script>
+    const CONTACT_ENDPOINT = 'https://functions.yandexcloud.net/d4egl7993uv7c4brmrs9';
+
+    document.querySelectorAll<HTMLFormElement>('[data-contact-form]').forEach(form => {
+        const wrap = form.parentElement!;
+        const successEl = wrap.querySelector<HTMLElement>('.cf-success')!;
+        const errorEl = form.querySelector<HTMLElement>('.cf-error')!;
+        const submitBtn = form.querySelector<HTMLButtonElement>('.cf-submit')!;
+        const submitLabel = form.querySelector<HTMLElement>('.cf-submit-label')!;
+        const nameInput = form.querySelector<HTMLInputElement>('[name="name"]')!;
+        const emailInput = form.querySelector<HTMLInputElement>('[name="email"]')!;
+        const consentInput = form.querySelector<HTMLInputElement>('[name="consent"]')!;
+        const consentLabel = form.querySelector<HTMLElement>('.cf-consent')!;
+
+        nameInput.addEventListener('input', () => nameInput.classList.remove('invalid'));
+        emailInput.addEventListener('input', () => emailInput.classList.remove('invalid'));
+        consentInput.addEventListener('change', () => consentLabel.classList.remove('invalid'));
+
+        form.addEventListener('submit', async e => {
+            e.preventDefault();
+            errorEl.classList.add('hidden');
+
+            const invalid = [
+                !nameInput.value.trim() && nameInput,
+                !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value.trim()) && emailInput,
+            ].filter((el): el is HTMLInputElement => !!el);
+            invalid.forEach(el => el.classList.add('invalid'));
+            consentLabel.classList.toggle('invalid', !consentInput.checked);
+            if (invalid.length || !consentInput.checked) {
+                (invalid[0] ?? consentInput).focus();
+                return;
+            }
+
+            submitBtn.disabled = true;
+            submitLabel.textContent = 'Отправляем…';
+
+            try {
+                const data = Object.fromEntries(new FormData(form));
+                const email = String(data.email || '').trim();
+                const res = await fetch(CONTACT_ENDPOINT, {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        form: String(data.form || ''),
+                        name: String(data.name || '').trim(),
+                        email,
+                        phone: email,
+                        message: String(data.message || '').trim(),
+                    }),
+                    headers: { 'Content-Type': 'application/json' },
+                });
+                if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                form.classList.add('hidden');
+                successEl.classList.remove('hidden');
+                successEl.classList.add('flex');
+            } catch {
+                errorEl.classList.remove('hidden');
+                submitBtn.disabled = false;
+                submitLabel.textContent = submitBtn.dataset.label!;
+            }
+        });
+    });
+</script>
