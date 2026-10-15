@@ -58,7 +58,7 @@ export async function getStaticPaths() {
             </a>
         </aside>
 
-        <main class='py-5 lg:col-span-5'>
+        <main class='py-5 lg:col-span-5 min-w-0'>
 
         { post.data.heroImage && <Image class='w-full bg-brand-surface' loading='lazy' width={800} height={400} src={post.data.heroImage} alt={post.data.title} /> }
 

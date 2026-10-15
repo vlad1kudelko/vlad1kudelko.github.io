@@ -13,6 +13,17 @@ body {
   font-family: "Nunito", sans-serif;
 }
 
+/* Широкие таблицы прокручиваются внутри себя, а не растягивают страницу */
+.prose table {
+  display: block;
+  overflow-x: auto;
+}
+
+/* Длинные идентификаторы в inline-коде переносятся, а не растягивают страницу */
+.prose :not(pre) > code {
+  overflow-wrap: break-word;
+}
+
 .prose img {
   margin-left: auto;
   margin-right: auto;
