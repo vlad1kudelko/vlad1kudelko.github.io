@@ -19,6 +19,12 @@ body {
   overflow-x: auto;
 }
 
+/* Длинные слова в крупных заголовках не влезают в мобильный экран — переносим */
+.prose :is(h1, h2, h3, h4) {
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
 /* Длинные идентификаторы в inline-коде переносятся, а не растягивают страницу */
 .prose :not(pre) > code {
   overflow-wrap: break-word;
